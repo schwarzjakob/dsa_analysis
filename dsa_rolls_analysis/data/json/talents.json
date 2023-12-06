@@ -1,0 +1,3021 @@
+{
+    "talents":
+    [
+        {
+            "talent": "Athletik",
+            "category": "Körper",
+            "trait1": "GE",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Klettern",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Körperbeherrschung",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "talent": "Schleichen",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "talent": "Schwimmen",
+            "category": "Körper",
+            "trait1": "GE",
+            "trait2": "Ko",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Selbstbeherrschung",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Sich verstecken",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Singen",
+            "category": "Körper",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Sinnesschärfe",
+            "category": "Körper",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Stimmenimitieren",
+            "category": "Körper",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Tanzen",
+            "category": "Körper",
+            "trait1": "CH",
+            "trait2": "GE",
+            "trait3": "GE"
+        },
+        {
+            "talent": "Taschendiebstahl",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Zechen",
+            "category": "Körper",
+            "trait1": "IN",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Akrobatik",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Fliegen",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "talent": "Gaukeleien",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Reiten",
+            "category": "Körper",
+            "trait1": "CH",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Skifahren",
+            "category": "Körper",
+            "trait1": "GE",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Stimmenimitieren",
+            "category": "Körper",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Taschendiebstahl",
+            "category": "Körper",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Betören",
+            "category": "Gesellschaft",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Etikette",
+            "category": "Gesellschaft",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Gassenwissen",
+            "category": "Gesellschaft",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Lehren",
+            "category": "Gesellschaft",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Menschenkenntnis",
+            "category": "Gesellschaft",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Schauspielerei",
+            "category": "Gesellschaft",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Schriftlicher Ausdruck",
+            "category": "Gesellschaft",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Sich Verkleiden",
+            "category": "Gesellschaft",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "talent": "Überreden",
+            "category": "Gesellschaft",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Überzeugen",
+            "category": "Gesellschaft",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Fährtensuchen",
+            "category": "Natur",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Fallenstellen",
+            "category": "Natur",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Fesseln/Entfesseln",
+            "category": "Natur",
+            "trait1": "FF",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Fischen/Angeln",
+            "category": "Natur",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Orientierung",
+            "category": "Natur",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Wettervorhersage",
+            "category": "Natur",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Wildnisleben",
+            "category": "Natur",
+            "trait1": "IN",
+            "trait2": "GE",
+            "trait3": "KO"
+        },
+        {
+            "talent": "Anatomie",
+            "category": "Wissen",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Baukunst",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Brett- /Kartenspiel",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Geographie",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Geschichtswissen",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Gesteinskunde",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Götter/Kulte",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Heraldik",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Hüttenkunde",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "talent": "Kriegskunst",
+            "category": "Wissen",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Kryptographie",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Magiekunde",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Mechanik",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Pflanzenkunde",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Philosophie",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Rechnen",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Rechtskunde",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Sagen/Legenden",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Schätzen",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Sprachenkunde",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Staatskunst",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Sternkunde",
+            "category": "Wissen",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Tierkunde",
+            "category": "Wissen",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Abrichten",
+            "category": "Handwerk",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Ackerbau",
+            "category": "Handwerk",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "talent": "Alchemie",
+            "category": "Handwerk",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Bergbau",
+            "category": "Handwerk",
+            "trait1": "IN",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Bogenbau",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Bootefahren",
+            "category": "Handwerk",
+            "trait1": "GE",
+            "trait2": "KO",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Brauer",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "talent": "Drucker",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Fahrzeuglenken",
+            "category": "Handwerk",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Falschspiel",
+            "category": "Handwerk",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Feinmechanik",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Feuersteinbearbeitung",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Fleischer",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Gerber/Kürschner",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "talent": "Glaskunst",
+            "category": "Handwerk",
+            "trait1": "FF",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "talent": "Grobschmied",
+            "category": "Handwerk",
+            "trait1": "FL",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Handel",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Hauswirstschaft",
+            "category": "Handwerk",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Heilkunde Gift",
+            "category": "Handwerk",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Heilkunde Krankheiten",
+            "category": "Handwerk",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Heilkunde Seele",
+            "category": "Handwerk",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "talent": "Heilkunde Wunden",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Holzbearbeitung",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Instrumentenbauer",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Kartopgraphie",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Kochen",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Kristallzuch",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Lederarbeiten",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Malen/Zeichnen",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Maurer",
+            "category": "Handwerk",
+            "trait1": "FF",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Metallguss",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Musizieren",
+            "category": "Handwerk",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Schlösser knacken",
+            "category": "Handwerk",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Schnapsbrennen",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Schneidern",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Seefahrt",
+            "category": "Handwerk",
+            "trait1": "FF",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Seiler",
+            "category": "Handwerk",
+            "trait1": "FF",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Steinmetz",
+            "category": "Handwerk",
+            "trait1": "FF",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Steinscheider/Juwelier",
+            "category": "Handwerk",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Stellmacher",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Stoffefärben",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Tätowieren",
+            "category": "Handwerk",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Töpfern",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Viehzucht",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Webkunst",
+            "category": "Handwerk",
+            "trait1": "FF",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Winzer",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Zimmermann",
+            "category": "Handwerk",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "talent": "Gefahreninstinkt",
+            "category": "Gaben",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "talent": "Nahrungsammeln",
+            "category": "Meta-Talent",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Kräutersuchen",
+            "category": "Meta-Talent",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "talent": "Pirschjagd",
+            "category": "Meta-Talent",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "talent": "Ansitzjagd",
+            "category": "Meta-Talent",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        }
+    ],
+    "spells":
+    [
+        {
+            "spell": "Abvenenum Reine Speise",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Accuratum Zaubernadel",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Adamantium Erzstruktur",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Adlerauge Luchsenohr",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Adlerschwinge Wolfsgestalt",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Aeolitus Windgebraus",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Aerofugo Vakuum",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Aerogelo Atemqual",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Aeropulvis Sanfter Fall",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Alpgestalt",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Analys Arcanstruktur",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Ängste lindern",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Animatio Stummer Diener",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Applicatus Zauberspeicher",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Aquafaxius",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Aquaqueris Wasserfluch",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Aquasphaero",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Arachnea Krabbeltier",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Arcanovi Artefakt",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Archofaxius",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Archosphaero",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Armatrutz",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "GE",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Atemnot",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Attributo",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "#NULL!"
+        },
+        {
+            "spell": "Aufgeblasen Abgehoben",
+            "category": "Zauber",
+            "trait1": "CH",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Auge des Limbus",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Aureolus Güldenglanz",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Auris Nasus Oculus",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Axxeleratus Blitzgeschwind",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "GE",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Balsam Salabunde",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Band und Fessel",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Bannbaladin",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Bärenruhe Winterschlaf",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Beherrschung brechen",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Beschwörung vereiteln",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Bewegung stören",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Blendwerk",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Blick aufs Wesen",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Blick durch fremde Augen",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Blick in die Gedanken",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Blick in die Vergangenheit",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Blitz dich find",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Böser Blick",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Brenne, toter Stoff!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Caldofrigo Heiß und Kalt",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Chamaelioni Mimikry",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Chimaeroform Hybridgestalt",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Chronoklassis Urfossil",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Chrononautos Zeitenfahrt",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Claudibus Clavistibor",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Corpofesso Gliederschmerz",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Corpofrigo Kälteschock",
+            "category": "Zauber",
+            "trait1": "CH",
+            "trait2": "GE",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Cryptographo Zauberschrift",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Custodosigil Diebesbann",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Dämonenbann",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Delicioso Gaumenschmaus",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Desintegratus Pulverstaub",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Destructibo Arcanitas",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Dichter und Denker",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Dschinnenruf",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Dunkelheit",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Duplicatus Doppelbild",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Ecliptifactus Schattenkraft",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Eigenschaft wiederherstellen",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Eigne Ängste quälen dich!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Einfluss bannen",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Eins mit der Natur",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "GE",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Eisenrost und Patina",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Eiseskälte Kämpferherz",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Eiswirbel",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Elementarbann",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Elementarer Diener",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Elfenstimme Flötenton",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Erinnerung verlasse dich!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Falkenauge Meisterschuss",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Falkenauge Meisterschuss",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Favilludo Funkentanz",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Fesselranken",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Feuermähne Flammenhuf",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Feuersturm",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Firnlauf",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Flim Flam Funkel",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Fluch der Pestilenz",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Foramen Foraminor",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Fortifex Arkane Wand",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Frigifaxius",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Frigisphaero",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Fulminictus Donnerkeil",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "GE",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Gardianum Zauberschild",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Gedankenbilder Elfenruf",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Gefäß der Jahre",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Gefunden!",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Geisterbann",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Geisterruf",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Glacoflumen Fluss aus Eis",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "GE",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Gletscherwand",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Granit und Marmor",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Große Gier",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Große Verwirrung",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Halluzination",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Harmlose Gestalt",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Hartes schmelze!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Haselbusch und Ginsterkraut",
+            "category": "Zauber",
+            "trait1": "CH",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Heilkraft bannen",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Hellsicht trüben",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Herbeirufung vereiteln",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Herr über das Tierreich",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Herzschlag ruhe!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Hexenblick",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Hexengalle",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Hexenholz",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Hexenknoten",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Hexenkrallen",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Hexenspeichel",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Hilfreiche Tatze",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Höllenpein zerreiße dich!",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Holterdipolter",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Horriphobus Schreckgestalt",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Humofaxius",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Humosphaero",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Ignifaxius Flammenstrahl //",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Ignifugo Feuerbann",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Ignimorpho Feuerform",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Igniplano Flächenbrand",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Ignisphaero Feuerball",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Ignorantia Ungesehn",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Illusion auflösen",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Immortalis Lebenszeit",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Imperavi Handlungszwang",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Impersona Maskenbild //",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Infinitum Immerdar",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Invercano Spiegeltrick",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Invocatio Maior",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Invocatio Minor",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Iribaars Hand",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Juckreiz, dämlicher!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Karnifilo Raserei",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Katzenaugen",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Klarum Purum",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Klickeradomms",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Koboldgeschenk",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Koboldovision",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Komm Kobold Komm",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Körperlose Reise",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Krabbelnder Schrecken",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Kraft des Erzes",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Kraft des Humus",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Krähenruf",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Krötensprung",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Kulminatio Kugelblitz",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Kusch!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Lach dich gesund",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Lachkrampf",
+            "category": "Zauber",
+            "trait1": "CH",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Langer Lulatsch",
+            "category": "Zauber",
+            "trait1": "CH",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Last des Alters",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Leib der Erde",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Leib der Wogen",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Leib des Eises",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Leib des Erzes",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Leib des Feuers",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Leib des Windes",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Leidensbund",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Levthans Feuer",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Limbus versiegeln",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Lockruf und Feenfüße",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Lunge des Leviatan",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Madas Spiegel",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Magischer Raub",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Mahlstrom",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Malmkreis",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Manifesto Element",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Meister der Elemente",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Meister minderer Geister",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Memorabia Falsifir",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Memorans Gedächtniskraft",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Menetekel Flammenschrift",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Metamagie neutralisieren",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Metamorpho Felsenform",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Metamorpho Gletscherform",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Motoricus Geisteshand",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Movimento Dauerlauf",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "GE",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Murks und Patz",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Nackedei",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Nebelleib",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Nebelwand und Morgendunst",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Nekropathia Seelenreise",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Nihilogravo Schwerelos",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Nuntiovolo Botenvoge",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Objecto Obscuro",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Objectofixo",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Objectovoco",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Objekt entzaubern",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Oculus Astralis",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Odem Arcanum",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Orcanofaxius",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Orcanosphaero",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Pandaemonium",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Panik überkomme euch!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Papperlapapp",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Paralysis starr wie Stein",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Pectetondo Zauberhaar",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Penetrizzel Tiefenblick",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Pentagramma Sphärenbann",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Pestilenz erspüren",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Pfeil der Luft",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Pfeil des Eises",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Pfeil des Erzes",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Pfeil des Feuers",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Pfeil des Humus",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Pfeil des Wassers",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Planastrale Anderswelt",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Plumbumbarum Schwerer Arm",
+            "category": "Zauber",
+            "trait1": "CH",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Projektimago Ebenbild",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Protectionis Kontrabann",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Psychostabilis",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Radau",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Reflectimago Spiegelschein",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Reptilia Natternnest",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Respondami Wahrheitszwang",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Reversalis Revidum",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Ruhe Körper, Ruhe Geist",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Salander Mutander",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Sanftmut",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Sapefacta Zauberschwamm",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Satuarias Herrlichkeit",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Schabernack",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Schadenszauber bannen",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Schelmenkleister",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Schelmenlaune",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Schelmenmaske",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Schelmenrausch",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Schleier der Unwissenheit",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Schwarz und Rot",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Schwarzer Schrecken",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Seelentier erkennen",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Seelenwanderung",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Seidenweich Schuppengleich",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Seidenzunge Elfenwort",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Sensattacco Meisterstreich",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Sensibar Empathicus",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Serpentialis Schlangenleib",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Silentium Schweigekreis",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Sinesigil unerkannt",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Skelettarius Totenherr",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Solidirid Weg aus Licht",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "KO",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Somnigravis tiefer Schlaf",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Spinnenlauf",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Spurlos Trittlos",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "GE",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Standfest Katzengleich",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Staub wandle!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Steinmauer",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Stein wandle!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Stillstand //",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Stimmen des Windes",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Sumpfstrudel",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Sumus Elixiere",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Tauschrausch",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Tempus Stasis",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Tiere besprechen",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Tiergedanken",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Tlalucs Odem Pestgestank",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Totes Handle!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Transformatio Formgestalt",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Transmutare Körperform",
+            "category": "Zauber",
+            "trait1": "CH",
+            "trait2": "GE",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Transversalis Teleport",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Traumgestalt",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Umbraporta Schattentür",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Unberührt von Satinav",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Unitatio Geistesbund",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "KOUnsichtbarer Jäger IN/FF/GE"
+        },
+        {
+            "spell": "Unsichtbarer Jäger",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Veränderung aufheben",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Verschwindibus",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Verständigung stören",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Verwandlung beenden",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Vipernblick",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Visibili Vanitar",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Vocolimbo Hohler Klang",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Vogelzwitschern Glockenspiel",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Wand aus Dornen",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Wand aus Flammen",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Warmes Blut",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Warmes gefriere",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Wasseratem",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Wasserwall",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Weiches erstarre!",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Weihrauchwolke Wohlgeruch",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Weisheit der Bäume",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Weiße Mähn' und gold'ner Huf",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Wellenlauf",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Wettermeisterschaft",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Widerwille Ungemach",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Windbarriere",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Windgeflüster",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "IN",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Windhose",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Windstille",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "CH",
+            "trait3": "KK"
+        },
+        {
+            "spell": "Wipfellauf",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "GE"
+        },
+        {
+            "spell": "Xenographus Schriftenkunde",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "KL",
+            "trait3": "IN"
+        },
+        {
+            "spell": "Zagibu Ubigaz",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Zappenduster",
+            "category": "Zauber",
+            "trait1": "IN",
+            "trait2": "IN",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Zauberklinge Geisterspeer",
+            "category": "Zauber",
+            "trait1": "KL",
+            "trait2": "FF",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Zaubernahrung Hungerbann",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "MU",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Zauberwesen der Natur //",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "IN",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Zauberzwang",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "CH"
+        },
+        {
+            "spell": "Zorn der Elemente",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "KO"
+        },
+        {
+            "spell": "Zunge lähmen",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "CH",
+            "trait3": "FF"
+        },
+        {
+            "spell": "Zwingtanz",
+            "category": "Zauber",
+            "trait1": "MU",
+            "trait2": "KL",
+            "trait3": "CH"
+        }
+    ],
+    "attacks":
+    [
+        {
+            "attack": "Nahkampfangriff",
+            "category": "Nahkampfangriffe",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Wuchtschlag m. SF",
+            "category": "Nahkampfangriffe",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Wuchtschlag o. SF",
+            "category": "Nahkampfangriffe",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Sturmangriff",
+            "category": "Nahkampfangriffe",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Gegenhalten",
+            "category": "Nahkampfangriffe",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Hammerschlag",
+            "category": "Nahkampfangriffe",
+            "trait1": "MU",
+            "trait2": "GE",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Fernkampfangriff",
+            "category": "Fernkampfangriffe",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Nahkampfparade",
+            "category": "Paraden",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Ausweichen",
+            "category": "Paraden",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Gezieltes Ausweichen",
+            "category": "Paraden",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Finte m. SF",
+            "category": "Paraden",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "KK"
+        },
+        {
+            "attack": "Finte o. SF",
+            "category": "Paraden",
+            "trait1": "IN",
+            "trait2": "FF",
+            "trait3": "KK"
+        }
+    ]
+}

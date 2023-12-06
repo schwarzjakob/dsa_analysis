@@ -1,0 +1,5 @@
+server.py(/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/server.py)
+CharacterData.js (/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/client/src/CharacterData.js)
+MainScreen.js (/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/client/src/MainScreen.js)
+dsa_analysis.py (/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/dsa_rolls_analysis/src/dsa_analysis.py)
+talents.csv (/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/dsa_rolls_analysis/data/rolls_results/000000_rolls_results_recent/talents.csv)

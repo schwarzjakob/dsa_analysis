@@ -1,0 +1,306 @@
+Abvenenum Reine Speise KL/KL/FF
+Accuratum Zaubernadel KL/CH/FF
+Adamantium Erzstruktur KL/FF/KO
+Adlerauge Luchsenohr KL/IN/FF
+Adlerschwinge Wolfsgestalt MU/IN/GE
+Aeolitus Windgebraus KL/CH/KO
+Aerofugo Vakuum MU/KO/KK
+Aerogelo Atemqual MU/IN/KO
+Aeropulvis Sanfter Fall KL/IN/GE
+Alpgestalt MU/CH/GE
+Analys Arcanstruktur KL/KL/IN
+Ängste lindern MU/IN/CH
+Animatio Stummer Diener KL/FF/GE
+Applicatus Zauberspeicher KL/FF/FF
+Aquafaxius KL/FF/KO
+Aquaqueris Wasserfluch MU/IN/KK
+Aquasphaero MU/IN/KO
+Arachnea Krabbeltier MU/IN/CH
+Arcanovi Artefakt KL/KL/FF
+Archofaxius KL/FF/KO
+Archosphaero MU/IN/KO
+Armatrutz IN/GE/KO
+Atemnot MU/KO/KK
+Attributo KL/CH/
+Aufgeblasen Abgehoben CH/KO/KK
+Auge des Limbus MU/KO/KK
+Aureolus Güldenglanz IN/CH/FF
+Auris Nasus Oculus KL/CH/FF
+Axxeleratus Blitzgeschwind KL/GE/KO
+Balsam Salabunde KL/IN/CH
+Band und Fessel KL/CH/KK
+Bannbaladin IN/CH/CH
+Bärenruhe Winterschlaf MU/KO/KK
+Beherrschung brechen KL/IN/CH
+Beschwörung vereiteln MU/IN/CH
+Bewegung stören KL/IN/FF
+Blendwerk IN/CH/GE
+Blick aufs Wesen KL/IN/CH
+Blick durch fremde Augen MU/IN/CH
+Blick in die Gedanken KL/KL/CH
+Blick in die Vergangenheit KL/KL/IN
+Blitz dich find KL/IN/GE
+Böser Blick MU/CH/CH
+Brenne, toter Stoff! MU/KL/KO
+Caldofrigo Heiß und Kalt IN/CH/KO
+Chamaelioni Mimikry IN/CH/GE
+Chimaeroform Hybridgestalt KL/IN/KO
+Chronoklassis Urfossil KL/IN/KO
+Chrononautos Zeitenfahrt MU/CH/KO
+Claudibus Clavistibor KL/FF/KK
+Corpofesso Gliederschmerz KL/KO/KK
+Corpofrigo Kälteschock CH/GE/KO
+Cryptographo Zauberschrift KL/KL/IN
+Custodosigil Diebesbann KL/FF/FF
+Dämonenbann MU/CH/KO
+Delicioso Gaumenschmaus KL/CH/FF
+Desintegratus Pulverstaub KL/KO/KK
+Destructibo Arcanitas KL/KL/FF
+Dichter und Denker KL/IN/CH
+Dschinnenruf MU/KL/CH
+Dunkelheit KL/KL/FF
+Duplicatus Doppelbild KL/CH/GE
+Ecliptifactus Schattenkraft MU/KL/KO
+Eigenschaft wiederherstellen KL/IN/CH
+Eigne Ängste quälen dich! MU/IN/CH
+Einfluss bannen IN/CH/CH
+Eins mit der Natur IN/GE/KO
+Eisenrost und Patina KL/CH/GE
+Eiseskälte Kämpferherz MU/IN/KO
+Eiswirbel MU/IN/KK
+Elementarbann IN/CH/KO
+Elementarer Diener MU/KL/CH
+Elfenstimme Flötenton IN/CH/KO
+Erinnerung verlasse dich! MU/IN/CH
+Exposami Lebenskraft KL/IN/IN
+Falkenauge Meisterschuss IN/FF/GE
+Favilludo Funkentanz IN/CH/FF
+Fesselranken KL/IN/KK
+Feuermähne Flammenhuf IN/CH/KO
+Feuersturm MU/IN/KK
+Firnlauf MU/KL/GE
+Flim Flam Funkel KL/KL/FF
+Fluch der Pestilenz MU/KL/CH
+Foramen Foraminor KL/KL/FF
+Fortifex Arkane Wand IN/KO/KK
+Frigifaxius KL/FF/KO
+Frigisphaero MU/IN/KO
+Fulminictus Donnerkeil IN/GE/KO
+Gardianum Zauberschild KL/IN/KO
+Gedankenbilder Elfenruf KL/IN/CH
+Gefäß der Jahre MU/KL/KO
+Gefunden! KL/IN/GE
+Geisterbann MU/MU/CH
+Geisterruf MU/MU/CH
+Glacoflumen Fluss aus Eis IN/GE/KO
+Gletscherwand MU/KL/CH
+Granit und Marmor MU/CH/KO
+Große Gier KL/KL/CH
+Große Verwirrung KL/KL/CH
+Halluzination KL/IN/CH
+Harmlose Gestalt KL/CH/GE
+Hartes schmelze! MU/KL/KK
+Haselbusch und Ginsterkraut CH/FF/KO
+Heilkraft bannen KL/CH/FF
+Hellsicht trüben KL/IN/CH
+Herbeirufung vereiteln MU/IN/CH
+Herr über das Tierreich MU/MU/CH
+Herzschlag ruhe! MU/CH/KK
+Hexenblick IN/IN/CH
+Hexengalle MU/IN/CH
+Hexenholz KL/FF/KK
+Hexenknoten KL/IN/CH
+Hexenkrallen MU/IN/KO
+Hexenspeichel IN/CH/FF
+Hilfreiche Tatze MU/IN/CH
+Höllenpein zerreiße dich! KL/CH/KO
+Holterdipolter IN/IN/FF
+Horriphobus Schreckgestalt MU/IN/CH
+Humofaxius KL/FF/KO
+Humosphaero MU/IN/KO
+Ignifaxius Flammenstrahl KL/FF/KO
+Ignifugo Feuerbann MU/FF/KO
+Ignimorpho Feuerform MU/FF/KO
+Igniplano Flächenbrand MU/IN/KO
+Ignisphaero Feuerball MU/IN/KO
+Ignorantia Ungesehn IN/CH/GE
+Illusion auflösen KL/IN/CH
+Immortalis Lebenszeit MU/CH/KO
+Imperavi Handlungszwang KL/CH/CH
+Impersona Maskenbild KL/IN/FF
+Infinitum Immerdar KL/CH/KO
+Invercano Spiegeltrick MU/IN/FF
+Invocatio Maior MU/MU/CH
+Invocatio Minor MU/MU/CH
+Iribaars Hand MU/MU/IN
+Juckreiz, dämlicher! MU/IN/CH
+Karnifilo Raserei MU/IN/CH
+Katzenaugen KL/FF/KO
+Klarum Purum KL/KL/CH
+Klickeradomms KL/FF/KK
+Koboldgeschenk IN/CH/FF
+Koboldovision MU/CH/CH
+Komm Kobold Komm IN/IN/CH
+Körperlose Reise MU/KL/IN
+Krabbelnder Schrecken MU/MU/CH
+Kraft des Erzes KL/KO/KK
+Kraft des Humus IN/CH/KO
+Krähenruf MU/CH/CH
+Krötensprung IN/GE/KK
+Kulminatio Kugelblitz MU/IN/FF
+Kusch! MU/IN/CH
+Lach dich gesund IN/CH/CH
+Lachkrampf CH/CH/FF
+Langer Lulatsch CH/GE/KK
+Last des Alters IN/CH/KO
+Leib der Erde MU/IN/GE
+Leib der Wogen MU/KL/GE
+Leib des Eises MU/KL/GE
+Leib des Erzes MU/GE/KK
+Leib des Feuers MU/MU/GE
+Leib des Windes MU/GE/KK
+Leidensbund MU/IN/KO
+Levthans Feuer IN/CH/CH
+Limbus versiegeln KL/IN/KO
+Lockruf und Feenfüße IN/CH/FF
+Lunge des Leviatan IN/CH/KO
+Madas Spiegel MU/KL/IN
+Magischer Raub MU/KL/KO
+Mahlstrom MU/IN/KK
+Malmkreis MU/IN/KK
+Manifesto Element KL/IN/CH
+Meister der Elemente MU/KL/CH
+Meister minderer Geister MU/CH/CH
+Memorabia Falsifir KL/IN/CH
+Memorans Gedächtniskraft KL/KL/IN
+Menetekel Flammenschrift KL/CH/FF
+Metamagie neutralisieren KL/KL/KO
+Metamorpho Felsenform KL/FF/KK
+Metamorpho Gletscherform KL/FF/KK
+Motoricus Geisteshand KL/FF/KK
+Movimento Dauerlauf IN/GE/KO
+Murks und Patz IN/IN/FF
+Nackedei KL/IN/FF
+Nebelleib MU/IN/KO
+Nebelwand und Morgendunst KL/FF/KO
+Nekropathia Seelenreise MU/KL/CH
+Nihilogravo Schwerelos KL/KO/KK
+Nuntiovolo Botenvogel MU/KL/CH
+Objecto Obscuro KL/FF/KO
+Objectofixo KL/KL/KK
+Objectovoco KL/IN/CH
+Objekt entzaubern KL/IN/FF
+Oculus Astralis KL/IN/CH
+Odem Arcanum KL/IN/IN
+Orcanofaxius KL/FF/KO
+Orcanosphaero MU/IN/KO
+Pandaemonium MU/MU/CH
+Panik überkomme euch! MU/CH/CH
+Papperlapapp IN/IN/FF
+Paralysis starr wie Stein IN/CH/KK
+Pectetondo Zauberhaar KL/CH/FF
+Penetrizzel Tiefenblick KL/KL/KO
+Pentagramma Sphärenbann MU/MU/CH
+Pestilenz erspüren KL/IN/CH
+Pfeil der Luft KL/IN/CH
+Pfeil des Eises KL/IN/CH
+Pfeil des Erzes KL/IN/CH
+Pfeil des Feuers KL/IN/CH
+Pfeil des Humus KL/IN/CH
+Pfeil des Wassers KL/IN/CH
+Planastrale Anderswelt MU/MU/KO
+Plumbumbarum schwerer Arm CH/GE/KK
+Projektimago Ebenbild MU/IN/CH
+Protectionis Kontrabann KL/CH/KO
+Psychostabilis MU/KL/KO
+Radau MU/CH/KO
+Reflectimago Spiegelschein KL/CH/FF
+Reptilia Natternnest MU/IN/CH
+Respondami Wahrheitszwang MU/IN/CH
+Reversalis Revidum KL/IN/CH
+Ruhe Körper, Ruhe Geist KL/CH/KO
+Salander Mutander KL/CH/KO
+Sanftmut MU/CH/CH
+Sapefacta Zauberschwamm KL/CH/FF
+Satuarias Herrlichkeit IN/CH/CH
+Schabernack KL/IN/CH
+Schadenszauber bannen MU/IN/KO
+Schelmenkleister IN/FF/GE
+Schelmenlaune MU/IN/CH
+Schelmenmaske IN/CH/GE
+Schelmenrausch IN/CH/CH
+Schleier der Unwissenheit KL/KL/FF
+Schwarz und Rot MU/CH/KO
+Schwarzer Schrecken MU/IN/CH
+Seelentier erkennen IN/IN/CH
+Seelenwanderung MU/CH/KO
+Seidenweich Schuppengleich IN/FF/FF
+Seidenzunge Elfenwort KL/IN/CH
+Sensattacco Meisterstreich MU/IN/GE
+Sensibar Empathicus KL/IN/CH
+Serpentialis Schlangenleib MU/CH/GE
+Silentium Schweigekreis KL/IN/CH
+Sinesigil unerkannt KL/IN/FF
+Skelettarius Totenherr MU/MU/CH
+Solidirid Weg aus Licht IN/KO/KK
+Somnigravis tiefer Schlaf KL/CH/CH
+Spinnenlauf IN/GE/KK
+Spurlos Trittlos IN/GE/GE
+Standfest Katzengleich IN/FF/GE
+Staub wandle! MU/KL/CH
+Steinmauer MU/KL/CH
+Stein wandle! MU/CH/KK
+Stillstand MU/IN/GE
+Stimmen des Windes MU/IN/IN
+Sumpfstrudel MU/IN/KK
+Sumus Elixiere IN/CH/FF
+Tauschrausch IN/FF/KO
+Tempus Stasis MU/KL/KK
+Tiere besprechen MU/IN/CH
+Tiergedanken MU/IN/CH
+Tlalucs Odem Pestgestank MU/IN/GE
+Totes Handle! MU/CH/KO
+Transformatio Formgestalt KL/FF/KK
+Transmutare Körperform CH/GE/KO
+Transversalis Teleport KL/IN/KO
+Traumgestalt IN/CH/CH
+Umbraporta Schattentür MU/IN/GE
+Unberührt von Satinav KL/FF/KO
+Unitatio Geistesbund IN/CH/KO
+Unsichtbarer Jäger IN/FF/GE
+Veränderung aufheben KL/IN/KO
+Verschwindibus IN/CH/GE
+Verständigung stören KL/KL/IN
+Verwandlung beenden KL/CH/FF
+Vipernblick MU/MU/CH
+Visibili Vanitar KL/IN/GE
+Vocolimbo Hohler Klang KL/CH/FF
+Vogelzwitschern Glockenspiel MU/IN/GE
+Wand aus Dornen MU/KL/CH
+Wand aus Flammen MU/KL/CH
+Warmes Blut MU/IN/IN
+Warmes gefriere MU/KL/KK
+Wasseratem MU/KL/KO
+Wasserwall MU/KL/CH
+Weiches erstarre! MU/KL/KK
+Weihrauchwolke Wohlgeruch IN/CH/FF
+Weisheit der Bäume MU/IN/KO
+Weiße Mähn' und gold'ner Huf KL/IN/CH
+Wellenlauf MU/GE/GE
+Wettermeisterschaft MU/CH/GE
+Widerwille Ungemach MU/IN/GE
+Windbarriere MU/KL/CH
+Windgeflüster KL/IN/IN
+Windhose MU/IN/KK
+Windstille KL/CH/KK
+Wipfellauf MU/IN/GE
+Xenographus Schriftenkunde KL/KL/IN
+Zagibu Ubigaz IN/CH/FF
+Zappenduster IN/IN/FF
+Zauberklinge Geisterspeer KL/FF/KO
+Zaubernahrung Hungerbann MU/MU/KO
+Zauberwesen der Natur MU/IN/CH
+Zauberzwang MU/CH/CH
+Zorn der Elemente MU/CH/KO
+Zunge lähmen MU/CH/FF
+Zwingtanz MU/KL/CH

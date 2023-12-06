@@ -1,0 +1,109 @@
+/* Global styles */
+body {
+    background-color: #051011; /* Dark background color */
+    color: #f7f1e1; /* Light text color */
+}
+
+h1, h2 {
+    text-align: center; /* Centers all headings */
+}
+
+/* Content container styling for layout */
+.content-container {
+    display: flex;
+    justify-content: space-around; /* Space between child elements */
+    align-items: flex-start; /* Align items at the start vertically */
+}
+
+/* Styles for chart and table containers */
+.chart-container,
+.table-container {
+    flex: 1; /* Each container takes equal width */
+    padding: 60px; /* Padding around content */
+    width: 100%; /* Full width of their parent container */
+    max-height: 400px; /* Maximum height */
+}
+
+/* Specific styles for the chart container */
+.chart-container canvas {
+    max-width: 100%; /* Full width but respects parent's max-width */
+    max-height: 400px; /* Maximum height of the canvas */
+}
+
+/* Table styles */
+.table-container table {
+    width: 100%; /* Full width of its container */
+    table-layout: auto; /* Allows automatic column width */
+    border-collapse: collapse; /* Collapses borders for a cleaner look */
+}
+
+/* Table header styles */
+.table-container thead {
+    display: table; /* Makes thead behave like a table for layout */
+    width: 100%; /* Full width of its container */
+    table-layout: fixed; /* Fixed layout for consistent column widths */
+}
+
+.table-container thead th {
+    color: #f7f1e1; /* Text color for table headers */
+    margin: auto; /* Centered margin */
+    padding: 10px 5px; /* Padding within the header cells */
+    border-bottom: 2px solid #f7f1e1; /* Bottom border for header */
+    text-align: left; /* Aligns header text to the left */
+    padding-bottom: 15px; /* Padding below the header text */
+}
+
+/* Table body styles */
+.table-container tbody {
+    display: block; /* Block display for scrolling */
+    height: 300px; /* Fixed height for scrolling */
+    overflow-y: auto; /* Enables vertical scrolling */
+    width: 100%; /* Full width of its container */
+}
+
+/* Row styles within the table body */
+.table-container tbody tr {
+    display: table; /* Makes each row behave like a table for layout */
+    width: 100%; /* Full width of its container */
+    table-layout: fixed; /* Fixed layout for consistent column widths */
+    cursor: pointer;
+}
+
+/* Highlight selected row */
+.table-container tbody tr:hover {
+    background-color: #f7f1e1;
+    color: #051011;
+}
+
+/* Cell styles for both header and body */
+.table-container th,
+.table-container td {
+    width: calc(50% - 0.5px); /* Adjust width for borders */
+}
+
+.table-container td {
+    border-right: 1px solid #f7f1e1; /* Right border for separation */
+    padding-left: 5px;
+}
+
+/* Remove right border for the last column */
+.table-container th:last-child,
+.table-container td:last-child {
+    border-right: none;
+}
+
+/* Alternating row background colors for readability */
+.table-container tr:nth-child(even) {
+    background-color: #07262c; /* Darker shade for even rows */
+}
+
+.table-container tr:nth-child(odd) {
+    background-color: #051011; /* Original dark background for odd rows */
+}
+
+/* Styles for headings */
+h2 {
+    padding: 10px; /* Padding around text */
+    margin: auto; /* Centered margin */
+    border-bottom: 2px solid #f7f1e1; /* Right border for separation */
+}

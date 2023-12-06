@@ -1,0 +1,128 @@
+{
+    "categories":
+    {
+        "Körper":
+        [
+            {
+                "talent": "Athletik",
+                "trait1": "GE",
+                "trait2": "KO",
+                "trait3": "KK"
+            },
+            {
+                "talent": "Klettern",
+                "trait1": "MU",
+                "trait2": "GE",
+                "trait3": "KK"
+            },
+            {
+                "talent": "Körperbeherrschung",
+                "trait1": "MU",
+                "trait2": "IN",
+                "trait3": "GE"
+            },
+            {
+                "talent": "Schleichen",
+                "trait1": "MU",
+                "trait2": "IN",
+                "trait3": "GE"
+            },
+            {
+                "talent": "Schwimmen",
+                "trait1": "GE",
+                "trait2": "Ko",
+                "trait3": "KK"
+            },
+            {
+                "talent": "Selbstbeherrschung",
+                "trait1": "MU",
+                "trait2": "KO",
+                "trait3": "KK"
+            },
+            {
+                "talent": "Sich verstecken",
+                "trait1": "MU",
+                "trait2": "IN",
+                "trait3": "KK"
+            },
+            {
+                "talent": "Singen",
+                "trait1": "IN",
+                "trait2": "CH",
+                "trait3": "CH"
+            },
+            {
+                "talent": "Sinnesschärfe",
+                "trait1": "KL",
+                "trait2": "IN",
+                "trait3": "IN"
+            },
+            {
+                "talent": "Stimmenimitieren",
+                "trait1": "KL",
+                "trait2": "IN",
+                "trait3": "CH"
+            },
+            {
+                "talent": "Tanzen",
+                "trait1": "CH",
+                "trait2": "GE",
+                "trait3": "GE"
+            },
+            {
+                "talent": "Taschendiebstahl",
+                "trait1": "MU",
+                "trait2": "IN",
+                "trait3": "FF"
+            },
+            {
+                "talent": "Zechen",
+                "trait1": "IN",
+                "trait2": "KO",
+                "trait3": "KK"
+            },
+            {
+                "talent": "Akrobatik",
+                "trait1": "MU",
+                "trait2": "GE",
+                "trait3": "KK"
+            },
+            {
+                "talent": "Fliegen",
+                "trait1": "MU",
+                "trait2": "IN",
+                "trait3": "GE"
+            },
+            {
+                "talent": "Gaukeleien",
+                "trait1": "MU",
+                "trait2": "CH",
+                "trait3": "FF"
+            },
+            {
+                "talent": "Reiten",
+                "trait1": "CH",
+                "trait2": "GE",
+                "trait3": "KK"
+            },
+            {
+                "talent": "Skifahren",
+                "trait1": "GE",
+                "trait2": "GE",
+                "trait3": "KK"
+            },
+            {
+                "talent": "Stimmenimitieren",
+                "trait1": "KL",
+                "trait2": "IN",
+                "trait3": "CH"
+            },
+            {
+                "talent": "Taschendiebstahl",
+                "trait1": "MU",
+                "trait2": "IN",
+                "trait3": "FF"
+            }
+        ]
+    }
+}

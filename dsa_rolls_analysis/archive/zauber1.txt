@@ -1,0 +1,827 @@
+Abvenenum Reine Speise KL/KL/FF
+Accuratum Zaubernadel KL/CH/FF
+Adamantium Erzstruktur KL/FF/KO
+Adlerauge Luchsenohr KL/IN/FF
+Adlerschwinge Wolfsgestalt MU/IN/GE
+Aeolitus Windgebraus KL/CH/KO
+Aerofugo Vakuum MU/KO/KK
+Aerogelo Atemqual MU/IN/KO
+Aeropulvis Sanfter Fall KL/IN/GE
+Alpgestalt MU/CH/GE21
+Analys Arcanstruktur KL/KL/IN
+
+Ängste lindern MU/IN/CH
+Animatio Stummer Diener KL/FF/GE
+Applicatus Zauberspeicher KL/FF/FF
+Aquafaxius KL/FF/KO
+Aquaqueris Wasserfluch MU/IN/KK
+Aquasphaero MU/IN/KO
+Arachnea Krabbeltier MU/IN/CH
+Arcanovi Artefakt KL/KL/FF
+Archofaxius KL/FF/KO
+Archosphaero MU/IN/KO
+Armatrutz IN/GE/KO
+Atemnot MU/KO/KK
+
+Attributo KL/CH/
+Aufgeblasen Abgehoben CH/KO/KK
+Auge des Limbus MU/KO/KK
+Aureolus Güldenglanz IN/CH/FF
+Auris Nasus Oculus KL/CH/FF
+Axxeleratus Blitzgeschwind KL/GE/KO
+Balsam Salabunde KL/IN/CH
+
+Band und Fessel KL/CH/KK
+Bannbaladin IN/CH/CH
+Bärenruhe Winterschlaf MU/KO/KK
+Beherrschung brechen KL/IN/CH
+Beschwörung vereiteln MU/IN/CH
+Bewegung stören KL/IN/FF
+Blendwerk IN/CH/GE
+Blick aufs Wesen KL/IN/CH
+Blick durch fremde Augen MU/IN/CH
+Blick in die Gedanken KL/KL/CH
+Blick in die Vergangenheit KL/KL/IN
+Blitz dich find KL/IN/GE
+
+Böser Blick MU/CH/CH
+Brenne, toter Stoff! MU/KL/KO
+Caldofrigo Heiß und Kalt IN/CH/KO
+Chamaelioni Mimikry IN/CH/GE
+Chimaeroform Hybridgestalt KL/IN/KO
+Chronoklassis Urfossil KL/IN/KO
+Chrononautos Zeitenfahrt MU/CH/KO
+Claudibus Clavistibor KL/FF/KK
+Corpofesso Gliederschmerz KL/KO/KK
+
+Corpofrigo Kälteschock CH/GE/KO
+Cryptographo Zauberschrift KL/KL/IN
+Custodosigil Diebesbann KL/FF/FF
+Dämonenbann MU/CH/KO
+Delicioso Gaumenschmaus KL/CH/FF
+Desintegratus Pulverstaub KL/KO/KK
+Destructibo Arcanitas KL/KL/FF
+Dichter und Denker KL/IN/CH
+
+Dschinnenruf MU/KL/CH
+Dunkelheit KL/KL/FF
+Duplicatus Doppelbild KL/CH/GE
+Ecliptifactus Schattenkraft MU/KL/KO
+Eigenschaft wiederherstellen KL/IN/CH
+Eigne Ängste quälen dich! MU/IN/CH
+Einfluss bannen IN/CH/CH
+Eins mit der Natur IN/GE/KO
+Eisenrost und Patina KL/CH/GE
+Eiseskälte Kämpferherz MU/IN/KO
+Eiswirbel MU/IN/KK
+
+Elementarbann IN/CH/KO
+Elementarer Diener MU/KL/CH
+Elfenstimme Flötenton IN/CH/KO
+Erinnerung verlasse dich! MU/IN/CH
+Exposami Lebenskraft KL/IN/IN
+Falkenauge Meisterschuss IN/FF/GE
+
+Favilludo Funkentanz IN/CH/FF
+Fesselranken KL/IN/KK
+Feuermähne Flammenhuf IN/CH/KO
+Feuersturm MU/IN/KK
+Firnlauf MU/KL/GE
+
+Flim Flam Funkel KL/KL/FF
+Fluch der Pestilenz MU/KL/CH
+Foramen Foraminor KL/KL/FF
+Fortifex Arkane Wand IN/KO/KK
+Frigifaxius KL/FF/KO
+Frigisphaero MU/IN/KO
+Fulminictus Donnerkeil IN/GE/KO
+Gardianum Zauberschild KL/IN/KO
+Gedankenbilder Elfenruf KL/IN/CH
+Gefäß der Jahre MU/KL/KO
+Gefunden! KL/IN/GE
+
+Geisterbann MU/MU/CH
+Geisterruf MU/MU/CH
+Glacoflumen Fluss aus Eis IN/GE/KO
+Gletscherwand MU/KL/CH
+Granit und Marmor MU/CH/KO
+Große Gier KL/KL/CH
+Große Verwirrung KL/KL/CH
+Halluzination KL/IN/CH
+Harmlose Gestalt KL/CH/GE
+Hartes schmelze! MU/KL/KK
+
+{
+"spell": "Abvenenum Reine Speise",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "FF"
+},
+{
+"spell": "Accuratum Zaubernadel",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "CH",
+"trait3": "FF"
+},
+{
+"spell": "Adamantium Erzstruktur",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "FF",
+"trait3": "KO"
+},
+{
+"spell": "Adlerauge Luchsenohr",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "FF"
+},
+{
+"spell": "Adlerschwinge Wolfsgestalt",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "GE"
+},
+{
+"spell": "Aeolitus Windgebraus",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "CH",
+"trait3": "KO"
+},
+{
+"spell": "Aerofugo Vakuum",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KO",
+"trait3": "KK"
+},
+{
+"spell": "Aerogelo Atemqual",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "KO"
+},
+{
+"spell": "Aeropulvis Sanfter Fall",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "GE"
+},
+{
+"spell": "Alpgestalt",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "CH",
+"trait3": "GE"
+},
+{
+"spell": "Analys Arcanstruktur",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "IN"
+},
+{
+"spell": "Ängste lindern",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Animatio Stummer Diener",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "FF",
+"trait3": "GE"
+},
+{
+"spell": "Applicatus Zauberspeicher",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "FF",
+"trait3": "FF"
+},
+{
+"spell": "Aquafaxius",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "FF",
+"trait3": "KO"
+},
+{
+"spell": "Aquaqueris Wasserfluch",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "KK"
+},
+{
+"spell": "Aquasphaero",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "KO"
+},
+{
+"spell": "Arachnea Krabbeltier",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Arcanovi Artefakt",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "FF"
+},
+{
+"spell": "Archofaxius",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "FF",
+"trait3": "KO"
+},
+{
+"spell": "Archosphaero",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "KO"
+},
+{
+"spell": "Armatrutz",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "GE",
+"trait3": "KO"
+},
+{
+"spell": "Atemnot",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KO",
+"trait3": "KK"
+},
+{
+"spell": "Attributo",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "CH",
+"trait3": ""
+},
+{
+"spell": "Aufgeblasen Abgehoben",
+"category": "Zauber",
+"trait1": "CH",
+"trait2": "KO",
+"trait3": "KK"
+},
+{
+"spell": "Auge des Limbus",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KO",
+"trait3": "KK"
+},
+{
+"spell": "Aureolus Güldenglanz",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "FF"
+},
+{
+"spell": "Auris Nasus Oculus",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "CH",
+"trait3": "FF"
+},
+{
+"spell": "Axxeleratus Blitzgeschwind",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "GE",
+"trait3": "KO"
+},
+{
+"spell": "Balsam Salabunde",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Band und Fessel",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "CH",
+"trait3": "KK"
+},
+{
+"spell": "Bannbaladin",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "CH"
+},
+{
+"spell": "Bärenruhe Winterschlaf",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KO",
+"trait3": "KK"
+},
+{
+"spell": "Beherrschung brechen",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Beschwörung vereiteln",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Bewegung stören",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "FF"
+},
+{
+"spell": "Blendwerk",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "GE"
+},
+{
+"spell": "Blick aufs Wesen",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Blick durch fremde Augen",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Blick in die Gedanken",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "CH"
+},
+{
+"spell": "Blick in die Vergangenheit",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "IN"
+},
+{
+"spell": "Blitz dich find",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "GE"
+},
+{
+"spell": "Böser Blick",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "CH",
+"trait3": "CH"
+},
+{
+"spell": "Brenne, toter Stoff!",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KL",
+"trait3": "KO"
+},
+{
+"spell": "Caldofrigo Heiß und Kalt",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "KO"
+},
+{
+"spell": "Chamaelioni Mimikry",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "GE"
+},
+{
+"spell": "Chimaeroform Hybridgestalt",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "KO"
+},
+{
+"spell": "Chronoklassis Urfossil",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "KO"
+},
+{
+"spell": "Chrononautos Zeitenfahrt",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "CH",
+"trait3": "KO"
+},
+{
+"spell": "Claudibus Clavistibor",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "FF",
+"trait3": "KK"
+},
+{
+"spell": "Corpofesso Gliederschmerz",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KO",
+"trait3": "KK"
+},
+{
+"spell": "Corpofrigo Kälteschock",
+"category": "Zauber",
+"trait1": "CH",
+"trait2": "GE",
+"trait3": "KO"
+},
+{
+"spell": "Cryptographo Zauberschrift",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "IN"
+},
+{
+"spell": "Custodosigil Diebesbann",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "FF",
+"trait3": "FF"
+},
+{
+"spell": "Dämonenbann",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "CH",
+"trait3": "KO"
+},
+{
+"spell": "Delicioso Gaumenschmaus",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "CH",
+"trait3": "FF"
+},
+{
+"spell": "Desintegratus Pulverstaub",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KO",
+"trait3": "KK"
+},
+{
+"spell": "Destructibo Arcanitas",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "FF"
+},
+{
+"spell": "Dichter und Denker",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Dschinnenruf",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KL",
+"trait3": "CH"
+},
+{
+"spell": "Dunkelheit",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "FF"
+},
+{
+"spell": "Duplicatus Doppelbild",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "CH",
+"trait3": "GE"
+},
+{
+"spell": "Ecliptifactus Schattenkraft",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KL",
+"trait3": "KO"
+},
+{
+"spell": "Eigenschaft wiederherstellen",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Eigne Ängste quälen dich!",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Einfluss bannen",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "CH"
+},
+{
+"spell": "Eins mit der Natur",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "GE",
+"trait3": "KO"
+},
+{
+"spell": "Eisenrost und Patina",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "CH",
+"trait3": "GE"
+},
+{
+"spell": "Eiseskälte Kämpferherz",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "KO"
+},
+{
+"spell": "Eiswirbel",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "KK"
+},
+{
+"spell": "Elementarbann",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "KO"
+},
+{
+"spell": "Elementarer Diener",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KL",
+"trait3": "CH"
+},
+{
+"spell": "Elfenstimme Flötenton",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "KO"
+},
+{
+"spell": "Erinnerung verlasse dich!",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Exposami Lebenskraft",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "IN"
+},
+{
+"spell": "Falkenauge Meisterschuss",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "FF",
+"trait3": "GE"
+},
+{
+"spell": "Favilludo Funkentanz",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "FF"
+},
+{
+"spell": "Fesselranken",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "KK"
+},
+{
+"spell": "Feuermähne Flammenhuf",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "CH",
+"trait3": "KO"
+},
+{
+"spell": "Feuersturm",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "KK"
+},
+{
+"spell": "Firnlauf",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KL",
+"trait3": "GE"
+},
+{
+"spell": "Flim Flam Funkel",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "FF"
+},
+{
+"spell": "Fluch der Pestilenz",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KL",
+"trait3": "CH"
+},
+{
+"spell": "Foramen Foraminor",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "FF"
+},
+{
+"spell": "Fortifex Arkane Wand",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "KO",
+"trait3": "KK"
+},
+{
+"spell": "Frigifaxius",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "FF",
+"trait3": "KO"
+},
+{
+"spell": "Frigisphaero",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "IN",
+"trait3": "KO"
+},
+{
+"spell": "Fulminictus Donnerkeil",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "GE",
+"trait3": "KO"
+},
+{
+"spell": "Gardianum Zauberschild",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "KO"
+},
+{
+"spell": "Gedankenbilder Elfenruf",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Gefäß der Jahre",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KL",
+"trait3": "KO"
+},
+{
+"spell": "Gefunden!",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "GE"
+},
+{
+"spell": "Geisterbann",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "MU",
+"trait3": "CH"
+},
+{
+"spell": "Geisterruf",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "MU",
+"trait3": "CH"
+},
+{
+"spell": "Glacoflumen Fluss aus Eis",
+"category": "Zauber",
+"trait1": "IN",
+"trait2": "GE",
+"trait3": "KO"
+},
+{
+"spell": "Gletscherwand",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KL",
+"trait3": "CH"
+},
+{
+"spell": "Granit und Marmor",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "CH",
+"trait3": "KO"
+},
+{
+"spell": "Große Gier",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "CH"
+},
+{
+"spell": "Große Verwirrung",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "KL",
+"trait3": "CH"
+},
+{
+"spell": "Halluzination",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "IN",
+"trait3": "CH"
+},
+{
+"spell": "Harmlose Gestalt",
+"category": "Zauber",
+"trait1": "KL",
+"trait2": "CH",
+"trait3": "GE"
+},
+{
+"spell": "Hartes schmelze!",
+"category": "Zauber",
+"trait1": "MU",
+"trait2": "KL",
+"trait3": "KK"
+}

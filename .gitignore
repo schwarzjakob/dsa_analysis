@@ -1,0 +1,14 @@
+/node_modules/
+/client/node_modules/
+/server/node_modules/
+.env
+/dist/
+/build/
+
+*.log
+*.tmp
+*.swp
+*.DS_Store
+.vscode/
+
+/flask-server/venv
