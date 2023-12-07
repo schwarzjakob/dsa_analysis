@@ -27,6 +27,7 @@ class DsaStats:
         self.initiativesRolls = []
         self.totalDmg = {char: 0 for char in self.characters}
         self.traitUsageCounts = {char: {trait: 0 for trait in self.traits} for char in self.characters if char not in self.user_corrections}
+        self.traitValues = {char: {trait: 0 for trait in self.traits} for char in self.characters if char not in self.user_corrections}
 
         self.directoryDateDependent = f'../dsa_rolls_analysis/data/rolls_results/{today}_rolls_results/'
         self.directoryRecent = f'../dsa_rolls_analysis/data/rolls_results/000000_rolls_results_recent/'
@@ -97,6 +98,10 @@ class DsaStats:
             for trait in traits:
                 if trait in self.traits:
                     self.traitUsageCounts[character][trait] += 1
+
+    def updateTraitValues(self, character, traits, traitValues):
+        for trait in traits:
+            self.traitValues[character][trait] = traitValues[traits.index(trait)]
 
     def modAndSuccessCheck(self, secondLine: str):
         # Wurfmodifikator
@@ -211,7 +216,21 @@ class DsaStats:
                 except ValueError:
                     writer.writerow([char] + [counts[trait] for trait in self.traits])
 
+    def writeTraitValues(self):
+        with open(self.directoryDateDependent + f'{today}_trait_values.csv', 'w', newline='', encoding='utf8') as file:
+            writer = csv.writer(file)
+            writer.writerow(["Character"] + self.traits)
+            for char, value in self.traitValues.items():
+                writer.writerow([char] + [value[trait] for trait in self.traits])
 
+        with open(self.directoryRecent + 'trait_values.csv', 'w', newline='', encoding='utf8') as file:
+            writer = csv.writer(file)
+            writer.writerow(["Character"] + self.traits)
+            for char, value in self.traitValues.items():
+                try:
+                    writer.writerow([char] + [value[int(trait)] for trait in self.traits])
+                except ValueError:
+                    writer.writerow([char] + [value[trait] for trait in self.traits])
 
     def writeRollsToFile(self, rolls, rollType, filename):
         
@@ -305,6 +324,11 @@ class DsaStats:
                 currentMod, currentSuccess, currentTaP, currentTaW, currentTrait1, currentTrait2, currentTrait3 = self.talentResult(chatlogLines[i+1].strip(), chatlogLines[i+2].strip())
                 self.talentsRolls.append([self.currentChar, category, potentialEvent, trait1, trait2, trait3, currentMod, currentSuccess, currentTaP, currentTaW, currentTrait1, currentTrait2, currentTrait3])
                 self.updateTraitUsage(self.currentChar, [trait1, trait2, trait3])
+                try:
+                    self.updateTraitValues(self.currentChar, [trait1, trait2, trait3], [currentTrait1, currentTrait2, currentTrait3])
+                except Exception as error:
+                    print(error)
+                    
                 continue
 
             # Prüfe on Zauber geworfen wurde
@@ -315,6 +339,7 @@ class DsaStats:
                 currentMod, currentSuccess, currentZfP, currentZfW, currentTrait1, currentTrait2, currentTrait3 = self.spellResult(chatlogLines[i+1].strip(), chatlogLines[i+2].strip())    
                 self.spellsRolls.append([self.currentChar, category, potentialEvent, trait1, trait2, trait3, currentMod, currentSuccess, currentZfP, currentZfW, currentTrait1, currentTrait2, currentTrait3])
                 self.updateTraitUsage(self.currentChar, [trait1, trait2, trait3])
+                self.updateTraitValues(self.currentChar, [trait1, trait2, trait3], [currentTrait1, currentTrait2, currentTrait3])
                 continue
 
             # Prüfe Nahkampfangriff, Fernkampfangriff, Parade oder Ausweichmanöver
@@ -342,7 +367,11 @@ class DsaStats:
             # Prüfe Parade oder Ausweichmanöver
 
         # After processing all lines
-
+        print(self.traitValues)
+        try:
+            self.writeTraitValues()
+        except Exception as error:
+            print(error)
         self.writeTraitUsageCounts()
         self.writeRollsToFile(self.traitsRolls, 'traits', f'{today}_traits_rolls.csv')
         self.writeRollsToFile(self.talentsRolls, 'talents', f'{today}_talents_rolls.csv')
