@@ -12,3 +12,5 @@
 .vscode/
 
 /flask-server/venv
+
+notes.md
