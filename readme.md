@@ -14,3 +14,18 @@ This web application is designed for detailed analysis and visualization of char
    ```bash
    git clone https://https://github.com/AixPrime/dsa_analysis.git
    cd dsa_rolls_webapp
+   cd flask-server
+   ```
+2. **Setup the virtual environment, and install requirements**
+   ```bash
+   cd flask-server
+   python3 -m venv venv
+   . venv/bin/activate
+   pip install -r requirements.txt
+
+3. **Start server and client**
+   ```bash
+   python3 server.py
+   cd ..
+   cd /client
+   npm start
