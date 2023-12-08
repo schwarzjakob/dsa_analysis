@@ -1,76 +1,63 @@
 import csv
-import sys
+import os
 
-# file paths
-talents_csv = '../dsa_rolls_analysis/data/rolls_results/000000_rolls_results_recent/talents.csv'
-traits_csv = '../dsa_rolls_analysis/data/rolls_results/000000_rolls_results_recent/trait_usage.csv'
-trait_values_csv = '../dsa_rolls_analysis/data/rolls_results/000000_rolls_results_recent/trait_values.csv'
+# Constants for CSV file paths
+CSV_BASE_PATH = '../dsa_rolls_analysis/data/rolls_results/000000_rolls_results_recent/'
+TALENTS_CSV = os.path.join(CSV_BASE_PATH, 'talents.csv')
+TRAITS_CSV = os.path.join(CSV_BASE_PATH, 'trait_usage.csv')
+TRAIT_VALUES_CSV = os.path.join(CSV_BASE_PATH, 'trait_values.csv')
+
+CHARACTER_KEY = 'Character'
+TALENT_KEY = 'Talent'
+TALENT_POINTS_KEY = 'TaP/ZfP'
+
+def read_csv(file_path):
+    """Reads a CSV file and returns a list of dictionaries."""
+    try:
+        with open(file_path, newline='', encoding='utf-8') as csvfile:
+            return list(csv.DictReader(csvfile))
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+        return []
 
 #get character's specific talents
 def process_talents(character_name):
+    """Processes talents for a given character."""
+    talents_data = read_csv(TALENTS_CSV)
     talents = {}
-    with open(talents_csv, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            if row['Character'] == character_name:
-                talent = row['Talent']
-                talents[talent] = talents.get(talent, 0) + 1
+    for row in talents_data:
+        if row[CHARACTER_KEY] == character_name:
+            talent = row[TALENT_KEY]
+            talents[talent] = talents.get(talent, 0) + 1
 
-    sorted_talents = sorted(talents.items(), key=lambda x: x[1], reverse=True)
-    return sorted_talents
+    return sorted(talents.items(), key=lambda x: x[1], reverse=True)
 
-#get character specific relative traits distribution
 def process_traits(character_name):
+    """Processes traits usage for a given character."""
+    traits_data = read_csv(TRAITS_CSV)
     traits_usage = {}
     traits_total = 0
-    with open(traits_csv, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            #print(row)
-            if row['Character'] == character_name:
-                for trait in row:
-                    if trait != 'Character':
-                        traits_total += int(row[trait])
-                        traits_usage[trait] = int(row[trait])
-                for trait in traits_usage:
-                    traits_usage[trait] = round(int(traits_usage[trait])/traits_total, 2)
+    for row in traits_data:
+        if row[CHARACTER_KEY] == character_name:
+            for trait, value in row.items():
+                if trait != CHARACTER_KEY:
+                    value = int(value)
+                    traits_total += value
+                    traits_usage[trait] = value
+    return {trait: round(value / traits_total, 2) for trait, value in traits_usage.items()}
 
-    return traits_usage
-
-#get characters trait values
 def get_traits_values(character_name):
-    traits_values = {}
-    with open (trait_values_csv, newline='') as csvfile:
-        reader =csv.DictReader(csvfile)
-        for row in reader:
-            if row['Character'] == character_name:
-                for trait in row:
-                    if trait != 'Character':
-                        traits_values[trait] = row[trait]
-    return traits_values
+    """Gets trait values for a given character."""
+    traits_values_data = read_csv(TRAIT_VALUES_CSV)
+    for row in traits_values_data:
+        if row[CHARACTER_KEY] == character_name:
+            return {trait: row[trait] for trait in row if trait != CHARACTER_KEY}
+    return {}
 
 def talent_line_chart(character_name, talent):
-    # Initialize an empty list to store the data
-    talent_data = []
-
-    # Open the CSV file and read the data
-    with open(talents_csv, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        
-        # Iterate through each row in the CSV file
-        for row in reader:
-            if row['Character'] == character_name and row['Talent'] == talent:
-                # Extract the relevant data for the line chart
-                # Assuming there's a column for 'Date' and 'Value'
-                talent_data.append(row['TaP/ZfP'])
-
-    # Return the data
-    return talent_data
-
+    """Generates data for a talent line chart for a given character."""
+    talents_data = read_csv(TALENTS_CSV)
+    return [row[TALENT_POINTS_KEY] for row in talents_data if row[CHARACTER_KEY] == character_name and row[TALENT_KEY] == talent]
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-    # Print the processed data so Flask can capture it
-    
-
