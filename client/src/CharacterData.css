@@ -114,3 +114,34 @@ h2 {
     margin: auto; /* Centered margin */
     border-bottom: 2px solid #f7f1e1; /* Right border for separation */
 }
+
+/* Styles for the trait values table */
+.trait-values-container {
+    width: 100%; /* Full width of its container */
+    margin-bottom: 20px; /* Space below the trait table */
+}
+
+.trait-values-container table {
+    width: 100%; /* Full width of its container */
+    table-layout: fixed; /* Fixed layout for even distribution */
+    border-collapse: collapse; /* Clean look without gaps between cells */
+}
+
+.trait-values-container th,
+.trait-values-container td {
+    text-align: center; /* Center align the text in cells */
+    padding: 10px; /* Padding inside cells */
+    color: #f7f1e1; /* Text color for trait names and values */
+}
+
+/* Adjustments to existing table styles for full-width distribution */
+.table-container table {
+    width: 100%; /* Ensures table takes full width */
+    table-layout: fixed; /* Fixed layout for consistent column widths */
+}
+
+.table-container th,
+.table-container td {
+    width: auto; /* Allows automatic width adjustment */
+    text-align: left; /* Align text to the left */
+}

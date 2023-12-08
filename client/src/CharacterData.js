@@ -13,9 +13,12 @@ import Header from './Header.js'
 Chart.register(ArcElement, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement, annotationPlugin);
 
 function CharacterData() {
-    const [talentData, setTalentData] = useState([]);
-    const [traitData, setTraitData] = useState([]);
-    const { characterName } = useParams();
+    const { characterName } = useParams(); //Charactername
+    const [talentData, setTalentData] = useState([]); // Character's talents
+    const [traitCount, setTraitCount] = useState([]); // Character's total trait count for distribution
+    const [traitsValues, setTraitsValues] = useState([]);
+    // const [traitValue, setTratValue] = useState([]); // Character's latest trait values
+
 
     // New state variable for line chart data
     const [selectedTalent, setSelectedTalent] = useState(null);
@@ -25,9 +28,10 @@ function CharacterData() {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`http://127.0.0.1:5000/talents/${characterName}`);
-                const { talents, traits } = response.data;
+                const { talents, traits_relative, traits_values } = response.data;
                 setTalentData(processTalents(talents));
-                setTraitData(processTraits(traits));
+                setTraitCount(processTraits(traits_relative));
+                setTraitsValues(processTraitsValues(traits_values))
             } catch (error) {
                 console.error('Error fetching data', error);
             }
@@ -42,11 +46,17 @@ function CharacterData() {
         });
     };
 
-    const processTraits = (traits) => {
-        return Object.entries(traits).map(([trait, relativeUsage]) => {
+    const processTraits = (traits_relative) => {
+        return Object.entries(traits_relative).map(([trait, relativeUsage]) => {
             return { item: trait, count: relativeUsage };
         });
     };
+
+    const processTraitsValues = (traits_values) => {
+        return Object.entries(traits_values).map(([trait, relativeUsage]) => {
+            return { item: trait, count: relativeUsage };
+        });
+    }
 
     // Function to handle talent row click
     const handleTalentClick = async (talentName) => {
@@ -135,9 +145,9 @@ function CharacterData() {
 
     // Data for the pie chart
     const pieData = {
-        labels: traitData.map(trait => trait.item),
+        labels: traitCount.map(trait => trait.item),
         datasets: [{
-            data: traitData.map(trait => Math.round(trait.count * 100)),
+            data: traitCount.map(trait => Math.round(trait.count * 100)),
             backgroundColor: [
                 '#FF6384', // Red
                 '#36A2EB', // Blue
@@ -183,6 +193,26 @@ function CharacterData() {
         </div>
             <div>
                 <h1>{characterName}</h1>
+                {/* Trait Values Table*/}
+                <div className='trait-values-container'>
+                    <h2>Trait Values</h2>
+                    <table>
+                        <tbody>
+                            <tr>
+                                {/* Header Row: Trait Names */}
+                                {traitsValues.map((trait, index) => (
+                                    <th key={index}>{trait.item}</th>
+                                ))}
+                            </tr>
+                            <tr>
+                                {/* Value Row: Trait Values */}
+                                {traitsValues.map((trait, index) => (
+                                    <td key={index}>{trait.count}</td>
+                                ))}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div className='content-container'> {/* Flex container */}
                     <div className='chart-container'> {/* Container for the chart */}
                         <h2>Trait Usage Distribution</h2>
@@ -216,7 +246,7 @@ function CharacterData() {
                     </div>
                 )}
             </div></>
-            );
+    );
 }
 
-            export default CharacterData;
+export default CharacterData;

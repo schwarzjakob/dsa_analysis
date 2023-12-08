@@ -58,16 +58,21 @@ def get_characters():
 def get_talents(character_name):
     print(character_name)
     script_path = os.path.join('../dsa_rolls_analysis/src', 'dsa_analysis.py')
-    # talents_output = subprocess.run(['python3', script_path, 'talents', character_name], check=True, capture_output=True, text=True).stdout
-    # traits_relative_output = subprocess.run(['python3', script_path, 'traits', character_name], check=True, capture_output=True, text=True).stdout
+    
     talents_output = dsa_analysis.process_talents(character_name)
     traits_relative_output = dsa_analysis.process_traits(character_name)
+    
+    try:
+        traits_values_output = dsa_analysis.get_traits_values(character_name)
+    except Exception as error:
+        print(error)
 
     data = {
         "talents": talents_output,
-        "traits": traits_relative_output
+        "traits_relative": traits_relative_output,
+        "traits_values": traits_values_output
     }
-    print(data)
+    #print(data)
     return jsonify(data)
 
 @app.route('/analyze-talent', methods=['POST'])
