@@ -1,3 +1,38 @@
+/* Global Box Sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Existing styles ... */
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px; /* Reduced padding */
+    }
+
+    .chart-container, .table-container {
+        padding: 20px;
+        max-height: unset;
+    }
+
+    .chart-container canvas, .line-chart-container {
+        max-width: 100%;
+        max-height: 300px;
+    }
+
+    .table-container tbody {
+        height: auto;
+    }
+
+    /* Adjusting table column widths */
+    .table-container th, .table-container td {
+        width: auto;
+    }
+}
+
 /* Global styles */
 body {
     background-color: #051011; /* Dark background color */
@@ -21,7 +56,7 @@ h1, h2 {
     flex: 1; /* Each container takes equal width */
     padding: 60px; /* Padding around content */
     width: 100%; /* Full width of their parent container */
-    max-height: 400px; /* Maximum height */
+    max-height: 500px; /* Maximum height */
 }
 
 /* Specific styles for the chart container */
@@ -119,18 +154,31 @@ h2 {
 .trait-values-container {
     width: 100%; /* Full width of its container */
     margin-bottom: 20px; /* Space below the trait table */
+    background-color: #0e2a30; /* Slightly different background */
+    border: 1px solid #f7f1e1;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.trait-values-container h2 {
+    margin-bottom: 10px;
 }
 
 .trait-values-container table {
     width: 100%; /* Full width of its container */
     table-layout: fixed; /* Fixed layout for even distribution */
-    border-collapse: collapse; /* Clean look without gaps between cells */
+    border-collapse: separate;
+    border-spacing: 0 10px;
+
 }
+
+
 
 .trait-values-container th,
 .trait-values-container td {
     text-align: center; /* Center align the text in cells */
-    padding: 10px; /* Padding inside cells */
+    padding: 8px 16px; /* Padding inside cells */
     color: #f7f1e1; /* Text color for trait names and values */
 }
 
@@ -145,3 +193,9 @@ h2 {
     width: auto; /* Allows automatic width adjustment */
     text-align: left; /* Align text to the left */
 }
+
+/* Additional visual enhancements */
+h1, h2 {
+    font-family: 'Arial', sans-serif; /* Example font */
+}
+
