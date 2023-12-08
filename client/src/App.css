@@ -37,3 +37,22 @@ body {
 .home-button:hover {
   background-color: #4BC0C0;
 }
+
+.welcome-section,
+.purpose-section,
+.background-section,
+.character-highlights,
+.cta-section {
+  /* Shared styles for each section */
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.character-cards-container {
+  /* Styling for character cards container */
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Additional responsive design and aesthetic improvements */

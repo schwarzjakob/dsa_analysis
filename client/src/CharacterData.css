@@ -199,3 +199,24 @@ h1, h2 {
     font-family: 'Arial', sans-serif; /* Example font */
 }
 
+/* Styles for the character select container */
+.character-select-container {
+    text-align: center; /* Center the select menu */
+    margin: 20px 0; /* Spacing above and below the select menu */
+}
+
+.character-select-container select {
+    color: #f7f1e1; /* Beige font color */
+    background-color: #051011; /* Dark background */
+    border: 1px solid #f7f1e1; /* Beige border */
+    padding: 10px; /* Padding for the select box */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Style for the select options */
+.character-select-container option {
+    background-color: #07262c; /* Darker shade for options */
+    color: #f7f1e1; /* Beige text color */
+}
