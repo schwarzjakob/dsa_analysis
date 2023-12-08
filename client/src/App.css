@@ -21,6 +21,12 @@ body {
 
 .button {
   cursor: pointer;
+  color: #f7f1e1; /* Beige font color */
+  background-color: #051011; /* Dark background */
+  border: 1px solid #f7f1e1; /* Beige border */
+  padding: 10px; /* Padding for the select box */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 14px;
 }
 
 .home-button {
@@ -35,7 +41,7 @@ body {
 }
 
 .home-button:hover {
-  background-color: #4BC0C0;
+  background-color: #4bc0c0;
 }
 
 .welcome-section,
