@@ -7,27 +7,36 @@ import argparse
 
 today = datetime.today().strftime('%y%m%d')
 
+# Define constants for file paths
+USERS_JSON_PATH = os.path.join('..', 'dsa_rolls_analysis', 'data', 'json', 'users.json')
+TALENTS_JSON_PATH = os.path.join('..', 'dsa_rolls_analysis', 'data', 'json', 'talents.json')
+USER_CORRECTIONS_JSON_PATH = os.path.join('..', 'dsa_rolls_analysis', 'data', 'json', 'user_corrections.json')
+TALENT_CORRECTIONS_JSON_PATH = os.path.join('..', 'dsa_rolls_analysis', 'data', 'json', 'talent_corrections.json')
+TRAITS = ["MU", "KL", "IN", "CH", "FF", "GE", "KO", "KK"]
+TRAITS_LONG = ["Mut", "Klugheit", "Intuition", "Charisma", "Fingerfertigkeit", "Gewandtheit", "Konstitution", "Körperkraft"]
+
 class DsaStats:
     def __init__(self):
         super(DsaStats, self).__init__()
-        self.traits = ["MU", "KL", "IN", "CH", "FF", "GE", "KO", "KK"]
-        self.traitsLong = ["Mut", "Klugheit", "Intuition", "Charisma", "Fingerfertigkeit", "Gewandtheit", "Konstitution", "Körperkraft"]
-        with open('../dsa_rolls_analysis/data/json/users.json', 'r') as file:
+        with open(USERS_JSON_PATH, 'r') as file:
             users_data = json.load(file)
         self.characters = users_data["users"]
         self.currentChar = ""
         self.charactersWithColon = [char + ":" for char in self.characters]
-        self.talentsFile = json.load(open('../dsa_rolls_analysis/data/json/talents.json'))
-        self.user_corrections = json.load(open('../dsa_rolls_analysis/data/json/user_corrections.json'))
-        self.talent_corrections = json.load(open('../dsa_rolls_analysis/data/json/talent_corrections.json'))
+        with open(TALENTS_JSON_PATH, 'r') as file:
+            self.talentsFile = json.load(file)
+        with open(USER_CORRECTIONS_JSON_PATH, 'r') as file:
+            self.user_corrections = json.load(file)
+        with open(TALENT_CORRECTIONS_JSON_PATH, 'r') as file:
+            self.talent_corrections = json.load(file)
         self.traitsRolls = []
         self.talentsRolls = []
         self.spellsRolls = []
         self.attacksRolls = []
         self.initiativesRolls = []
         self.totalDmg = {char: 0 for char in self.characters}
-        self.traitUsageCounts = {char: {trait: 0 for trait in self.traits} for char in self.characters if char not in self.user_corrections}
-        self.traitValues = {char: {trait: 0 for trait in self.traits} for char in self.characters if char not in self.user_corrections}
+        self.traitUsageCounts = {char: {trait: 0 for trait in TRAITS} for char in self.characters if char not in self.user_corrections}
+        self.traitValues = {char: {trait: 0 for trait in TRAITS} for char in self.characters if char not in self.user_corrections}
 
         self.directoryDateDependent = f'../dsa_rolls_analysis/data/rolls_results/{today}_rolls_results/'
         self.directoryRecent = f'../dsa_rolls_analysis/data/rolls_results/000000_rolls_results_recent/'
@@ -61,7 +70,7 @@ class DsaStats:
         return False
 
     def validateTrait(self, potentialTrait: str):
-        if potentialTrait in self.traitsLong:
+        if potentialTrait in TRAITS_LONG:
             return True
         return False
 
@@ -91,12 +100,12 @@ class DsaStats:
 
     def updateTraitUsage(self, character, traits):
         # If it was a specific trait roll, then it's not an array but only a string representing on trait to add
-        if traits in self.traits:
+        if traits in TRAITS:
             self.traitUsageCounts[character][traits] += 1
         # for talents, and spell rolls an array with the 3 traits needs to be added
         else:
             for trait in traits:
-                if trait in self.traits:
+                if trait in TRAITS:
                     self.traitUsageCounts[character][trait] += 1
 
     def updateTraitValues(self, character, traits, traitValues):
@@ -201,59 +210,62 @@ class DsaStats:
         return currentIni, rolledIni, currentMod
 
     def writeTraitUsageCounts(self):
-        with open(self.directoryDateDependent + f'{today}_trait_usage.csv', 'w', newline='', encoding='utf8') as file:
-            writer = csv.writer(file)
-            writer.writerow(["Character"] + self.traits)
-            for char, counts in self.traitUsageCounts.items():
-                writer.writerow([char] + [counts[trait] for trait in self.traits])
+        # Creates files with trait usage counts for the current Day
+        # with open(self.directoryDateDependent + f'{today}_trait_usage.csv', 'w', newline='', encoding='utf8') as file:
+        #     writer = csv.writer(file)
+        #     writer.writerow(["Character"] + TRAITS)
+        #     for char, counts in self.traitUsageCounts.items():
+        #         writer.writerow([char] + [counts[trait] for trait in TRAITS])
 
         with open(self.directoryRecent + 'trait_usage.csv', 'w', newline='', encoding='utf8') as file:
             writer = csv.writer(file)
-            writer.writerow(["Character"] + self.traits)
+            writer.writerow(["Character"] + TRAITS)
             for char, counts in self.traitUsageCounts.items():
                 try:
-                    writer.writerow([char] + [counts[int(trait)] for trait in self.traits])
+                    writer.writerow([char] + [counts[int(trait)] for trait in TRAITS])
                 except ValueError:
-                    writer.writerow([char] + [counts[trait] for trait in self.traits])
+                    writer.writerow([char] + [counts[trait] for trait in TRAITS])
 
     def writeTraitValues(self):
-        with open(self.directoryDateDependent + f'{today}_trait_values.csv', 'w', newline='', encoding='utf8') as file:
-            writer = csv.writer(file)
-            writer.writerow(["Character"] + self.traits)
-            for char, value in self.traitValues.items():
-                writer.writerow([char] + [value[trait] for trait in self.traits])
+        # Creates files with trait values for the current Day
+        # with open(self.directoryDateDependent + f'{today}_trait_values.csv', 'w', newline='', encoding='utf8') as file:
+        #     writer = csv.writer(file)
+        #     writer.writerow(["Character"] + TRAITS)
+        #     for char, value in self.traitValues.items():
+        #         writer.writerow([char] + [value[trait] for trait in TRAITS])
 
         with open(self.directoryRecent + 'trait_values.csv', 'w', newline='', encoding='utf8') as file:
             writer = csv.writer(file)
-            writer.writerow(["Character"] + self.traits)
+            writer.writerow(["Character"] + TRAITS)
             for char, value in self.traitValues.items():
                 try:
-                    writer.writerow([char] + [value[int(trait)] for trait in self.traits])
+                    writer.writerow([char] + [value[int(trait)] for trait in TRAITS])
                 except ValueError:
-                    writer.writerow([char] + [value[trait] for trait in self.traits])
+                    writer.writerow([char] + [value[trait] for trait in TRAITS])
 
     def writeRollsToFile(self, rolls, rollType, filename):
         
-        with open(self.directoryDateDependent + filename, 'w', newline='', encoding='utf8') as file:
-            writer = csv.writer(file)
+        # Creates files with talent usage for the current Day
+        # with open(self.directoryDateDependent + filename, 'w', newline='', encoding='utf8') as file:
+        #     writer = csv.writer(file)
             
-            if rollType == 'traits':
-                writer.writerow(["Character", "Kategorie", "Talent", "Eigenschaft 1", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
-                writer.writerows(rolls)
-            elif rollType == 'talents' or rollType == 'spells':
-                writer.writerow(["Character", "Kategorie", "Talent", "Eigenschaft 1", "Eigenschaft 2", "Eigenschaft 3", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW", "Eigenschaftswert 1", "Eigenschaftswert 2", "Eigenschaftswert 3"])
-                writer.writerows(rolls)
+        #     if rollType == 'traits':
+        #         writer.writerow(["Character", "Kategorie", "Talent", "Eigenschaft 1", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
+        #         writer.writerows(rolls)
+        #     elif rollType == 'talents' or rollType == 'spells':
+        #         writer.writerow(["Character", "Kategorie", "Talent", "Eigenschaft 1", "Eigenschaft 2", "Eigenschaft 3", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW", "Eigenschaftswert 1", "Eigenschaftswert 2", "Eigenschaftswert 3"])
+        #         writer.writerows(rolls)
 
-            elif rollType == 'attacks':
-                writer.writerow(["Character", "Kategorie", "Talent", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
-                writer.writerows(rolls)
+        #     elif rollType == 'attacks':
+        #         writer.writerow(["Character", "Kategorie", "Talent", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
+        #         writer.writerows(rolls)
 
-            elif rollType == 'initiative':
-                writer.writerow(["Character", "Kategorie", "Talent", "Modifikator", "TaP/ZfP", "TaW/ZfW"])
-                writer.writerows(rolls)
-            else:
-                print(f'no database for {rolls}')
-
+        #     elif rollType == 'initiative':
+        #         writer.writerow(["Character", "Kategorie", "Talent", "Modifikator", "TaP/ZfP", "TaW/ZfW"])
+        #         writer.writerows(rolls)
+        #     else:
+        #         print(f'no database for {rolls}')
+        
         with open(self.directoryRecent + f'{rollType}.csv', 'w', newline='', encoding='utf8') as file:
             writer = csv.writer(file)
             
@@ -312,8 +324,8 @@ class DsaStats:
             #Prüfe ob Eigenschaftsprobe stattgefunden hat
             if self.validateTrait(potentialEvent):
                 currentMod, currentSuccess, currentTaPZfP, currentTaWZfW = self.traitResult(chatlogLines[i+1].strip(), chatlogLines[i+2].strip())           
-                self.traitsRolls.append([self.currentChar, "Eigenschaftsprobe", potentialEvent, self.traits[self.traitsLong.index(potentialEvent)], currentMod, currentSuccess, currentTaPZfP, currentTaWZfW])
-                self.updateTraitUsage(self.currentChar, self.traits[self.traitsLong.index(potentialEvent)])
+                self.traitsRolls.append([self.currentChar, "Eigenschaftsprobe", potentialEvent, TRAITS[TRAITS_LONG.index(potentialEvent)], currentMod, currentSuccess, currentTaPZfP, currentTaWZfW])
+                self.updateTraitUsage(self.currentChar, TRAITS[TRAITS_LONG.index(potentialEvent)])
                 continue
 
             # Prüfe ob Talent geworfen wurde
