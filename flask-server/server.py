@@ -10,7 +10,7 @@ import sys
 sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/dsa_rolls_analysis/src')
 
 # Now you can import from dsa_analysis.py
-import dsa_analysis
+from dsa_analysis import dsa_analysis
 
 
 app = Flask(__name__)
