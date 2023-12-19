@@ -6,7 +6,7 @@ import axios from "axios";
 
 function StartScreen() {
   const navigate = useNavigate();
-  const [isUploading, setIsUploading] = useState(false);
+  const [isUploading, setIsUploading] = useState(false); // State is never used?
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
