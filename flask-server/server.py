@@ -5,12 +5,15 @@ import os
 import subprocess
 import json
 import sys
+import logging
 
 # Add the path to the directory containing dsa_analysis.py
 sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/dsa_rolls_analysis/src')
 
 # Now you can import from dsa_analysis.py
 from dsa_analysis import dsa_analysis
+
+logger = logging.getLogger(__name__)
 
 
 app = Flask(__name__)
@@ -36,7 +39,7 @@ def file_upload():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
 
-        # Run your Python script here
+        # Run your Python script here # TOM: This is very bad practice, do NOT do this. Instead import it as a module (like the dsa_analysis module) and call the function(s)
         script_path = os.path.join('../dsa_rolls_analysis/src', 'dsa_stats.py')
         # Assuming your script takes the file path as an argument
         subprocess.run(['python3', script_path, file_path], check=True)
@@ -63,6 +66,10 @@ def get_characters():
 @app.route('/talents/<character_name>', methods=['GET'])
 def get_talents(character_name):
     print(character_name)
+    # TOM: Instead of printing, use a logger
+    logger.debug(f'Getting talents for {character_name}')
+
+    # TOM: Same as above, import the module and call the function
     script_path = os.path.join('../dsa_rolls_analysis/src', 'dsa_analysis.py')
     
     talents_output = dsa_analysis.process_talents(character_name)
@@ -96,4 +103,7 @@ def analyze_talent():
 
 
 if __name__ == '__main__':
+    # Format contains the [time filename->funcName():lineno] level: message
+    FORMAT = '[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s'
+    logging.basicConfig(format=FORMAT, level=logging.DEBUG)
     app.run(debug=True)
