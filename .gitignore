@@ -9,7 +9,7 @@
 *.tmp
 *.swp
 *.DS_Store
-.vscode/
+
 
 /flask-server/venv
 
