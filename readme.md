@@ -26,7 +26,7 @@ cd flask-server
 ```bash
 cd flask-server
 python3 -m venv venv
-. venv/bin/activate
+./venv/bin/activate # or `source venv/bin/activate` depending on your shell
 pip install -r requirements.txt
 ```
 
