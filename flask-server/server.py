@@ -26,6 +26,12 @@ def file_upload():
         return 'No selected file', 400
     if file:
         filename = "chatlog.txt"
+
+        # Make sure the uploads folder exists
+        if not os.path.exists(app.config['UPLOAD_FOLDER']):
+            os.makedirs(app.config['UPLOAD_FOLDER'])
+        
+        # Save the file to the uploads folder
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
 
