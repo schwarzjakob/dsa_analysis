@@ -19,6 +19,7 @@
     }
 
     .chart-container canvas, .line-chart-container {
+        width: 200px;
         max-width: 100%;
         max-height: 300px;
     }
@@ -52,11 +53,12 @@ h1, h2 {
 
 /* Styles for chart and table containers */
 .chart-container,
-.table-container {
+.table-container,
+.line-chart-container {
     flex: 1; /* Each container takes equal width */
     padding: 60px; /* Padding around content */
     width: 100%; /* Full width of their parent container */
-    max-height: 500px; /* Maximum height */
+    max-height: 500px; /*Maximum height */
 }
 
 /* Specific styles for the chart container */
@@ -65,12 +67,11 @@ h1, h2 {
     max-height: 400px; /* Maximum height of the canvas */
 }
 
-.line-chart-container {
-    width: 100%;
+/* .line-chart-container {
     max-height: 400px;
     align-items: center;
     justify-content: center;
-}
+} */
 
 /* Table styles */
 .table-container table {

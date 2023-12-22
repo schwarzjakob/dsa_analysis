@@ -35,6 +35,7 @@ function CharacterData() {
   const [talentData, setTalentData] = useState([]);
   const [traitCount, setTraitCount] = useState([]);
   const [traitsValues, setTraitsValues] = useState([]);
+  const [categoryCount, setCategoryCount] = useState([]);
   const [lineChartData, setLineChartData] = useState(null);
 
   useEffect(() => {
@@ -59,10 +60,11 @@ function CharacterData() {
           const response = await axios.get(
             `http://127.0.0.1:5000/talents/${selectedCharacter}`
           );
-          const { talents, traits_relative, traits_values } = response.data;
+          const { talents, traits_relative, traits_values, categories_relative } = response.data;
           setTalentData(processTalents(talents));
           setTraitCount(processTraits(traits_relative));
           setTraitsValues(processTraitsValues(traits_values));
+          setCategoryCount(processCategoryCount(categories_relative));
         } catch (error) {
           console.error("Error fetching character data", error);
         }
@@ -86,6 +88,12 @@ function CharacterData() {
   const processTraitsValues = (traits_values) => {
     return Object.entries(traits_values).map(([trait, relativeUsage]) => {
       return { item: trait, count: relativeUsage };
+    });
+  };
+
+  const processCategoryCount = (categories_relative) => {
+    return Object.entries(categories_relative).map(([category, relativeUsage]) => {
+      return { item: category, count: relativeUsage };
     });
   };
 
@@ -219,6 +227,36 @@ function CharacterData() {
     ],
   };
 
+  // Data for the category pie chart
+  const categoriesRelativePieChart = {
+    labels: categoryCount.map((category) => category.item),
+    datasets: [
+      {
+        data: categoryCount.map((category) => Math.round(category.count * 100)),
+        backgroundColor: [
+          "#FF6384", // Red
+          "#36A2EB", // Blue
+          "#FFCE56", // Yellow
+          "#4BC0C0", // Teal
+          "#9966FF", // Purple
+          "#FF9F40", // Orange
+          "#C9CBCF", // Light Grey
+          "#77C34F", // Green
+        ],
+        hoverBackgroundColor: [
+          "#FF6384", // Red
+          "#36A2EB", // Blue
+          "#FFCE56", // Yellow
+          "#4BC0C0", // Teal
+          "#9966FF", // Purple
+          "#FF9F40", // Orange
+          "#C9CBCF", // Light Grey
+          "#77C34F", // Green
+        ],
+      },
+    ],
+  };
+
   const lineChartOptions = {
     scales: {
       y: {
@@ -274,10 +312,18 @@ function CharacterData() {
           {/* Flex container */}
           <div className="chart-container">
             {" "}
-            {/* Container for the chart */}
+            {/* Container for the trait chart */}
             <h2>Trait Usage Distribution</h2>
             <Pie data={pieData} options={options} />
           </div>
+          <div className="chart-container">
+            {" "}
+            {/* Container for the category chart */}
+            <h2>Category Usage Distribution</h2>
+            <Pie data={categoriesRelativePieChart} options={options} />
+          </div>
+          </div>
+          <div className="content-container">
           <div className="table-container">
             {" "}
             {/* Container for the table */}
@@ -299,13 +345,13 @@ function CharacterData() {
               </tbody>
             </table>
           </div>
-        </div>
         {lineChartData && (
           <div className="line-chart-container">
             <h2>{`Usage of ${selectedTalent}`}</h2>
             <Line data={lineChartData} options={lineChartOptions} />
           </div>
         )}
+        </div>
       </div>
     </>
   );

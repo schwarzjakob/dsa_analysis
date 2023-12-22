@@ -65,19 +65,24 @@ def get_characters():
 def get_talents(character_name):
     logger.debug(f'Getting talents for:  {character_name}')
     
-    talents_output = dsa_analysis.get_character_talents(character_name)
-    traits_relative_output = dsa_analysis.get_character_relative_traits_usage(character_name)
-    
+    # Call the dsa_analysis.py script with necessary arguments
     try:
+        talents_output = dsa_analysis.get_character_talents(character_name)
         traits_values_output = dsa_analysis.get_character_traits_values(character_name)
+        traits_relative_output = dsa_analysis.get_character_relative_traits_usage(character_name)
+        logger.debug(f'Test for Traits for:  {character_name}, : {traits_relative_output}')
+        categories_relative_output = dsa_analysis.get_character_relative_talents_categories_usage(character_name)
+        logger.debug(f'Test for Categories for:  {character_name}, : {categories_relative_output}')
     except Exception as error:
-        logger.error(f'Error getting traits values for {character_name}: {error}')
+        logger.error(f'Error getting values for {character_name}: {error}')
 
     data = {
         "talents": talents_output,
         "traits_relative": traits_relative_output,
-        "traits_values": traits_values_output
+        "traits_values": traits_values_output,
+        "categories_relative": categories_relative_output
     }
+    #logger.debug(f'Test for Categories for:  {character_name}, : {categories_relative_output}')
     return jsonify(data)
 
 @app.route('/analyze-talent', methods=['POST'])

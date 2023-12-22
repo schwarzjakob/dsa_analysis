@@ -270,18 +270,18 @@ class DsaStats:
             writer = csv.writer(file)
             
             if rollType == 'traits':
-                writer.writerow(["Character", "Kategorie", "Talent", "Eigenschaft 1", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
+                writer.writerow(["Character", "Category", "Talent", "Eigenschaft 1", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
                 writer.writerows(rolls)
             elif rollType == 'talents' or rollType == 'spells':
-                writer.writerow(["Character", "Kategorie", "Talent", "Eigenschaft 1", "Eigenschaft 2", "Eigenschaft 3", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW", "Eigenschaftswert 1", "Eigenschaftswert 2", "Eigenschaftswert 3"])
+                writer.writerow(["Character", "Category", "Talent", "Eigenschaft 1", "Eigenschaft 2", "Eigenschaft 3", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW", "Eigenschaftswert 1", "Eigenschaftswert 2", "Eigenschaftswert 3"])
                 writer.writerows(rolls)
 
             elif rollType == 'attacks':
-                writer.writerow(["Character", "Kategorie", "Talent", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
+                writer.writerow(["Character", "Category", "Talent", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
                 writer.writerows(rolls)
 
             elif rollType == 'initiative':
-                writer.writerow(["Character", "Kategorie", "Talent", "Modifikator", "TaP/ZfP", "TaW/ZfW"])
+                writer.writerow(["Character", "Category", "Talent", "Modifikator", "TaP/ZfP", "TaW/ZfW"])
                 writer.writerows(rolls)
             else:
                 print(f'no database for {rolls}')
