@@ -1,5 +1,6 @@
 import csv
 import os
+import pandas as pd
 
 # Constants for CSV file paths
 CSV_BASE_PATH = './dsa_analysis/data/rolls_results/000000_rolls_results_recent/'
@@ -20,8 +21,7 @@ def read_csv(file_path):
         print(f"File not found: {file_path}")
         return []
 
-#get character's specific talents
-def process_talents(character_name):
+def get_character_talents(character_name):
     """Processes talents for a given character."""
     talents_data = read_csv(TALENTS_CSV)
     talents = {}
@@ -32,7 +32,7 @@ def process_talents(character_name):
 
     return sorted(talents.items(), key=lambda x: x[1], reverse=True)
 
-def process_traits(character_name):
+def get_character_relative_traits_usage(character_name):
     """Processes traits usage for a given character."""
     traits_data = read_csv(TRAITS_CSV)
     traits_usage = {}
@@ -46,15 +46,15 @@ def process_traits(character_name):
                     traits_usage[trait] = value
     return {trait: round(value / traits_total, 2) for trait, value in traits_usage.items()}
 
-def get_traits_values(character_name):
-    """Gets trait values for a given character."""
+def get_character_traits_values(character_name):
+    """Gets traits values for a given character."""
     traits_values_data = read_csv(TRAIT_VALUES_CSV)
     for row in traits_values_data:
         if row[CHARACTER_KEY] == character_name:
             return {trait: row[trait] for trait in row if trait != CHARACTER_KEY}
     return {}
 
-def talent_line_chart(character_name, talent):
+def get_character_talent_line_chart(character_name, talent):
     """Generates data for a talent line chart for a given character."""
     talents_data = read_csv(TALENTS_CSV)
     return [row[TALENT_POINTS_KEY] for row in talents_data if row[CHARACTER_KEY] == character_name and row[TALENT_KEY] == talent]

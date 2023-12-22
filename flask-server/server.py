@@ -1,12 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
-import subprocess
 import json
 import sys
 import logging
 
-# Add the path to the directory containing dsa_analysis.py
+# Add the path to the directory containing dsa_analysis.py and dsa_stats.py to the system path
 sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/dsa_analysis')
 
 # Now you can import from dsa_analysis.py
@@ -66,11 +65,11 @@ def get_characters():
 def get_talents(character_name):
     logger.debug(f'Getting talents for:  {character_name}')
     
-    talents_output = dsa_analysis.process_talents(character_name)
-    traits_relative_output = dsa_analysis.process_traits(character_name)
+    talents_output = dsa_analysis.get_character_talents(character_name)
+    traits_relative_output = dsa_analysis.get_character_relative_traits_usage(character_name)
     
     try:
-        traits_values_output = dsa_analysis.get_traits_values(character_name)
+        traits_values_output = dsa_analysis.get_character_traits_values(character_name)
     except Exception as error:
         logger.error(f'Error getting traits values for {character_name}: {error}')
 
@@ -87,7 +86,7 @@ def analyze_talent():
     character_name = data.get('characterName')
     talent_name = data.get('talentName')
     # Call the dsa_analysis.py script with necessary arguments
-    talent_line_chart_output = dsa_analysis.talent_line_chart(character_name, talent_name)
+    talent_line_chart_output = dsa_analysis.get_character_talent_line_chart(character_name, talent_name)
 
     logger.debug(f'Getting talent line chart for:  {character_name} and {talent_name}')
     return jsonify(talent_line_chart_output)
