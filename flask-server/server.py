@@ -11,6 +11,7 @@ sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/fl
 
 # Now you can import from dsa_analysis.py
 from dsa_analysis import dsa_analysis
+from dsa_analysis import dsa_stats
 
 logger = logging.getLogger(__name__)
 
@@ -34,15 +35,16 @@ def file_upload():
             os.makedirs(app.config['UPLOAD_FOLDER'])
         
         # Save the file to the uploads folder
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(file_path)
+        chatlog_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(chatlog_file_path)
 
-        # Run your Python script here
-        script_path = os.path.join('./dsa_analysis', 'dsa_stats.py')
-        # Assuming your script takes the file path as an argument
-        subprocess.run(['python3', script_path, file_path], check=True)
+        # Run your Python script here passing the uploaded file as a command line argument
+        current_dsa_stats = dsa_stats.DsaStats()
+        chatlogLines = current_dsa_stats.process_chatlog(chatlog_file_path)
+        current_dsa_stats.main(chatlogLines)
 
-        return f'File uploaded successfully to {file_path}', 200
+        logger.debug(f'File uploaded successfully to {chatlog_file_path}')
+        return f'File uploaded successfully to {chatlog_file_path}', 200
 
 @app.route("/character-data/<character_name>", methods=['GET'])
 def get_character_data(character_name):
@@ -53,7 +55,6 @@ def get_character_data(character_name):
 
 @app.route("/characters", methods=['GET'])
 def get_characters():
-    print("Current working directory:", os.getcwd())
     try:
         with open('./dsa_analysis/data/json/characters.json') as file:
             characters_data = json.load(file)
@@ -64,7 +65,6 @@ def get_characters():
 @app.route('/talents/<character_name>', methods=['GET'])
 def get_talents(character_name):
     logger.debug(f'Getting talents for:  {character_name}')
-    script_path = os.path.join('./dsa_analysis', 'dsa_analysis.py')
     
     talents_output = dsa_analysis.process_talents(character_name)
     traits_relative_output = dsa_analysis.process_traits(character_name)
@@ -72,14 +72,13 @@ def get_talents(character_name):
     try:
         traits_values_output = dsa_analysis.get_traits_values(character_name)
     except Exception as error:
-        print(error)
+        logger.error(f'Error getting traits values for {character_name}: {error}')
 
     data = {
         "talents": talents_output,
         "traits_relative": traits_relative_output,
         "traits_values": traits_values_output
     }
-    #print(data)
     return jsonify(data)
 
 @app.route('/analyze-talent', methods=['POST'])
@@ -87,11 +86,10 @@ def analyze_talent():
     data = request.json
     character_name = data.get('characterName')
     talent_name = data.get('talentName')
-    print(talent_name)
     # Call the dsa_analysis.py script with necessary arguments
     talent_line_chart_output = dsa_analysis.talent_line_chart(character_name, talent_name)
 
-    print(talent_line_chart_output)
+    logger.debug(f'Getting talent line chart for:  {character_name} and {talent_name}')
     return jsonify(talent_line_chart_output)
 
 

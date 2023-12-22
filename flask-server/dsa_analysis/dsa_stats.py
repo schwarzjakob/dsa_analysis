@@ -376,8 +376,7 @@ class DsaStats:
 
             # Prüfe Parade oder Ausweichmanöver
 
-        # After processing all lines
-        print(self.traitValues)
+        # After processing all lines, write the results to files
         try:
             self.writeTraitValues()
         except Exception as error:
@@ -390,10 +389,4 @@ class DsaStats:
         self.writeRollsToFile(self.initiativesRolls, 'initiative', f'{today}_initiatives_rolls.csv')
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Process DSA chatlogs.')
-    parser.add_argument('chatlog_path', type=str, help='Path to the chatlog file')
-    args = parser.parse_args()
-
-    dsa_stats = DsaStats()
-    chatlogLines = dsa_stats.process_chatlog(args.chatlog_path)
-    dsa_stats.main(chatlogLines)
+    app.run(debug=True)
