@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 import Header from "./Header.js";
@@ -6,13 +6,10 @@ import axios from "axios";
 
 function StartScreen() {
   const navigate = useNavigate();
-  const [isUploading, setIsUploading] = useState(false);
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
-    setIsUploading(true); // Show uploading state
 
     const formData = new FormData();
     formData.append("file", file);
@@ -27,7 +24,6 @@ function StartScreen() {
       alert("Error uploading file");
     }
 
-    setIsUploading(false); // Hide uploading state
   };
 
   return (
