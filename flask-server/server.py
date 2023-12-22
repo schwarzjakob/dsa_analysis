@@ -7,11 +7,10 @@ import json
 import sys
 
 # Add the path to the directory containing dsa_analysis.py
-sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/dsa_rolls_analysis/src')
+sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/dsa_analysis')
 
 # Now you can import from dsa_analysis.py
-import dsa_analysis
-
+from dsa_analysis import dsa_analysis
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -31,7 +30,7 @@ def file_upload():
         file.save(file_path)
 
         # Run your Python script here
-        script_path = os.path.join('../dsa_rolls_analysis/src', 'dsa_stats.py')
+        script_path = os.path.join('./dsa_analysis', 'dsa_stats.py')
         # Assuming your script takes the file path as an argument
         subprocess.run(['python3', script_path, file_path], check=True)
 
@@ -48,7 +47,7 @@ def get_character_data(character_name):
 def get_characters():
     print("Current working directory:", os.getcwd())
     try:
-        with open('../dsa_rolls_analysis/data/json/characters.json') as file:
+        with open('./dsa_analysis/data/json/characters.json') as file:
             characters_data = json.load(file)
         return characters_data
     except FileNotFoundError:
@@ -57,7 +56,7 @@ def get_characters():
 @app.route('/talents/<character_name>', methods=['GET'])
 def get_talents(character_name):
     print(character_name)
-    script_path = os.path.join('../dsa_rolls_analysis/src', 'dsa_analysis.py')
+    script_path = os.path.join('./dsa_analysis', 'dsa_analysis.py')
     
     talents_output = dsa_analysis.process_talents(character_name)
     traits_relative_output = dsa_analysis.process_traits(character_name)
