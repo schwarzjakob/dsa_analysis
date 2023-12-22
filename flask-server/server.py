@@ -1,16 +1,18 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
-#from werkzeug.utils import secure_filename
 import subprocess
 import json
 import sys
+import logging
 
 # Add the path to the directory containing dsa_analysis.py
 sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/dsa_analysis')
 
 # Now you can import from dsa_analysis.py
 from dsa_analysis import dsa_analysis
+
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -61,7 +63,7 @@ def get_characters():
 
 @app.route('/talents/<character_name>', methods=['GET'])
 def get_talents(character_name):
-    print(character_name)
+    logger.debug(f'Getting talents for:  {character_name}')
     script_path = os.path.join('./dsa_analysis', 'dsa_analysis.py')
     
     talents_output = dsa_analysis.process_talents(character_name)
@@ -95,4 +97,7 @@ def analyze_talent():
 
 
 if __name__ == '__main__':
+    # Format containts the [time filename->funcName():lineno] level: message
+    FORMAT = '[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s'
+    logging.basicConfig(format=FORMAT, level=logging.DEBUG)
     app.run(debug=True)
