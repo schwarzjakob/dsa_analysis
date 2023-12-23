@@ -61,16 +61,16 @@ def get_character_talent_statistics(character_name, talent):
 
     # Use overall average if attempts are less than 50, otherwise calculate first 30 and last 30
     if total_attempts < 50:
-        talent_statistics['Average Total'] = filtered_df[TALENT_POINTS_KEY].mean()
+        talent_statistics['Average Total'] = filtered_df[TALENT_POINTS_KEY].mean().round(2)
     else:
-        talent_statistics['Average First 30 Attempts'] = filtered_df.head(30)[TALENT_POINTS_KEY].mean()
-        talent_statistics['Average Last 30 Attempts'] = filtered_df.tail(30)[TALENT_POINTS_KEY].mean()
+        talent_statistics['Average First 30 Attempts'] = filtered_df.head(30)[TALENT_POINTS_KEY].mean().round(2)
+        talent_statistics['Average Last 30 Attempts'] = filtered_df.tail(30)[TALENT_POINTS_KEY].mean().round(2)
 
     talent_statistics['Successes'] = sum(filtered_df[TALENT_POINTS_KEY] > 0)
     talent_statistics['Failures'] = sum(filtered_df[TALENT_POINTS_KEY] <= 0)
     talent_statistics['Max Score'] = filtered_df[TALENT_POINTS_KEY].max()
     talent_statistics['Min Score'] = filtered_df[TALENT_POINTS_KEY].min()
-    talent_statistics['Standard Deviation'] = filtered_df[TALENT_POINTS_KEY].std()
+    talent_statistics['Standard Deviation'] = filtered_df[TALENT_POINTS_KEY].std().round(2)
 
     # Convert all int64 values to native Python integers
     talent_statistics = {key: int(value) if isinstance(value, np.int64) else value 
