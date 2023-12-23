@@ -114,6 +114,11 @@ function CharacterData() {
 
   const handleCharacterChange = (e) => {
     setSelectedCharacter(e.target.value);
+    setSelectedTalent("");
+    setLineChartData(null);
+    setTalentData([]);
+    setTalentStatistics(null);
+    setTalentRecommendation(null);
     console.log(e);
   };
 
