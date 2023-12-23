@@ -135,37 +135,6 @@ body::after {
   font-family:'Roboto', sans-serif;
 }
 
-/* Existing styles ... */
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  .content-container {
-      flex-direction: column;
-      align-items: center;
-      padding: 10px; /* Reduced padding */
-  }
-
-  .chart-container, .table-container {
-      padding: 20px;
-      max-height: unset;
-  }
-
-  .chart-container canvas, .line-chart-container {
-      width: 200px;
-      max-width: 100%;
-      max-height: 300px;
-  }
-
-  .table-container tbody {
-      height: auto;
-  }
-
-  /* Adjusting table column widths */
-  .table-container th, .table-container td {
-      width: auto;
-  }
-}
-
 h1, h2 {
   text-align: center; /* Centers all headings */
 }
@@ -175,17 +144,21 @@ h1, h2 {
   display: flex;
   justify-content: space-around; /* Space between child elements */
   align-items: flex-start; /* Align items at the start vertically */
+  width: 100%; /* Full width of its parent container */
 }
 
 /* Styles for chart and table containers */
 .chart-container,
 .table-container,
-.line-chart-container {
+.line-chart-container,
+.talent-statistics-container {
   flex: 1; /* Each container takes equal width */
   padding: 30px; /* Padding around content */
   width: 100%; /* Full width of their parent container */
   /*max-height: 500px; /*Maximum height */
 }
+
+
 
 /* Specific styles for the chart container */
 .chart-container canvas {
@@ -316,4 +289,34 @@ h2 {
 .table-container td {
   width: auto; /* Allows automatic width adjustment */
   text-align: left; /* Align text to the left */
+}
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .content-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px; /* Reduced padding */
+  }
+
+  .chart-container, .table-container {
+      padding: 20px;
+      max-height: unset;
+  }
+
+  .chart-container canvas, .line-chart-container {
+      width: 200px;
+      max-width: 100%;
+      max-height: 300px;
+  }
+
+  .table-container tbody {
+      height: auto;
+  }
+
+  /* Adjusting table column widths */
+  .table-container th, .table-container td {
+      width: auto;
+  }
 }

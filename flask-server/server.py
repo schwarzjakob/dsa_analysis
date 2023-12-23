@@ -99,16 +99,24 @@ def analyze_talent():
     talent_name = data.get('talentName')
 
     #Initialize output to default values
+    talent_statistics = None
     talent_line_chart_output = None
 
     # Call the dsa_analysis.py script with necessary arguments
     try:
+        talent_statistics = dsa_analysis.get_character_talent_statistics(character_name, talent_name)
+        logger.debug(f'Talent Statistics of:  {character_name}, : {talent_statistics}')
         talent_line_chart_output = dsa_analysis.get_character_talent_line_chart(character_name, talent_name)
         logger.debug(f'Talent Line Chart of:  {character_name}, : {talent_line_chart_output}')
     except Exception as error:
         logger.error(f'Error getting talent line chart for {character_name} and {talent_name}: {error}')
     
-    return jsonify(talent_line_chart_output)
+    data = {
+        "talent_statistics": talent_statistics,
+        "talent_line_chart": talent_line_chart_output
+    }
+
+    return jsonify(data)
 
 # Character management routes
 @app.route('/add-alias', methods=['POST'])

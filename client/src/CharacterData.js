@@ -37,6 +37,7 @@ function CharacterData() {
   const [traitsValues, setTraitsValues] = useState([]);
   const [categoryCount, setCategoryCount] = useState([]);
   const [lineChartData, setLineChartData] = useState(null);
+  const [talentStatistics, setTalentStatistics] = useState(null);
 
   useEffect(() => {
     // Fetch characters for selection
@@ -128,13 +129,36 @@ function CharacterData() {
           talentName: talentName,
         }
       );
+
+      const { talent_statistics, talent_line_chart } = response.data;
+
+      // Adjust according to the total attempts
+      const reorderedStats = {
+        "Total Attempts": talent_statistics["Total Attempts"],
+        "Succeses": talent_statistics["Successes"],
+        "Failures": talent_statistics["Failures"],
+        ...(talent_statistics["Total Attempts"] < 50
+          ? { "Average Total": talent_statistics["Average Total"] }
+          : {
+              "Average First 30 Attempts":
+                talent_statistics["Average First 30 Attempts"],
+              "Average Last 30 Attempts":
+                talent_statistics["Average Last 30 Attempts"],
+            }),
+        "Max Score": talent_statistics["Max Score"],
+        "Min Score": talent_statistics["Min Score"],
+        "Standard Deviation": talent_statistics["Standard Deviation"],
+      };
+
+      setTalentStatistics(reorderedStats);
+
       // Assuming response.data is the data needed for the line chart
       setLineChartData({
-        labels: response.data.map((_, index) => `Attempt ${index + 1}`),
+        labels: talent_line_chart.map((_, index) => `Attempt ${index + 1}`),
         datasets: [
           {
             label: talentName,
-            data: response.data,
+            data: talent_line_chart,
             fill: {
               target: "origin",
               below: "rgb(180, 63, 63)",
@@ -399,9 +423,31 @@ function CharacterData() {
                 </table>
               </div>
               {lineChartData && (
-                <div className="line-chart-container">
-                  <h2>{`Usage of ${selectedTalent}`}</h2>
-                  <Line data={lineChartData} options={lineChartOptions} />
+                <div className="table-container">
+                  <div className="line-chart-container">
+                    <h2>{`Usage of ${selectedTalent}`}</h2>
+                    <Line data={lineChartData} options={lineChartOptions} />
+                  </div>
+                  {talentStatistics && (
+                    <div className="talent-statistics-container">
+                      <h2>{`Statistics for ${selectedTalent}`}</h2>
+                      <table>
+                        <tbody>
+                          {Object.entries(talentStatistics).map(
+                            ([statKey, statValue], index) => (
+                              <tr key={index}>
+                                <th>
+                                  {statKey.charAt(0).toUpperCase() +
+                                    statKey.slice(1)}
+                                </th>
+                                <td>{statValue}</td>
+                              </tr>
+                            )
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
