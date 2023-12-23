@@ -63,16 +63,23 @@ def get_characters():
 
 @app.route('/talents/<character_name>', methods=['GET'])
 def get_talents(character_name):
-    logger.debug(f'Getting talents for:  {character_name}')
+
+    # Initialize outputs to default values
+    talents_output = None
+    traits_values_output = None
+    traits_relative_output = None
+    categories_relative_output = None
     
     # Call the dsa_analysis.py script with necessary arguments
     try:
         talents_output = dsa_analysis.get_character_talents(character_name)
+        logger.debug(f'Talents of:  {character_name}, : {talents_output}')
         traits_values_output = dsa_analysis.get_character_traits_values(character_name)
+        logger.debug(f'Traits Values of:  {character_name}, : {traits_values_output}')
         traits_relative_output = dsa_analysis.get_character_relative_traits_usage(character_name)
-        logger.debug(f'Test for Traits for:  {character_name}, : {traits_relative_output}')
+        logger.debug(f'Traits Distribution Usage of:  {character_name}, : {traits_relative_output}')
         categories_relative_output = dsa_analysis.get_character_relative_talents_categories_usage(character_name)
-        logger.debug(f'Test for Categories for:  {character_name}, : {categories_relative_output}')
+        logger.debug(f'Categories Distribution Usage of:  {character_name}, : {categories_relative_output}')
     except Exception as error:
         logger.error(f'Error getting values for {character_name}: {error}')
 
@@ -90,10 +97,17 @@ def analyze_talent():
     data = request.json
     character_name = data.get('characterName')
     talent_name = data.get('talentName')
-    # Call the dsa_analysis.py script with necessary arguments
-    talent_line_chart_output = dsa_analysis.get_character_talent_line_chart(character_name, talent_name)
 
-    logger.debug(f'Getting talent line chart for:  {character_name} and {talent_name}')
+    #Initialize output to default values
+    talent_line_chart_output = None
+
+    # Call the dsa_analysis.py script with necessary arguments
+    try:
+        talent_line_chart_output = dsa_analysis.get_character_talent_line_chart(character_name, talent_name)
+        logger.debug(f'Talent Line Chart of:  {character_name}, : {talent_line_chart_output}')
+    except Exception as error:
+        logger.error(f'Error getting talent line chart for {character_name} and {talent_name}: {error}')
+    
     return jsonify(talent_line_chart_output)
 
 

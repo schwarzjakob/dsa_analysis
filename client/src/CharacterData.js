@@ -74,9 +74,12 @@ function CharacterData() {
   }, [selectedCharacter]);
 
   const processTalents = (talents) => {
-    return talents.map((talent) => {
-      return { item: talent[0], count: talent[1] };
+    const talentArray = Object.entries(talents).map(([talent, value]) => {
+      return { item: talent, count: value };
     });
+
+    talentArray.sort((a, b) => b.count - a.count);
+    return talentArray;
   };
 
   const processTraits = (traits_relative) => {
