@@ -43,10 +43,12 @@ function CharacterData() {
     const fetchCharacters = async () => {
       try {
         const response = await axios.get("http://127.0.0.1:5000/characters");
-        const characterNames = response.data.characters.map(char => char.name); // Extract names from the response
+        const characterNames = response.data.characters.map(
+          (char) => char.name
+        ); // Extract names from the response
         setCharacters(characterNames); // Set the state to the names
       } catch (error) {
-        console.error("Error fetching characters", error); 
+        console.error("Error fetching characters", error);
       }
     };
 
@@ -61,7 +63,12 @@ function CharacterData() {
           const response = await axios.get(
             `http://127.0.0.1:5000/talents/${selectedCharacter}`
           );
-          const { talents, traits_relative, traits_values, categories_relative } = response.data;
+          const {
+            talents,
+            traits_relative,
+            traits_values,
+            categories_relative,
+          } = response.data;
           setTalentData(processTalents(talents));
           setTraitCount(processTraits(traits_relative));
           setTraitsValues(processTraitsValues(traits_values));
@@ -96,9 +103,11 @@ function CharacterData() {
   };
 
   const processCategoryCount = (categories_relative) => {
-    return Object.entries(categories_relative).map(([category, relativeUsage]) => {
-      return { item: category, count: relativeUsage };
-    });
+    return Object.entries(categories_relative).map(
+      ([category, relativeUsage]) => {
+        return { item: category, count: relativeUsage };
+      }
+    );
   };
 
   const handleCharacterChange = (e) => {
@@ -173,7 +182,7 @@ function CharacterData() {
   Chart.register(pieChartPlugin);
 
   // Options for the pie chart
-  const options = {
+  const traitsPieChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     layout: {
@@ -188,21 +197,19 @@ function CharacterData() {
       tooltip: {
         callbacks: {
           label: function (tooltipItem) {
-            let label = pieData.labels[tooltipItem.dataIndex] || "";
-            if (label) {
-              label += ": ";
-            }
-            label +=
-              Math.round(pieData.datasets[0].data[tooltipItem.dataIndex]) + "%";
-            return label;
+            const label = traitsRelativePieChart.labels[tooltipItem.dataIndex];
+            const percentage = Math.round(
+              traitsRelativePieChart.datasets[0].data[tooltipItem.dataIndex]
+            );
+            return `${label}: ${percentage}%`;
           },
         },
       },
     },
   };
 
-  // Data for the pie chart
-  const pieData = {
+  // Data for the traits pie chart
+  const traitsRelativePieChart = {
     labels: traitCount.map((trait) => trait.item),
     datasets: [
       {
@@ -261,6 +268,36 @@ function CharacterData() {
     ],
   };
 
+  // Options for the categories pie chart
+  const categoriesPieChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      padding: 40,
+    },
+    plugins: {
+      legend: {
+        position: "right",
+        onClick: (e) => false,
+      },
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem) {
+            const label =
+              categoriesRelativePieChart.labels[tooltipItem.dataIndex];
+            const percentage = Math.round(
+              categoriesRelativePieChart.datasets[0].data[tooltipItem.dataIndex]
+            );
+            return `${label}: ${percentage}%`;
+          },
+        },
+      },
+    },
+  };
+
+  // Then, use this options object when rendering the categories pie chart:
+  <Pie data={categoriesRelativePieChart} options={categoriesPieChartOptions} />;
+
   const lineChartOptions = {
     scales: {
       y: {
@@ -293,72 +330,82 @@ function CharacterData() {
         </div>
         {selectedCharacter && (
           <div>
-        {/* Trait Values Table*/}
-        <div className="trait-values-container">
-          <h2>Trait Values</h2>
-          <table>
-            <tbody>
-              <tr>
-                {/* Header Row: Trait Names */}
-                {traitsValues.map((trait, index) => (
-                  <th key={index}>{trait.item}</th>
-                ))}
-              </tr>
-              <tr>
-                {/* Value Row: Trait Values */}
-                {traitsValues.map((trait, index) => (
-                  <td key={index}>{trait.count}</td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="content-container">
-          {" "}
-          {/* Flex container */}
-          <div className="chart-container">
-            {" "}
-            {/* Container for the trait chart */}
-            <h2>Trait Usage Distribution</h2>
-            <Pie data={pieData} options={options} />
-          </div>
-          <div className="chart-container">
-            {" "}
-            {/* Container for the category chart */}
-            <h2>Category Usage Distribution</h2>
-            <Pie data={categoriesRelativePieChart} options={options} />
-          </div>
-          </div>
-          <div className="content-container">
-          <div className="table-container">
-            {" "}
-            {/* Container for the table */}
-            <h2>Top Talent List</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Talent</th>
-                  <th>Häufigkeit</th>
-                </tr>
-              </thead>
-              <tbody className="body-container">
-                {talentData.map((item, index) => (
-                  <tr className="talent-list-row" key={index} onClick={() => handleTalentClick(item.item)}>
-                    <td>{item.item}</td>
-                    <td>{item.count}</td>
+            {/* Trait Values Table*/}
+            <div className="trait-values-container">
+              <h2>Trait Values</h2>
+              <table>
+                <tbody>
+                  <tr>
+                    {/* Header Row: Trait Names */}
+                    {traitsValues.map((trait, index) => (
+                      <th key={index}>{trait.item}</th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                  <tr>
+                    {/* Value Row: Trait Values */}
+                    {traitsValues.map((trait, index) => (
+                      <td key={index}>{trait.count}</td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="content-container">
+              {" "}
+              {/* Flex container */}
+              <div className="chart-container">
+                {" "}
+                {/* Container for the trait chart */}
+                <h2>Trait Usage Distribution</h2>
+                <Pie
+                  data={traitsRelativePieChart}
+                  options={traitsPieChartOptions}
+                />
+              </div>
+              <div className="chart-container">
+                {" "}
+                {/* Container for the category chart */}
+                <h2>Category Usage Distribution</h2>
+                <Pie
+                  data={categoriesRelativePieChart}
+                  options={categoriesPieChartOptions}
+                />
+              </div>
+            </div>
+            <div className="content-container">
+              <div className="table-container">
+                {" "}
+                {/* Container for the table */}
+                <h2>Top Talent List</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Talent</th>
+                      <th>Häufigkeit</th>
+                    </tr>
+                  </thead>
+                  <tbody className="body-container">
+                    {talentData.map((item, index) => (
+                      <tr
+                        className="talent-list-row"
+                        key={index}
+                        onClick={() => handleTalentClick(item.item)}
+                      >
+                        <td>{item.item}</td>
+                        <td>{item.count}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {lineChartData && (
+                <div className="line-chart-container">
+                  <h2>{`Usage of ${selectedTalent}`}</h2>
+                  <Line data={lineChartData} options={lineChartOptions} />
+                </div>
+              )}
+            </div>
           </div>
-        {lineChartData && (
-          <div className="line-chart-container">
-            <h2>{`Usage of ${selectedTalent}`}</h2>
-            <Line data={lineChartData} options={lineChartOptions} />
-          </div>
-        )}
-        </div>
-        </div>
         )}
       </div>
     </>

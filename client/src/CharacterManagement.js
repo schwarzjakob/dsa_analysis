@@ -102,13 +102,12 @@ const CharacterManagement = () => {
                   >
                     Update Alias
                   </button>
-                  {/* Archive Character disabled */}
-                  {/* <button
+                  <button
                     className="button"
                     onClick={() => archiveCharacter(character.name, character.alias)}
                   >
                     Archive Character
-                  </button> */}
+                  </button>
                 </td>
               </tr>
             ))}
