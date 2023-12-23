@@ -38,6 +38,7 @@ function CharacterData() {
   const [categoryCount, setCategoryCount] = useState([]);
   const [lineChartData, setLineChartData] = useState(null);
   const [talentStatistics, setTalentStatistics] = useState(null);
+  const [talentRecommendation, setTalentRecommendation] = useState(null);
 
   useEffect(() => {
     // Fetch characters for selection
@@ -130,7 +131,7 @@ function CharacterData() {
         }
       );
 
-      const { talent_statistics, talent_line_chart } = response.data;
+      const { talent_statistics, talent_line_chart, talent_investment_recommendation } = response.data;
 
       // Adjust according to the total attempts
       const reorderedStats = {
@@ -169,6 +170,8 @@ function CharacterData() {
           },
         ],
       });
+
+      setTalentRecommendation(talent_investment_recommendation);
     } catch (error) {
       console.error("Error fetching talent line chart data", error);
     }
@@ -444,6 +447,10 @@ function CharacterData() {
                               </tr>
                             )
                           )}
+                          <tr>
+                            <th>Recommendation</th>
+                            <td>{talentRecommendation}</td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>

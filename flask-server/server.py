@@ -101,6 +101,7 @@ def analyze_talent():
     #Initialize output to default values
     talent_statistics = None
     talent_line_chart_output = None
+    talent_investment_recommendation = None
 
     # Call the dsa_analysis.py script with necessary arguments
     try:
@@ -108,12 +109,15 @@ def analyze_talent():
         logger.debug(f'Talent Statistics of:  {character_name}, : {talent_statistics}')
         talent_line_chart_output = dsa_analysis.get_character_talent_line_chart(character_name, talent_name)
         logger.debug(f'Talent Line Chart of:  {character_name}, : {talent_line_chart_output}')
+        talent_investment_recommendation = dsa_analysis.get_character_talent_investment_recommendation(talent_statistics)
+        logger.debug(f'Talent Investment Recommendation of:  {character_name}, : {talent_investment_recommendation}')
     except Exception as error:
         logger.error(f'Error getting talent line chart for {character_name} and {talent_name}: {error}')
     
     data = {
         "talent_statistics": talent_statistics,
-        "talent_line_chart": talent_line_chart_output
+        "talent_line_chart": talent_line_chart_output,
+        "talent_investment_recommendation": talent_investment_recommendation
     }
 
     return jsonify(data)

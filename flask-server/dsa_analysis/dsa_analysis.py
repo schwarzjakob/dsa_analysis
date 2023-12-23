@@ -76,8 +76,34 @@ def get_character_talent_statistics(character_name, talent):
     talent_statistics = {key: int(value) if isinstance(value, np.int64) else value 
                          for key, value in talent_statistics.items()}
 
-
     return talent_statistics
+
+def get_character_talent_investment_recommendation(talent_statistics):
+    """
+    Determines if a user should invest in a talent based on its success rate, improvement over time, and consistency.
+    """
+    # Define thresholds
+    SUCCESS_RATE_THRESHOLD = 0.6  # Success rate below which improvement is needed
+    IMPROVEMENT_THRESHOLD = 2     # Minimum improvement needed between first and last 30 attempts
+    CONSISTENCY_THRESHOLD = 5     # Standard deviation threshold above which talent is considered inconsistent
+
+    # Calculate success rate
+    success_rate = talent_statistics['Successes'] / talent_statistics['Total Attempts']
+
+    # Check for improvement over time
+    improvement = 0
+    if 'Average Last 30 Attempts' in talent_statistics and 'Average First 30 Attempts' in talent_statistics:
+        improvement = talent_statistics['Average Last 30 Attempts'] - talent_statistics['Average First 30 Attempts']
+
+    # Check consistency
+    consistency = talent_statistics['Standard Deviation']
+
+    # Determine recommendation
+    if success_rate < SUCCESS_RATE_THRESHOLD or improvement > IMPROVEMENT_THRESHOLD or consistency > CONSISTENCY_THRESHOLD:
+        return "Invest in this talent for improvement."
+    else:
+        return "No need to invest further in this talent."
+
 
 def get_character_talent_line_chart(character_name, talent):
     """Generates data for a talent line chart for a given character."""
