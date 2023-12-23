@@ -291,6 +291,8 @@ function CharacterData() {
             ))}
           </select>
         </div>
+        {selectedCharacter && (
+          <div>
         {/* Trait Values Table*/}
         <div className="trait-values-container">
           <h2>Trait Values</h2>
@@ -356,6 +358,8 @@ function CharacterData() {
           </div>
         )}
         </div>
+        </div>
+        )}
       </div>
     </>
   );
