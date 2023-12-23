@@ -78,6 +78,9 @@ function StartScreen() {
 
         {/* Call to Action */}
         <section className="cta-section">
+          <button className='button' onClick={() => navigate("/characters")}>
+            Manage Characters
+          </button>
           <button className='button' onClick={() => navigate("/talents/<character_name>")}>
             Explore Characters
           </button>

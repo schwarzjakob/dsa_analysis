@@ -14,11 +14,16 @@
         },
         {
             "name": "Bargaan Treuwall",
-            "alias": ["Yannik F."]
+            "alias": [
+                "Yannik F."
+            ]
         },
         {
-            "name": "Walpurga Hausmännin",
-            "alias": ["Luisa B.", "Walpurga Hausmännin (Walla Burija Sabu Hasmanin)"]
+            "name": "Walpurga Hausm\u00e4nnin",
+            "alias": [
+                "Luisa B.",
+                "Walpurga Hausm\u00e4nnin (Walla Burija Sabu Hasmanin)"
+            ]
         },
         {
             "name": "Kurtek",

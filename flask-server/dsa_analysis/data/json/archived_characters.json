@@ -1,0 +1,33 @@
+{
+    "characters": [
+        {
+            "name": "Test"
+        },
+        {
+            "name": ""
+        },
+        {
+            "name": "Elanor Walham"
+        },
+        {
+            "name": ""
+        },
+        {
+            "name": "guang michong"
+        },
+        {
+            "name": "Test with Aliases"
+        },
+        {
+            "name": "Test with Aliases"
+        },
+        {
+            "name": "Test with Aliases",
+            "alias": [
+                "Alias 1",
+                "Alias 2",
+                "Alias 3"
+            ]
+        }
+    ]
+}

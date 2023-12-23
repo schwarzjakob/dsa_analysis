@@ -1,6 +1,7 @@
 /* Global Box Sizing */
 * {
     box-sizing: border-box;
+    font-family:'Roboto', sans-serif;
 }
 
 /* Existing styles ... */
@@ -56,9 +57,9 @@ h1, h2 {
 .table-container,
 .line-chart-container {
     flex: 1; /* Each container takes equal width */
-    padding: 60px; /* Padding around content */
+    padding: 30px; /* Padding around content */
     width: 100%; /* Full width of their parent container */
-    max-height: 500px; /*Maximum height */
+    /*max-height: 500px; /*Maximum height */
 }
 
 /* Specific styles for the chart container */
@@ -99,7 +100,7 @@ h1, h2 {
 /* Table body styles */
 .table-container tbody {
     display: block; /* Block display for scrolling */
-    height: 300px; /* Fixed height for scrolling */
+    /*height: 300px; /* Fixed height for scrolling */
     overflow-y: auto; /* Enables vertical scrolling */
     width: 100%; /* Full width of its container */
 }
@@ -193,11 +194,6 @@ h2 {
 .table-container td {
     width: auto; /* Allows automatic width adjustment */
     text-align: left; /* Align text to the left */
-}
-
-/* Additional visual enhancements */
-h1, h2 {
-    font-family: 'Arial', sans-serif; /* Example font */
 }
 
 /* Styles for the character select container */
