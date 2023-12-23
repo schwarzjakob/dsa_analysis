@@ -28,6 +28,18 @@
                 "Alias 2",
                 "Alias 3"
             ]
+        },
+        {
+            "name": "Test Character",
+            "alias": [
+                "Hello"
+            ]
+        },
+        {
+            "name": "Test Character",
+            "alias": [
+                "Hello"
+            ]
         }
     ]
 }

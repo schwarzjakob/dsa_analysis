@@ -1,4 +1,6 @@
+/* Global styles */
 body {
+  box-sizing: border-box;
   background-color: #051011;
   color: #f7f1e1;
 }
@@ -15,6 +17,7 @@ body::after {
   z-index: -1;   
 }
 
+/* Container styles */
 .main-container {
   display: flex;
   flex-direction: column;
@@ -24,14 +27,29 @@ body::after {
   padding: 20px;
 }
 
-.form-container {
-  margin-bottom: 20px;
+/* Styles for the character select container */
+.character-select-container {
+  text-align: center; /* Center the select menu */
+  margin: 20px 0; /* Spacing above and below the select menu */
 }
 
-.form-select {
-  margin-right: 10px;
+.character-select-container select {
+  color: #f7f1e1; /* Beige font color */
+  background-color: #051011; /* Dark background */
+  border: 1px solid #f7f1e1; /* Beige border */
+  padding: 10px; /* Padding for the select box */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 28px;
+  font-weight: bold;
 }
 
+/* Style for the select options */
+.character-select-container option {
+  background-color: #07262c; /* Darker shade for options */
+  color: #f7f1e1; /* Beige text color */
+}
+
+/* Buttom styles */
 .button {
   cursor: pointer;
   color: #f7f1e1; /* Beige font color */
@@ -57,6 +75,42 @@ body::after {
   background-color: #4bc0c0;
 }
 
+/* Input styles */
+.custom-input {
+  color: #f7f1e1; /* Beige font color */
+  background-color: transparent; /* Light grey background */
+  border: none; /* Light grey border */
+  padding: 0px; /* Padding inside the input */
+  margin: auto;
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.custom-input:hover {
+  color: #051011; /* Darker font color on hover/focus */
+  border-color: #a0a0a0; /* Darker border on hover/focus */
+  outline: none; /* Remove default focus outline */
+  /* Additional hover and focus styles */
+}
+
+.custom-input:focus {
+  color: #f7f1e1; /* Beige font color */
+  border-color: #a0a0a0; /* Darker border on hover/focus */
+  outline: none; /* Remove default focus outline */
+  /* Additional hover and focus styles */
+}
+
+.custom-input:hover:focus {
+  color: #051011; /* Darker font color on hover/focus */
+  border-color: #a0a0a0; /* Darker border on hover/focus */
+  outline: none; /* Remove default focus outline */
+  /* Additional hover and focus styles */
+}
+
+/* Section styles */
 .welcome-section,
 .purpose-section,
 .background-section,
@@ -75,3 +129,191 @@ body::after {
 }
 
 /* Additional responsive design and aesthetic improvements */
+/* Global Box Sizing */
+* {
+  box-sizing: border-box;
+  font-family:'Roboto', sans-serif;
+}
+
+/* Existing styles ... */
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .content-container {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px; /* Reduced padding */
+  }
+
+  .chart-container, .table-container {
+      padding: 20px;
+      max-height: unset;
+  }
+
+  .chart-container canvas, .line-chart-container {
+      width: 200px;
+      max-width: 100%;
+      max-height: 300px;
+  }
+
+  .table-container tbody {
+      height: auto;
+  }
+
+  /* Adjusting table column widths */
+  .table-container th, .table-container td {
+      width: auto;
+  }
+}
+
+h1, h2 {
+  text-align: center; /* Centers all headings */
+}
+
+/* Content container styling for layout */
+.content-container {
+  display: flex;
+  justify-content: space-around; /* Space between child elements */
+  align-items: flex-start; /* Align items at the start vertically */
+}
+
+/* Styles for chart and table containers */
+.chart-container,
+.table-container,
+.line-chart-container {
+  flex: 1; /* Each container takes equal width */
+  padding: 30px; /* Padding around content */
+  width: 100%; /* Full width of their parent container */
+  /*max-height: 500px; /*Maximum height */
+}
+
+/* Specific styles for the chart container */
+.chart-container canvas {
+  max-width: 100%; /* Full width but respects parent's max-width */
+  max-height: 400px; /* Maximum height of the canvas */
+}
+
+/* Table styles */
+.table-container table {
+  width: 100%; /* Full width of its container */
+  table-layout: auto; /* Allows automatic column width */
+  border-collapse: collapse; /* Collapses borders for a cleaner look */
+}
+
+/* Table header styles */
+.table-container thead {
+  display: table; /* Makes thead behave like a table for layout */
+  width: 100%; /* Full width of its container */
+  table-layout: fixed; /* Fixed layout for consistent column widths */
+}
+
+.table-container thead th {
+  color: #f7f1e1; /* Text color for table headers */
+  margin: auto; /* Centered margin */
+  padding: 10px 5px; /* Padding within the header cells */
+  border-bottom: 2px solid #f7f1e1; /* Bottom border for header */
+  text-align: left; /* Aligns header text to the left */
+  padding-bottom: 15px; /* Padding below the header text */
+}
+
+/* Table body styles */
+.table-container tbody {
+  display: block; /* Block display for scrolling */
+  /*height: 300px; /* Fixed height for scrolling */
+  overflow-y: auto; /* Enables vertical scrolling */
+  width: 100%; /* Full width of its container */
+}
+
+/* Row styles within the table body */
+.table-container tbody tr {
+  display: table; /* Makes each row behave like a table for layout */
+  width: 100%; /* Full width of its container */
+  table-layout: fixed; /* Fixed layout for consistent column widths */
+}
+
+/* Highlight selected row */
+.table-container tbody tr:hover {
+  background-color: #f7f1e1;
+  color: #051011;
+}
+
+.talent-list-row:hover {
+  cursor: pointer;
+  color: red;
+}
+
+/* Cell styles for both header and body */
+.table-container th,
+.table-container td {
+  width: calc(50% - 0.5px); /* Adjust width for borders */
+}
+
+.table-container td {
+  height: 25px;
+  border-right: 1px solid #f7f1e1; /* Right border for separation */
+  padding-left: 5px;
+}
+
+/* Remove right border for the last column */
+.table-container th:last-child,
+.table-container td:last-child {
+  border-right: none;
+}
+
+/* Alternating row background colors for readability */
+.table-container tr:nth-child(even) {
+  background-color: #07262c; /* Darker shade for even rows */
+}
+
+.table-container tr:nth-child(odd) {
+  background-color: #051011; /* Original dark background for odd rows */
+}
+
+/* Styles for headings */
+h2 {
+  padding: 10px; /* Padding around text */
+  margin: auto; /* Centered margin */
+  border-bottom: 2px solid #f7f1e1; /* Right border for separation */
+}
+
+/* Styles for the trait values table */
+.trait-values-container {
+  width: 100%; /* Full width of its container */
+  margin-bottom: 20px; /* Space below the trait table */
+  background-color: #0e2a30; /* Slightly different background */
+  border: 1px solid #f7f1e1;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.trait-values-container h2 {
+  margin-bottom: 10px;
+}
+
+.trait-values-container table {
+  width: 100%; /* Full width of its container */
+  table-layout: fixed; /* Fixed layout for even distribution */
+  border-collapse: separate;
+  border-spacing: 0 10px;
+
+}
+
+.trait-values-container th,
+.trait-values-container td {
+  text-align: center; /* Center align the text in cells */
+  padding: 8px 16px; /* Padding inside cells */
+  color: #f7f1e1; /* Text color for trait names and values */
+}
+
+/* Adjustments to existing table styles for full-width distribution */
+.table-container table {
+  width: 100%; /* Ensures table takes full width */
+  table-layout: fixed; /* Fixed layout for consistent column widths */
+}
+
+.table-container th,
+.table-container td {
+  width: auto; /* Allows automatic width adjustment */
+  text-align: left; /* Align text to the left */
+}

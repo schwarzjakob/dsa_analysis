@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./App.css";
-import "./CharacterData.css";
 import Header from "./Header.js";
+import "./App.css";
 
 const CharacterManagement = () => {
   const [characters, setCharacters] = useState([]);
@@ -51,6 +50,10 @@ const CharacterManagement = () => {
       };
       await axios.post("http://127.0.0.1:5000/add-character", characterData);
       fetchCharacters(); // Refresh the characters list
+
+      // Clear the input fields
+      setNewCharacterName("");
+      setNewCharacterAliases("");
     } catch (error) {
         alert("Error adding character", error);
       console.error("Error adding character", error);
@@ -110,15 +113,15 @@ const CharacterManagement = () => {
             ))}
             <tr>
               <td>
-                <input
+                <input className="custom-input"
                   placeholder="Character name"
                   value={newCharacterName}
                   onChange={(e) => setNewCharacterName(e.target.value)}
                 />
               </td>
               <td>
-                <input
-                  placeholder="Character aliases - separate with commas"
+                <input className="custom-input"
+                  placeholder="Character aliases (separate with commas)"
                   value={newCharacterAliases}
                   onChange={(e) => setNewCharacterAliases(e.target.value)}
                 />

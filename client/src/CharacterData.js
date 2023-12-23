@@ -13,8 +13,8 @@ import {
 } from "chart.js";
 import "chartjs-plugin-annotation";
 import annotationPlugin from "chartjs-plugin-annotation";
-import "./CharacterData.css"; // Import the CSS file for styles
 import Header from "./Header.js";
+import "./App.css"; // Import the CSS file for styles
 
 // Register the necessary components for Chart.js
 Chart.register(
@@ -341,7 +341,7 @@ function CharacterData() {
               </thead>
               <tbody className="body-container">
                 {talentData.map((item, index) => (
-                  <tr key={index} onClick={() => handleTalentClick(item.item)}>
+                  <tr className="talent-list-row" key={index} onClick={() => handleTalentClick(item.item)}>
                     <td>{item.item}</td>
                     <td>{item.count}</td>
                   </tr>
