@@ -8,7 +8,7 @@ import argparse
 today = datetime.today().strftime('%y%m%d')
 
 # Define constants for file paths
-USERS_JSON_PATH = os.path.join('.', 'dsa_analysis', 'data', 'json', 'users.json')
+CHARACTERS_JSON_PATH = os.path.join('.', 'dsa_analysis', 'data', 'json', 'characters.json')
 TALENTS_JSON_PATH = os.path.join('.', 'dsa_analysis', 'data', 'json', 'talents.json')
 USER_CORRECTIONS_JSON_PATH = os.path.join('.', 'dsa_analysis', 'data', 'json', 'user_corrections.json')
 TALENT_CORRECTIONS_JSON_PATH = os.path.join('.', 'dsa_analysis', 'data', 'json', 'talent_corrections.json')
@@ -18,15 +18,19 @@ TRAITS_LONG = ["Mut", "Klugheit", "Intuition", "Charisma", "Fingerfertigkeit", "
 class DsaStats:
     def __init__(self):
         super(DsaStats, self).__init__()
-        with open(USERS_JSON_PATH, 'r') as file:
+        with open(CHARACTERS_JSON_PATH, 'r') as file:
             users_data = json.load(file)
-        self.characters = users_data["users"]
+        self.characters = {char["name"]: char["alias"] for char in users_data["characters"]}
         self.currentChar = ""
-        self.charactersWithColon = [char + ":" for char in self.characters]
+
+        self.charactersWithColon = []
+        for char_name, aliases in self.characters.items():
+            self.charactersWithColon.append(char_name + ":")
+            for alias in aliases:
+                self.charactersWithColon.append(alias + ":")
+
         with open(TALENTS_JSON_PATH, 'r') as file:
             self.talentsFile = json.load(file)
-        with open(USER_CORRECTIONS_JSON_PATH, 'r') as file:
-            self.user_corrections = json.load(file)
         with open(TALENT_CORRECTIONS_JSON_PATH, 'r') as file:
             self.talent_corrections = json.load(file)
         self.traitsRolls = []
@@ -35,8 +39,8 @@ class DsaStats:
         self.attacksRolls = []
         self.initiativesRolls = []
         self.totalDmg = {char: 0 for char in self.characters}
-        self.traitUsageCounts = {char: {trait: 0 for trait in TRAITS} for char in self.characters if char not in self.user_corrections}
-        self.traitValues = {char: {trait: 0 for trait in TRAITS} for char in self.characters if char not in self.user_corrections}
+        self.traitUsageCounts = {char: {trait: 0 for trait in TRAITS} for char in self.characters}
+        self.traitValues = {char: {trait: 0 for trait in TRAITS} for char in self.characters}
 
         self.directoryDateDependent = f'./dsa_analysis/data/rolls_results/{today}_rolls_results/'
         self.directoryRecent = f'./dsa_analysis/data/rolls_results/000000_rolls_results_recent/'
@@ -55,9 +59,13 @@ class DsaStats:
         if not os.path.exists(self.directoryRecent):
             os.makedirs(self.directoryRecent)
 
-    # Data cleanup functions
-    def currentCharCorrection(self, username):
-        return self.user_corrections.get(username, username)
+    def currentCharCorrection(self):
+    # Iterate through each character and their aliases
+        for char_name, aliases in self.characters.items():
+            if self.currentChar in aliases:
+                return char_name
+        return self.currentChar
+
 
     def talentsCurrection(self, talent):
         return self.talent_corrections.get(talent, talent)
@@ -310,7 +318,7 @@ class DsaStats:
                 continue
 
             # Korrektur für anderweitige Usernames
-            self.currentChar = self.currentCharCorrection(self.currentChar)
+            self.currentChar = self.currentCharCorrection()
 
             #Korrektur für "  ()" hinter einem Talent (vielleicht Spezwurf?)
             if " ()" in potentialEvent:

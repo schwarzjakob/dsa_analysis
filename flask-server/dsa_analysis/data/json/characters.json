@@ -1,12 +1,36 @@
 {
     "characters": [
-        "Akira Masamune",
-        "Hanzo Shimada",
-        "Elanor Walham",
-        "Bargaan Treuwall",
-        "Walpurga Hausmännin",
-        "Kurtek",
-        "Torgan Rehernagrot",
-        "Playboy51"
+        {
+            "name": "Akira Masamune",
+            "alias": []
+        },
+        {
+            "name": "Hanzo Shimada",
+            "alias": []
+        },
+        {
+            "name": "Elanor Walham",
+            "alias": ["Niko K."]
+        },
+        {
+            "name": "Bargaan Treuwall",
+            "alias": ["Yannik F."]
+        },
+        {
+            "name": "Walpurga Hausmännin",
+            "alias": ["Luisa B.", "Walpurga Hausmännin (Walla Burija Sabu Hasmanin)"]
+        },
+        {
+            "name": "Kurtek",
+            "alias": []
+        },
+        {
+            "name": "Torgan Rehernagrot",
+            "alias": []
+        },
+        {
+            "name": "Playboy51",
+            "alias": []
+        }
     ]
 }

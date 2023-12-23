@@ -43,9 +43,10 @@ function CharacterData() {
     const fetchCharacters = async () => {
       try {
         const response = await axios.get("http://127.0.0.1:5000/characters");
-        setCharacters(response.data.characters);
+        const characterNames = response.data.characters.map(char => char.name); // Extract names from the response
+        setCharacters(characterNames); // Set the state to the names
       } catch (error) {
-        console.error("Error fetching characters", error);
+        console.error("Error fetching characters", error); 
       }
     };
 
