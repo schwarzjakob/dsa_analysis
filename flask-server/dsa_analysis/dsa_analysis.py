@@ -99,7 +99,7 @@ def get_character_talent_investment_recommendation(talent_statistics):
     consistency = talent_statistics['Standard Deviation']
 
     # Determine recommendation
-    if success_rate < SUCCESS_RATE_THRESHOLD or improvement > IMPROVEMENT_THRESHOLD or consistency > CONSISTENCY_THRESHOLD:
+    if success_rate < SUCCESS_RATE_THRESHOLD or improvement < IMPROVEMENT_THRESHOLD or consistency > CONSISTENCY_THRESHOLD:
         return "Invest in this talent for improvement."
     else:
         return "No need to invest further in this talent."
