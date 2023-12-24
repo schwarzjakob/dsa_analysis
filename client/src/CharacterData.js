@@ -146,6 +146,10 @@ function CharacterData() {
     setTalentsData([]);
     setTalentStatistics(null);
     setTalentRecommendation(null);
+    setSelectedAttack("");
+    setAttackLineChartData(null);
+    setAttacksData([]);
+    setAttackStatistics(null);
     console.log(e);
   };
 
