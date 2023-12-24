@@ -153,12 +153,13 @@ h1, h2 {
 .line-chart-container,
 .talent-statistics-container {
   flex: 1; /* Each container takes equal width */
-  padding: 30px; /* Padding around content */
   width: 100%; /* Full width of their parent container */
   /*max-height: 500px; /*Maximum height */
 }
 
-
+.table-container {
+  padding: 30px;
+}
 
 /* Specific styles for the chart container */
 .chart-container canvas {

@@ -29,16 +29,21 @@ Chart.register(
 );
 
 function CharacterData() {
-  const [selectedCharacter, setSelectedCharacter] = useState("");
-  const [selectedTalent, setSelectedTalent] = useState("");
-  const [characters, setCharacters] = useState([]);
-  const [talentData, setTalentData] = useState([]);
-  const [traitCount, setTraitCount] = useState([]);
-  const [traitsValues, setTraitsValues] = useState([]);
-  const [categoryCount, setCategoryCount] = useState([]);
-  const [lineChartData, setLineChartData] = useState(null);
-  const [talentStatistics, setTalentStatistics] = useState(null);
-  const [talentRecommendation, setTalentRecommendation] = useState(null);
+  const [selectedCharacter, setSelectedCharacter] = useState(""); // State for the selected character
+  const [selectedTalent, setSelectedTalent] = useState(""); // State for the selected talent
+  const [characters, setCharacters] = useState([]); // State for the list of characters
+  const [talentsData, setTalentsData] = useState([]); // State for the list of talents
+  const [traitCount, setTraitCount] = useState([]); // State for the list of traits
+  const [traitsValues, setTraitsValues] = useState([]); // State for the list of trait values
+  const [categoryCount, setCategoryCount] = useState([]); // State for the list of categories
+  const [talentLineChartData, setTalentLineChartData] = useState(null); // State for the talent line chart data
+  const [talentStatistics, setTalentStatistics] = useState(null); // State for the talent statistics
+  const [talentRecommendation, setTalentRecommendation] = useState(null); // State for the talent recommendation
+
+  const [attacksData, setAttacksData] = useState([]); // State for the list of attacks
+  const [selectedAttack, setSelectedAttack] = useState(""); // State for the selected attack
+  const [attackLineChartData, setAttackLineChartData] = useState(null); // State for the attack line chart data
+  const [attackStatistics, setAttackStatistics] = useState(null); // State for the attack statistics
 
   useEffect(() => {
     // Fetch characters for selection
@@ -71,12 +76,24 @@ function CharacterData() {
             traits_values,
             categories_relative,
           } = response.data;
-          setTalentData(processTalents(talents));
+          setTalentsData(processTalents(talents));
           setTraitCount(processTraits(traits_relative));
           setTraitsValues(processTraitsValues(traits_values));
           setCategoryCount(processCategoryCount(categories_relative));
+
+          
         } catch (error) {
-          console.error("Error fetching character data", error);
+          console.error("Error fetching characters talents data", error);
+        }
+        try {
+          const attacksResponse = await axios.get(
+            `http://127.0.0.1:5000/attacks/${selectedCharacter}`
+          );
+          const { attacks } = attacksResponse.data;
+          setAttacksData(processAttacks(attacks));
+
+        } catch (error) {
+          console.error("Error fetching characters attacks data", error);
         }
       };
       fetchData();
@@ -112,11 +129,21 @@ function CharacterData() {
     );
   };
 
+  const processAttacks = (attacks) => {
+    const attackArray = Object.entries(attacks).map(([attack, value]) => {
+      console.log(attack, value);
+      return { item: attack, count: value };
+    });
+
+    attackArray.sort((a, b) => b.count - a.count);
+    return attackArray;
+  };
+
   const handleCharacterChange = (e) => {
     setSelectedCharacter(e.target.value);
     setSelectedTalent("");
-    setLineChartData(null);
-    setTalentData([]);
+    setTalentLineChartData(null);
+    setTalentsData([]);
     setTalentStatistics(null);
     setTalentRecommendation(null);
     console.log(e);
@@ -136,13 +163,17 @@ function CharacterData() {
         }
       );
 
-      const { talent_statistics, talent_line_chart, talent_investment_recommendation } = response.data;
+      const {
+        talent_statistics,
+        talent_line_chart,
+        talent_investment_recommendation,
+      } = response.data;
 
       // Adjust according to the total attempts
       const reorderedStats = {
         "Total Attempts": talent_statistics["Total Attempts"],
-        "Succeses": talent_statistics["Successes"],
-        "Failures": talent_statistics["Failures"],
+        Succeses: talent_statistics["Successes"],
+        Failures: talent_statistics["Failures"],
         ...(talent_statistics["Total Attempts"] < 50
           ? { "Average Total": talent_statistics["Average Total"] }
           : {
@@ -159,7 +190,7 @@ function CharacterData() {
       setTalentStatistics(reorderedStats);
 
       // Assuming response.data is the data needed for the line chart
-      setLineChartData({
+      setTalentLineChartData({
         labels: talent_line_chart.map((_, index) => `Attempt ${index + 1}`),
         datasets: [
           {
@@ -179,6 +210,67 @@ function CharacterData() {
       setTalentRecommendation(talent_investment_recommendation);
     } catch (error) {
       console.error("Error fetching talent line chart data", error);
+    }
+  };
+
+  // Function to handle attack row click
+  const handleAttackClick = async (attackName) => {
+    try {
+      setSelectedAttack(attackName);
+      console.log(selectedCharacter, attackName);
+
+      const response = await axios.post(
+        `http://127.0.0.1:5000/analyze-attack`,
+        {
+          characterName: selectedCharacter,
+          attackName: attackName,
+        }
+      );
+
+      const {
+        attack_statistics,
+        attack_line_chart
+      } = response.data;
+
+      // Adjust according to the total attempts
+      const reorderedStats = {
+        "Total Attempts": attack_statistics["Total Attempts"],
+        Succeses: attack_statistics["Successes"],
+        Failures: attack_statistics["Failures"],
+        ...(attack_statistics["Total Attempts"] < 50
+          ? { "Average Total": attack_statistics["Average Total"] }
+          : {
+              "Average First 30 Attempts":
+                attack_statistics["Average First 30 Attempts"],
+              "Average Last 30 Attempts":
+                attack_statistics["Average Last 30 Attempts"],
+            }),
+        "Max Score": attack_statistics["Max Score"],
+        "Min Score": attack_statistics["Min Score"],
+        "Standard Deviation": attack_statistics["Standard Deviation"],
+      };
+
+      setAttackStatistics(reorderedStats);
+
+      // Assuming response.data is the data needed for the line chart
+      setAttackLineChartData({
+        labels: attack_line_chart.map((_, index) => `Attempt ${index +1}`),
+        datasets: [
+          {
+            label: attackName,
+            data: attack_line_chart,
+            fill: {
+              target: "origin",
+              below: "rgb(180, 63, 63)",
+              above: "rgb(75, 192, 192)",
+            },
+            borderColor: "rgb(75, 192, 192)",
+            borderWidth: 2.5,
+          },
+        ],
+      });
+    } catch (error) {
+      console.error("Error fetching attack line chart data", error);
     }
   };
 
@@ -330,7 +422,7 @@ function CharacterData() {
   // Then, use this options object when rendering the categories pie chart:
   <Pie data={categoriesRelativePieChart} options={categoriesPieChartOptions} />;
 
-  const lineChartOptions = {
+  const talentLineChartOptions = {
     scales: {
       y: {
         grid: {
@@ -413,11 +505,11 @@ function CharacterData() {
                   <thead>
                     <tr>
                       <th>Talent</th>
-                      <th>Häufigkeit</th>
+                      <th>Frequency</th>
                     </tr>
                   </thead>
                   <tbody className="body-container">
-                    {talentData.map((item, index) => (
+                    {talentsData.map((item, index) => (
                       <tr
                         className="talent-list-row"
                         key={index}
@@ -430,11 +522,14 @@ function CharacterData() {
                   </tbody>
                 </table>
               </div>
-              {lineChartData && (
+              {talentLineChartData && (
                 <div className="table-container">
                   <div className="line-chart-container">
                     <h2>{`Usage of ${selectedTalent}`}</h2>
-                    <Line data={lineChartData} options={lineChartOptions} />
+                    <Line
+                      data={talentLineChartData}
+                      options={talentLineChartOptions}
+                    />
                   </div>
                   {talentStatistics && (
                     <div className="talent-statistics-container">
@@ -456,6 +551,64 @@ function CharacterData() {
                             <th>Recommendation</th>
                             <td>{talentRecommendation}</td>
                           </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="content-container">
+              <div className="table-container">
+                {" "}
+                {/* Container for the table */}
+                <h2>Attack List</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Attack</th>
+                      <th>Frequency</th>
+                    </tr>
+                  </thead>
+                  <tbody className="body-container">
+                    {attacksData.map((item, index) => (
+                      <tr
+                        className="talent-list-row"
+                        key={index}
+                        onClick={() => handleAttackClick(item.item)}
+                      >
+                        <td>{item.item}</td>
+                        <td>{item.count}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {attackLineChartData && (
+                <div className="table-container">
+                  <div className="line-chart-container">
+                    <h2>{`Usage of ${selectedAttack}`}</h2>
+                    <Line
+                      data={attackLineChartData}
+                      options={talentLineChartOptions}
+                    />
+                  </div>
+                  {attackStatistics && (
+                    <div className="talent-statistics-container">
+                      <h2>{`Statistics for ${selectedAttack}`}</h2>
+                      <table>
+                        <tbody>
+                          {Object.entries(attackStatistics).map(
+                            ([statKey, statValue], index) => (
+                              <tr key={index}>
+                                <th>
+                                  {statKey.charAt(0).toUpperCase() +
+                                    statKey.slice(1)}
+                                </th>
+                                <td>{statValue}</td>
+                              </tr>
+                            )
+                          )}
                         </tbody>
                       </table>
                     </div>
