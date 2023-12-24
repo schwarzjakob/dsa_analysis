@@ -31,6 +31,12 @@ body::after {
 .character-select-container {
   text-align: center; /* Center the select menu */
   margin: 20px 0; /* Spacing above and below the select menu */
+  position: sticky;
+  top: 10px; /* Adjust this value for desired distance from the top */
+  z-index: 1000; /* Ensures the select stays above other content */
+  padding: 10px; /* Adjust padding as needed */
+  border-radius: 5px; /* Optional: For rounded corners */
+  margin-bottom: 20px; /* Space below the sticky element */
 }
 
 .character-select-container select {
