@@ -5,6 +5,10 @@ import sys
 # Add the path to the directory containing the dsa_analysis_app package to the system path
 sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/dsa_analysis_app')
 
+# Now you can import from dsa_analysis.py
+#from dsa_analysis_app import dsa_analysis
+#from dsa_analysis_app import dsa_stats
+
 # New modular approach
 from dsa_analysis_app import create_app
 
