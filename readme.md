@@ -7,8 +7,9 @@ This web application is designed for detailed analysis and visualization of char
 ## Features
 
 - Upload your chatlog to analyze your characters
-- Interactive data visualization of character traits and talents.
+- Interactive data visualization of character traits, categories, talents and fight metrics.
 - Analysis of character performance over time with line charts.
+- Simple statistics for talents, and fight metrics such as averages, successes, and failures for skill monitoring.
 - Efficient data fetching and processing from a Python backend.
 
 ## Installation and Setup
@@ -22,7 +23,7 @@ cd flask-server
 ```
 
 
-1. **Setup the virtual environment, and install requirements**
+2. **Setup the virtual environment, and install requirements**
 ```bash
 cd flask-server
 # Linux/Mac
@@ -34,7 +35,7 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-1. **Start server and client**
+3. **Start server and client**
 ```bash
 python3 server.py
 cd ..

@@ -1,7 +1,8 @@
+# flask-server/dsa_analysis_app/character_analysis/routes.py
 from flask import jsonify, request
 from . import character_analysis_blueprint
 import logging
-from character_analysis import character_analysis
+from . import character_analysis
 
 # Configure logger
 logger = logging.getLogger(__name__)
