@@ -49,7 +49,7 @@ function CharacterData() {
     // Fetch characters for selection
     const fetchCharacters = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/characters");
+        const response = await axios.get("http://127.0.0.1:5000/characters_management/characters");
         const characterNames = response.data.characters.map(
           (char) => char.name
         ); // Extract names from the response
