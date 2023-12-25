@@ -14,7 +14,7 @@ const CharacterManagement = () => {
 
   const fetchCharacters = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/characters");
+      const response = await axios.get("http://127.0.0.1:5000/characters_management/characters");
       setCharacters(response.data.characters);
     } catch (error) {
       console.error("Error fetching characters", error);
@@ -31,7 +31,7 @@ const CharacterManagement = () => {
 
   const archiveCharacter = async (characterName, aliases) => {
     try {
-        await axios.post("http://127.0.0.1:5000/archive-character", { name: characterName, alias: aliases});
+        await axios.post("http://127.0.0.1:5000/characters_management/archive-character", { name: characterName, alias: aliases});
         fetchCharacters(); // Refresh the characters list
     } catch (error) {
         console.error("Error archiving character", error);
@@ -48,7 +48,7 @@ const CharacterManagement = () => {
         name: newCharacterName,
         alias: newCharacterAliases.split(",").map(alias => alias.trim())
       };
-      await axios.post("http://127.0.0.1:5000/add-character", characterData);
+      await axios.post("http://127.0.0.1:5000/characters_management/add-character", characterData);
       fetchCharacters(); // Refresh the characters list
 
       // Clear the input fields
