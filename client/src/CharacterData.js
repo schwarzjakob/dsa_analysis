@@ -68,7 +68,7 @@ function CharacterData() {
       const fetchData = async () => {
         try {
           const response = await axios.get(
-            `http://127.0.0.1:5000/talents/${selectedCharacter}`
+            `http://127.0.0.1:5000/character_analysis/talents/${selectedCharacter}`
           );
           const {
             talents,
@@ -87,7 +87,7 @@ function CharacterData() {
         }
         try {
           const attacksResponse = await axios.get(
-            `http://127.0.0.1:5000/attacks/${selectedCharacter}`
+            `http://127.0.0.1:5000/character_analysis/attacks/${selectedCharacter}`
           );
           const { attacks } = attacksResponse.data;
           setAttacksData(processAttacks(attacks));
@@ -160,7 +160,7 @@ function CharacterData() {
       console.log(selectedCharacter, talentName);
 
       const response = await axios.post(
-        `http://127.0.0.1:5000/analyze-talent`,
+        `http://127.0.0.1:5000/character_analysis/analyze-talent`,
         {
           characterName: selectedCharacter,
           talentName: talentName,
@@ -224,7 +224,7 @@ function CharacterData() {
       console.log(selectedCharacter, attackName);
 
       const response = await axios.post(
-        `http://127.0.0.1:5000/analyze-attack`,
+        `http://127.0.0.1:5000/character_analysis/analyze-attack`,
         {
           characterName: selectedCharacter,
           attackName: attackName,
