@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Header from "./Header.js";
+import Header from "./Home.js";
 import "./App.css";
 
 function StartScreen() {

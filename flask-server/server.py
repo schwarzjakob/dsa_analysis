@@ -15,7 +15,7 @@ app = create_app()
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 app.secret_key = os.getenv('SECRET_KEY')
-google = google_auhtorization(app)
+google_auhtorization(app)
 
 
 if __name__ == '__main__':

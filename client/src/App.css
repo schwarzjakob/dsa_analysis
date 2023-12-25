@@ -1,4 +1,8 @@
 /* Global styles */
+:root {
+  -main-beige: #f7f1e1;
+  -main-dark: #051011;
+}
 body {
   box-sizing: border-box;
   background-color: #051011;
@@ -16,6 +20,41 @@ body::after {
   position: fixed;
   z-index: -1;   
 }
+
+/* Login page styles */
+.login-container {
+  text-align: center;
+  padding: 50px;
+  background-color: var(--main-dark);
+}
+
+.login-header h1 {
+  color: var(--main-beige);
+  font-size: 2em;
+}
+
+.login-header p {
+  color: var(--main-beige);
+  font-size: 1em;
+}
+
+.login-button {
+  background-color: var(--main-dark); /* Google blue */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  color: var(--main-beige);
+  background-color: var(--main-dark); /* Darker shade on hover */
+  transition: background-color 0.3s;
+}
+
 
 /* Container styles */
 .main-container {
@@ -67,6 +106,21 @@ body::after {
 }
 
 .home-button {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 10px;
+  background-color: #f7f1e1;
+  color: #051011;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.home-button:hover {
+  background-color: #4bc0c0;
+}
+
+.login-button {
   display: inline-block;
   padding: 10px 15px;
   margin: 10px;

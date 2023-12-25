@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Home() {
     return (
         <header>
-            <Link to="/" className="home-button">Home</Link>
+            <Link to="/start" className="home-button">Home</Link>
             {/* other header content */}
         </header>
     );
 }
 
-export default Header;
+export default Home;

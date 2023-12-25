@@ -1,16 +1,26 @@
-# flask-server/dsa_analysis_app/auth/routes.py
 from . import google_auth_blueprint
-#from .auth import google_auth
-from flask import redirect, url_for, session
+from flask import current_app, redirect, url_for, session, jsonify
 from .google_auth import google_auhtorization
+import logging
+
+logger = logging.getLogger(__name__)
+FORMAT = '%(asctime)-15s %(clientip)s %(user)-8s %(message)s'
+logging.basicConfig(format=FORMAT)
 
 @google_auth_blueprint.route('/login')
 def login():
-    return google.authorize_redirect(redirect_uri=url_for('authorize', _external=True))
+    google = current_app.config.get('google')
+    redirect_uri = url_for('google_auth.authorize', _external=True)
+    logger.debug(f'Google: {google}')
+    return google.authorize_redirect(redirect_uri=url_for('google_auth.authorize', _external=True))
 
 @google_auth_blueprint.route('/login/authorize')
 def authorize():
+    google = current_app.config.get('google')
+    logger.debug(f'Google: {google}')
     token = google.authorize_access_token()
-    user_info = google.get('userinfo').json()
+    user_info = google.get('https://www.googleapis.com/oauth2/v1/userinfo').json()
     session['user'] = user_info
-    return redirect(url_for('index'))  # Redirect to the main page or dashboard
+    logger.debug(f'User info: {user_info}') 
+    return redirect("http://127.0.0.1:3000/start")  # Redirect to the start page
+#         )

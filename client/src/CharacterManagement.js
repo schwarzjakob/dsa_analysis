@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Header from "./Header.js";
+import Home from "./Home.js";
 import "./App.css";
 
 const CharacterManagement = () => {
@@ -64,7 +64,7 @@ const CharacterManagement = () => {
   return (
     <>
       <div>
-        <Header />
+        <Home />
       </div>
       <div className="table-container">
         <h1>Character Management</h1>

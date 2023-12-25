@@ -13,7 +13,7 @@ import {
 } from "chart.js";
 import "chartjs-plugin-annotation";
 import annotationPlugin from "chartjs-plugin-annotation";
-import Header from "./Header.js";
+import Home from "./Home.js";
 import "./App.css"; // Import the CSS file for styles
 
 // Register the necessary components for Chart.js
@@ -443,7 +443,7 @@ function CharacterData() {
   return (
     <>
       <div>
-        <Header />
+        <Home />
       </div>
       <div>
         <div className="character-select-container">
