@@ -21,15 +21,20 @@ cd dsa_rolls_webapp
 cd flask-server
 ```
 
-2. **Setup the virtual environment, and install requirements**
+
+1. **Setup the virtual environment, and install requirements**
 ```bash
 cd flask-server
-python3 -m venv venv
-. venv/bin/activate
+# Linux/Mac
+python3 -m venv venv 
+source venv/bin/activate
+# Windows
+venv\Scripts\activate
+python -m venv venv
 pip install -r requirements.txt
 ```
 
-3. **Start server and client**
+1. **Start server and client**
 ```bash
 python3 server.py
 cd ..

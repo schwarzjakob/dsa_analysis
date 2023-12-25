@@ -6,11 +6,11 @@ import sys
 import logging
 
 # Add the path to the directory containing dsa_analysis.py and dsa_stats.py to the system path
-sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/dsa_analysis')
+sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/dsa_analysis_app')
 
 # Now you can import from dsa_analysis.py
-from dsa_analysis import dsa_analysis
-from dsa_analysis import dsa_stats
+from dsa_analysis_app import dsa_analysis
+from dsa_analysis_app import dsa_stats
 
 logger = logging.getLogger(__name__)
 
@@ -55,7 +55,7 @@ def get_character_data(character_name):
 @app.route("/characters", methods=['GET'])
 def get_characters():
     try:
-        with open('./dsa_analysis/data/json/characters.json') as file:
+        with open('./dsa_analysis_app/data/json/characters.json') as file:
             characters_data = json.load(file)
         return characters_data
     except FileNotFoundError:
@@ -189,18 +189,18 @@ def archive_character():
     try:
         character_data = request.json
         # Load current characters
-        with open('./dsa_analysis/data/json/characters.json', 'r') as file:
+        with open('./dsa_analysis_app/data/json/characters.json', 'r') as file:
             characters = json.load(file)
         
         # Find and remove the character to archive
         characters["characters"] = [char for char in characters["characters"] if char["name"] != character_data["name"]]
 
         # Update characters.json
-        with open('./dsa_analysis/data/json/characters.json', 'w') as file:
+        with open('./dsa_analysis_app/data/json/characters.json', 'w') as file:
             json.dump(characters, file, indent=4)
 
         # Load archived characters
-        archived_file_path = './dsa_analysis/data/json/archived_characters.json'
+        archived_file_path = './dsa_analysis_app/data/json/archived_characters.json'
         if not os.path.exists(archived_file_path):
             with open(archived_file_path, 'w') as file:
                 json.dump({"characters": []}, file)
@@ -224,7 +224,7 @@ def archive_character():
 def add_character():
     try:
         character_data = request.json
-        with open('./dsa_analysis/data/json/characters.json', 'r+') as file:
+        with open('./dsa_analysis_app/data/json/characters.json', 'r+') as file:
             characters = json.load(file)
             characters["characters"].append(character_data)
             file.seek(0)

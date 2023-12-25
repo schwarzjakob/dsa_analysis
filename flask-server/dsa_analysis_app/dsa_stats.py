@@ -8,10 +8,10 @@ import argparse
 today = datetime.today().strftime('%y%m%d')
 
 # Define constants for file paths
-CHARACTERS_JSON_PATH = os.path.join('.', 'dsa_analysis', 'data', 'json', 'characters.json')
-TALENTS_JSON_PATH = os.path.join('.', 'dsa_analysis', 'data', 'json', 'talents.json')
-USER_CORRECTIONS_JSON_PATH = os.path.join('.', 'dsa_analysis', 'data', 'json', 'user_corrections.json')
-TALENT_CORRECTIONS_JSON_PATH = os.path.join('.', 'dsa_analysis', 'data', 'json', 'talent_corrections.json')
+CHARACTERS_JSON_PATH = os.path.join('.', 'dsa_analysis_app', 'data', 'json', 'characters.json')
+TALENTS_JSON_PATH = os.path.join('.', 'dsa_analysis_app', 'data', 'json', 'talents.json')
+USER_CORRECTIONS_JSON_PATH = os.path.join('.', 'dsa_analysis_app', 'data', 'json', 'user_corrections.json')
+TALENT_CORRECTIONS_JSON_PATH = os.path.join('.', 'dsa_analysis_app', 'data', 'json', 'talent_corrections.json')
 TRAITS = ["MU", "KL", "IN", "CH", "FF", "GE", "KO", "KK"]
 TRAITS_LONG = ["Mut", "Klugheit", "Intuition", "Charisma", "Fingerfertigkeit", "Gewandtheit", "Konstitution", "Körperkraft"]
 
@@ -42,8 +42,8 @@ class DsaStats:
         self.traitUsageCounts = {char: {trait: 0 for trait in TRAITS} for char in self.characters}
         self.traitValues = {char: {trait: 0 for trait in TRAITS} for char in self.characters}
 
-        self.directoryDateDependent = f'./dsa_analysis/data/rolls_results/{today}_rolls_results/'
-        self.directoryRecent = f'./dsa_analysis/data/rolls_results/000000_rolls_results_recent/'
+        self.directoryDateDependent = f'./dsa_analysis_app/data/rolls_results/{today}_rolls_results/'
+        self.directoryRecent = f'./dsa_analysis_app/data/rolls_results/000000_rolls_results_recent/'
 
     # retrieved chatlog parsing
     def process_chatlog(self, chatlog_path):

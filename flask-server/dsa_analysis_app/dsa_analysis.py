@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Constants for CSV file paths
-CSV_BASE_PATH = './dsa_analysis/data/rolls_results/000000_rolls_results_recent/'
+CSV_BASE_PATH = './dsa_analysis_app/data/rolls_results/000000_rolls_results_recent/'
 TALENTS_CSV = os.path.join(CSV_BASE_PATH, 'talents.csv')
 TRAITS_CSV = os.path.join(CSV_BASE_PATH, 'trait_usage.csv')
 TRAIT_VALUES_CSV = os.path.join(CSV_BASE_PATH, 'trait_values.csv')
