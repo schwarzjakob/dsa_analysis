@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "./Header.js";
@@ -15,15 +15,16 @@ function StartScreen() {
     formData.append("file", file);
 
     try {
-      await axios.post("http://127.0.0.1:5000/upload", formData, {
+      await axios.post("http://127.0.0.1:5000/chat_processing/process_chatlog", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("File uploaded successfully");
       e.target.value = null;
     } catch (error) {
-      alert("Error uploading file");
+      console.log(error);
+      alert("Error processing file");
+      e.target.value = null;
     }
-
   };
 
   return (
@@ -39,7 +40,10 @@ function StartScreen() {
             Discover the depths of your characters in the world of Das Schwarze
             Auge.
           </p>
-          <button className='button' onClick={() => document.getElementById("file-input").click()}>
+          <button
+            className="button"
+            onClick={() => document.getElementById("file-input").click()}
+          >
             Upload a Chatlog
           </button>
           <input
@@ -78,10 +82,13 @@ function StartScreen() {
 
         {/* Call to Action */}
         <section className="cta-section">
-          <button className='button' onClick={() => navigate("/characters")}>
+          <button className="button" onClick={() => navigate("/characters")}>
             Manage Characters
           </button>
-          <button className='button' onClick={() => navigate("/talents/<character_name>")}>
+          <button
+            className="button"
+            onClick={() => navigate("/talents/<character_name>")}
+          >
             Explore Characters
           </button>
         </section>

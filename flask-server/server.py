@@ -12,38 +12,20 @@ sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/fl
 from dsa_analysis_app import dsa_analysis
 from dsa_analysis_app import dsa_stats
 
+# New modular approach
+from dsa_analysis_app import create_app
+
+# Consider importing the constants from dsa_analysis.py
+# from dsa_analysis_app.dsa_analysis import CSV_BASE_PATH, TALENTS_CSV, TRAITS_CSV, TRAIT_VALUES_CSV, ATTACKS_CSV, CHARACTER_KEY, CATEGORY_KEY, TALENT_KEY, TALENT_POINTS_KEY
+
+# Configure logger
 logger = logging.getLogger(__name__)
+# Format containts the [time filename->funcName():lineno] level: message
+FORMAT = '[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s'
+logging.basicConfig(format=FORMAT, level=logging.DEBUG)
 
-app = Flask(__name__)
+app = create_app()
 CORS(app, resources={r"/*": {"origins": "*"}})
-UPLOAD_FOLDER = './uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-@app.route('/upload', methods=['POST'])
-def file_upload():
-    if 'file' not in request.files:
-        return 'No file part', 400
-    file = request.files['file']
-    if file.filename == '':
-        return 'No selected file', 400
-    if file:
-        filename = "chatlog.txt"
-
-        # Make sure the uploads folder exists
-        if not os.path.exists(app.config['UPLOAD_FOLDER']):
-            os.makedirs(app.config['UPLOAD_FOLDER'])
-        
-        # Save the file to the uploads folder
-        chatlog_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(chatlog_file_path)
-
-        # Run your Python script here passing the uploaded file as a command line argument
-        current_dsa_stats = dsa_stats.DsaStats()
-        chatlogLines = current_dsa_stats.process_chatlog(chatlog_file_path)
-        current_dsa_stats.main(chatlogLines)
-
-        logger.debug(f'File uploaded successfully to {chatlog_file_path}')
-        return f'File uploaded successfully to {chatlog_file_path}', 200
 
 @app.route("/character-data/<character_name>", methods=['GET'])
 def get_character_data(character_name):
@@ -236,7 +218,4 @@ def add_character():
 
 
 if __name__ == '__main__':
-    # Format containts the [time filename->funcName():lineno] level: message
-    FORMAT = '[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s'
-    logging.basicConfig(format=FORMAT, level=logging.DEBUG)
     app.run(debug=True)
