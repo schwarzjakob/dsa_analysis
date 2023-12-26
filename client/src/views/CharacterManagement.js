@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Home from "./Home.js";
-import "./App.css";
+import Home from "../components/layout/Home.js";
+import "../App.css";
 
 const CharacterManagement = () => {
   const [characters, setCharacters] = useState([]);

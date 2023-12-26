@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Header from "./Home.js";
-import "./App.css";
+import Header from "../components/layout/Home.js";
+import "../App.css";
 
 function StartScreen() {
   const navigate = useNavigate();

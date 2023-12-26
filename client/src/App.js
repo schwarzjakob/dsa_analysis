@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CharacterData from './CharacterData'
-import Login from './Login';
-import StartScreen from './StartScreen';
-import CharacterManagement from './CharacterManagement';
+import CharacterData from './views/CharacterData'
+import Login from './views/Login';
+import StartScreen from './views/StartScreen';
+import CharacterManagement from './views/CharacterManagement';
 
 function App() {
   return (
