@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Pie, Line } from "react-chartjs-2";
+import { Pie, Line, Bar } from "react-chartjs-2";
 import {
   Chart,
+  Filler,
   ArcElement,
   Tooltip,
   Legend,
@@ -10,14 +11,23 @@ import {
   CategoryScale,
   LinearScale,
   PointElement,
+  BarElement,
 } from "chart.js";
 import "chartjs-plugin-annotation";
 import annotationPlugin from "chartjs-plugin-annotation";
 import Home from "./Home.js";
 import "./App.css"; // Import the CSS file for styles
 
+// Set global default font color
+Chart.defaults.color = '#f7f1e1';
+Chart.defaults.plugins.legend.labels.color = '#f7f1e1';
+Chart.defaults.plugins.tooltip.titleColor = '#f7f1e1';
+Chart.defaults.plugins.tooltip.bodyColor = '#f7f1e1';
+Chart.defaults.scale.ticks.color = '#f7f1e1';
+
 // Register the necessary components for Chart.js
 Chart.register(
+  Filler,
   ArcElement,
   Tooltip,
   Legend,
@@ -25,6 +35,7 @@ Chart.register(
   CategoryScale,
   LinearScale,
   PointElement,
+  BarElement,
   annotationPlugin
 );
 
@@ -46,6 +57,10 @@ function CharacterData() {
   const [talentLineChartData, setTalentLineChartData] = useState(null); // State for the talent line chart data
   const [talentStatistics, setTalentStatistics] = useState(null); // State for the talent statistics
   const [talentRecommendation, setTalentRecommendation] = useState(null); // State for the talent recommendation
+
+  // Additional states for each bar chart
+  const [successRateChartData, setSuccessRateChartData] = useState(null);
+  const [avgScoreChartData, setAvgScoreChartData] = useState(null);
 
   // Attacks States
   const [attacksData, setAttacksData] = useState([]); // State for the list of attacks
@@ -110,6 +125,53 @@ function CharacterData() {
       fetchAndProcessTalents();
     }
   }, [selectedCharacter, sortColumn, sortDirection]);
+
+  // Updated useEffect hook for bar charts
+  useEffect(() => {
+    if (talentsData.length > 0) {
+      const sortedBySuccessRate = [...talentsData]
+        .filter((talent) => talent.talent_count >= 10)
+        .sort((a, b) => b.success_rate - a.success_rate);
+      const top5Success = sortedBySuccessRate.slice(0, 5);
+      const bottom5Success = sortedBySuccessRate.slice(-5);
+
+      const sortedByAvgScore = [...talentsData]
+        .filter((talent) => talent.talent_count >= 10)
+        .sort((a, b) => b.avg_score - a.avg_score);
+      const top5AvgScore = sortedByAvgScore.slice(0, 5);
+      const bottom5AvgScore = sortedByAvgScore.slice(-5);
+
+      setSuccessRateChartData({
+        labels: [...top5Success, ...bottom5Success].map(
+          (talent) => talent.talent
+        ),
+        datasets: [
+          {
+            label: "Success Rate",
+            data: [...top5Success, ...bottom5Success].map(
+              (talent) => talent.success_rate
+            ),
+            backgroundColor: "rgba(75, 192, 192, 0.5)",
+          },
+        ],
+      });
+
+      setAvgScoreChartData({
+        labels: [...top5AvgScore, ...bottom5AvgScore].map(
+          (talent) => talent.talent
+        ),
+        datasets: [
+          {
+            label: "Average Score",
+            data: [...top5AvgScore, ...bottom5AvgScore].map(
+              (talent) => talent.avg_score
+            ),
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
+        ],
+      });
+    }
+  }, [talentsData]);
 
   const processTalents = (talents) => {
     const talentArray = Object.entries(talents).map(([talent, metrics]) => {
@@ -469,6 +531,61 @@ function CharacterData() {
     },
   };
 
+  // JSX for success rate bar chart
+  const renderSuccessRateBarChart = successRateChartData && (
+    <Bar
+      data={successRateChartData}
+      options={{
+          scales: {
+            y: {
+              type: "linear",
+              display: true,
+              position: "left",
+              min: 0,
+              max: 1, // Assuming success rate is between 0 and 1
+              title: {
+                display: true,
+                text: "Success Rate",
+              },
+            },
+            x: {
+              title: {
+                display: true,
+                text: "Talent",
+              },
+            },
+        },
+      }}
+    />
+  );
+
+  // JSX for average score bar chart
+  const renderAvgScoreBarChart = avgScoreChartData && (
+    <Bar
+      data={avgScoreChartData}
+      options={{
+        scales: {
+          y: {
+            type: "linear",
+            display: true,
+            position: "left",
+            // Adjust min and max according to your data
+            title: {
+              display: true,
+              text: "Average Score",
+            },
+          },
+          x: {
+            title: {
+              display: true,
+              text: "Talent",
+            },
+          },
+        },
+      }}
+    />
+  );
+
   return (
     <>
       <div>
@@ -527,6 +644,16 @@ function CharacterData() {
                   data={categoriesRelativePieChart}
                   options={categoriesPieChartOptions}
                 />
+              </div>
+            </div>
+            <div className="content-container">
+              <div className="chart-container">
+                <h2>Top and Bottom Talents - Successrate</h2>
+                {renderSuccessRateBarChart}
+              </div>
+              <div className="chart-container">
+                <h2>Top and Bottom Talents - Average score</h2>
+                {renderAvgScoreBarChart}
               </div>
             </div>
             <div className="content-container">
