@@ -26,6 +26,11 @@ const BarChart = ({ data }) => {
   };
 
   const chartOptions = {
+    layout: {
+        padding: {
+            top: 30,
+        }
+    },
     plugins: {
         datalabels: {
           anchor: 'end',
@@ -33,6 +38,10 @@ const BarChart = ({ data }) => {
           formatter: (value) => {
             return value === 0 ? '' : value;
           }, // Display the value as it is
+        },
+        legend: {
+          onClick: (e) => false,
+          display: false,
         },
     },
     scales: {
@@ -53,8 +62,6 @@ const BarChart = ({ data }) => {
       },
     },
   };
-
-  console.log(data)
 
   return <Bar data={chartData} options={chartOptions} plugins={[ChartDataLabels]}/>;
 };
