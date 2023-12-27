@@ -21,6 +21,7 @@ import "../App.css"; // Import the CSS file for styles
 // import Chart modules
 import LineChart from "../components/charts/LineChart.js";
 import BarChart from "../components/charts/BarChart.js";
+import PieChart from "../components/charts/PieChart.js";
 
 // Register the necessary components for Chart.js
 Chart.register(
@@ -220,7 +221,9 @@ function CharacterData() {
     let valueB = b[sortColumn];
 
     if (sortColumn === "talent") {
-      return sortDirection === "asc" ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+      return sortDirection === "asc"
+        ? valueA.localeCompare(valueB)
+        : valueB.localeCompare(valueA);
     }
 
     // Assuming values are numbers or strings
@@ -404,123 +407,6 @@ function CharacterData() {
     }
   };
 
-  // Options for the pie chart
-  const traitsPieChartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    layout: {
-      padding: 40,
-    },
-    plugins: {
-      legend: {
-        position: "right",
-        // Disable the default click behavior on the legend
-        onClick: (e) => false,
-      },
-      tooltip: {
-        callbacks: {
-          label: function (tooltipItem) {
-            const label = traitsRelativePieChart.labels[tooltipItem.dataIndex];
-            const percentage = Math.round(
-              traitsRelativePieChart.datasets[0].data[tooltipItem.dataIndex]
-            );
-            return `${label}: ${percentage}%`;
-          },
-        },
-      },
-    },
-  };
-
-  // Data for the traits pie chart
-  const traitsRelativePieChart = {
-    labels: traitCount.map((trait) => trait.item),
-    datasets: [
-      {
-        data: traitCount.map((trait) => Math.round(trait.count * 100)),
-        backgroundColor: [
-          "#FF6384", // Red
-          "#36A2EB", // Blue
-          "#FFCE56", // Yellow
-          "#4BC0C0", // Teal
-          "#9966FF", // Purple
-          "#FF9F40", // Orange
-          "#C9CBCF", // Light Grey
-          "#77C34F", // Green
-        ],
-        hoverBackgroundColor: [
-          "#FF6384", // Red
-          "#36A2EB", // Blue
-          "#FFCE56", // Yellow
-          "#4BC0C0", // Teal
-          "#9966FF", // Purple
-          "#FF9F40", // Orange
-          "#C9CBCF", // Light Grey
-          "#77C34F", // Green
-        ],
-      },
-    ],
-  };
-
-  // Data for the category pie chart
-  const categoriesRelativePieChart = {
-    labels: categoryCount.map((category) => category.item),
-    datasets: [
-      {
-        data: categoryCount.map((category) => Math.round(category.count * 100)),
-        backgroundColor: [
-          "#FF6384", // Red
-          "#36A2EB", // Blue
-          "#FFCE56", // Yellow
-          "#4BC0C0", // Teal
-          "#9966FF", // Purple
-          "#FF9F40", // Orange
-          "#C9CBCF", // Light Grey
-          "#77C34F", // Green
-        ],
-        hoverBackgroundColor: [
-          "#FF6384", // Red
-          "#36A2EB", // Blue
-          "#FFCE56", // Yellow
-          "#4BC0C0", // Teal
-          "#9966FF", // Purple
-          "#FF9F40", // Orange
-          "#C9CBCF", // Light Grey
-          "#77C34F", // Green
-        ],
-      },
-    ],
-  };
-
-  // Options for the categories pie chart
-  const categoriesPieChartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    layout: {
-      padding: 40,
-    },
-    plugins: {
-      legend: {
-        position: "right",
-        onClick: (e) => false,
-      },
-      tooltip: {
-        callbacks: {
-          label: function (tooltipItem) {
-            const label =
-              categoriesRelativePieChart.labels[tooltipItem.dataIndex];
-            const percentage = Math.round(
-              categoriesRelativePieChart.datasets[0].data[tooltipItem.dataIndex]
-            );
-            return `${label}: ${percentage}%`;
-          },
-        },
-      },
-    },
-  };
-
-  // Then, use this options object when rendering the categories pie chart:
-  <Pie data={categoriesRelativePieChart} options={categoriesPieChartOptions} />;
-
   // JSX for success rate bar chart
   const renderSuccessRateBarChart = successRateChartData && (
     <BarChart data={successRateChartData} />
@@ -576,19 +462,13 @@ function CharacterData() {
                 {" "}
                 {/* Container for the trait chart */}
                 <h2>Trait Usage Distribution</h2>
-                <Pie
-                  data={traitsRelativePieChart}
-                  options={traitsPieChartOptions}
-                />
+                <PieChart items={traitCount} />
               </div>
               <div className="chart-container">
                 {" "}
                 {/* Container for the category chart */}
                 <h2>Category Usage Distribution</h2>
-                <Pie
-                  data={categoriesRelativePieChart}
-                  options={categoriesPieChartOptions}
-                />
+                <PieChart items={categoryCount} />
               </div>
             </div>
             <div className="content-container">
