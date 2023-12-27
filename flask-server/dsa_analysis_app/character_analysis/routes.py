@@ -23,15 +23,13 @@ def get_talents(character_name):
     # Call the character_analysis.py script with necessary arguments
     try:
         talents_output = character_analysis.get_character_talents(character_name)
-        logger.debug(f'Getting talents of:  {character_name}: {talents_output}')
+        logger.debug(f'Getting talents of: {character_name}')
         traits_values_output = character_analysis.get_character_traits_values(character_name)
-        #logger.debug(f'Getting traits values of:  {character_name}')
+        logger.debug(f'Getting traits values of: {character_name}')
         traits_relative_output = character_analysis.get_character_relative_traits_usage(character_name)
-        #logger.debug(f'Getting traits distribution usage of:  {character_name}')
+        logger.debug(f'Getting traits distribution usage of: {character_name}')
         categories_relative_output = character_analysis.get_character_relative_talents_categories_usage(character_name)
-        #logger.debug(f'Getting categories distribution usage of:  {character_name}')
-        attacks_output = character_analysis.get_character_attacks(character_name)
-        logger.debug(f'Getting attacks of:  {character_name}: {attacks_output}')
+        logger.debug(f'Getting categories distribution usage of: {character_name}')
     except Exception as error:
         logger.error(f'Error getting values for {character_name}: {error}')
 
@@ -41,7 +39,6 @@ def get_talents(character_name):
         "traits_values": traits_values_output,
         "categories_relative": categories_relative_output
     }
-    #logger.debug(f'Test for Categories for:  {character_name}, : {categories_relative_output}')
     return jsonify(data)
 
 @character_analysis_blueprint.route('/analyze-talent', methods=['POST'])
@@ -58,11 +55,11 @@ def analyze_talent():
     # Call the character_analysis.py script with necessary arguments
     try:
         talent_statistics = character_analysis.get_character_talent_statistics(character_name, talent_name)
-        logger.debug(f'Talent Statistics of:  {character_name}, : {talent_statistics}')
+        logger.debug(f'Talent Statistics of:  {character_name}, {talent_name}')
         talent_line_chart_output = character_analysis.get_character_talent_line_chart(character_name, talent_name)
-        logger.debug(f'Talent Line Chart of:  {character_name}, : {talent_line_chart_output}')
+        logger.debug(f'Talent Line Chart of:  {character_name}, {talent_name}')
         talent_investment_recommendation = character_analysis.get_character_talent_investment_recommendation(talent_statistics)
-        logger.debug(f'Talent Investment Recommendation of:  {character_name}, : {talent_investment_recommendation}')
+        logger.debug(f'Talent Investment Recommendation of:  {character_name}, {talent_name}')
 
     except Exception as error:
         logger.error(f'Error getting values for {character_name}: {error}')
@@ -85,7 +82,7 @@ def get_attacks(character_name):
     # Call the character_analysis.py script with necessary arguments
     try:
         attacks_output = character_analysis.get_character_attacks(character_name)
-        logger.debug(f'Getting attacks of:  {character_name}: {attacks_output}')
+        logger.debug(f'Getting attacks of:  {character_name}')
     except Exception as error:
         logger.error(f'Error getting values for {character_name}: {error}')
 
@@ -108,9 +105,9 @@ def analyze_attack():
     # Call the character_analysis.py script with necessary arguments
     try:
         attack_statistics = character_analysis.get_character_attack_statistics(character_name, attack_name)
-        logger.debug(f'Attack Statistics of:  {character_name}, : {attack_statistics}')
+        logger.debug(f'Attack Statistics of:  {character_name}, {attack_name}')
         attack_line_chart_output = character_analysis.get_character_attack_line_chart(character_name, attack_name)
-        logger.debug(f'Attack Line Chart of:  {character_name}, : {attack_line_chart_output}')
+        logger.debug(f'Attack Line Chart of:  {character_name}, {attack_name}')
 
     except Exception as error:
         logger.error(f'Error getting values for {character_name}: {error}')
