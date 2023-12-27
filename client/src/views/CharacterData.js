@@ -37,11 +37,11 @@ Chart.register(
 );
 
 // Set global default font color
-Chart.defaults.color = '#f7f1e1';
-Chart.defaults.plugins.legend.labels.color = '#f7f1e1';
-Chart.defaults.plugins.tooltip.titleColor = '#f7f1e1';
-Chart.defaults.plugins.tooltip.bodyColor = '#f7f1e1';
-Chart.defaults.scale.ticks.color = '#f7f1e1';
+Chart.defaults.color = "#f7f1e1";
+Chart.defaults.plugins.legend.labels.color = "#f7f1e1";
+Chart.defaults.plugins.tooltip.titleColor = "#f7f1e1";
+Chart.defaults.plugins.tooltip.bodyColor = "#f7f1e1";
+Chart.defaults.scale.ticks.color = "#f7f1e1";
 
 function CharacterData() {
   // Character States
@@ -132,59 +132,78 @@ function CharacterData() {
 
   useEffect(() => {
     if (talentsData.length > 0) {
-      const filteredTalents = talentsData.filter(talent => talent.talent_count >= 10);
-  
-      const sortedBySuccessRate = [...filteredTalents]
-        .sort((a, b) => b.success_rate - a.success_rate);
-  
-      const sortedByAvgScore = [...filteredTalents]
-        .sort((a, b) => b.avg_score - a.avg_score);
-  
+      const filteredTalents = talentsData.filter(
+        (talent) => talent.talent_count >= 10
+      );
+
+      const sortedBySuccessRate = [...filteredTalents].sort(
+        (a, b) => b.success_rate - a.success_rate
+      );
+
+      const sortedByAvgScore = [...filteredTalents].sort(
+        (a, b) => b.avg_score - a.avg_score
+      );
+
       // Determine the count for top and bottom talents
       let topCount = Math.min(5, Math.ceil(filteredTalents.length / 2));
       let bottomCount = Math.min(5, Math.floor(filteredTalents.length / 2));
-  
+
       // Adjust count if 3rd and 6th elements are the same
-      if (filteredTalents.length === 6 && sortedBySuccessRate[2].success_rate === sortedBySuccessRate[5].success_rate) {
+      if (
+        filteredTalents.length === 6 &&
+        sortedBySuccessRate[2].success_rate ===
+          sortedBySuccessRate[5].success_rate
+      ) {
         topCount = 3;
         bottomCount = 2;
       }
-  
+
       const topSuccess = sortedBySuccessRate.slice(0, topCount);
       const bottomSuccess = sortedBySuccessRate.slice(-bottomCount);
-  
+
       const topAvgScore = sortedByAvgScore.slice(0, topCount);
       const bottomAvgScore = sortedByAvgScore.slice(-bottomCount);
-  
+
       // Function to fill gaps for less than 10 talents
       const fillGaps = (array, count) => {
         while (array.length < count) {
-          array.push({ talent: '', success_rate: null, avg_score: null });
+          array.push({ talent: "", success_rate: null, avg_score: null });
         }
         return array;
       };
-  
+
       setSuccessRateChartData({
-        labels: [...fillGaps(topSuccess, 5), ...fillGaps(bottomSuccess, 5)].map(talent => talent.talent),
-        datasets: [{
-          label: "Success Rate",
-          data: [...topSuccess, ...bottomSuccess].map(talent => talent.success_rate || 0),
-          backgroundColor: "rgba(75, 192, 192, 0.5)",
-        }],
+        labels: [...fillGaps(topSuccess, 5), ...fillGaps(bottomSuccess, 5)].map(
+          (talent) => talent.talent
+        ),
+        datasets: [
+          {
+            label: "Success Rate",
+            data: [...topSuccess, ...bottomSuccess].map(
+              (talent) => talent.success_rate || 0
+            ),
+            backgroundColor: "rgba(75, 192, 192, 0.5)",
+          },
+        ],
       });
-  
+
       setAvgScoreChartData({
-        labels: [...fillGaps(topAvgScore, 5), ...fillGaps(bottomAvgScore, 5)].map(talent => talent.talent),
-        datasets: [{
-          label: "Average Score",
-          data: [...topAvgScore, ...bottomAvgScore].map(talent => talent.avg_score || 0),
-          backgroundColor: "rgba(255, 99, 132, 0.5)",
-        }],
+        labels: [
+          ...fillGaps(topAvgScore, 5),
+          ...fillGaps(bottomAvgScore, 5),
+        ].map((talent) => talent.talent),
+        datasets: [
+          {
+            label: "Average Score",
+            data: [...topAvgScore, ...bottomAvgScore].map(
+              (talent) => talent.avg_score || 0
+            ),
+            backgroundColor: "rgba(255, 99, 132, 0.5)",
+          },
+        ],
       });
     }
   }, [talentsData]);
-  
-
 
   const processTalents = (talents) => {
     const talentArray = Object.entries(talents).map(([talent, metrics]) => {
@@ -197,8 +216,12 @@ function CharacterData() {
   // In your component's render method, before returning the JSX
   // Simplified sorting logic for demonstration
   const sortedTalentsData = [...talentsData].sort((a, b) => {
-    const valueA = a[sortColumn];
-    const valueB = b[sortColumn];
+    let valueA = a[sortColumn];
+    let valueB = b[sortColumn];
+
+    if (sortColumn === "talent") {
+      return sortDirection === "asc" ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+    }
 
     // Assuming values are numbers or strings
     return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
@@ -238,7 +261,6 @@ function CharacterData() {
 
   const processAttacks = (attacks) => {
     const attackArray = Object.entries(attacks).map(([attack, value]) => {
-      console.log(attack, value);
       return { item: attack, count: value };
     });
 
@@ -257,7 +279,7 @@ function CharacterData() {
     setAttackLineChartData(null);
     setAttacksData([]);
     setAttackStatistics(null);
-    console.log(e);
+    console.log("Selected Character: ", e.target.value);
   };
 
   // Function to handle talent row click
@@ -627,9 +649,7 @@ function CharacterData() {
                 <div className="table-container">
                   <div className="line-chart-container">
                     <h2>{`Usage of ${selectedTalent}`}</h2>
-                    <LineChart
-                      data={talentLineChartData}
-                    />
+                    <LineChart data={talentLineChartData} />
                   </div>
                   {talentStatistics && (
                     <div className="talent-statistics-container">
