@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Pie } from "react-chartjs-2";
 import {
   Chart,
   Filler,
@@ -305,6 +304,8 @@ function CharacterData() {
         talent_investment_recommendation,
       } = response.data;
 
+      setTalentLineChartData(talent_line_chart);
+
       // Adjust according to the total attempts
       const reorderedStats = {
         "Total Attempts": talent_statistics["Total Attempts"],
@@ -324,24 +325,6 @@ function CharacterData() {
       };
 
       setTalentStatistics(reorderedStats);
-
-      // Assuming response.data is the data needed for the line chart
-      setTalentLineChartData({
-        labels: talent_line_chart.map((_, index) => `Attempt ${index + 1}`),
-        datasets: [
-          {
-            label: talentName,
-            data: talent_line_chart,
-            fill: {
-              target: "origin",
-              below: "rgb(180, 63, 63)",
-              above: "rgb(75, 192, 192)",
-            },
-            borderColor: "rgb(75, 192, 192)",
-            borderWidth: 2.5,
-          },
-        ],
-      });
 
       setTalentRecommendation(talent_investment_recommendation);
     } catch (error) {
@@ -365,6 +348,8 @@ function CharacterData() {
 
       const { attack_statistics, attack_line_chart } = response.data;
 
+      setAttackLineChartData(attack_line_chart);
+
       // Adjust according to the total attempts
       const reorderedStats = {
         "Total Attempts": attack_statistics["Total Attempts"],
@@ -384,38 +369,11 @@ function CharacterData() {
       };
 
       setAttackStatistics(reorderedStats);
-
-      // Assuming response.data is the data needed for the line chart
-      setAttackLineChartData({
-        labels: attack_line_chart.map((_, index) => `Attempt ${index + 1}`),
-        datasets: [
-          {
-            label: attackName,
-            data: attack_line_chart,
-            fill: {
-              target: "origin",
-              below: "rgb(180, 63, 63)",
-              above: "rgb(75, 192, 192)",
-            },
-            borderColor: "rgb(75, 192, 192)",
-            borderWidth: 2.5,
-          },
-        ],
-      });
+      
     } catch (error) {
       console.error("Error fetching attack line chart data", error);
     }
   };
-
-  // JSX for success rate bar chart
-  const renderSuccessRateBarChart = successRateChartData && (
-    <BarChart data={successRateChartData} />
-  );
-
-  // JSX for average score bar chart
-  const renderAvgScoreBarChart = avgScoreChartData && (
-    <BarChart data={avgScoreChartData} />
-  );
 
   return (
     <>
@@ -474,11 +432,13 @@ function CharacterData() {
             <div className="content-container">
               <div className="chart-container">
                 <h2>Best 5 and Worst 5 Talents By Successrate</h2>
-                {renderSuccessRateBarChart}
+                {successRateChartData && (
+                  <BarChart data={successRateChartData} />
+                )}
               </div>
               <div className="chart-container">
                 <h2>Best 5 and Worst 5 Talents by Average score</h2>
-                {renderAvgScoreBarChart}
+                {avgScoreChartData && <BarChart data={avgScoreChartData} />}
               </div>
             </div>
             <div className="content-container">
