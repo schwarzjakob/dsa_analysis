@@ -53,6 +53,13 @@ const BarChart = ({ data }) => {
           display: true,
           text: data.datasets[0].label,
         },
+        grid: {
+            color: (context) => {
+              if (context.tick.value === 0) {
+                return "rgba(255,255,255,1)";
+              }
+            },
+          },
       },
       x: {
         title: {

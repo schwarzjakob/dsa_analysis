@@ -352,6 +352,10 @@ h2 {
   text-align: left; /* Align text to the left */
 }
 
+.table-container th:first-child,
+.table-container td:first-child {
+  width: 40%; /* Adjusts width for the first column */
+}
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
