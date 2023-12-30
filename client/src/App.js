@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CharacterData from './views/CharacterData'
+import CharacterData from './views/CharacterDashboard'
 import Login from './views/Login';
 import StartScreen from './views/StartScreen';
 import CharacterManagement from './views/CharacterManagement';
