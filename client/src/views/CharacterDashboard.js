@@ -57,24 +57,24 @@ function CharacterData() {
 
   // Talents States
   const [talentsData, setTalentsData] = useState([]); // State for the list of talents
+  // Additional states for each bar chart
+  const [successRateChartData, setSuccessRateChartData] = useState(null);
+  const [avgScoreChartData, setAvgScoreChartData] = useState(null);
+  // Add state variables for sort column and direction
+  const [talentsSortDirection, setTalentsSortDirection] = useState("desc");
+  const [attacksSortDirection, setAttackSortDirection] = useState("desc");
+  
+  // Talent States
   const [selectedTalent, setSelectedTalent] = useState(""); // State for the selected talent
   const [talentLineChartData, setTalentLineChartData] = useState(null); // State for the talent line chart data
   const [talentStatistics, setTalentStatistics] = useState(null); // State for the talent statistics
   const [talentRecommendation, setTalentRecommendation] = useState(null); // State for the talent recommendation
-
-  // Additional states for each bar chart
-  const [successRateChartData, setSuccessRateChartData] = useState(null);
-  const [avgScoreChartData, setAvgScoreChartData] = useState(null);
 
   // Attacks States
   const [attacksData, setAttacksData] = useState([]); // State for the list of attacks
   const [selectedAttack, setSelectedAttack] = useState(""); // State for the selected attack
   const [attackLineChartData, setAttackLineChartData] = useState(null); // State for the attack line chart data
   const [attackStatistics, setAttackStatistics] = useState(null); // State for the attack statistics
-
-  // Add state variables for sort column and direction
-  const [sortColumn, setSortColumn] = useState("talent_count");
-  const [sortDirection, setSortDirection] = useState("desc");
 
   useEffect(() => {
     // Fetch characters for selection
@@ -128,9 +128,10 @@ function CharacterData() {
       };
       fetchAndProcessTalents();
     }
-  }, [selectedCharacter, sortColumn, sortDirection]);
+  }, [selectedCharacter]);
 
   useEffect(() => {
+    // Process data for bar charts
     if (talentsData.length > 0) {
       const filteredTalents = talentsData.filter(
         (talent) => talent.talent_count >= 10
@@ -205,54 +206,21 @@ function CharacterData() {
     }
   }, [talentsData]);
 
-  const processTalents = (talents) => {
-    const talentArray = Object.entries(talents).map(([talent, metrics]) => {
-      return { talent, ...metrics };
-    });
-
-    return talentArray;
-  };
-
-  // In your component's render method, before returning the JSX
-  // Simplified sorting logic for demonstration
-  const sortedTalentsData = [...talentsData].sort((a, b) => {
-    let valueA = a[sortColumn];
-    let valueB = b[sortColumn];
-
-    if (sortColumn === "talent") {
-      return sortDirection === "asc"
-        ? valueA.localeCompare(valueB)
-        : valueB.localeCompare(valueA);
-    }
-
-    // Assuming values are numbers or strings
-    return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
-  });
-
-  // Add handleSort function to update sortColumn and sortDirection
-  const handleSort = (column) => {
-    if (column === sortColumn) {
-      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-      console.log(sortDirection);
-    } else {
-      setSortColumn(column);
-      setSortDirection("desc");
-      console.log(column);
-    }
-  };
-
+  // Function to process traits data
   const processTraits = (traits_relative) => {
     return Object.entries(traits_relative).map(([trait, relativeUsage]) => {
       return { item: trait, count: relativeUsage };
     });
   };
 
+  // Function to process traits values data
   const processTraitsValues = (traits_values) => {
     return Object.entries(traits_values).map(([trait, relativeUsage]) => {
       return { item: trait, count: relativeUsage };
     });
   };
 
+  // Function to process category data
   const processCategoryCount = (categories_relative) => {
     return Object.entries(categories_relative).map(
       ([category, relativeUsage]) => {
@@ -261,9 +229,39 @@ function CharacterData() {
     );
   };
 
+  // Function to process talents data
+  const processTalents = (talents) => {
+    const talentArray = Object.entries(talents).map(([talent, metrics]) => {
+      return {talent, ...metrics };
+    });
+
+    talentArray.sort((a, b) => a.order - b.order);
+
+    return talentArray;
+  };
+
+  const handleSort = (data, setData, sortKey, currentDirection, setDirection) => {
+    const sortedData = [...data].sort((a, b) => {
+      let valueA = a[sortKey];
+      const valueB = b[sortKey];
+      console.log(data)
+
+    if (typeof valueA === "string") {
+      // Sort by string
+      return currentDirection === "asc" ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+    } else {
+      // Sort by number
+      return currentDirection === "asc" ? valueA - valueB : valueB - valueA;
+    }
+  });
+  setData(sortedData);
+  setDirection(currentDirection === "asc" ? "desc" : "asc");
+  };
+
+  // Function to process attacks data
   const processAttacks = (attacks) => {
     const attackArray = Object.entries(attacks).map(([attack, value]) => {
-      return { item: attack, count: value };
+      return { attack: attack, attack_count: value };
     });
 
     attackArray.sort((a, b) => b.count - a.count);
@@ -369,7 +367,6 @@ function CharacterData() {
       };
 
       setAttackStatistics(reorderedStats);
-      
     } catch (error) {
       console.error("Error fetching attack line chart data", error);
     }
@@ -449,26 +446,26 @@ function CharacterData() {
                 <table>
                   <thead>
                     <tr>
-                      <th onClick={() => handleSort("talent")}>Talent</th>
-                      <th onClick={() => handleSort("talent_count")}>
+                      <th onClick={() => handleSort(talentsData, setTalentsData, "talent", talentsSortDirection, setTalentsSortDirection)}>Talent</th>
+                      <th onClick={() => handleSort(talentsData, setTalentsData, "talent_count", talentsSortDirection, setTalentsSortDirection)}>
                         Frequency
                       </th>
-                      <th onClick={() => handleSort("success_rate")}>
+                      <th onClick={() => handleSort(talentsData, setTalentsData, "success_rate", talentsSortDirection, setTalentsSortDirection)}>
                         Success Rate
                       </th>
-                      <th onClick={() => handleSort("failure_rate")}>
+                      <th onClick={() => handleSort(talentsData, setTalentsData, "failure_rate", talentsSortDirection, setTalentsSortDirection)}>
                         Failure Rate
                       </th>
-                      <th onClick={() => handleSort("avg_score")}>
+                      <th onClick={() => handleSort(talentsData, setTalentsData, "avg_score", talentsSortDirection, setTalentsSortDirection)}>
                         Average Score
                       </th>
-                      <th onClick={() => handleSort("std_dev")}>
+                      <th onClick={() => handleSort(talentsData, setTalentsData, "std_dev", talentsSortDirection, setTalentsSortDirection)}>
                         Standard Deviation
                       </th>
                     </tr>
                   </thead>
                   <tbody className="body-container">
-                    {sortedTalentsData.map((item, index) => (
+                    {talentsData.map((item, index) => (
                       <tr
                         className="talent-list-row"
                         key={index}
@@ -526,8 +523,8 @@ function CharacterData() {
                 <table>
                   <thead>
                     <tr>
-                      <th>Attack</th>
-                      <th>Frequency</th>
+                      <th onClick={() => handleSort(attacksData, setAttacksData, "attack", attacksSortDirection, setAttackSortDirection)}>Attack</th>
+                      <th onClick={() => handleSort(attacksData, setAttacksData, "attack_count", attacksSortDirection, setAttackSortDirection)}>Frequency</th>
                     </tr>
                   </thead>
                   <tbody className="body-container">
@@ -535,10 +532,10 @@ function CharacterData() {
                       <tr
                         className="talent-list-row"
                         key={index}
-                        onClick={() => handleAttackClick(item.item)}
+                        onClick={() => handleAttackClick(item.attack)}
                       >
-                        <td>{item.item}</td>
-                        <td>{item.count}</td>
+                        <td>{item.attack}</td>
+                        <td>{item.attack_count}</td>
                       </tr>
                     ))}
                   </tbody>
