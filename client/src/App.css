@@ -266,14 +266,11 @@ h1, h2 {
 }
 
 /* Highlight selected row */
-.table-container tbody tr:hover {
+.table-container tbody tr:hover,
+table th:hover {
   background-color: #f7f1e1;
   color: #051011;
-}
-
-.talent-list-row:hover {
   cursor: pointer;
-  color: red;
 }
 
 /* Cell styles for both header and body */
