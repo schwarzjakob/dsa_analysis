@@ -8,6 +8,7 @@
 - [Why React developers should modularize their applications?](https://alexmngn.medium.com/why-react-developers-should-modularize-their-applications-d26d381854c1)
 - [What is Redux? Store, Actions, and Reducers Explained for Beginners](https://www.freecodecamp.org/news/what-is-redux-store-actions-reducers-explained/)
 - [Managing State](https://react.dev/learn/managing-state)
+- [How I structure my React projects](https://dev.to/larswaechter/how-i-structure-my-react-projects-jii)
 
 ### While working on the project
 
@@ -40,6 +41,7 @@
 6. [ ] Modularization of Frontend
    1. [x] Charts into modules (Pie, Line, Data)
    2. [x] Better sorting (reusable function, cleaner code)
+   3. [ ] Tables ?
 7. [ ] Remove webvitals
 8. [ ] Check how logger can be used more usefull
    1. [ ] Debugging all accessed scripts
