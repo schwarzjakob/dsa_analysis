@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 // Import custom hooks
 import { fetchCharacters } from "../hooks/characters/fetchCharacters.js";
 import { fetchAndProcessData } from "../hooks/characters/character/fetchAndProcessCharacterData.js";
+import { fetchAndProcessTalentData } from "../hooks/characters/character/fetchAndProcessTalentData.js";
+import { fetchAndProcessAttackData } from "../hooks/characters/character/fetchAndProcessAttackData.js";
 
 import {
   Chart,
@@ -190,6 +191,7 @@ function CharacterData() {
     currentDirection,
     setDirection
   ) => {
+    // Sort the data by the given key and direction
     const sortedData = [...data].sort((a, b) => {
       let valueA = a[sortKey];
       const valueB = b[sortKey];
@@ -210,6 +212,7 @@ function CharacterData() {
   };
 
   const handleCharacterChange = (e) => {
+    // Set the selected character and reset the data
     setSelectedCharacter(e.target.value);
     setSelectedTalent("");
     setTalentLineChartData(null);
@@ -223,94 +226,25 @@ function CharacterData() {
     console.log("Selected Character: ", e.target.value);
   };
 
-  // Function to handle talent row click
   const handleTalentClick = async (talentName) => {
-    try {
-      setSelectedTalent(talentName);
-      console.log(selectedCharacter, talentName);
+    // Set the selected talent and fetch the data
+    setSelectedTalent(talentName);
+    console.log(selectedCharacter, talentName);
 
-      const response = await axios.post(
-        `http://127.0.0.1:5000/character_analysis/analyze-talent`,
-        {
-          characterName: selectedCharacter,
-          talentName: talentName,
-        }
-      );
-
-      const {
-        talent_statistics,
-        talent_line_chart,
-        talent_investment_recommendation,
-      } = response.data;
-
-      setTalentLineChartData(talent_line_chart);
-
-      // Adjust according to the total attempts
-      const reorderedStats = {
-        "Total Attempts": talent_statistics["Total Attempts"],
-        Succeses: talent_statistics["Successes"],
-        Failures: talent_statistics["Failures"],
-        ...(talent_statistics["Total Attempts"] < 50
-          ? { "Average Total": talent_statistics["Average Total"] }
-          : {
-              "Average First 30 Attempts":
-                talent_statistics["Average First 30 Attempts"],
-              "Average Last 30 Attempts":
-                talent_statistics["Average Last 30 Attempts"],
-            }),
-        "Max Score": talent_statistics["Max Score"],
-        "Min Score": talent_statistics["Min Score"],
-        "Standard Deviation": talent_statistics["Standard Deviation"],
-      };
-
-      setTalentStatistics(reorderedStats);
-
-      setTalentRecommendation(talent_investment_recommendation);
-    } catch (error) {
-      console.error("Error fetching talent line chart data", error);
-    }
+    const data = await fetchAndProcessTalentData(selectedCharacter, talentName);
+    setTalentLineChartData(data.talentLineChartData);
+    setTalentStatistics(data.talentStatistics);
+    setTalentRecommendation(data.talentRecommendation);
   };
 
-  // Function to handle attack row click
   const handleAttackClick = async (attackName) => {
-    try {
-      setSelectedAttack(attackName);
-      console.log(selectedCharacter, attackName);
+    // Set the selected attack and fetch the data
+    setSelectedAttack(attackName);
+    console.log(selectedCharacter, attackName);
 
-      const response = await axios.post(
-        `http://127.0.0.1:5000/character_analysis/analyze-attack`,
-        {
-          characterName: selectedCharacter,
-          attackName: attackName,
-        }
-      );
-
-      const { attack_statistics, attack_line_chart } = response.data;
-
-      setAttackLineChartData(attack_line_chart);
-
-      // Adjust according to the total attempts
-      const reorderedStats = {
-        "Total Attempts": attack_statistics["Total Attempts"],
-        Succeses: attack_statistics["Successes"],
-        Failures: attack_statistics["Failures"],
-        ...(attack_statistics["Total Attempts"] < 50
-          ? { "Average Total": attack_statistics["Average Total"] }
-          : {
-              "Average First 30 Attempts":
-                attack_statistics["Average First 30 Attempts"],
-              "Average Last 30 Attempts":
-                attack_statistics["Average Last 30 Attempts"],
-            }),
-        "Max Score": attack_statistics["Max Score"],
-        "Min Score": attack_statistics["Min Score"],
-        "Standard Deviation": attack_statistics["Standard Deviation"],
-      };
-
-      setAttackStatistics(reorderedStats);
-    } catch (error) {
-      console.error("Error fetching attack line chart data", error);
-    }
+    const data = await fetchAndProcessAttackData(selectedCharacter, attackName);
+    setAttackLineChartData(data.attackLineChartData);
+    setAttackStatistics(data.attackStatistics);
   };
 
   return (
