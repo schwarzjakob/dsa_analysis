@@ -267,7 +267,7 @@ h1, h2 {
 
 /* Highlight selected row */
 .table-container tbody tr:hover,
-table th:hover {
+.table-container th:hover {
   background-color: #f7f1e1;
   color: #051011;
   cursor: pointer;
