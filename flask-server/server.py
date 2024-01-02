@@ -10,6 +10,9 @@ load_dotenv()
 sys.path.append('/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/dsa_analysis_app')
 from dsa_analysis_app import create_app
 
+# TB: I wouldn't outsource the mounting of the controllers/blueprints to a separate file.
+#     It just adds more indirection and makes it harder to understand the code.
+#     This file is called server so I expect to see the server setup (i.e. controller mounting) here.
 app = create_app()
 CORS(app, resources={r"/*": {"origins": "*"}})
 
