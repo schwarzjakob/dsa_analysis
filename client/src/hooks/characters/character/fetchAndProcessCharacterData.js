@@ -72,10 +72,10 @@ const processTalents = (talents) => {
 
 // Function to process traits data
 const processAttacks = (attacks) => {
-    const attackArray = Object.entries(attacks).map(([attack, value]) => {
-      return { attack: attack, attack_count: value };
+    const attackArray = Object.entries(attacks).map(([attack, metrics]) => {
+      return { attack, ...metrics };
     });
 
-    attackArray.sort((a, b) => b.count - a.count);
+    attackArray.sort((a, b) => b.order - a.order);
     return attackArray;
   };

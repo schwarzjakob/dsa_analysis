@@ -71,7 +71,6 @@ def get_character_talents(character_name):
     filtered_df = df[
         df[CHARACTER_KEY] == character_name
     ]  # Filter the DataFrame to only include the specified character
-    # talents_count = filtered_df[TALENT_KEY].value_counts() # Count the occurrences of each talent
     talents_metrics = filtered_df.groupby(TALENT_KEY).agg(
         talent_count=(TALENT_KEY, "count"),
         success_rate=("TaP/ZfP", lambda x: sum(x >= 0) / len(x)),
@@ -86,6 +85,7 @@ def get_character_talents(character_name):
     return talents_metrics.round(2).to_dict(
         orient="index"
     )  # Convert to dictionary and round values to two decimal places
+
 
 def get_character_talent_line_chart(character_name, talent):
     """Generates data for a talent line chart for a given character."""
@@ -180,7 +180,6 @@ def get_character_talent_investment_recommendation(talent_statistics):
     else:
         return "No need to invest further in this talent."
 
-
 # Attacks and attack statistics
 def get_character_attacks(character_name):
     """Gets attacks for a given character."""
@@ -188,13 +187,20 @@ def get_character_attacks(character_name):
     filtered_df = df[
         df[CHARACTER_KEY] == character_name
     ]  # Filter the DataFrame to only include the specified character
-    attacks_count = filtered_df[
-        TALENT_KEY
-    ].value_counts()  # Count the occurrences of each attack
-    return attacks_count.sort_values(
-        ascending=False
-    ).to_dict()  # Convert to dictionary and sort by descending order
-
+    attacks_metrics = filtered_df.groupby(TALENT_KEY).agg(
+        attack_count=(TALENT_KEY, "count"),
+        success_rate=("TaP/ZfP", lambda x: sum(x >= 0) / len(x)),
+        failure_rate=("TaP/ZfP", lambda x: sum(x < 0) / len(x)),
+        avg_score=("TaP/ZfP", "mean"),
+        std_dev=("TaP/ZfP", "std"),
+    )  # Calculate the performance metrics for each attack
+    attacks_metrics = attacks_metrics.fillna(0)  # Replace NaN values with 0
+    attacks_metrics = attacks_metrics.sort_values(
+        by="attack_count", ascending=False
+    )  # Sort by descending order of attack count
+    return attacks_metrics.round(2).to_dict(
+        orient="index"
+    )  # Convert to dictionary and round values to two decimal places
 
 def get_character_attack_line_chart(character_name, talent):
     df = pd.read_csv(ATTACKS_CSV)  # Read the CSV file into a DataFrame

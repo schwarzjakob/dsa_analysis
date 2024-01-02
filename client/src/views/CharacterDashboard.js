@@ -486,6 +486,58 @@ function CharacterData() {
                       >
                         Frequency
                       </th>
+                      <th
+                        onClick={() =>
+                          handleSort(
+                            attacksData,
+                            setAttacksData,
+                            "success_rate",
+                            attacksSortDirection,
+                            setAttackSortDirection
+                          )
+                        }
+                      >
+                        Success Rate
+                      </th>
+                      <th
+                        onClick={() =>
+                          handleSort(
+                            attacksData,
+                            setAttacksData,
+                            "failure_rate",
+                            attacksSortDirection,
+                            setAttackSortDirection
+                          )
+                        }
+                      >
+                        Failure Rate
+                      </th>
+                      <th
+                        onClick={() =>
+                          handleSort(
+                            attacksData,
+                            setAttacksData,
+                            "avg_score",
+                            attacksSortDirection,
+                            setAttackSortDirection
+                          )
+                        }
+                      >
+                        Average Score
+                      </th>
+                      <th
+                        onClick={() =>
+                          handleSort(
+                            attacksData,
+                            setAttacksData,
+                            "std_dev",
+                            attacksSortDirection,
+                            setAttackSortDirection
+                          )
+                        }
+                      >
+                        Standard Deviation
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="body-container">
@@ -497,6 +549,10 @@ function CharacterData() {
                       >
                         <td>{item.attack}</td>
                         <td>{item.attack_count}</td>
+                        <td>{item.success_rate}</td>
+                        <td>{item.failure_rate}</td>
+                        <td>{item.avg_score}</td>
+                        <td>{item.std_dev}</td>
                       </tr>
                     ))}
                   </tbody>

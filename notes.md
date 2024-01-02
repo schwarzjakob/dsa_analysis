@@ -46,7 +46,7 @@
    1. [ ] Debugging all accessed scripts
    2. [x] in multiple scripts logging is imported the same way. Not sure if that makes sense, might change that
 9.  [ ] Succes chance and expected value for next try of talents in the Talent, and Attack List table
-    1.  [ ] First, include the same metrics into the attack table
+    1.  [x] First, include the same metrics into the attack table
     2.  [ ] then create an .ipynb for data exploration
     3.  [ ] then success chance and expected value algorithm 
    1.  [ ] Need to determine current skill level of talent. (Current Traits already written down)
