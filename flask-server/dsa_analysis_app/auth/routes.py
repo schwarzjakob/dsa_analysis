@@ -1,6 +1,5 @@
 from . import google_auth_blueprint
-from flask import current_app, redirect, url_for, session, jsonify
-from .google_auth import google_authorization
+from flask import current_app, redirect, url_for, session
 from dsa_analysis_app.utils.logger_config import setup_logger
 
 logger = setup_logger(__name__)
