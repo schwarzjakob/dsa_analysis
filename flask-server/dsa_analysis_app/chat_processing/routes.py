@@ -3,14 +3,10 @@
 from flask import request, jsonify
 from . import chat_log_parser_blueprint
 from .chat_log_parser import DsaStats
-import logging
 import os
+from dsa_analysis_app.utils.logger_config import setup_logger
 
-# Configure logger
-logger = logging.getLogger(__name__)
-# Format containts the [time filename->funcName():lineno] level: message
-FORMAT = '[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s'
-logging.basicConfig(format=FORMAT, level=logging.DEBUG)
+logger = setup_logger(__name__)
 
 UPLOAD_FOLDER = './uploads'
 

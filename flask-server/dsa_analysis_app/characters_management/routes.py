@@ -2,12 +2,9 @@ from flask import request, jsonify
 from . import characters_management_blueprint
 import os
 import json
-import logging
+from dsa_analysis_app.utils.logger_config import setup_logger
 
-logger = logging.getLogger(__name__)
-# Format containts the [time filename->funcName():lineno] level: message
-FORMAT = '[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s'
-logging.basicConfig(format=FORMAT, level=logging.DEBUG)
+logger = setup_logger(__name__)
 
 # Character management routes
 @characters_management_blueprint.route("/characters", methods=['GET'])

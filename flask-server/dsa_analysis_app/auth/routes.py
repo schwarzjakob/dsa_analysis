@@ -1,11 +1,9 @@
 from . import google_auth_blueprint
 from flask import current_app, redirect, url_for, session, jsonify
 from .google_auth import google_auhtorization
-import logging
+from dsa_analysis_app.utils.logger_config import setup_logger
 
-logger = logging.getLogger(__name__)
-FORMAT = '%(asctime)-15s %(clientip)s %(user)-8s %(message)s'
-logging.basicConfig(format=FORMAT)
+logger = setup_logger(__name__)
 
 @google_auth_blueprint.route('/login')
 def login():

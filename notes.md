@@ -42,9 +42,9 @@
    1. [x] Charts into modules (Pie, Line, Data)
    2. [x] Better sorting (reusable function, cleaner code)
 7. [x] Remove webvitals
-8. [ ] Check how logger can be used more usefull
+8. [x] Check how logger can be used more usefull
    1. [ ] Debugging all accessed scripts
-   2. [ ] in multiple scripts logging is imported the same way. Not sure if that makes sense, might change that
+   2. [x] in multiple scripts logging is imported the same way. Not sure if that makes sense, might change that
 9.  [ ] Succes chance and expected value for next try of talents in the Talent, and Attack List table
     1.  [ ] First, include the same metrics into the attack table
     2.  [ ] then create an .ipynb for data exploration
