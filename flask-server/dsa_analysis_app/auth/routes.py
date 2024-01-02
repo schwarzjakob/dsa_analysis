@@ -8,7 +8,6 @@ logger = setup_logger(__name__)
 @google_auth_blueprint.route("/login")
 def login():
     google = current_app.config.get("google")
-    redirect_uri = url_for("google_auth.authorize", _external=True)
     logger.debug(f"Google: {google}")
     return google.authorize_redirect(
         redirect_uri=url_for("google_auth.authorize", _external=True)
