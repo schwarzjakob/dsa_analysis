@@ -1,8 +1,8 @@
 from . import google_auth_blueprint
 from flask import current_app, redirect, url_for, session
-from dsa_analysis_app.utils.logger_config import setup_logger
+import logging
 
-logger = setup_logger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @google_auth_blueprint.route("/login")

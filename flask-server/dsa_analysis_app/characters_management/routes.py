@@ -2,15 +2,16 @@ from flask import request, jsonify
 from . import characters_management_blueprint
 import os
 import json
-from dsa_analysis_app.utils.logger_config import setup_logger
+import logging
 
-logger = setup_logger(__name__)
+logger = logging.getLogger(__name__)
+
 
 # Character management routes
-@characters_management_blueprint.route("/characters", methods=['GET'])
+@characters_management_blueprint.route("/characters", methods=["GET"])
 def get_characters():
     try:
-        with open('./dsa_analysis_app/data/json/characters.json') as file:
+        with open("./dsa_analysis_app/data/json/characters.json") as file:
             characters_data = json.load(file)
         return characters_data
     except FileNotFoundError:
@@ -19,38 +20,45 @@ def get_characters():
         logger.error(f"Error getting characters: {e}")
         return "Error getting characters", 500
 
-@characters_management_blueprint.route('/add-alias', methods=['POST'])
+
+@characters_management_blueprint.route("/add-alias", methods=["POST"])
 def add_alias():
     # Logic to add alias
     return
 
-@characters_management_blueprint.route('/update-alias', methods=['POST'])
+
+@characters_management_blueprint.route("/update-alias", methods=["POST"])
 def update_alias():
     # Logic to update alias
     return
 
-@characters_management_blueprint.route('/archive-character', methods=['POST'])
+
+@characters_management_blueprint.route("/archive-character", methods=["POST"])
 def archive_character():
     try:
         character_data = request.json
         # Load current characters
-        with open('./dsa_analysis_app/data/json/characters.json', 'r') as file:
+        with open("./dsa_analysis_app/data/json/characters.json", "r") as file:
             characters = json.load(file)
-        
+
         # Find and remove the character to archive
-        characters["characters"] = [char for char in characters["characters"] if char["name"] != character_data["name"]]
+        characters["characters"] = [
+            char
+            for char in characters["characters"]
+            if char["name"] != character_data["name"]
+        ]
 
         # Update characters.json
-        with open('./dsa_analysis_app/data/json/characters.json', 'w') as file:
+        with open("./dsa_analysis_app/data/json/characters.json", "w") as file:
             json.dump(characters, file, indent=4)
 
         # Load archived characters
-        archived_file_path = './dsa_analysis_app/data/json/archived_characters.json'
+        archived_file_path = "./dsa_analysis_app/data/json/archived_characters.json"
         if not os.path.exists(archived_file_path):
-            with open(archived_file_path, 'w') as file:
+            with open(archived_file_path, "w") as file:
                 json.dump({"characters": []}, file)
 
-        with open(archived_file_path, 'r+') as file:
+        with open(archived_file_path, "r+") as file:
             archived_characters = json.load(file)
             archived_characters["characters"].append(character_data)
 
@@ -65,11 +73,12 @@ def archive_character():
         logger.error(f"Error archiving character: {e}")
         return jsonify({"error": "An error occurred"}), 500
 
-@characters_management_blueprint.route('/add-character', methods=['POST'])
+
+@characters_management_blueprint.route("/add-character", methods=["POST"])
 def add_character():
     try:
         character_data = request.json
-        with open('./dsa_analysis_app/data/json/characters.json', 'r+') as file:
+        with open("./dsa_analysis_app/data/json/characters.json", "r+") as file:
             characters = json.load(file)
             characters["characters"].append(character_data)
             file.seek(0)
