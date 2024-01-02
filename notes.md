@@ -41,14 +41,14 @@
 6. [ ] Modularization of Frontend
    1. [x] Charts into modules (Pie, Line, Data)
    2. [x] Better sorting (reusable function, cleaner code)
-   3. [ ] Tables ?
-7. [ ] Remove webvitals
+7. [x] Remove webvitals
 8. [ ] Check how logger can be used more usefull
    1. [ ] Debugging all accessed scripts
    2. [ ] in multiple scripts logging is imported the same way. Not sure if that makes sense, might change that
 9.  [ ] Succes chance and expected value for next try of talents in the Talent, and Attack List table
     1.  [ ] First, include the same metrics into the attack table
-    2.  [ ] then success chance and expected value algorithm
+    2.  [ ] then create an .ipynb for data exploration
+    3.  [ ] then success chance and expected value algorithm 
    1.  [ ] Need to determine current skill level of talent. (Current Traits already written down)
 10. [ ] Talent list -> Talent vertical bar chart
 11. [ ] Character insights
@@ -74,6 +74,7 @@
 16. [ ] Include list of spells for Wizards
    1. [ ] Setup Wizard attribute to Character
 17. [ ] Access to pages restricted to loggedin user (google login is first page but I could just change url to dodge this login)
+18. [ ] Review Chatparser.py (PEP8)
 
 ### Publish app
 
@@ -153,6 +154,11 @@ Given your application structure and components, a well-organized folder structu
 - I think the python code needs some refactoring regarding the flow and format of the data. Come up with a universal data format for your app and then pass this around instead of working with raw files. What's good is that you already tried to separate business logic (in their own modules) from the HTTP controllers. In the end, the controllers act only as an interface between the client and business logic. They are responsible for request and response validation (body, query, path, parameters, response status code), and error handling. All other logic should be in the business logic modules. I recommend removing all file-related stuff into its own module and interface for the data.
 
 ## Where I left off last time
+
+01.01.2024:
+- I further modularized the frontend and there is one Barchart processing still in the main dashboard but I am not sure if it makes sense to change it
+- Next up is webvitals accoring to Toms review and
+- reviewing the logger usage in the backend. The same code is written in each script. Might be possible to put it in a config instead
 
 30.12.2023:
 - I made the sorting for talents reusable and included it in the attacks table. That further allows to create the additional table columns for the attacks table and make them sortable as well.
