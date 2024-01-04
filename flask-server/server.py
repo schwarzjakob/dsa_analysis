@@ -19,7 +19,6 @@ load_dotenv()
 # Add the path to the directory containing the dsa_analysis_app package to the system path
 sys.path.append("/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/dsa_analysis_app")
 
-
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
