@@ -34,12 +34,8 @@ def get_character_relative_traits_usage(character_name):
     filtered_df = df[
         df[CHARACTER_KEY] == character_name
     ]  # Filter the DataFrame to only include the specified character
-    traits_count = filtered_df.drop(
-        columns=[CHARACTER_KEY]
-    ).sum()  # Sum the occurrences of each trait
-    relative_frequencies = (
-        traits_count / traits_count.sum()
-    )  # Calculate the relative frequency of each trait
+    traits_count = filtered_df.drop(columns=[CHARACTER_KEY]).sum()  # Sum the occurrences of each trait
+    relative_frequencies = traits_count / traits_count.sum()  # Calculate the relative frequency of each trait
     relative_freq_dict = relative_frequencies.round(
         2
     ).to_dict()  # Convert to dictionary and round values to two decimal places
@@ -52,12 +48,8 @@ def get_character_relative_talents_categories_usage(character_name):
     filtered_df = df[
         df[CHARACTER_KEY] == character_name
     ]  # Filter the DataFrame to only include the specified character
-    category_counts = filtered_df[
-        CATEGORY_KEY
-    ].value_counts()  # Count the occurrences of each category
-    relative_frequencies = (
-        category_counts / category_counts.sum()
-    )  # Calculate the relative frequency of each category
+    category_counts = filtered_df[CATEGORY_KEY].value_counts()  # Count the occurrences of each category
+    relative_frequencies = category_counts / category_counts.sum()  # Calculate the relative frequency of each category
     relative_freq_dict = relative_frequencies.round(
         2
     ).to_dict()  # Convert to dictionary and round values to two decimal places
@@ -112,29 +104,20 @@ def get_character_talent_statistics(character_name, talent):
 
     # Use overall average if attempts are less than 50, otherwise calculate first 30 and last 30
     if total_attempts < 50:
-        talent_statistics["Average Total"] = (
-            filtered_df[TALENT_POINTS_KEY].mean().round(2)
-        )
+        talent_statistics["Average Total"] = filtered_df[TALENT_POINTS_KEY].mean().round(2)
     else:
-        talent_statistics["Average First 30 Attempts"] = (
-            filtered_df.head(30)[TALENT_POINTS_KEY].mean().round(2)
-        )
-        talent_statistics["Average Last 30 Attempts"] = (
-            filtered_df.tail(30)[TALENT_POINTS_KEY].mean().round(2)
-        )
+        talent_statistics["Average First 30 Attempts"] = filtered_df.head(30)[TALENT_POINTS_KEY].mean().round(2)
+        talent_statistics["Average Last 30 Attempts"] = filtered_df.tail(30)[TALENT_POINTS_KEY].mean().round(2)
 
     talent_statistics["Successes"] = sum(filtered_df[TALENT_POINTS_KEY] > 0)
     talent_statistics["Failures"] = sum(filtered_df[TALENT_POINTS_KEY] <= 0)
     talent_statistics["Max Score"] = filtered_df[TALENT_POINTS_KEY].max()
     talent_statistics["Min Score"] = filtered_df[TALENT_POINTS_KEY].min()
-    talent_statistics["Standard Deviation"] = (
-        filtered_df[TALENT_POINTS_KEY].std().round(2)
-    )
+    talent_statistics["Standard Deviation"] = filtered_df[TALENT_POINTS_KEY].std().round(2)
 
     # Convert all int64 values to native Python integers
     talent_statistics = {
-        key: int(value) if isinstance(value, np.int64) else value
-        for key, value in talent_statistics.items()
+        key: int(value) if isinstance(value, np.int64) else value for key, value in talent_statistics.items()
     }
 
     return talent_statistics
@@ -146,26 +129,16 @@ def get_character_talent_investment_recommendation(talent_statistics):
     """
     # Define thresholds
     SUCCESS_RATE_THRESHOLD = 0.6  # Success rate below which improvement is needed
-    IMPROVEMENT_THRESHOLD = (
-        2  # Minimum improvement needed between first and last 30 attempts
-    )
-    CONSISTENCY_THRESHOLD = (
-        5  # Standard deviation threshold above which talent is considered inconsistent
-    )
+    IMPROVEMENT_THRESHOLD = 2  # Minimum improvement needed between first and last 30 attempts
+    CONSISTENCY_THRESHOLD = 5  # Standard deviation threshold above which talent is considered inconsistent
 
     # Calculate success rate
     success_rate = talent_statistics["Successes"] / talent_statistics["Total Attempts"]
 
     # Check for improvement over time
     improvement = 0
-    if (
-        "Average Last 30 Attempts" in talent_statistics
-        and "Average First 30 Attempts" in talent_statistics
-    ):
-        improvement = (
-            talent_statistics["Average Last 30 Attempts"]
-            - talent_statistics["Average First 30 Attempts"]
-        )
+    if "Average Last 30 Attempts" in talent_statistics and "Average First 30 Attempts" in talent_statistics:
+        improvement = talent_statistics["Average Last 30 Attempts"] - talent_statistics["Average First 30 Attempts"]
 
     # Check consistency
     consistency = talent_statistics["Standard Deviation"]
@@ -179,6 +152,7 @@ def get_character_talent_investment_recommendation(talent_statistics):
         return "Invest in this talent for improvement."
     else:
         return "No need to invest further in this talent."
+
 
 # Attacks and attack statistics
 def get_character_attacks(character_name):
@@ -201,6 +175,7 @@ def get_character_attacks(character_name):
     return attacks_metrics.round(2).to_dict(
         orient="index"
     )  # Convert to dictionary and round values to two decimal places
+
 
 def get_character_attack_line_chart(character_name, talent):
     df = pd.read_csv(ATTACKS_CSV)  # Read the CSV file into a DataFrame
@@ -226,29 +201,20 @@ def get_character_attack_statistics(character_name, attack):
 
     # Use overall average if attempts are less than 50, otherwise calculate first 30 and last 30
     if total_attempts < 50:
-        attack_statistics["Average Total"] = (
-            filtered_df[TALENT_POINTS_KEY].mean().round(2)
-        )
+        attack_statistics["Average Total"] = filtered_df[TALENT_POINTS_KEY].mean().round(2)
     else:
-        attack_statistics["Average First 30 Attempts"] = (
-            filtered_df.head(30)[TALENT_POINTS_KEY].mean().round(2)
-        )
-        attack_statistics["Average Last 30 Attempts"] = (
-            filtered_df.tail(30)[TALENT_POINTS_KEY].mean().round(2)
-        )
+        attack_statistics["Average First 30 Attempts"] = filtered_df.head(30)[TALENT_POINTS_KEY].mean().round(2)
+        attack_statistics["Average Last 30 Attempts"] = filtered_df.tail(30)[TALENT_POINTS_KEY].mean().round(2)
 
     attack_statistics["Successes"] = sum(filtered_df[TALENT_POINTS_KEY] > 0)
     attack_statistics["Failures"] = sum(filtered_df[TALENT_POINTS_KEY] <= 0)
     attack_statistics["Max Score"] = filtered_df[TALENT_POINTS_KEY].max()
     attack_statistics["Min Score"] = filtered_df[TALENT_POINTS_KEY].min()
-    attack_statistics["Standard Deviation"] = (
-        filtered_df[TALENT_POINTS_KEY].std().round(2)
-    )
+    attack_statistics["Standard Deviation"] = filtered_df[TALENT_POINTS_KEY].std().round(2)
 
     # Convert all int64 values to native Python integers
     attack_statistics = {
-        key: int(value) if isinstance(value, np.int64) else value
-        for key, value in attack_statistics.items()
+        key: int(value) if isinstance(value, np.int64) else value for key, value in attack_statistics.items()
     }
 
     return attack_statistics
