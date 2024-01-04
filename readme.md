@@ -42,3 +42,7 @@ cd ..
 cd /client
 npm start
 ```
+
+### Dsa Forum Thread (German)
+
+[Kreative Ideen für Datenanalyse in DSA gesucht](https://dsaforum.de/viewtopic.php?p=2130810&sid=35430a31d27d49c3c592265d31acf1e0#p2130810)

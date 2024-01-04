@@ -155,6 +155,12 @@ Given your application structure and components, a well-organized folder structu
 
 ## Where I left off last time
 
+02.01.2024:
+- Removed webvitals
+- Created logger config (have to change that according to toms review. Actualy that's how I thought about it)
+- Created a notebook for exploration and created a stupid linear regression model
+- Next up is toms review and a simple success rate calculater based on eig1, eig2, eig3, and respective values plus tap and mod
+
 01.01.2024:
 - I further modularized the frontend and there is one Barchart processing still in the main dashboard but I am not sure if it makes sense to change it
 - Next up is webvitals accoring to Toms review and
