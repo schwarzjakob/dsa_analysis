@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from dsa_analysis_app.auth.google_auth import google_authorization
 from dsa_analysis_app.chat_processing.chat_log_parser import DsaStats
 from dsa_analysis_app.character_analysis import character_analysis
+from dsa_analysis_app.traits_needed_for_some_talents import traits_needed_for_some_talents
 
 # Enabling logging (must come first to enable it globally, also for imported modules and packages)
 logger_format = "[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s"
@@ -271,6 +272,20 @@ def add_character():
     except Exception as e:
         logger.error(f"Error adding character: {e}")
         return jsonify({"error": "An error occurred"}), 500
+
+# Some data exploration
+@app.route("/traits-for-selected-talents", methods=["POST"])
+def get_traits_for_selected_talents():
+    data = request.json
+    talents_name_list = data.get("talentsNameList")
+    traits_counts = traits_needed_for_some_talents.get_traits_for_selected_talents(talents_name_list)
+    return jsonify(traits_counts)
+
+@app.route("/talents-options", methods=["GET"])
+def get_talents_options():
+    with open("./dsa_analysis_app/data/json/talents.json", 'r') as file:
+        data = json.load(file)
+    return jsonify(data)
 
 
 if __name__ == "__main__":

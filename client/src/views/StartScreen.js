@@ -15,9 +15,13 @@ function StartScreen() {
     formData.append("file", file);
 
     try {
-      await axios.post("http://127.0.0.1:5000/chat_processing/process_chatlog", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      await axios.post(
+        "http://127.0.0.1:5000/chat_processing/process_chatlog",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       alert("File uploaded successfully");
       e.target.value = null;
     } catch (error) {
@@ -75,13 +79,10 @@ function StartScreen() {
         {/* Character Highlights Section */}
         <section className="character-highlights">
           <h2>Character Highlights</h2>
-          <div className="character-cards-container">
-            {/* Placeholder for character cards */}
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        <section className="cta-section">
+          <p>
+            Explore the talents of your characters and how they have developed
+            over time.
+          </p>
           <button className="button" onClick={() => navigate("/characters")}>
             Manage Characters
           </button>
@@ -90,6 +91,21 @@ function StartScreen() {
             onClick={() => navigate("/talents/<character_name>")}
           >
             Explore Characters
+          </button>
+        </section>
+
+        {/* Talent Highlights Section */}
+        <section className="character-highlights">
+          <h2>Experience Points Academy</h2>
+          <p>
+            Explore how to best spend your experience points to develop your
+            character.
+          </p>
+          <button
+            className="button"
+            onClick={() => navigate("/traits-for-selected-talents")}
+          >
+            Explorer
           </button>
         </section>
       </div>

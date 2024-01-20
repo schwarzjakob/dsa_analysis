@@ -1,7 +1,7 @@
 /* Global styles */
 :root {
-  -main-beige: #f7f1e1;
-  -main-dark: #051011;
+  --main-beige: #f7f1e1;
+  --main-dark: #051011;
 }
 body {
   box-sizing: border-box;
@@ -11,21 +11,20 @@ body {
 
 body::after {
   content: "";
-  background: url('../../img/dsa_world.png');
+  background: url("../../img/dsa_world.png");
   opacity: 0.25;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   position: fixed;
-  z-index: -1;   
+  z-index: -1;
 }
 
 /* Login page styles */
 .login-container {
   text-align: center;
   padding: 50px;
-  background-color: var(--main-dark);
 }
 
 .login-header h1 {
@@ -55,14 +54,12 @@ body::after {
   transition: background-color 0.3s;
 }
 
-
 /* Container styles */
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full viewport height */
   padding: 20px;
 }
 
@@ -192,10 +189,11 @@ body::after {
 /* Global Box Sizing */
 * {
   box-sizing: border-box;
-  font-family:'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: center; /* Centers all headings */
 }
 
@@ -327,7 +325,6 @@ h2 {
   table-layout: fixed; /* Fixed layout for even distribution */
   border-collapse: separate;
   border-spacing: 0 10px;
-
 }
 
 .trait-values-container th,
@@ -357,27 +354,38 @@ h2 {
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .content-container {
-      flex-direction: column;
-      align-items: center;
-      padding: 10px; /* Reduced padding */
+    flex-direction: column;
+    align-items: center;
+    padding: 10px; /* Reduced padding */
   }
 
-  .chart-container, .table-container {
-      padding: 20px;
-      max-height: unset;
+  .chart-container,
+  .table-container {
+    padding: 20px;
+    max-height: unset;
   }
 
-  .chart-container canvas, .line-chart-container {
-      max-width: 100%;
-      max-height: 300px;
+  .chart-container canvas,
+  .line-chart-container {
+    max-width: 100%;
+    max-height: 300px;
   }
 
   .table-container tbody {
-      height: auto;
+    height: auto;
   }
 
   /* Adjusting table column widths */
-  .table-container th, .table-container td {
-      width: auto;
+  .table-container th,
+  .table-container td {
+    width: auto;
   }
+}
+
+/* Selected Table cells */
+.table-container tbody tr.selected,
+.table-container tbody tr:hover {
+  background-color: #f7f1e1;
+  color: #051011;
+  cursor: pointer;
 }
