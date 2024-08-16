@@ -11,6 +11,7 @@
 *.DS_Store
 
 /flask-server/venv
+/venv/
 
 /dsa_rolls_analysis/archive
 __pycache__/

@@ -17,8 +17,9 @@ logger = logging.getLogger(__name__)
 
 load_dotenv()
 
-# Add the path to the directory containing the dsa_analysis_app package to the system path
-sys.path.append("/Users/jakobschwarz/Documents/Coding/Python/dsa_rolls_webapp/flask-server/dsa_analysis_app")
+# Automatically determine the base directory and add it to sys.path
+base_dir = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(os.path.join(base_dir, "dsa_analysis_app"))
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -47,7 +48,7 @@ def authorize():
 
 
 # Chatlog parsing
-UPLOAD_FOLDER = "./uploads"
+UPLOAD_FOLDER = os.path.join(base_dir, "uploads")
 
 
 @app.route("/chat_processing/process_chatlog", methods=["POST"])
@@ -86,14 +87,6 @@ def process_chatlog_route():
 # Character analysis
 @app.route("/character_analysis/talents/<character_name>", methods=["GET"])
 def get_talents(character_name):
-    # Initialize outputs to default values
-    talents_output = None
-    traits_values_output = None
-    traits_relative_output = None
-    categories_relative_output = None
-    attacks_output = None
-
-    # Call the character_analysis.py script with necessary arguments
     try:
         talents_output = character_analysis.get_character_talents(character_name)
         logger.debug(f"Getting talents of: {character_name}")
@@ -105,6 +98,11 @@ def get_talents(character_name):
         logger.debug(f"Getting categories distribution usage of: {character_name}")
     except Exception as error:
         logger.error(f"Error getting values for {character_name}: {error}")
+        # Initialize with default values in case of error
+        talents_output = []
+        traits_values_output = []
+        traits_relative_output = []
+        categories_relative_output = []
 
     data = {
         "talents": talents_output,
@@ -115,18 +113,13 @@ def get_talents(character_name):
     return jsonify(data)
 
 
+
 @app.route("/character_analysis/analyze-talent", methods=["POST"])
 def analyze_talent():
     data = request.json
     character_name = data.get("characterName")
     talent_name = data.get("talentName")
 
-    # Initialize output to default values
-    talent_statistics = None
-    talent_line_chart_output = None
-    talent_investment_recommendation = None
-
-    # Call the character_analysis.py script with necessary arguments
     try:
         talent_statistics = character_analysis.get_character_talent_statistics(character_name, talent_name)
         logger.debug(f"Talent Statistics of:  {character_name}, {talent_name}")
@@ -151,21 +144,18 @@ def analyze_talent():
 
 @app.route("/character_analysis/attacks/<character_name>", methods=["GET"])
 def get_attacks(character_name):
-    # Logic to fetch data for the given character name"""
-
-    # Initialize outputs to default values
-    attacks_output = None
-
-    # Call the character_analysis.py script with necessary arguments
+    attacks_output = {}  # Initialize attacks_output with an empty dictionary
     try:
         attacks_output = character_analysis.get_character_attacks(character_name)
         logger.debug(f"Getting attacks of:  {character_name}")
     except Exception as error:
         logger.error(f"Error getting values for {character_name}: {error}")
+        # attacks_output will remain an empty dictionary in case of an error
 
     data = {"attacks": attacks_output}
 
     return jsonify(data)
+
 
 
 @app.route("/character_analysis/analyze-attack", methods=["POST"])
@@ -174,11 +164,6 @@ def analyze_attack():
     character_name = data.get("characterName")
     attack_name = data.get("attackName")
 
-    # Initialize output to default values
-    attack_statistics = None
-    attack_line_chart_output = None
-
-    # Call the character_analysis.py script with necessary arguments
     try:
         attack_statistics = character_analysis.get_character_attack_statistics(character_name, attack_name)
         logger.debug(f"Attack Statistics of:  {character_name}, {attack_name}")
@@ -200,7 +185,8 @@ def analyze_attack():
 @app.route("/characters_management/characters", methods=["GET"])
 def get_characters():
     try:
-        with open("./dsa_analysis_app/data/json/characters.json") as file:
+        characters_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "characters.json")
+        with open(characters_file_path) as file:
             characters_data = json.load(file)
         return characters_data
     except FileNotFoundError:
@@ -210,35 +196,24 @@ def get_characters():
         return "Error getting characters", 500
 
 
-@app.route("/add-alias", methods=["POST"])
-def add_alias():
-    # Logic to add alias
-    return
-
-
-@app.route("/update-alias", methods=["POST"])
-def update_alias():
-    # Logic to update alias
-    return
-
-
 @app.route("/archive-character", methods=["POST"])
 def archive_character():
     try:
         character_data = request.json
-        # Load current characters
-        with open("./dsa_analysis_app/data/json/characters.json", "r") as file:
+        characters_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "characters.json")
+        archived_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "archived_characters.json")
+
+        with open(characters_file_path, "r") as file:
             characters = json.load(file)
 
         # Find and remove the character to archive
         characters["characters"] = [char for char in characters["characters"] if char["name"] != character_data["name"]]
 
         # Update characters.json
-        with open("./dsa_analysis_app/data/json/characters.json", "w") as file:
+        with open(characters_file_path, "w") as file:
             json.dump(characters, file, indent=4)
 
         # Load archived characters
-        archived_file_path = "./dsa_analysis_app/data/json/archived_characters.json"
         if not os.path.exists(archived_file_path):
             with open(archived_file_path, "w") as file:
                 json.dump({"characters": []}, file)
@@ -263,7 +238,8 @@ def archive_character():
 def add_character():
     try:
         character_data = request.json
-        with open("./dsa_analysis_app/data/json/characters.json", "r+") as file:
+        characters_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "characters.json")
+        with open(characters_file_path, "r+") as file:
             characters = json.load(file)
             characters["characters"].append(character_data)
             file.seek(0)
@@ -283,7 +259,8 @@ def get_traits_for_selected_talents():
 
 @app.route("/talents-options", methods=["GET"])
 def get_talents_options():
-    with open("./dsa_analysis_app/data/json/talents.json", 'r') as file:
+    talents_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "talents.json")
+    with open(talents_file_path, 'r') as file:
         data = json.load(file)
     return jsonify(data)
 

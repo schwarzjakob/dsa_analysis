@@ -1,7 +1,10 @@
 import json
 import os
 
-TALENTS_JSON_PATH = os.path.join('.', 'dsa_analysis_app', 'data', 'json', 'talents.json')
+# Determine the base directory
+base_dir = os.path.abspath(os.path.dirname(__file__))
+
+TALENTS_JSON_PATH = os.path.join(base_dir, '..', 'data', 'json', 'talents.json')
 
 def get_talents_json():
     with open(TALENTS_JSON_PATH, 'r') as f:
