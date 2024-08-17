@@ -2,8 +2,11 @@ import os
 import pandas as pd
 import numpy as np
 
+# Determine the base directory
+base_dir = os.path.abspath(os.path.dirname(__file__))
+
 # Constants for CSV file paths
-CSV_BASE_PATH = "./dsa_analysis_app/data/rolls_results/000000_rolls_results_recent/"
+CSV_BASE_PATH = os.path.join(base_dir, "..", "data", "rolls_results", "000000_rolls_results_recent")
 TALENTS_CSV = os.path.join(CSV_BASE_PATH, "talents.csv")
 TRAITS_CSV = os.path.join(CSV_BASE_PATH, "trait_usage.csv")
 TRAIT_VALUES_CSV = os.path.join(CSV_BASE_PATH, "trait_values.csv")
@@ -15,7 +18,6 @@ CATEGORY_KEY = "Category"
 TALENT_KEY = "Talent"
 TALENT_POINTS_KEY = "TaP/ZfP"
 
-
 # Traits and categories
 def get_character_traits_values(character_name):
     """Gets traits values for a given character."""
@@ -26,7 +28,6 @@ def get_character_traits_values(character_name):
     return filtered_df.drop(columns=[CHARACTER_KEY]).to_dict(orient="records")[
         0
     ]  # Convert to dictionary and remove the character name
-
 
 def get_character_relative_traits_usage(character_name):
     """Gets traits usage distribution for a given character."""
@@ -41,7 +42,6 @@ def get_character_relative_traits_usage(character_name):
     ).to_dict()  # Convert to dictionary and round values to two decimal places
     return relative_freq_dict
 
-
 def get_character_relative_talents_categories_usage(character_name):
     """Calculate the relative frequency of each category for a specified character."""
     df = pd.read_csv(TALENTS_CSV)  # Read the CSV file into a DataFrame
@@ -54,7 +54,6 @@ def get_character_relative_talents_categories_usage(character_name):
         2
     ).to_dict()  # Convert to dictionary and round values to two decimal places
     return relative_freq_dict
-
 
 # Talents and talent statistics
 def get_character_talents(character_name):
@@ -78,7 +77,6 @@ def get_character_talents(character_name):
         orient="index"
     )  # Convert to dictionary and round values to two decimal places
 
-
 def get_character_talent_line_chart(character_name, talent):
     """Generates data for a talent line chart for a given character."""
     df = pd.read_csv(TALENTS_CSV)  # Read the CSV file into a DataFrame
@@ -86,7 +84,6 @@ def get_character_talent_line_chart(character_name, talent):
         (df[CHARACTER_KEY] == character_name) & (df[TALENT_KEY] == talent)
     ]  # Filter the DataFrame to only include the specified character and talent
     return filtered_df[TALENT_POINTS_KEY].to_list()  # Return the list of talent points
-
 
 def get_character_talent_statistics(character_name, talent):
     """Calculates various statistics for a specific talent of a given character."""
@@ -122,7 +119,6 @@ def get_character_talent_statistics(character_name, talent):
 
     return talent_statistics
 
-
 def get_character_talent_investment_recommendation(talent_statistics):
     """
     Determines if a user should invest in a talent based on its success rate, improvement over time, and consistency.
@@ -153,7 +149,6 @@ def get_character_talent_investment_recommendation(talent_statistics):
     else:
         return "No need to invest further in this talent."
 
-
 # Attacks and attack statistics
 def get_character_attacks(character_name):
     """Gets attacks for a given character."""
@@ -176,14 +171,12 @@ def get_character_attacks(character_name):
         orient="index"
     )  # Convert to dictionary and round values to two decimal places
 
-
 def get_character_attack_line_chart(character_name, talent):
     df = pd.read_csv(ATTACKS_CSV)  # Read the CSV file into a DataFrame
     filtered_df = df[
         (df[CHARACTER_KEY] == character_name) & (df[TALENT_KEY] == talent)
     ]  # Filter the DataFrame to only include the specified character and talent
     return filtered_df[TALENT_POINTS_KEY].to_list()  # Return the list of talent points
-
 
 def get_character_attack_statistics(character_name, attack):
     """Calculates various statistics for a specific attack."""

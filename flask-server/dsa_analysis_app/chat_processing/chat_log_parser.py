@@ -5,16 +5,25 @@ import re
 from datetime import datetime
 import os
 import argparse
+import logging
+
+# Enabling logging (must come first to enable it globally, also for imported modules and packages)
+logger_format = "[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s"
+logging.basicConfig(format=logger_format, level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 today = datetime.today().strftime('%y%m%d')
 
-# Define constants for file paths
-CHARACTERS_JSON_PATH = os.path.join('.', 'dsa_analysis_app', 'data', 'json', 'characters.json')
-TALENTS_JSON_PATH = os.path.join('.', 'dsa_analysis_app', 'data', 'json', 'talents.json')
-USER_CORRECTIONS_JSON_PATH = os.path.join('.', 'dsa_analysis_app', 'data', 'json', 'user_corrections.json')
-TALENT_CORRECTIONS_JSON_PATH = os.path.join('.', 'dsa_analysis_app', 'data', 'json', 'talent_corrections.json')
+# Define base directory and constants for file paths
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+CHARACTERS_JSON_PATH = os.path.join(BASE_DIR, 'data', 'json', 'characters.json')
+TALENTS_JSON_PATH = os.path.join(BASE_DIR, 'data', 'json', 'talents.json')
+USER_CORRECTIONS_JSON_PATH = os.path.join(BASE_DIR, 'data', 'json', 'user_corrections.json')
+TALENT_CORRECTIONS_JSON_PATH = os.path.join(BASE_DIR, 'data', 'json', 'talent_corrections.json')
 TRAITS = ["MU", "KL", "IN", "CH", "FF", "GE", "KO", "KK"]
 TRAITS_LONG = ["Mut", "Klugheit", "Intuition", "Charisma", "Fingerfertigkeit", "Gewandtheit", "Konstitution", "Körperkraft"]
+
 
 class DsaStats:
     def __init__(self):
@@ -43,8 +52,9 @@ class DsaStats:
         self.traitUsageCounts = {char: {trait: 0 for trait in TRAITS} for char in self.characters}
         self.traitValues = {char: {trait: 0 for trait in TRAITS} for char in self.characters}
 
-        self.directoryDateDependent = f'./dsa_analysis_app/data/rolls_results/{today}_rolls_results/'
-        self.directoryRecent = f'./dsa_analysis_app/data/rolls_results/000000_rolls_results_recent/'
+        self.directoryDateDependent = os.path.join(BASE_DIR, 'data', 'rolls_results', f'{today}_rolls_results')
+        self.directoryRecent = os.path.join(BASE_DIR, 'data', 'rolls_results', '000000_rolls_results_recent')
+
 
     # retrieved chatlog parsing
     def process_chatlog(self, chatlog_path):
@@ -226,7 +236,7 @@ class DsaStats:
         #     for char, counts in self.traitUsageCounts.items():
         #         writer.writerow([char] + [counts[trait] for trait in TRAITS])
 
-        with open(self.directoryRecent + 'trait_usage.csv', 'w', newline='', encoding='utf8') as file:
+        with open(os.path.join(self.directoryRecent, 'trait_usage.csv'), 'w', newline='', encoding='utf8') as file:
             writer = csv.writer(file)
             writer.writerow(["Character"] + TRAITS)
             for char, counts in self.traitUsageCounts.items():
@@ -243,7 +253,7 @@ class DsaStats:
         #     for char, value in self.traitValues.items():
         #         writer.writerow([char] + [value[trait] for trait in TRAITS])
 
-        with open(self.directoryRecent + 'trait_values.csv', 'w', newline='', encoding='utf8') as file:
+        with open(os.path.join(self.directoryRecent, 'trait_values.csv'), 'w', newline='', encoding='utf8') as file:
             writer = csv.writer(file)
             writer.writerow(["Character"] + TRAITS)
             for char, value in self.traitValues.items():
@@ -253,48 +263,40 @@ class DsaStats:
                     writer.writerow([char] + [value[trait] for trait in TRAITS])
 
     def writeRollsToFile(self, rolls, rollType, filename):
-        
-        # Creates files with talent usage for the current Day
-        # with open(self.directoryDateDependent + filename, 'w', newline='', encoding='utf8') as file:
-        #     writer = csv.writer(file)
+        try:
+            # Write to the recent directory
+            recent_file_path = os.path.join(self.directoryRecent, f'{rollType}.csv')
+            with open(recent_file_path, 'w', newline='', encoding='utf8') as file:
+                writer = csv.writer(file)
+                self.write_rolls(writer, rolls, rollType)
+            logger.debug(f"{rollType.capitalize()} rolls successfully written to {recent_file_path}")
+            # Write to the date-dependent directory
+            dated_file_path = os.path.join(self.directoryDateDependent, filename)
+
+            with open(dated_file_path, 'w', newline='', encoding='utf8') as file:
+                writer = csv.writer(file)
+                self.write_rolls(writer, rolls, rollType)
             
-        #     if rollType == 'traits':
-        #         writer.writerow(["Character", "Kategorie", "Talent", "Eigenschaft 1", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
-        #         writer.writerows(rolls)
-        #     elif rollType == 'talents' or rollType == 'spells':
-        #         writer.writerow(["Character", "Kategorie", "Talent", "Eigenschaft 1", "Eigenschaft 2", "Eigenschaft 3", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW", "Eigenschaftswert 1", "Eigenschaftswert 2", "Eigenschaftswert 3"])
-        #         writer.writerows(rolls)
-
-        #     elif rollType == 'attacks':
-        #         writer.writerow(["Character", "Kategorie", "Talent", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
-        #         writer.writerows(rolls)
-
-        #     elif rollType == 'initiative':
-        #         writer.writerow(["Character", "Kategorie", "Talent", "Modifikator", "TaP/ZfP", "TaW/ZfW"])
-        #         writer.writerows(rolls)
-        #     else:
-        #         print(f'no database for {rolls}')
+            logger.debug(f"{rollType.capitalize()} rolls successfully written to {dated_file_path}")
         
-        with open(self.directoryRecent + f'{rollType}.csv', 'w', newline='', encoding='utf8') as file:
-            writer = csv.writer(file)
-            
-            if rollType == 'traits':
-                writer.writerow(["Character", "Category", "Talent", "Eigenschaft 1", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
-                writer.writerows(rolls)
-            elif rollType == 'talents' or rollType == 'spells':
-                writer.writerow(["Character", "Category", "Talent", "Eigenschaft 1", "Eigenschaft 2", "Eigenschaft 3", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW", "Eigenschaftswert 1", "Eigenschaftswert 2", "Eigenschaftswert 3"])
-                writer.writerows(rolls)
+        except Exception as e:
+            logger.error(f"Error writing {rollType} rolls to file: {e}")
 
-            elif rollType == 'attacks':
-                writer.writerow(["Character", "Category", "Talent", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
-                writer.writerows(rolls)
-
-            elif rollType == 'initiative':
-                writer.writerow(["Character", "Category", "Talent", "Modifikator", "TaP/ZfP", "TaW/ZfW"])
-                writer.writerows(rolls)
-            else:
-                print(f'no database for {rolls}')
-
+    def write_rolls(self, writer, rolls, rollType):
+        if rollType == 'traits':
+            writer.writerow(["Character", "Category", "Talent", "Eigenschaft 1", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
+            writer.writerows(rolls)
+        elif rollType == 'talents' or rollType == 'spells':
+            writer.writerow(["Character", "Category", "Talent", "Eigenschaft 1", "Eigenschaft 2", "Eigenschaft 3", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW", "Eigenschaftswert 1", "Eigenschaftswert 2", "Eigenschaftswert 3"])
+            writer.writerows(rolls)
+        elif rollType == 'attacks':
+            writer.writerow(["Character", "Category", "Talent", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
+            writer.writerows(rolls)
+        elif rollType == 'initiative':
+            writer.writerow(["Character", "Category", "Talent", "Modifikator", "TaP/ZfP", "TaW/ZfW"])
+            writer.writerows(rolls)
+        else:
+            logger.debug(f'No database for {rollType} rolls')
             
     def countDmg(self, secondLine: str):
         currentDmg = int(re.split(r' ', secondLine)[0])
