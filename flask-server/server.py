@@ -196,7 +196,7 @@ def get_characters():
         return "Error getting characters", 500
 
 
-@app.route("/archive-character", methods=["POST"])
+@app.route("/characters_management/archive-character", methods=["POST"])
 def archive_character():
     try:
         character_data = request.json
@@ -234,7 +234,7 @@ def archive_character():
         return jsonify({"error": "An error occurred"}), 500
 
 
-@app.route("/add-character", methods=["POST"])
+@app.route("/characters_management/add-character", methods=["POST"])
 def add_character():
     try:
         character_data = request.json
