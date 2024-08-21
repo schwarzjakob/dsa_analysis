@@ -5,6 +5,9 @@ import sys
 import json
 import logging
 from dotenv import load_dotenv
+import psycopg2
+from psycopg2.extras import execute_values
+from sqlalchemy import create_engine
 from dsa_analysis_app.auth.google_auth import google_authorization
 from dsa_analysis_app.chat_processing.chat_log_parser import DsaStats
 from dsa_analysis_app.character_analysis import character_analysis
@@ -23,6 +26,16 @@ sys.path.append(os.path.join(base_dir, "dsa_analysis_app"))
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
+
+
+# Database connection setup
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+
+def get_db_connection():
+    conn = psycopg2.connect(DATABASE_URL)
+    return conn
+
 
 app.secret_key = os.getenv("GOOGLE_CLIENT_SECRET")
 google_authorization(app)
@@ -71,8 +84,12 @@ def process_chatlog_route():
             chatlog_file_path = os.path.join(UPLOAD_FOLDER, filename)
             file.save(chatlog_file_path)
 
-            # Run your Python script here passing the uploaded file as a command line argument
-            current_dsa_stats = DsaStats()
+            # Establish database connection and SQLAlchemy engine
+            conn = get_db_connection()
+            engine = create_engine(DATABASE_URL)  # Create SQLAlchemy engine
+
+            # Pass the connection and engine to DsaStats
+            current_dsa_stats = DsaStats(conn, engine)
             chatlogLines = current_dsa_stats.process_chatlog(chatlog_file_path)
             current_dsa_stats.main(chatlogLines)
 
@@ -82,6 +99,7 @@ def process_chatlog_route():
     except Exception as e:
         logger.error(e)
         return f"Error: {e}", 500
+
 
 
 # Character analysis

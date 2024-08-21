@@ -5,3 +5,5 @@ pandas
 authlib
 requests
 python-dotenv
+psycopg2
+sqlalchemy
