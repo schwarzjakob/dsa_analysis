@@ -5,6 +5,8 @@ import re
 from datetime import datetime
 import os
 import argparse
+import pandas as pd
+from sqlalchemy import create_engine
 import logging
 
 # Enabling logging (must come first to enable it globally, also for imported modules and packages)
@@ -26,8 +28,11 @@ TRAITS_LONG = ["Mut", "Klugheit", "Intuition", "Charisma", "Fingerfertigkeit", "
 
 
 class DsaStats:
-    def __init__(self):
-        super(DsaStats, self).__init__()
+    def __init__(self, conn, engine=None):
+        self.conn = conn
+        self.cursor = self.conn.cursor()
+        self.engine = engine
+
         with open(CHARACTERS_JSON_PATH, 'r') as file:
             users_data = json.load(file)
         self.characters = {char["name"]: char["alias"] for char in users_data["characters"]}
@@ -55,6 +60,13 @@ class DsaStats:
         self.directoryDateDependent = os.path.join(BASE_DIR, 'data', 'rolls_results', f'{today}_rolls_results')
         self.directoryRecent = os.path.join(BASE_DIR, 'data', 'rolls_results', '000000_rolls_results_recent')
 
+        self.traits_df = pd.DataFrame(columns=['character_id', 'category', 'talent', 'trait', 'modifier', 'success', 'tap_zfp', 'taw_zfw'])
+        self.talents_df = pd.DataFrame(columns=['character_id', 'category', 'talent', 'trait1', 'trait2', 'trait3', 'modifier', 'success', 'tap_zfp', 'taw_zfw', 'trait_value1', 'trait_value2', 'trait_value3'])
+        self.spells_df = pd.DataFrame(columns=['character_id', 'category', 'spell', 'trait1', 'trait2', 'trait3', 'modifier', 'success', 'tap_zfp', 'taw_zfw', 'trait_value1', 'trait_value2', 'trait_value3'])
+        self.attacks_df = pd.DataFrame(columns=['character_id', 'category', 'attack', 'modifier', 'success', 'tap_zfp', 'taw_zfw'])
+        self.initiatives_df = pd.DataFrame(columns=['character_id', 'rolled_ini', 'current_ini', 'modifier'])
+        self.totalDmg_df = pd.DataFrame(columns=['character_id', 'total_dmg'])
+    
 
     # retrieved chatlog parsing
     def process_chatlog(self, chatlog_path):
@@ -297,18 +309,140 @@ class DsaStats:
             writer.writerows(rolls)
         else:
             logger.debug(f'No database for {rollType} rolls')
-            
+
+    def insert_trait_roll(self, roll):
+        character_id = self.get_character_id(self.currentChar)
+        new_row = pd.DataFrame([{
+            'character_id': character_id,
+            'category': roll[1],
+            'talent': roll[2],
+            'trait': roll[3],
+            'modifier': roll[4],
+            'success': bool(roll[5]),
+            'tap_zfp': roll[6],
+            'taw_zfw': roll[7]
+        }])
+        self.traits_df = pd.concat([self.traits_df, new_row], ignore_index=True)
+
+    def insert_talent_roll(self, roll):
+        character_id = self.get_character_id(self.currentChar)
+        new_row = pd.DataFrame([{
+            'character_id': character_id,
+            'category': roll[1],
+            'talent': roll[2],
+            'trait1': roll[3],
+            'trait2': roll[4],
+            'trait3': roll[5],
+            'modifier': roll[6],
+            'success': bool(roll[7]),
+            'tap_zfp': roll[8],
+            'taw_zfw': roll[9],
+            'trait_value1': roll[10],
+            'trait_value2': roll[11],
+            'trait_value3': roll[12]
+        }])
+        self.talents_df = pd.concat([self.talents_df, new_row], ignore_index=True)
+
+    def insert_spell_roll(self, roll):
+        character_id = self.get_character_id(self.currentChar)
+        new_row = pd.DataFrame([{
+            'character_id': character_id,
+            'category': roll[1],
+            'spell': roll[2],
+            'trait1': roll[3],
+            'trait2': roll[4],
+            'trait3': roll[5],
+            'modifier': roll[6],
+            'success': bool(roll[7]),
+            'tap_zfp': roll[8],
+            'taw_zfw': roll[9],
+            'trait_value1': roll[10],
+            'trait_value2': roll[11],
+            'trait_value3': roll[12]
+        }])
+        self.spells_df = pd.concat([self.spells_df, new_row], ignore_index=True)
+
+    def insert_attack_roll(self, roll):
+        character_id = self.get_character_id(self.currentChar)
+        new_row = pd.DataFrame([{
+            'character_id': character_id,
+            'category': roll[1],
+            'attack': roll[2],
+            'modifier': roll[3],
+            'success': bool(roll[4]),
+            'tap_zfp': roll[5],
+            'taw_zfw': roll[6]
+        }])
+        self.attacks_df = pd.concat([self.attacks_df, new_row], ignore_index=True)
+
+    def insert_initiative_roll(self, roll):
+        character_id = self.get_character_id(self.currentChar)
+        new_row = pd.DataFrame([{
+            'character_id': character_id,
+            'rolled_ini': roll[4],
+            'current_ini': roll[5],
+            'modifier': roll[3]
+        }])
+        self.initiatives_df = pd.concat([self.initiatives_df, new_row], ignore_index=True)
+
+
+
+    # def insert_spell_roll(self, roll):
+    #     self.cursor.execute("""
+    #         INSERT INTO spells_rolls (character_id, category, spell, trait1, trait2, trait3, modifier, success, tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
+    #         VALUES (%s, %s, %s, %s, %s, %s, %s, %s::boolean, %s, %s, %s, %s, %s)
+    #     """, (self.get_character_id(self.currentChar), roll[1], roll[2], roll[3], roll[4], roll[5], roll[6], bool(roll[7]), roll[8], roll[9], roll[10], roll[11], roll[12]))
+    #     self.conn.commit()
+
+    # def insert_attack_roll(self, roll):
+    #     self.cursor.execute("""
+    #         INSERT INTO attacks_rolls (character_id, category, attack, modifier, success, tap_zfp, taw_zfw)
+    #         VALUES (%s, %s, %s, %s, %s::boolean, %s, %s)
+    #     """, (self.get_character_id(self.currentChar), roll[1], roll[2], roll[3], bool(roll[4]), roll[5], roll[6]))
+    #     self.conn.commit()
+
+    # def insert_initiative_roll(self, roll):
+    #     self.cursor.execute("""
+    #         INSERT INTO initiative_rolls (character_id, rolled_ini, current_ini, modifier)
+    #         VALUES (%s, %s, %s, %s)
+    #     """, (self.get_character_id(self.currentChar), roll[4], roll[5], roll[3]))
+    #     self.conn.commit()
+
+
+    def get_character_id(self, character_name):
+        self.cursor.execute("""
+            SELECT id FROM characters WHERE name = %s
+        """, (character_name,))
+        result = self.cursor.fetchone()
+        if result:
+            return result[0]
+        else:
+            # Optionally, you can handle the case where the character is not found in the database
+            # For example, you could raise an exception or return a default value
+            raise ValueError(f"Character {character_name} not found in the database.")
+
+
+    # Count the damage dealt        
     def countDmg(self, secondLine: str):
         currentDmg = int(re.split(r' ', secondLine)[0])
         self.totalDmg[self.currentChar] += currentDmg
+        
+        # Update the totalDmg_df with the current character's total damage
+        character_id = self.get_character_id(self.currentChar)
+        if not self.totalDmg_df[self.totalDmg_df['character_id'] == character_id].empty:
+            self.totalDmg_df.loc[self.totalDmg_df['character_id'] == character_id, 'total_dmg'] += currentDmg
+        else:
+            new_row = pd.DataFrame([{
+                'character_id': character_id,
+                'total_dmg': currentDmg
+            }])
+            self.totalDmg_df = pd.concat([self.totalDmg_df, new_row], ignore_index=True)
 
 
-    # Erstellt eine Excel/CSV Datei mit allen gewürfelten Talenten aller angegebnen Charaktere
+
+    # Main function to process the chatlog
     def main(self, chatlogLines):
-
         self.ensure_directories()
-        #Dafür wird die chatLogFile geöffnet und die Lines ausgelesen und anschließen jede Line nach einem Charakter durchsucht um das folgende Talent festzustellen
-        nonUsedLines = []
 
         for i in range(len(chatlogLines)):
             potentialEvent = chatlogLines[i].strip()
@@ -316,88 +450,126 @@ class DsaStats:
                 self.currentChar = potentialEvent.replace(":", "")
                 continue
 
-            #Kontrolle ob ein Wurf von einem nicht vorhandenen Charakter geworfen wurde
             if self.currentChar == "":
                 continue
 
-            # Korrektur für anderweitige Usernames
             self.currentChar = self.currentCharCorrection()
 
-            #Korrektur für "  ()" hinter einem Talent (vielleicht Spezwurf?)
             if " ()" in potentialEvent:
                 potentialEvent = potentialEvent.replace(" ()", "")
 
-            # Korrektur für falsche Talente
             potentialEvent = self.talentsCurrection(potentialEvent)
 
-            #Prüfe ob Eigenschaftsprobe stattgefunden hat
             if self.validateTrait(potentialEvent):
-                currentMod, currentSuccess, currentTaPZfP, currentTaWZfW = self.traitResult(chatlogLines[i+1].strip(), chatlogLines[i+2].strip())           
-                self.traitsRolls.append([self.currentChar, "Eigenschaftsprobe", potentialEvent, TRAITS[TRAITS_LONG.index(potentialEvent)], currentMod, currentSuccess, currentTaPZfP, currentTaWZfW])
+                currentMod, currentSuccess, currentTaPZfP, currentTaWZfW = self.traitResult(chatlogLines[i+1].strip(), chatlogLines[i+2].strip())
+                roll = [self.currentChar, "Eigenschaftsprobe", potentialEvent, TRAITS[TRAITS_LONG.index(potentialEvent)], currentMod, currentSuccess, currentTaPZfP, currentTaWZfW]
+                
+                # Insert into the DataFrame
+                self.insert_trait_roll(roll)
+                
+                # Write to file
+                self.traitsRolls.append(roll)
+
                 self.updateTraitUsage(self.currentChar, TRAITS[TRAITS_LONG.index(potentialEvent)])
                 continue
 
-            # Prüfe ob Talent geworfen wurde
             if self.validateTalent(potentialEvent):
                 category, trait1, trait2, trait3 = self.getTraits("talent", potentialEvent)
-
-                # Ergebnis des Wurfs prüfen 
                 currentMod, currentSuccess, currentTaP, currentTaW, currentTrait1, currentTrait2, currentTrait3 = self.talentResult(chatlogLines[i+1].strip(), chatlogLines[i+2].strip())
-                self.talentsRolls.append([self.currentChar, category, potentialEvent, trait1, trait2, trait3, currentMod, currentSuccess, currentTaP, currentTaW, currentTrait1, currentTrait2, currentTrait3])
-                self.updateTraitUsage(self.currentChar, [trait1, trait2, trait3])
-                try:
-                    self.updateTraitValues(self.currentChar, [trait1, trait2, trait3], [currentTrait1, currentTrait2, currentTrait3])
-                except Exception as error:
-                    print(error)
-                    
-                continue
+                roll = [self.currentChar, category, potentialEvent, trait1, trait2, trait3, currentMod, currentSuccess, currentTaP, currentTaW, currentTrait1, currentTrait2, currentTrait3]
+                
+                # Insert into the DataFrame
+                self.insert_talent_roll(roll)
+                
+                # Write to file
+                self.talentsRolls.append(roll)
 
-            # Prüfe on Zauber geworfen wurde
-            if self.validateSpell(potentialEvent):
-                category, trait1, trait2, trait3 = self.getTraits("spell", potentialEvent)
-
-                # Ergebnis des Wurfs prüfen
-                currentMod, currentSuccess, currentZfP, currentZfW, currentTrait1, currentTrait2, currentTrait3 = self.spellResult(chatlogLines[i+1].strip(), chatlogLines[i+2].strip())    
-                self.spellsRolls.append([self.currentChar, category, potentialEvent, trait1, trait2, trait3, currentMod, currentSuccess, currentZfP, currentZfW, currentTrait1, currentTrait2, currentTrait3])
                 self.updateTraitUsage(self.currentChar, [trait1, trait2, trait3])
                 self.updateTraitValues(self.currentChar, [trait1, trait2, trait3], [currentTrait1, currentTrait2, currentTrait3])
                 continue
 
-            # Prüfe Nahkampfangriff, Fernkampfangriff, Parade oder Ausweichmanöver
+            if self.validateSpell(potentialEvent):
+                category, trait1, trait2, trait3 = self.getTraits("spell", potentialEvent)
+                currentMod, currentSuccess, currentZfP, currentZfW, currentTrait1, currentTrait2, currentTrait3 = self.spellResult(chatlogLines[i+1].strip(), chatlogLines[i+2].strip())
+                roll = [self.currentChar, category, potentialEvent, trait1, trait2, trait3, currentMod, currentSuccess, currentZfP, currentZfW, currentTrait1, currentTrait2, currentTrait3]
+                
+                # Insert into the DataFrame
+                self.insert_spell_roll(roll)
+                
+                # Write to file
+                self.spellsRolls.append(roll)
+
+                self.updateTraitUsage(self.currentChar, [trait1, trait2, trait3])
+                self.updateTraitValues(self.currentChar, [trait1, trait2, trait3], [currentTrait1, currentTrait2, currentTrait3])
+                continue
+
             if self.validateAttack(potentialEvent):
                 thirdLine = chatlogLines[i+2].strip()
                 if "Kampfgetümmel" in chatlogLines[i+2].strip():
                     thirdLine = chatlogLines[i+3].strip()
-
-                #self.attackResult(chatlogLines[i+1].strip(), thirdLine)
                 currentMod, currentSuccess, currentTaPZfP, currentTaWZfW = self.attackResult(chatlogLines[i+1].strip(), thirdLine)
-                self.attacksRolls.append([self.currentChar, "Kampfprobe", potentialEvent, currentMod, currentSuccess, currentTaPZfP, currentTaWZfW])
+                roll = [self.currentChar, "Kampfprobe", potentialEvent, currentMod, currentSuccess, currentTaPZfP, currentTaWZfW]
+                
+                # Insert into the DataFrame
+                self.insert_attack_roll(roll)
+                
+                # Write to file
+                self.attacksRolls.append(roll)
                 continue
 
-            # Prüfe Initiativewurf
             if "Initiative" in potentialEvent and not "Initiativewurf" in potentialEvent and self.currentChar in potentialEvent:
                 currentIni, rolledIni, currentMod = self.initativeResult(chatlogLines[i].strip(), chatlogLines[i+1].strip())
-                self.initiativesRolls.append([self.currentChar, "Initiative", "Initiative", currentMod, rolledIni, currentIni])
+                roll = [self.currentChar, "Initiative", "Initiative", currentMod, rolledIni, currentIni]
+                
+                # Insert into the DataFrame
+                self.insert_initiative_roll(roll)
+                
+                # Write to file
+                self.initiativesRolls.append(roll)
                 continue
 
             if "treffer" in potentialEvent:
                 self.countDmg(chatlogLines[i+1].strip())
                 continue
 
-
-            # Prüfe Parade oder Ausweichmanöver
-
-        # After processing all lines, write the results to files
-        try:
-            self.writeTraitValues()
-        except Exception as error:
-            print(error)
+        # Write the rolls to files
+        self.writeTraitValues()
         self.writeTraitUsageCounts()
         self.writeRollsToFile(self.traitsRolls, 'traits', f'{today}_traits_rolls.csv')
         self.writeRollsToFile(self.talentsRolls, 'talents', f'{today}_talents_rolls.csv')
         self.writeRollsToFile(self.spellsRolls, 'spells', f'{today}_spells_rolls.csv')
         self.writeRollsToFile(self.attacksRolls, 'attacks', f'{today}_attacks_rolls.csv')
         self.writeRollsToFile(self.initiativesRolls, 'initiative', f'{today}_initiatives_rolls.csv')
+
+        # Batch insert the DataFrames to the database
+        self.batch_insert_to_db()
+
+        # Close the database connection after processing
+        self.cursor.close()
+        self.conn.close()
+
+    def batch_insert_to_db(self):
+        if self.engine is None:
+            raise ValueError("SQLAlchemy engine not provided")
+        try:
+            if not self.traits_df.empty:
+                self.traits_df.to_sql('traits_rolls', self.engine, if_exists='append', index=False)
+            if not self.talents_df.empty:
+                self.talents_df.to_sql('talents_rolls', self.engine, if_exists='append', index=False)
+            if not self.spells_df.empty:
+                self.spells_df.to_sql('spells_rolls', self.engine, if_exists='append', index=False)
+            if not self.attacks_df.empty:
+                self.attacks_df.to_sql('attacks_rolls', self.engine, if_exists='append', index=False)
+            if not self.initiatives_df.empty:
+                self.initiatives_df.to_sql('initiative_rolls', self.engine, if_exists='append', index=False)
+            if not self.totalDmg_df.empty:
+                self.totalDmg_df.to_sql('total_dmg_rolls', self.engine, if_exists='append', index=False)
+            logger.debug("Batch insertion to database successful.")
+        except Exception as e:
+            logger.error(f"Error during batch insertion: {e}")
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
