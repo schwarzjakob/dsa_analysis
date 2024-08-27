@@ -37,7 +37,7 @@ def get_db_connection():
     return conn
 
 
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = os.getenv("GOOGLE_CLIENT_SECRET")
 google_authorization(app)
 
 

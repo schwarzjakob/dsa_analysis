@@ -17,16 +17,18 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
 ### Backend Setup
 
 1. **Clone the Repository:**
+
    ```bash
    git clone https://github.com/AixPrime/dsa_analysis.git
    cd dsa_rolls_webapp
    ```
 
 2. **Setup the Python Flask Backend:**
+
    ```bash
    cd flask-server
    # Create a virtual environment (Linux/Mac)
-   python3 -m venv venv 
+   python3 -m venv venv
    source venv/bin/activate
    # For Windows
    python -m venv venv
@@ -35,7 +37,18 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
    pip install -r requirements.txt
    ```
 
-3. **Start the Flask Server:**
+3. **Set Up Environment Variables:**
+   Create a `.env` file in the `flask-server` directory and add the following lines to it:
+
+   ```bash
+   # Google Auth
+   GOOGLE_CLIENT_ID=your-google-client-id
+   GOOGLE_CLIENT_SECRET=your-google-client-secret
+   ```
+
+   Replace `your-google-client-id` and `your-google-client-secret` with your actual Google OAuth credentials. Visit the [Google OAuth 2.0 Documentation](https://developers.google.com/identity/protocols/oauth2?hl=de) for further instructions.
+
+4. **Start the Flask Server:**
    ```bash
    python server.py
    ```
@@ -43,16 +56,19 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
 ### Frontend Setup
 
 1. **Navigate to the Client Directory:**
+
    ```bash
    cd ../client
    ```
 
 2. **Install Node.js Dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Start the React Client:**
+
    ```bash
    npm start
    ```
@@ -68,15 +84,19 @@ The primary goal of this project is to create a robust and modular analysis tool
 ### Phases
 
 1. **Database Migration:**
+
    - **Transition to PostgreSQL:** Move from file-based storage to a PostgreSQL database hosted on neon.tech. This migration will ensure data integrity and scalability, enabling the application to handle large datasets and incremental updates without data loss.
 
 2. **Data Parsing Enhancement:**
+
    - **HTML-Based Parsing:** Upgrade the data parsing script to extract information from HTML logs rather than plain text. This will allow for more accurate data capture, including timestamps, and prevent duplicate data entries.
 
 3. **Modular Frontend Development:**
+
    - **Component-Based Architecture:** Refactor the React frontend into reusable components, focusing on maintainability and future enhancements. Unnecessary features, such as Google Authentication, will be removed or re-evaluated for future use.
 
 4. **API Development:**
+
    - **RESTful API Design:** Implement a RESTful API to manage communication between the frontend and backend, supporting features like data fetching, filtering, and real-time updates.
 
 5. **Scalability Preparation:**
