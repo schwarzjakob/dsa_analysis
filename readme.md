@@ -18,6 +18,7 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
 
 1. **Clone the Repository:**
 
+
    ```bash
    git clone https://github.com/AixPrime/dsa_analysis.git
    cd dsa_rolls_webapp
@@ -37,8 +38,18 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
    pip install -r requirements.txt
    ```
 
-3. **Start the Flask Server:**
+3. **Set Up Environment Variables:**
+   Create a `.env` file in the `flask-server` directory and add the following lines to it:
 
+   ```bash
+   # Google Auth
+   GOOGLE_CLIENT_ID=your-google-client-id
+   GOOGLE_CLIENT_SECRET=your-google-client-secret
+   ```
+
+   Replace `your-google-client-id` and `your-google-client-secret` with your actual Google OAuth credentials. Visit the [Google OAuth 2.0 Documentation](https://developers.google.com/identity/protocols/oauth2?hl=de) for further instructions.
+
+4. **Start the Flask Server:**
    ```bash
    python server.py
    ```
