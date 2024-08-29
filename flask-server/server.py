@@ -6,11 +6,9 @@ import json
 import logging
 from dotenv import load_dotenv
 import psycopg2
-from psycopg2.extras import execute_values
 from sqlalchemy import create_engine
 from dsa_analysis_app.auth.google_auth import google_authorization
 from dsa_analysis_app.chat_processing.chat_log_parser import DsaStats
-from dsa_analysis_app.character_analysis import character_analysis
 from dsa_analysis_app.traits_needed_for_some_talents import traits_needed_for_some_talents
 
 # Enabling logging (must come first to enable it globally, also for imported modules and packages)
@@ -101,36 +99,112 @@ def process_chatlog_route():
         return f"Error: {e}", 500
 
 
-
 # Character analysis
 @app.route("/character_analysis/talents/<character_name>", methods=["GET"])
 def get_talents(character_name):
     try:
-        talents_output = character_analysis.get_character_talents(character_name)
-        logger.debug(f"Getting talents of: {character_name}")
-        traits_values_output = character_analysis.get_character_traits_values(character_name)
-        logger.debug(f"Getting traits values of: {character_name}")
-        traits_relative_output = character_analysis.get_character_relative_traits_usage(character_name)
-        logger.debug(f"Getting traits distribution usage of: {character_name}")
-        categories_relative_output = character_analysis.get_character_relative_talents_categories_usage(character_name)
-        logger.debug(f"Getting categories distribution usage of: {character_name}")
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Fetch character_id
+        cursor.execute("SELECT id FROM characters WHERE name = %s", (character_name,))
+        character_id = cursor.fetchone()[0]
+
+        # Fetch talents
+        cursor.execute(
+            """
+            SELECT talent, COUNT(*) AS talent_count,
+                   COALESCE(AVG(success::int), 0) AS success_rate,
+                   COALESCE(1 - AVG(success::int), 0) AS failure_rate,
+                   COALESCE(AVG(tap_zfp), 0) AS avg_score,
+                   COALESCE(STDDEV(tap_zfp), 0) AS std_dev
+            FROM talents_rolls
+            WHERE character_id = %s
+            GROUP BY talent
+        """,
+            (character_id,),
+        )
+        talents_output = cursor.fetchall()
+
+        # Convert Decimal to float, handling None values
+        talents_output = [
+            (
+                talent,
+                count,
+                float(success_rate) if success_rate is not None else 0.0,
+                float(failure_rate) if failure_rate is not None else 0.0,
+                float(avg_score) if avg_score is not None else 0.0,
+                float(std_dev) if std_dev is not None else 0.0,
+            )
+            for talent, count, success_rate, failure_rate, avg_score, std_dev in talents_output
+        ]
+
+        # Fetch traits values and usage
+        cursor.execute(
+            """
+            SELECT 'Trait 1' AS trait, COALESCE(AVG(trait_value1), 0) AS avg_value FROM talents_rolls WHERE character_id = %s
+            UNION ALL
+            SELECT 'Trait 2' AS trait, COALESCE(AVG(trait_value2), 0) AS avg_value FROM talents_rolls WHERE character_id = %s
+            UNION ALL
+            SELECT 'Trait 3' AS trait, COALESCE(AVG(trait_value3), 0) AS avg_value FROM talents_rolls WHERE character_id = %s
+        """,
+            (character_id, character_id, character_id),
+        )
+        traits_values_output = cursor.fetchall()
+
+        # Convert Decimal to float, handling None values
+        traits_values_output = [
+            (trait, float(avg_value) if avg_value is not None else 0.0) for trait, avg_value in traits_values_output
+        ]
+
+        cursor.execute(
+            """
+            SELECT trait, COUNT(*) AS trait_count
+            FROM (
+                SELECT trait1 AS trait FROM talents_rolls WHERE character_id = %s
+                UNION ALL
+                SELECT trait2 AS trait FROM talents_rolls WHERE character_id = %s
+                UNION ALL
+                SELECT trait3 AS trait FROM talents_rolls WHERE character_id = %s
+            ) AS combined_traits
+            GROUP BY trait
+        """,
+            (character_id, character_id, character_id),
+        )
+        traits_relative_output = cursor.fetchall()
+
+        # Fetch categories usage
+        cursor.execute(
+            """
+            SELECT category, COUNT(*) AS category_count
+            FROM talents_rolls
+            WHERE character_id = %s
+            GROUP BY category
+        """,
+            (character_id,),
+        )
+        categories_relative_output = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        data = {
+            "talents": talents_output,
+            "traits_relative": traits_relative_output,
+            "traits_values": traits_values_output,
+            "categories_relative": categories_relative_output,
+        }
+
+        print(data)  # Keep for debugging
+
+        return jsonify(data)
+
     except Exception as error:
         logger.error(f"Error getting values for {character_name}: {error}")
-        # Initialize with default values in case of error
-        talents_output = []
-        traits_values_output = []
-        traits_relative_output = []
-        categories_relative_output = []
-
-    data = {
-        "talents": talents_output,
-        "traits_relative": traits_relative_output,
-        "traits_values": traits_values_output,
-        "categories_relative": categories_relative_output,
-    }
-    return jsonify(data)
+        return jsonify({"talents": [], "traits_relative": [], "traits_values": [], "categories_relative": []})
 
 
+# Character analysis
 @app.route("/character_analysis/analyze-talent", methods=["POST"])
 def analyze_talent():
     data = request.json
@@ -138,40 +212,99 @@ def analyze_talent():
     talent_name = data.get("talentName")
 
     try:
-        talent_statistics = character_analysis.get_character_talent_statistics(character_name, talent_name)
-        logger.debug(f"Talent Statistics of:  {character_name}, {talent_name}")
-        talent_line_chart_output = character_analysis.get_character_talent_line_chart(character_name, talent_name)
-        logger.debug(f"Talent Line Chart of:  {character_name}, {talent_name}")
-        talent_investment_recommendation = character_analysis.get_character_talent_investment_recommendation(
-            talent_statistics
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT id FROM characters WHERE name = %s", (character_name,))
+        character_id = cursor.fetchone()[0]
+
+        # Fetch talent statistics
+        cursor.execute(
+            """
+            SELECT COUNT(*) AS attempts,
+                   AVG(success::int) AS success_rate,
+                   AVG(tap_zfp) AS avg_score,
+                   STDDEV(tap_zfp) AS std_dev
+            FROM talents_rolls
+            WHERE character_id = %s AND talent = %s
+        """,
+            (character_id, talent_name),
         )
-        logger.debug(f"Talent Investment Recommendation of:  {character_name}, {talent_name}")
+        talent_statistics = cursor.fetchone()
+
+        # Fetch line chart data - Use id instead of created_at
+        cursor.execute(
+            """
+            SELECT id AS sequence, tap_zfp
+            FROM talents_rolls
+            WHERE character_id = %s AND talent = %s
+            ORDER BY id
+        """,
+            (character_id, talent_name),
+        )
+        talent_line_chart_output = cursor.fetchall()
+
+        # Simple recommendation logic based on success rate and average score
+        talent_investment_recommendation = "Consider investing more" if talent_statistics[1] < 0.5 else "Well trained"
+
+        cursor.close()
+        conn.close()
+
+        data = {
+            "talent_statistics": {
+                "attempts": talent_statistics[0],
+                "success_rate": talent_statistics[1],
+                "avg_score": talent_statistics[2],
+                "std_dev": talent_statistics[3],
+            },
+            "talent_line_chart": {
+                "timestamps": [row[0] for row in talent_line_chart_output],
+                "scores": [row[1] for row in talent_line_chart_output],
+            },
+            "talent_investment_recommendation": talent_investment_recommendation,
+        }
+        return jsonify(data)
 
     except Exception as error:
         logger.error(f"Error getting values for {character_name}: {error}")
-
-    data = {
-        "talent_statistics": talent_statistics,
-        "talent_line_chart": talent_line_chart_output,
-        "talent_investment_recommendation": talent_investment_recommendation,
-    }
-
-    return jsonify(data)
+        return jsonify({"talent_statistics": {}, "talent_line_chart": {}, "talent_investment_recommendation": ""})
 
 
 @app.route("/character_analysis/attacks/<character_name>", methods=["GET"])
 def get_attacks(character_name):
-    attacks_output = {}  # Initialize attacks_output with an empty dictionary
     try:
-        attacks_output = character_analysis.get_character_attacks(character_name)
-        logger.debug(f"Getting attacks of:  {character_name}")
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Fetch character_id
+        cursor.execute("SELECT id FROM characters WHERE name = %s", (character_name,))
+        character_id = cursor.fetchone()[0]
+
+        # Fetch attacks
+        cursor.execute(
+            """
+            SELECT attack, COUNT(*) AS attack_count,
+                   AVG(success::int) AS success_rate,
+                   1 - AVG(success::int) AS failure_rate,
+                   AVG(tap_zfp) AS avg_score,
+                   STDDEV(tap_zfp) AS std_dev
+            FROM attacks_rolls
+            WHERE character_id = %s
+            GROUP BY attack
+        """,
+            (character_id,),
+        )
+        attacks_output = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        data = {"attacks": attacks_output}
+        return jsonify(data)
+
     except Exception as error:
-        logger.error(f"Error getting values for {character_name}: {error}")
-        # attacks_output will remain an empty dictionary in case of an error
-
-    data = {"attacks": attacks_output}
-
-    return jsonify(data)
+        logger.error(f"Error getting attacks for {character_name}: {error}")
+        return jsonify({"attacks": []}), 404
 
 
 @app.route("/character_analysis/analyze-attack", methods=["POST"])
@@ -181,35 +314,159 @@ def analyze_attack():
     attack_name = data.get("attackName")
 
     try:
-        attack_statistics = character_analysis.get_character_attack_statistics(character_name, attack_name)
-        logger.debug(f"Attack Statistics of:  {character_name}, {attack_name}")
-        attack_line_chart_output = character_analysis.get_character_attack_line_chart(character_name, attack_name)
-        logger.debug(f"Attack Line Chart of:  {character_name}, {attack_name}")
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT id FROM characters WHERE name = %s", (character_name,))
+        character_id = cursor.fetchone()[0]
+
+        # Fetch attack statistics
+        cursor.execute(
+            """
+            SELECT COUNT(*) AS attempts,
+                   AVG(success::int) AS success_rate,
+                   AVG(tap_zfp) AS avg_score,
+                   STDDEV(tap_zfp) AS std_dev
+            FROM attacks_rolls
+            WHERE character_id = %s AND attack = %s
+        """,
+            (character_id, attack_name),
+        )
+        attack_statistics = cursor.fetchone()
+
+        # Fetch line chart data - Use id instead of created_at
+        cursor.execute(
+            """
+            SELECT id AS sequence, tap_zfp
+            FROM attacks_rolls
+            WHERE character_id = %s AND attack = %s
+            ORDER BY id
+        """,
+            (character_id, attack_name),
+        )
+        attack_line_chart_output = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        data = {
+            "attack_statistics": {
+                "attempts": attack_statistics[0],
+                "success_rate": attack_statistics[1],
+                "avg_score": attack_statistics[2],
+                "std_dev": attack_statistics[3],
+            },
+            "attack_line_chart": {
+                "timestamps": [row[0] for row in attack_line_chart_output],
+                "scores": [row[1] for row in attack_line_chart_output],
+            },
+        }
+        return jsonify(data)
 
     except Exception as error:
         logger.error(f"Error getting values for {character_name}: {error}")
-
-    data = {
-        "attack_statistics": attack_statistics,
-        "attack_line_chart": attack_line_chart_output,
-    }
-
-    return jsonify(data)
+        return jsonify({"attack_statistics": {}, "attack_line_chart": {}})
 
 
+# Characters management
 # Characters management
 @app.route("/characters_management/characters", methods=["GET"])
 def get_characters():
     try:
-        characters_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "characters.json")
-        with open(characters_file_path) as file:
-            characters_data = json.load(file)
-        return characters_data
-    except FileNotFoundError:
-        return "File not found", 404
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Fetch character details along with their traits and aliases
+        cursor.execute(
+            """
+            SELECT id, name, mut, klugheit, intuition, charisma, fingerfertigkeit, gewandtheit, konstitution, körperkraft, alias
+            FROM characters
+        """
+        )
+        characters = cursor.fetchall()
+
+        # Structure the data
+        character_data = []
+        for char in characters:
+            char_dict = {
+                "id": char[0],
+                "name": char[1],
+                "traits": {
+                    "Mut": char[2],
+                    "Klugheit": char[3],
+                    "Intuition": char[4],
+                    "Charisma": char[5],
+                    "Fingerfertigkeit": char[6],
+                    "Gewandtheit": char[7],
+                    "Konstitution": char[8],
+                    "Körperkraft": char[9],
+                },
+                "alias": char[10] if char[10] is not None else [],  # Assuming alias is stored as a list or array
+            }
+            character_data.append(char_dict)
+
+        return jsonify({"characters": character_data})
+
     except Exception as e:
         logger.error(f"Error getting characters: {e}")
         return "Error getting characters", 500
+    finally:
+        cursor.close()
+        conn.close()
+
+
+# Endpoint to update character attributes and aliases
+@app.route("/characters_management/update-character", methods=["POST"])
+def update_character():
+    try:
+        data = request.json
+        character_name = data.get("name")
+        attributes = {
+            "Mut": data.get("Mut"),
+            "Klugheit": data.get("Klugheit"),
+            "Intuition": data.get("Intuition"),
+            "Charisma": data.get("Charisma"),
+            "Fingerfertigkeit": data.get("Fingerfertigkeit"),
+            "Gewandtheit": data.get("Gewandtheit"),
+            "Konstitution": data.get("Konstitution"),
+            "Körperkraft": data.get("Körperkraft"),
+        }
+        aliases = data.get("alias", [])
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Update the character's attributes and aliases
+        cursor.execute(
+            """
+            UPDATE characters
+            SET mut = %s, klugheit = %s, intuition = %s, charisma = %s,
+                fingerfertigkeit = %s, gewandtheit = %s, konstitution = %s, körperkraft = %s,
+                alias = %s
+            WHERE name = %s
+            """,
+            (
+                attributes["Mut"],
+                attributes["Klugheit"],
+                attributes["Intuition"],
+                attributes["Charisma"],
+                attributes["Fingerfertigkeit"],
+                attributes["Gewandtheit"],
+                attributes["Konstitution"],
+                attributes["Körperkraft"],
+                aliases,  # Ensure that aliases are also updated
+                character_name,
+            ),
+        )
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+        return jsonify({"message": "Character updated successfully"}), 200
+    except Exception as e:
+        logger.error(f"Error updating character {character_name}: {e}")
+        return jsonify({"error": "An error occurred"}), 500
 
 
 @app.route("/characters_management/archive-character", methods=["POST"])

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const fetchAndProcessTalentData = async (characterName, talentName) => {
   try {
@@ -16,31 +16,45 @@ export const fetchAndProcessTalentData = async (characterName, talentName) => {
       talent_investment_recommendation,
     } = response.data;
 
-    // Adjust according to the total attempts
-    const reorderd_talent_statistics = {
-      "Total Attempts": talent_statistics["Total Attempts"],
-      Succeses: talent_statistics["Successes"],
-      Failures: talent_statistics["Failures"],
-      ...(talent_statistics["Total Attempts"] < 50
-        ? { "Average Total": talent_statistics["Average Total"] }
-        : {
-            "Average First 30 Attempts":
-              talent_statistics["Average First 30 Attempts"],
-            "Average Last 30 Attempts":
-              talent_statistics["Average Last 30 Attempts"],
-          }),
-      "Max Score": talent_statistics["Max Score"],
-      "Min Score": talent_statistics["Min Score"],
-      "Standard Deviation": talent_statistics["Standard Deviation"],
+    // Handle the case where timestamps or scores might be undefined
+    const labels =
+      talent_line_chart?.timestamps?.map((ts) =>
+        new Date(ts * 1000).toLocaleDateString()
+      ) || [];
+
+    const scores = Array.isArray(talent_line_chart?.scores)
+      ? talent_line_chart.scores
+      : [];
+
+    // Safely round and format the statistics
+    const roundedTalentStatistics = {
+      attempts: talent_statistics?.attempts || 0,
+      success_rate: Number(talent_statistics?.success_rate || 0).toFixed(2),
+      avg_score: Number(talent_statistics?.avg_score || 0).toFixed(2),
+      std_dev: Number(talent_statistics?.std_dev || 0).toFixed(2),
     };
 
     return {
-      talentLineChartData: talent_line_chart,
-      talentStatistics: reorderd_talent_statistics,
+      talentLineChartData: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Score",
+            data: scores,
+            fill: false,
+            borderColor: "rgba(75, 192, 192, 1)",
+          },
+        ],
+      },
+      talentStatistics: roundedTalentStatistics,
       talentRecommendation: talent_investment_recommendation,
     };
   } catch (error) {
     console.error("Error fetching and processing talent data", error);
-    return {};
+    return {
+      talentLineChartData: null,
+      talentStatistics: null,
+      talentRecommendation: null,
+    };
   }
 };

@@ -63,9 +63,9 @@ function CharacterData() {
 
   // Talents States
   const [talentsData, setTalentsData] = useState([]); // State for the list of talents
-  // Additional states for each bar chart
   const [successRateChartData, setSuccessRateChartData] = useState(null);
   const [avgScoreChartData, setAvgScoreChartData] = useState(null);
+
   // Add state variables for sort column and direction
   const [talentsSortDirection, setTalentsSortDirection] = useState("desc");
   const [attacksSortDirection, setAttackSortDirection] = useState("desc");
@@ -85,32 +85,56 @@ function CharacterData() {
   useEffect(() => {
     // Fetch characters for selection
     const getCharacters = async () => {
-      const characterNames = await fetchCharacters();
-      setCharacters(characterNames); // Set the state to the names
+      try {
+        console.log("Fetching characters...");
+        const characterNames = await fetchCharacters();
+        console.log("Fetched characters: ", characterNames);
+        setCharacters(characterNames); // Set the state to the names
+      } catch (error) {
+        console.error("Error fetching characters: ", error);
+      }
     };
 
     getCharacters();
   }, []);
 
   useEffect(() => {
-    // Fetch character data once a character is selected
-    const getData = async () => {
-      const data = await fetchAndProcessData(selectedCharacter);
-      setTalentsData(data.talents);
-      setTraitCount(data.traits_relative);
-      setTraitsValues(data.traits_values);
-      setCategoryCount(data.categories_relative);
-      setAttacksData(data.attacks);
-    };
-
     if (selectedCharacter) {
+      // Fetch character data once a character is selected
+      const getData = async () => {
+        try {
+          console.log("Fetching data for character: ", selectedCharacter);
+          const data = await fetchAndProcessData(selectedCharacter);
+          console.log("Fetched data: ", data);
+          setTalentsData(data.talents || []);
+          setTraitCount(data.traits_relative || []);
+          setCategoryCount(data.categories_relative || []);
+          setAttacksData(data.attacks || []);
+        } catch (error) {
+          console.error("Error fetching data: ", error);
+        }
+      };
+
       getData();
     }
   }, [selectedCharacter]);
 
+  // Separate useEffect for setting the traits when the character is selected
   useEffect(() => {
-    // Process data for bar charts
+    if (selectedCharacter) {
+      const selectedChar = characters.find(
+        (char) => char.name === selectedCharacter
+      );
+      const charTraits = selectedChar ? selectedChar.traits : {};
+      setTraitsValues(
+        Object.entries(charTraits).map(([trait, value]) => ({ trait, value }))
+      );
+    }
+  }, [selectedCharacter, characters]);
+
+  useEffect(() => {
     if (talentsData.length > 0) {
+      console.log("Processing talents data: ", talentsData);
       const filteredTalents = talentsData.filter(
         (talent) => talent.talent_count >= 10
       );
@@ -123,36 +147,25 @@ function CharacterData() {
         (a, b) => b.avg_score - a.avg_score
       );
 
-      // Determine the count for top and bottom talents
-      let topCount = Math.min(5, Math.ceil(filteredTalents.length / 2));
-      let bottomCount = Math.min(5, Math.floor(filteredTalents.length / 2));
+      const topSuccess = sortedBySuccessRate.slice(0, 5);
+      const bottomSuccess = sortedBySuccessRate.slice(-5);
 
-      // Adjust count if 3rd and 6th elements are the same
-      if (
-        filteredTalents.length === 6 &&
-        sortedBySuccessRate[2].success_rate ===
-          sortedBySuccessRate[5].success_rate
-      ) {
-        topCount = 3;
-        bottomCount = 2;
-      }
+      const topAvgScore = sortedByAvgScore.slice(0, 5);
+      const bottomAvgScore = sortedByAvgScore.slice(-5);
 
-      const topSuccess = sortedBySuccessRate.slice(0, topCount);
-      const bottomSuccess = sortedBySuccessRate.slice(-bottomCount);
-
-      const topAvgScore = sortedByAvgScore.slice(0, topCount);
-      const bottomAvgScore = sortedByAvgScore.slice(-bottomCount);
-
-      // Function to fill gaps for less than 10 talents
-      const fillGaps = (array, count) => {
-        while (array.length < count) {
-          array.push({ talent: "", success_rate: null, avg_score: null });
-        }
-        return array;
-      };
+      console.log(
+        "Top and Bottom Success Talents: ",
+        topSuccess,
+        bottomSuccess
+      );
+      console.log(
+        "Top and Bottom Average Score Talents: ",
+        topAvgScore,
+        bottomAvgScore
+      );
 
       setSuccessRateChartData({
-        labels: [...fillGaps(topSuccess, 5), ...fillGaps(bottomSuccess, 5)].map(
+        labels: [...topSuccess, ...bottomSuccess].map(
           (talent) => talent.talent
         ),
         datasets: [
@@ -167,10 +180,9 @@ function CharacterData() {
       });
 
       setAvgScoreChartData({
-        labels: [
-          ...fillGaps(topAvgScore, 5),
-          ...fillGaps(bottomAvgScore, 5),
-        ].map((talent) => talent.talent),
+        labels: [...topAvgScore, ...bottomAvgScore].map(
+          (talent) => talent.talent
+        ),
         datasets: [
           {
             label: "Average Score",
@@ -181,6 +193,8 @@ function CharacterData() {
           },
         ],
       });
+    } else {
+      console.log("No talents data available to process.");
     }
   }, [talentsData]);
 
@@ -191,11 +205,11 @@ function CharacterData() {
     currentDirection,
     setDirection
   ) => {
+    console.log(`Sorting data by ${sortKey} in ${currentDirection} order.`);
     // Sort the data by the given key and direction
     const sortedData = [...data].sort((a, b) => {
       let valueA = a[sortKey];
       const valueB = b[sortKey];
-      console.log(data);
 
       if (typeof valueA === "string") {
         // Sort by string
@@ -212,8 +226,18 @@ function CharacterData() {
   };
 
   const handleCharacterChange = (e) => {
-    // Set the selected character and reset the data
+    console.log("Selected character: ", e.target.value);
+    // Find the selected character and extract traits
+    const selectedChar = characters.find(
+      (char) => char.name === e.target.value
+    );
+    const charTraits = selectedChar ? selectedChar.traits : {};
+
+    // Set the selected character and traits
     setSelectedCharacter(e.target.value);
+    setTraitsValues(
+      Object.entries(charTraits).map(([trait, value]) => ({ trait, value }))
+    );
     setSelectedTalent("");
     setTalentLineChartData(null);
     setTalentsData([]);
@@ -223,28 +247,43 @@ function CharacterData() {
     setAttackLineChartData(null);
     setAttacksData([]);
     setAttackStatistics(null);
-    console.log("Selected Character: ", e.target.value);
   };
 
   const handleTalentClick = async (talentName) => {
+    console.log("Selected talent: ", talentName);
     // Set the selected talent and fetch the data
     setSelectedTalent(talentName);
-    console.log(selectedCharacter, talentName);
 
-    const data = await fetchAndProcessTalentData(selectedCharacter, talentName);
-    setTalentLineChartData(data.talentLineChartData);
-    setTalentStatistics(data.talentStatistics);
-    setTalentRecommendation(data.talentRecommendation);
+    try {
+      const data = await fetchAndProcessTalentData(
+        selectedCharacter,
+        talentName
+      );
+      console.log("Fetched talent data: ", data);
+      setTalentLineChartData(data.talentLineChartData);
+      setTalentStatistics(data.talentStatistics);
+      setTalentRecommendation(data.talentRecommendation);
+    } catch (error) {
+      console.error("Error fetching talent data: ", error);
+    }
   };
 
   const handleAttackClick = async (attackName) => {
+    console.log("Selected attack: ", attackName);
     // Set the selected attack and fetch the data
     setSelectedAttack(attackName);
-    console.log(selectedCharacter, attackName);
 
-    const data = await fetchAndProcessAttackData(selectedCharacter, attackName);
-    setAttackLineChartData(data.attackLineChartData);
-    setAttackStatistics(data.attackStatistics);
+    try {
+      const data = await fetchAndProcessAttackData(
+        selectedCharacter,
+        attackName
+      );
+      console.log("Fetched attack data: ", data);
+      setAttackLineChartData(data.attackLineChartData);
+      setAttackStatistics(data.attackStatistics);
+    } catch (error) {
+      console.error("Error fetching attack data: ", error);
+    }
   };
 
   return (
@@ -257,34 +296,33 @@ function CharacterData() {
           <select onChange={handleCharacterChange} value={selectedCharacter}>
             <option value="">Select a Character</option>
             {characters.map((character, index) => (
-              <option key={index} value={character}>
-                {character}
+              <option key={index} value={character.name}>
+                {character.name}
               </option>
             ))}
           </select>
         </div>
         {selectedCharacter && (
           <div>
-            {/* Trait Values Table*/}
+            {/* Trait Values Table */}
             <div className="trait-values-container">
               <h2>Trait Values</h2>
               <table>
                 <tbody>
                   <tr>
-                    {/* Header Row: Trait Names */}
                     {traitsValues.map((trait, index) => (
-                      <th key={index}>{trait.item}</th>
+                      <th key={index}>{trait.trait}</th>
                     ))}
                   </tr>
                   <tr>
-                    {/* Value Row: Trait Values */}
                     {traitsValues.map((trait, index) => (
-                      <td key={index}>{trait.count}</td>
+                      <td key={index}>{trait.value}</td>
                     ))}
                   </tr>
                 </tbody>
               </table>
             </div>
+
             <div className="content-container">
               {" "}
               {/* Flex container */}

@@ -1,13 +1,17 @@
-import axios from "axios";
-
 export const fetchCharacters = async () => {
   try {
-    const response = await axios.get(
-      "http://127.0.0.1:5000/characters_management/characters"
+    const response = await fetch(
+      "http://localhost:5000/characters_management/characters"
     );
-    const characterNames = response.data.characters.map((char) => char.name);
-    return characterNames;
+    const data = await response.json();
+    return (
+      data.characters.map((char) => ({
+        name: char.name,
+        traits: char.traits,
+      })) || []
+    );
   } catch (error) {
-    console.error("Error fetching characters", error);
+    console.error("Error fetching characters:", error);
+    return [];
   }
 };

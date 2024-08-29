@@ -1,139 +1,204 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Home from "../components/layout/Home.js";
+import Home from "../components/layout/Home";
+import { fetchCharacters } from "../hooks/characters/fetchCharacters";
 import "../App.css";
 
 const CharacterManagement = () => {
   const [characters, setCharacters] = useState([]);
-  const [newCharacterName, setNewCharacterName] = useState("");
-  const [newCharacterAliases, setNewCharacterAliases] = useState("");
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [editing, setEditing] = useState(false);
+  const [characterDetails, setCharacterDetails] = useState({
+    name: "",
+    alias: [],
+    Mut: "",
+    Klugheit: "",
+    Intuition: "",
+    Charisma: "",
+    Fingerfertigkeit: "",
+    Gewandtheit: "",
+    Konstitution: "",
+    Körperkraft: "",
+  });
 
   useEffect(() => {
-    fetchCharacters();
+    const loadCharacters = async () => {
+      try {
+        const charactersData = await fetchCharacters();
+        setCharacters(charactersData);
+      } catch (error) {
+        console.error("Error fetching characters", error);
+      }
+    };
+
+    loadCharacters();
   }, []);
 
-  const fetchCharacters = async () => {
+  const handleCharacterSelect = (e) => {
+    const characterName = e.target.value;
+    const character = characters.find((c) => c.name === characterName);
+    setSelectedCharacter(characterName);
+    setCharacterDetails({
+      ...character.traits,
+      alias: character.alias || [], // This line handles aliases
+      name: character.name,
+    });
+    setEditing(false); // Reset editing mode
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setCharacterDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
+
+  const handleAliasChange = (index, value) => {
+    const updatedAliases = [...characterDetails.alias];
+    updatedAliases[index] = value;
+    setCharacterDetails((prevDetails) => ({
+      ...prevDetails,
+      alias: updatedAliases,
+    }));
+  };
+
+  const addAlias = () => {
+    setCharacterDetails((prevDetails) => ({
+      ...prevDetails,
+      alias: [...prevDetails.alias, ""],
+    }));
+  };
+
+  const removeAlias = (index) => {
+    const updatedAliases = characterDetails.alias.filter((_, i) => i !== index);
+    setCharacterDetails((prevDetails) => ({
+      ...prevDetails,
+      alias: updatedAliases,
+    }));
+  };
+
+  const saveCharacter = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/characters_management/characters");
-      setCharacters(response.data.characters);
+      await axios.post(
+        "http://127.0.0.1:5000/characters_management/update-character",
+        characterDetails
+      );
+      alert("Character updated successfully");
+      const charactersData = await fetchCharacters();
+      setCharacters(charactersData); // Refresh the characters list
+      setEditing(false); // Exit editing mode
     } catch (error) {
-      console.error("Error fetching characters", error);
+      console.error("Error updating character", error);
+      alert("Error updating character");
     }
   };
-
-  const addAlias = async (characterName) => {
-    // Implement the logic to add an alias
-  };
-
-  const updateAlias = async (characterName) => {
-    // Implement the logic to update an alias
-  };
-
-  const archiveCharacter = async (characterName, aliases) => {
-    try {
-        await axios.post("http://127.0.0.1:5000/characters_management/archive-character", { name: characterName, alias: aliases});
-        fetchCharacters(); // Refresh the characters list
-    } catch (error) {
-        console.error("Error archiving character", error);
-    }
-  };
-
-  const addCharacter = async () => {
-    if (!newCharacterName.trim()) {
-        alert("Character name cannot be empty.");
-        return;
-      }
-    try {
-      const characterData = {
-        name: newCharacterName,
-        alias: newCharacterAliases.split(",").map(alias => alias.trim())
-      };
-      await axios.post("http://127.0.0.1:5000/characters_management/add-character", characterData);
-      fetchCharacters(); // Refresh the characters list
-
-      // Clear the input fields
-      setNewCharacterName("");
-      setNewCharacterAliases("");
-    } catch (error) {
-        alert("Error adding character", error);
-      console.error("Error adding character", error);
-    }
-  };
-  
 
   return (
     <>
       <div>
         <Home />
       </div>
-      <div className="table-container">
+      <div className="main-container">
         <h1>Character Management</h1>
-        <table className="">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Aliases</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
+        <div className="character-select-container">
+          <select
+            value={selectedCharacter || ""}
+            onChange={handleCharacterSelect}
+          >
+            <option value="">Select a Character</option>
             {characters.map((character) => (
-              <tr key={character.name}>
-                <td>{character.name}</td>
-                <td>
-                  {character.alias && character.alias.length > 0 ? (
-                    character.alias.map((alias) => (
-                      <div key={alias}>{alias}</div>
-                    ))
+              <option key={character.name} value={character.name}>
+                {character.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {selectedCharacter && (
+          <div className="character-details-container">
+            <h3>Attributes</h3>
+            {!editing ? (
+              <>
+                <table className="character-attributes">
+                  <tbody>
+                    {Object.entries(characterDetails).map(([key, value]) =>
+                      key !== "alias" && key !== "name" ? (
+                        <tr key={key}>
+                          <td className="attribute-label">{key}</td>
+                          <td className="attribute-value">{value}</td>
+                        </tr>
+                      ) : null
+                    )}
+                  </tbody>
+                </table>
+                <div className="character-aliases">
+                  <h3>Aliases</h3>
+                  {characterDetails.alias.length > 0 ? (
+                    <ul>
+                      {characterDetails.alias.map((alias, index) => (
+                        <li key={index}>{alias}</li>
+                      ))}
+                    </ul>
                   ) : (
-                    <div>No Aliases</div>
+                    <p>No aliases</p>
                   )}
-                </td>
-                <td>
-                  <button
-                    className="button"
-                    onClick={() => addAlias(character.name)}
-                  >
+                </div>
+                <button className="button" onClick={() => setEditing(true)}>
+                  Edit Character
+                </button>
+              </>
+            ) : (
+              <>
+                <table className="character-attributes-edit">
+                  <tbody>
+                    {Object.entries(characterDetails).map(([key, value]) =>
+                      key !== "alias" && key !== "name" ? (
+                        <tr key={key}>
+                          <td className="attribute-label">{key}</td>
+                          <td>
+                            <input
+                              type="number"
+                              name={key}
+                              value={value}
+                              onChange={handleInputChange}
+                            />
+                          </td>
+                        </tr>
+                      ) : null
+                    )}
+                  </tbody>
+                </table>
+                <div className="character-aliases-edit">
+                  <h3>Aliases</h3>
+                  {characterDetails.alias.map((alias, index) => (
+                    <div key={index} className="alias-input">
+                      <input
+                        type="text"
+                        value={alias}
+                        onChange={(e) =>
+                          handleAliasChange(index, e.target.value)
+                        }
+                      />
+                      <button onClick={() => removeAlias(index)}>Remove</button>
+                    </div>
+                  ))}
+                  <button className="button" onClick={addAlias}>
                     Add Alias
                   </button>
-                  <button
-                    className="button"
-                    onClick={() => updateAlias(character.name)}
-                  >
-                    Update Alias
+                </div>
+                <div className="edit-actions">
+                  <button className="button" onClick={saveCharacter}>
+                    Save
                   </button>
-                  <button
-                    className="button"
-                    onClick={() => archiveCharacter(character.name, character.alias)}
-                  >
-                    Archive Character
+                  <button className="button" onClick={() => setEditing(false)}>
+                    Cancel
                   </button>
-                </td>
-              </tr>
-            ))}
-            <tr>
-              <td>
-                <input className="custom-input"
-                  placeholder="Character name"
-                  value={newCharacterName}
-                  onChange={(e) => setNewCharacterName(e.target.value)}
-                />
-              </td>
-              <td>
-                <input className="custom-input"
-                  placeholder="Character aliases (separate with commas)"
-                  value={newCharacterAliases}
-                  onChange={(e) => setNewCharacterAliases(e.target.value)}
-                />
-              </td>
-              <td>
-                <button className="button" onClick={() => addCharacter()}>
-                  Add Character
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </div>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </>
   );

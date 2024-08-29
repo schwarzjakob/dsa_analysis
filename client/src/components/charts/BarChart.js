@@ -1,17 +1,18 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import ChartDataLabels from 'chartjs-plugin-datalabels';
+import ChartDataLabels from "chartjs-plugin-datalabels";
 
 const BarChart = ({ data }) => {
-  if (!data || !data.datasets || data.datasets.length === 0) {
-    return null; // Or some placeholder
+  // Safeguard against undefined or incorrectly structured data
+  if (!data || !data.datasets || !data.datasets[0] || !data.labels) {
+    return <div>No data available for the chart</div>;
   }
 
   // Color the first 5 bars green and the last 5 bars red
   const barColors = data.datasets[0].data.map((_, index) => {
     if (index < 5) return "#4BC0C0"; // Teal
     if (index >= data.datasets[0].data.length - 5) return "#FF9F40"; // Orange
-    return 'blue'; // Default color for the middle bars
+    return "blue"; // Default color for the middle bars
   });
 
   const chartData = {
@@ -27,22 +28,22 @@ const BarChart = ({ data }) => {
 
   const chartOptions = {
     layout: {
-        padding: {
-            top: 30,
-        }
+      padding: {
+        top: 30,
+      },
     },
     plugins: {
-        datalabels: {
-          anchor: 'end',
-          align: 'top',
-          formatter: (value) => {
-            return value === 0 ? '' : value;
-          }, // Display the value as it is
-        },
-        legend: {
-          onClick: (e) => false,
-          display: false,
-        },
+      datalabels: {
+        anchor: "end",
+        align: "top",
+        formatter: (value) => {
+          return value === 0 ? "" : value;
+        }, // Display the value as it is
+      },
+      legend: {
+        onClick: (e) => false,
+        display: false,
+      },
     },
     scales: {
       y: {
@@ -54,12 +55,12 @@ const BarChart = ({ data }) => {
           text: data.datasets[0].label,
         },
         grid: {
-            color: (context) => {
-              if (context.tick.value === 0) {
-                return "rgba(255,255,255,1)";
-              }
-            },
+          color: (context) => {
+            if (context.tick.value === 0) {
+              return "rgba(255,255,255,1)";
+            }
           },
+        },
       },
       x: {
         title: {
@@ -70,7 +71,9 @@ const BarChart = ({ data }) => {
     },
   };
 
-  return <Bar data={chartData} options={chartOptions} plugins={[ChartDataLabels]}/>;
+  return (
+    <Bar data={chartData} options={chartOptions} plugins={[ChartDataLabels]} />
+  );
 };
 
 export default BarChart;
