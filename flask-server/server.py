@@ -24,7 +24,7 @@ sys.path.append(os.path.join(base_dir, "dsa_analysis_app"))
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = os.getenv("GOOGLE_CLIENT_SECRET")
 google_authorization(app)
 
 
@@ -40,7 +40,7 @@ def login():
 def authorize():
     google = app.config.get("google")
     logger.debug(f"Google: {google}")
-    token = google.authorize_access_token()
+    google.authorize_access_token()
     user_info = google.get("https://www.googleapis.com/oauth2/v1/userinfo").json()
     session["user"] = user_info
     logger.debug(f"User info: {user_info}")
@@ -113,7 +113,6 @@ def get_talents(character_name):
     return jsonify(data)
 
 
-
 @app.route("/character_analysis/analyze-talent", methods=["POST"])
 def analyze_talent():
     data = request.json
@@ -155,7 +154,6 @@ def get_attacks(character_name):
     data = {"attacks": attacks_output}
 
     return jsonify(data)
-
 
 
 @app.route("/character_analysis/analyze-attack", methods=["POST"])
@@ -249,6 +247,7 @@ def add_character():
         logger.error(f"Error adding character: {e}")
         return jsonify({"error": "An error occurred"}), 500
 
+
 # Some data exploration
 @app.route("/traits-for-selected-talents", methods=["POST"])
 def get_traits_for_selected_talents():
@@ -257,10 +256,11 @@ def get_traits_for_selected_talents():
     traits_counts = traits_needed_for_some_talents.get_traits_for_selected_talents(talents_name_list)
     return jsonify(traits_counts)
 
+
 @app.route("/talents-options", methods=["GET"])
 def get_talents_options():
     talents_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "talents.json")
-    with open(talents_file_path, 'r') as file:
+    with open(talents_file_path, "r") as file:
         data = json.load(file)
     return jsonify(data)
 
