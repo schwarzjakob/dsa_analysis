@@ -17,7 +17,6 @@ today = datetime.today().strftime("%y%m%d")
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 CHARACTERS_JSON_PATH = os.path.join(BASE_DIR, "data", "json", "characters.json")
-TALENTS_JSON_PATH = os.path.join(BASE_DIR, "data", "json", "talents.json")
 USER_CORRECTIONS_JSON_PATH = os.path.join(BASE_DIR, "data", "json", "user_corrections.json")
 TALENT_CORRECTIONS_JSON_PATH = os.path.join(BASE_DIR, "data", "json", "talent_corrections.json")
 TRAITS = ["MU", "KL", "IN", "CH", "FF", "GE", "KO", "KK"]
@@ -50,8 +49,9 @@ class DsaStats:
             for alias in aliases:
                 self.charactersWithColon.append(alias + ":")
 
-        with open(TALENTS_JSON_PATH, "r") as file:
-            self.talentsFile = json.load(file)
+        # with open(TALENTS_JSON_PATH, "r") as file:
+        #     self.talentsFile = json.load(file)
+
         with open(TALENT_CORRECTIONS_JSON_PATH, "r") as file:
             self.talent_corrections = json.load(file)
         self.traitsRolls = []
@@ -107,7 +107,7 @@ class DsaStats:
             columns=["character_id", "category", "attack", "modifier", "success", "tap_zfp", "taw_zfw"]
         )
         self.initiatives_df = pd.DataFrame(columns=["character_id", "rolled_ini", "current_ini", "modifier"])
-        self.totalDmg_df = pd.DataFrame(columns=["character_id", "total_dmg"])
+        self.totalDmg_df = pd.DataFrame(columns=["character_id", "total_damage"])
 
     # retrieved chatlog parsing
     def process_chatlog(self, chatlog_path):
@@ -145,29 +145,88 @@ class DsaStats:
             return True
         return False
 
-    def validateTalent(self, potentialTalent: str):
-        for i in self.talentsFile["talents"]:
-            if i["talent"] == potentialTalent:
-                return True
-        return False
+    def validateTalent(self, potentialTalent: str) -> bool:
+        # Check if a talent with this name exists in the talents table
+        self.cursor.execute("SELECT 1 FROM talents WHERE talent_name = %s LIMIT 1", (potentialTalent,))
+        return self.cursor.fetchone() is not None
 
-    def validateSpell(self, potentialSpell: str):
-        for i in self.talentsFile["spells"]:
-            if i["spell"] == potentialSpell:
-                return True
-        return False
+    def validateSpell(self, potentialSpell: str) -> bool:
+        # Check if a spell with this name exists in the spells table
+        self.cursor.execute("SELECT 1 FROM spells WHERE spell_name = %s LIMIT 1", (potentialSpell,))
+        return self.cursor.fetchone() is not None
 
-    def validateAttack(self, potentialAttack: str):
-        for i in self.talentsFile["attacks"]:
-            if i["attack"] == potentialAttack:
-                return True
-        return False
+    def validateAttack(self, potentialAttack: str) -> bool:
+        # Check if an attack with this name exists in the attacks table
+        self.cursor.execute("SELECT 1 FROM attacks WHERE attack_name = %s LIMIT 1", (potentialAttack,))
+        return self.cursor.fetchone() is not None
 
     # In den talents nach gewürfeltem Talent suchen
-    def getTraits(self, talentOrSpell: str, talent: str):
-        for k in self.talentsFile[talentOrSpell + "s"]:
-            if k[talentOrSpell] == talent:
-                return k["category"], k["trait1"], k["trait2"], k["trait3"]
+    def getTraits(self, item_type: str, name: str):
+        """
+        item_type: "talent", "spell", or "attack"
+        name: the name of the talent/spell/attack
+        Returns: (category, trait1, trait2, trait3)
+        """
+
+        if item_type == "talent":
+            self.cursor.execute(
+                """
+                SELECT COALESCE(tc.talent_category_name, 'N/A'),
+                    COALESCE(ct1.trait_abbreviation, 'N/A'),
+                    COALESCE(ct2.trait_abbreviation, 'N/A'),
+                    COALESCE(ct3.trait_abbreviation, 'N/A')
+                FROM talents t
+                LEFT JOIN talent_categories tc ON t.talent_category_id = tc.talent_category_id
+                LEFT JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
+                LEFT JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
+                LEFT JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
+                WHERE t.talent_name = %s
+                LIMIT 1
+                """,
+                (name,),
+            )
+
+        elif item_type == "spell":
+            self.cursor.execute(
+                """
+                SELECT 'Zauber' AS category,
+                    COALESCE(ct1.trait_abbreviation, 'N/A'),
+                    COALESCE(ct2.trait_abbreviation, 'N/A'),
+                    COALESCE(ct3.trait_abbreviation, 'N/A')
+                FROM spells s
+                LEFT JOIN character_traits ct1 ON s.spell_trait_one_id = ct1.trait_id
+                LEFT JOIN character_traits ct2 ON s.spell_trait_two_id = ct2.trait_id
+                LEFT JOIN character_traits ct3 ON s.spell_trait_three_id = ct3.trait_id
+                WHERE s.spell_name = %s
+                LIMIT 1
+                """,
+                (name,),
+            )
+
+        else:  # "attack"
+            self.cursor.execute(
+                """
+                SELECT ac.attack_category_name,
+                    COALESCE(ct1.trait_abbreviation, 'N/A'),
+                    COALESCE(ct2.trait_abbreviation, 'N/A'),
+                    COALESCE(ct3.trait_abbreviation, 'N/A')
+                FROM attacks a
+                LEFT JOIN attack_categories ac ON a.attack_category_id = ac.attack_category_id
+                LEFT JOIN character_traits ct1 ON a.attack_trait_one_id = ct1.trait_id
+                LEFT JOIN character_traits ct2 ON a.attack_trait_two_id = ct2.trait_id
+                LEFT JOIN character_traits ct3 ON a.attack_trait_three_id = ct3.trait_id
+                WHERE a.attack_name = %s
+                LIMIT 1
+                """,
+                (name,),
+            )
+
+        result = self.cursor.fetchone()
+        if result:
+            return result[0], result[1], result[2], result[3]
+        else:
+            logger.warning(f"No {item_type} found in DB for name: {name}")
+            return ("N/A", "MU", "KL", "IN")
 
     def updateTraitUsage(self, character, traits):
         # If it was a specific trait roll, then it's not an array but only a string representing on trait to add
@@ -405,9 +464,9 @@ class DsaStats:
         # Update the totalDmg_df with the current character's total damage
         character_id = self.get_character_id(self.currentChar)
         if not self.totalDmg_df[self.totalDmg_df["character_id"] == character_id].empty:
-            self.totalDmg_df.loc[self.totalDmg_df["character_id"] == character_id, "total_dmg"] += currentDmg
+            self.totalDmg_df.loc[self.totalDmg_df["character_id"] == character_id, "total_damage"] += currentDmg
         else:
-            new_row = pd.DataFrame([{"character_id": character_id, "total_dmg": currentDmg}])
+            new_row = pd.DataFrame([{"character_id": character_id, "total_damage": currentDmg}])
             self.totalDmg_df = pd.concat([self.totalDmg_df, new_row], ignore_index=True)
 
     # Main function to process the chatlog
@@ -587,7 +646,7 @@ class DsaStats:
             if not self.initiatives_df.empty:
                 self.initiatives_df.to_sql("initiative_rolls", self.engine, if_exists="append", index=False)
             if not self.totalDmg_df.empty:
-                self.totalDmg_df.to_sql("total_dmg_rolls", self.engine, if_exists="append", index=False)
+                self.totalDmg_df.to_sql("total_damage", self.engine, if_exists="append", index=False)
 
             # Update character traits in the database
             self.update_character_traits()
@@ -597,6 +656,7 @@ class DsaStats:
             logger.error(f"Error during batch insertion: {e}")
 
     def update_character_traits(self):
+        # TODO: Fix error when missing trait in dataframe
         # Convert traitValues to DataFrame
         trait_values_df = pd.DataFrame.from_dict(self.traitValues, orient="index").reset_index()
         trait_values_df.columns = ["name"] + TRAITS
@@ -613,7 +673,3 @@ class DsaStats:
                 (row["MU"], row["KL"], row["IN"], row["CH"], row["FF"], row["GE"], row["KO"], row["KK"], row["name"]),
             )
         self.conn.commit()
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
