@@ -56,7 +56,7 @@ psql -U dsa_user -d dsa_analysis -f database/setup.sql
 2. **Setup the Python Flask Backend:**
 
    ```bash
-   cd flask-server
+   cd backend
    # Create a virtual environment (Linux/Mac)
    python3 -m venv venv
    source venv/bin/activate
@@ -68,7 +68,7 @@ psql -U dsa_user -d dsa_analysis -f database/setup.sql
    ```
 
 3. **Set Up Environment Variables:**
-   Create a `.env` file in the `flask-server` directory and add the following lines to it:
+   Create a `.env` file in the `backend` directory and add the following lines to it:
 
    ```bash
    DATABASE_URL=postgresql://dsa_user:password@localhost:5432/dsa_analysis

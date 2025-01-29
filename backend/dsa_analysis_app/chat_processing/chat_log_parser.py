@@ -1,4 +1,3 @@
-# flask-server/dsa_analysis_app/chat_processing/chat_log_parser.py
 import json
 import csv
 import re
