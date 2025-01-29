@@ -13,6 +13,7 @@ from dsa_analysis_app.traits_needed_for_some_talents import traits_needed_for_so
 
 # TODO: Remove most file based operations and replace with database operations
 # TODO: Remove remaining file based operations into functions (e.g talent_corrections)
+# TODO: Refactor backend (e.g database service, etc.)
 # TODO: Update database schema names to be precise and more descriptive and update all queries accordingly
 # TODO: Review unused character management (archive, etc.) and remove if not needed
 
@@ -510,17 +511,76 @@ def add_character():
 @app.route("/traits-for-selected-talents", methods=["POST"])
 def get_traits_for_selected_talents():
     data = request.json
-    talents_name_list = data.get("talentsNameList")
-    traits_counts = traits_needed_for_some_talents.get_traits_for_selected_talents(talents_name_list)
-    return jsonify(traits_counts)
+    talents_name_list = data.get("talentsNameList", [])
+
+    if not talents_name_list:
+        return jsonify({"error": "No talents provided"}), 400
+
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Fetch traits for selected talents from the database
+        cursor.execute(
+            """
+            SELECT ct1.trait_abbreviation, ct2.trait_abbreviation, ct3.trait_abbreviation
+            FROM talents t
+            JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
+            JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
+            JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
+            WHERE t.talent_name = ANY(%s);
+            """,
+            (talents_name_list,),
+        )
+
+        fetched_talents = cursor.fetchall()
+        cursor.close()
+        conn.close()
+
+        # Flatten fetched data into a list of traits
+        traits_list = [trait for row in fetched_talents for trait in row]
+
+        # Pass retrieved traits to the function in traits_needed_for_some_talents
+        traits_counts = traits_needed_for_some_talents.count_traits(traits_list)
+
+        return jsonify(traits_counts)
+
+    except Exception as e:
+        logger.error(f"Error fetching traits for talents: {e}")
+        return jsonify({"error": "Internal server error"}), 500
 
 
 @app.route("/talents-options", methods=["GET"])
 def get_talents_options():
-    talents_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "talents.json")
-    with open(talents_file_path, "r") as file:
-        data = json.load(file)
-    return jsonify(data)
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+
+        # Fetch talents along with their categories
+        cursor.execute(
+            """
+            SELECT t.talent_name, tc.talent_category_name
+            FROM talents t
+            JOIN talent_categories tc ON t.talent_category_id = tc.talent_category_id
+            """
+        )
+        talents_data = cursor.fetchall()
+
+        # Structure the data into category-wise dictionary
+        talents_by_category = {}
+        for talent_name, category_name in talents_data:
+            if category_name not in talents_by_category:
+                talents_by_category[category_name] = []
+            talents_by_category[category_name].append(talent_name)
+
+        cursor.close()
+        conn.close()
+
+        return jsonify({"talents": talents_by_category})
+
+    except Exception as error:
+        logger.error(f"Error fetching talents options: {error}")
+        return jsonify({"talents": {}}), 500
 
 
 if __name__ == "__main__":

@@ -1,34 +1,24 @@
-import json
-import os
+import logging
 
-# Determine the base directory
-base_dir = os.path.abspath(os.path.dirname(__file__))
+logger = logging.getLogger(__name__)
 
-TALENTS_JSON_PATH = os.path.join(base_dir, '..', 'data', 'json', 'talents.json')
 
-def get_talents_json():
-    with open(TALENTS_JSON_PATH, 'r') as f:
-        talents_json = json.load(f)
-    return talents_json
-
-def get_traits_for_selected_talents(talents_name_list):
-    print(talents_name_list)
-    talents_json = get_talents_json()
-    #print(talents_json)
+def count_traits(traits_list):
+    """
+    Count occurrences of each trait from the given list.
+    :param traits_list: List of trait abbreviations.
+    :return: Dictionary with trait counts.
+    """
     trait_counts = {"MU": 0, "KL": 0, "IN": 0, "CH": 0, "FF": 0, "GE": 0, "KO": 0, "KK": 0}
-    for talent_name in talents_name_list:
-        # Find the talent in the list
-        talent = next((talent for talent in talents_json["talents"] if talent["talent"] == talent_name), None)
-        if talent:
-            # Update trait counts
-            trait_counts[talent["trait1"]] += 1
-            trait_counts[talent["trait2"]] += 1
-            trait_counts[talent["trait3"]] += 1
-        else:
-            print("Talent {} not found in talents.json".format(talent_name))
+
+    try:
+        for trait in traits_list:
+            if trait in trait_counts:
+                trait_counts[trait] += 1
+            else:
+                logger.warning(f"Unexpected trait abbreviation found: {trait}")
+
+    except Exception as e:
+        logger.error(f"Error processing trait counts: {e}")
 
     return trait_counts
-        
-
-if __name__ == "__main__":
-    app.run(debug=True)
