@@ -135,3 +135,8 @@ The primary goal of this project is to create a robust and modular analysis tool
 ## DSA Forum Thread (German)
 
 For more information or to join the discussion, visit the DSA Forum: [Kreative Ideen für Datenanalyse in DSA gesucht](https://dsaforum.de/viewtopic.php?p=2130810&sid=35430a31d27d49c3c592265d31acf1e0#p2130810)
+
+## Ideas
+
+- Talent Boxplots sortable after quartiles, mean, max, succes-rate etc.
+- Collapsible Content: Show e.g. Talents only if interested, below spells with the same charts if applicable
