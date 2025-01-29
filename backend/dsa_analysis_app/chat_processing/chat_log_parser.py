@@ -297,94 +297,6 @@ class DsaStats:
         currentMod = int(re.split(r" ", secondLine)[-1])
         return currentIni, rolledIni, currentMod
 
-    def writeTraitUsageCounts(self):
-        # Creates files with trait usage counts for the current Day
-        # with open(self.directoryDateDependent + f'{today}_trait_usage.csv', 'w', newline='', encoding='utf8') as file:
-        #     writer = csv.writer(file)
-        #     writer.writerow(["Character"] + TRAITS)
-        #     for char, counts in self.traitUsageCounts.items():
-        #         writer.writerow([char] + [counts[trait] for trait in TRAITS])
-
-        with open(os.path.join(self.directoryRecent, "trait_usage.csv"), "w", newline="", encoding="utf8") as file:
-            writer = csv.writer(file)
-            writer.writerow(["Character"] + TRAITS)
-            for char, counts in self.traitUsageCounts.items():
-                try:
-                    writer.writerow([char] + [counts[int(trait)] for trait in TRAITS])
-                except ValueError:
-                    writer.writerow([char] + [counts[trait] for trait in TRAITS])
-
-    def writeTraitValues(self):
-        # Creates files with trait values for the current Day
-        # with open(self.directoryDateDependent + f'{today}_trait_values.csv', 'w', newline='', encoding='utf8') as file:
-        #     writer = csv.writer(file)
-        #     writer.writerow(["Character"] + TRAITS)
-        #     for char, value in self.traitValues.items():
-        #         writer.writerow([char] + [value[trait] for trait in TRAITS])
-
-        with open(os.path.join(self.directoryRecent, "trait_values.csv"), "w", newline="", encoding="utf8") as file:
-            writer = csv.writer(file)
-            writer.writerow(["Character"] + TRAITS)
-            for char, value in self.traitValues.items():
-                try:
-                    writer.writerow([char] + [value[int(trait)] for trait in TRAITS])
-                except ValueError:
-                    writer.writerow([char] + [value[trait] for trait in TRAITS])
-
-    def writeRollsToFile(self, rolls, rollType, filename):
-        try:
-            # Write to the recent directory
-            recent_file_path = os.path.join(self.directoryRecent, f"{rollType}.csv")
-            with open(recent_file_path, "w", newline="", encoding="utf8") as file:
-                writer = csv.writer(file)
-                self.write_rolls(writer, rolls, rollType)
-            logger.debug(f"{rollType.capitalize()} rolls successfully written to {recent_file_path}")
-            # Write to the date-dependent directory
-            dated_file_path = os.path.join(self.directoryDateDependent, filename)
-
-            with open(dated_file_path, "w", newline="", encoding="utf8") as file:
-                writer = csv.writer(file)
-                self.write_rolls(writer, rolls, rollType)
-
-            logger.debug(f"{rollType.capitalize()} rolls successfully written to {dated_file_path}")
-
-        except Exception as e:
-            logger.error(f"Error writing {rollType} rolls to file: {e}")
-
-    def write_rolls(self, writer, rolls, rollType):
-        if rollType == "traits":
-            writer.writerow(
-                ["Character", "Category", "Talent", "Eigenschaft 1", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"]
-            )
-            writer.writerows(rolls)
-        elif rollType == "talents" or rollType == "spells":
-            writer.writerow(
-                [
-                    "Character",
-                    "Category",
-                    "Talent",
-                    "Eigenschaft 1",
-                    "Eigenschaft 2",
-                    "Eigenschaft 3",
-                    "Modifikator",
-                    "Erfolg",
-                    "TaP/ZfP",
-                    "TaW/ZfW",
-                    "Eigenschaftswert 1",
-                    "Eigenschaftswert 2",
-                    "Eigenschaftswert 3",
-                ]
-            )
-            writer.writerows(rolls)
-        elif rollType == "attacks":
-            writer.writerow(["Character", "Category", "Talent", "Modifikator", "Erfolg", "TaP/ZfP", "TaW/ZfW"])
-            writer.writerows(rolls)
-        elif rollType == "initiative":
-            writer.writerow(["Character", "Category", "Talent", "Modifikator", "TaP/ZfP", "TaW/ZfW"])
-            writer.writerows(rolls)
-        else:
-            logger.debug(f"No database for {rollType} rolls")
-
     def insert_trait_roll(self, roll):
         character_id = self.get_character_id(self.currentChar)
         new_row = pd.DataFrame(
@@ -425,53 +337,6 @@ class DsaStats:
             ]
         )
         self.talents_df = pd.concat([self.talents_df, new_row], ignore_index=True)
-
-    def insert_spell_roll(self, roll):
-        character_id = self.get_character_id(self.currentChar)
-        new_row = pd.DataFrame(
-            [
-                {
-                    "character_id": character_id,
-                    "category": roll[1],
-                    "spell": roll[2],
-                    "trait1": roll[3],
-                    "trait2": roll[4],
-                    "trait3": roll[5],
-                    "modifier": roll[6],
-                    "success": bool(roll[7]),
-                    "tap_zfp": roll[8],
-                    "taw_zfw": roll[9],
-                    "trait_value1": roll[10],
-                    "trait_value2": roll[11],
-                    "trait_value3": roll[12],
-                }
-            ]
-        )
-        self.spells_df = pd.concat([self.spells_df, new_row], ignore_index=True)
-
-    def insert_attack_roll(self, roll):
-        character_id = self.get_character_id(self.currentChar)
-        new_row = pd.DataFrame(
-            [
-                {
-                    "character_id": character_id,
-                    "category": roll[1],
-                    "attack": roll[2],
-                    "modifier": roll[3],
-                    "success": bool(roll[4]),
-                    "tap_zfp": roll[5],
-                    "taw_zfw": roll[6],
-                }
-            ]
-        )
-        self.attacks_df = pd.concat([self.attacks_df, new_row], ignore_index=True)
-
-    def insert_initiative_roll(self, roll):
-        character_id = self.get_character_id(self.currentChar)
-        new_row = pd.DataFrame(
-            [{"character_id": character_id, "rolled_ini": roll[4], "current_ini": roll[5], "modifier": roll[3]}]
-        )
-        self.initiatives_df = pd.concat([self.initiatives_df, new_row], ignore_index=True)
 
     def insert_spell_roll(self, roll):
         self.cursor.execute(
@@ -699,15 +564,6 @@ class DsaStats:
             if "treffer" in potentialEvent:
                 self.countDmg(chatlogLines[i + 1].strip())
                 continue
-
-        # Write the rolls to files
-        self.writeTraitValues()
-        self.writeTraitUsageCounts()
-        self.writeRollsToFile(self.traitsRolls, "traits", f"{today}_traits_rolls.csv")
-        self.writeRollsToFile(self.talentsRolls, "talents", f"{today}_talents_rolls.csv")
-        self.writeRollsToFile(self.spellsRolls, "spells", f"{today}_spells_rolls.csv")
-        self.writeRollsToFile(self.attacksRolls, "attacks", f"{today}_attacks_rolls.csv")
-        self.writeRollsToFile(self.initiativesRolls, "initiative", f"{today}_initiatives_rolls.csv")
 
         # Batch insert the DataFrames to the database
         self.batch_insert_to_db()
