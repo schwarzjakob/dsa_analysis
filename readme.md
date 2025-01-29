@@ -18,7 +18,6 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
 
 1. **Clone the Repository:**
 
-
    ```bash
    git clone https://github.com/AixPrime/dsa_analysis.git
    cd dsa_rolls_webapp
@@ -50,16 +49,47 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
    Replace `your-google-client-id` and `your-google-client-secret` with your actual Google OAuth credentials. Visit the [Google OAuth 2.0 Documentation](https://developers.google.com/identity/protocols/oauth2?hl=de) for further instructions.
 
 4. **Start the Flask Server:**
+
    ```bash
    python server.py
    ```
 
-4. **Setup Dotenv:**
+5. **Setup Dotenv:**
    Create a `.env` file containing your Google OAuth credentials as well as a Database url:
    ```bash
    GOOGLE_CLIENT_ID=Your_Client_ID
    GOOGLE_CLIENT_SECRET=Your_Client_Secret
-   DATABASE_URL=postgressql://postgres:password@url:port/flask_db
+   DATABASE_URL=postgresql://dsa_user:password@localhost:5432/dsa_analysis
+   ```
+
+### Database Setup
+
+1. **Install and Run PostgreSQL:**
+
+   ```bash
+   brew install postgresql@14
+   brew services start postgresql@14
+   psql postgres
+   ```
+
+2. **Install and Setup Database:**
+
+   ```sql
+   CREATE DATABASE dsa_analysis;
+   CREATE USER dsa_user WITH PASSWORD 'dsa_user';
+   ALTER ROLE dsa_user SET client_encoding TO 'utf8';
+   ALTER ROLE dsa_user SET default_transaction_isolation TO 'read committed';
+   ALTER ROLE dsa_user SET timezone TO 'UTC';
+   GRANT ALL PRIVILEGES ON DATABASE dsa_analysis TO dsa_user;
+   \q
+   ```
+
+3. **Install and Setup Schema:**
+
+Don't forget to setup the DATABASE_URL in your `.env` file before continuing.
+
+   ```bash
+   psql -U dsa_user -d dsa_analysis -f database/setup.sql
    ```
 
 ### Frontend Setup
