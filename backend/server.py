@@ -10,6 +10,13 @@ from sqlalchemy import create_engine
 from dsa_analysis_app.chat_processing.chat_log_parser import DsaStats
 from dsa_analysis_app.traits_needed_for_some_talents import traits_needed_for_some_talents
 
+
+# TODO: Remove most file based operations and replace with database operations
+# TODO: Remove remaining file based operations into functions (e.g talent_corrections)
+# TODO: Update database schema names to be precise and more descriptive and update all queries accordingly
+# TODO: Review unused character management (archive, etc.) and remove if not needed
+
+
 # Enabling logging (must come first to enable it globally, also for imported modules and packages)
 logger_format = "[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s"
 logging.basicConfig(format=logger_format, level=logging.DEBUG)

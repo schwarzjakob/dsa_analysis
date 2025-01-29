@@ -41,7 +41,9 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
 Don't forget to setup the DATABASE_URL in your `.env` file before continuing.
 
 ```bash
-psql -U dsa_user -d dsa_analysis -f database/setup.sql
+psql -U dsa_user -d dsa_analysis -f database/schema.sql
+psql -U dsa_user -d dsa_analysis -f database/talents_spells_and_attacks.sql
+psql -U dsa_user -d dsa_analysis -f database/characters.sql
 ```
 
 ### Backend Setup

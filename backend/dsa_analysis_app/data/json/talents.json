@@ -1298,13 +1298,6 @@
       "trait3": "GE"
     },
     {
-      "spell": "Falkenauge Meisterschuss",
-      "category": "Zauber",
-      "trait1": "IN",
-      "trait2": "FF",
-      "trait3": "GE"
-    },
-    {
       "spell": "Favilludo Funkentanz",
       "category": "Zauber",
       "trait1": "IN",
@@ -2653,7 +2646,7 @@
       "category": "Zauber",
       "trait1": "IN",
       "trait2": "CH",
-      "trait3": "KOUnsichtbarer Jäger IN/FF/GE"
+      "trait3": "KO"
     },
     {
       "spell": "Unsichtbarer Jäger",
