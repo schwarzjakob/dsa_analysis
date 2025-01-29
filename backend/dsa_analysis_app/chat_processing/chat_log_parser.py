@@ -1,8 +1,4 @@
-import json
-import csv
 import re
-from datetime import datetime
-import os
 import pandas as pd
 import logging
 
@@ -11,14 +7,14 @@ logger_format = "[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelna
 logging.basicConfig(format=logger_format, level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-today = datetime.today().strftime("%y%m%d")
+TALENT_CORRECTIONS = {
+    "Sinnenschärfe": "Sinnesschärfe",
+    "Alchimie": "Alchemie",
+    "Fesseln": "Fesseln/Entfesseln",
+    "Überreden (Feilschen)": "Überreden",
+    "Fischenangeln": "Fischen/Angeln",
+}
 
-# Define base directory and constants for file paths
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-CHARACTERS_JSON_PATH = os.path.join(BASE_DIR, "data", "json", "characters.json")
-USER_CORRECTIONS_JSON_PATH = os.path.join(BASE_DIR, "data", "json", "user_corrections.json")
-TALENT_CORRECTIONS_JSON_PATH = os.path.join(BASE_DIR, "data", "json", "talent_corrections.json")
 TRAITS = ["MU", "KL", "IN", "CH", "FF", "GE", "KO", "KK"]
 TRAITS_LONG = [
     "Mut",
@@ -38,9 +34,7 @@ class DsaStats:
         self.cursor = self.conn.cursor()
         self.engine = engine
 
-        with open(CHARACTERS_JSON_PATH, "r") as file:
-            users_data = json.load(file)
-        self.characters = {char["name"]: char["alias"] for char in users_data["characters"]}
+        self.characters = self.load_characters_from_db()
         self.currentChar = ""
 
         self.charactersWithColon = []
@@ -49,11 +43,6 @@ class DsaStats:
             for alias in aliases:
                 self.charactersWithColon.append(alias + ":")
 
-        # with open(TALENTS_JSON_PATH, "r") as file:
-        #     self.talentsFile = json.load(file)
-
-        with open(TALENT_CORRECTIONS_JSON_PATH, "r") as file:
-            self.talent_corrections = json.load(file)
         self.traitsRolls = []
         self.talentsRolls = []
         self.spellsRolls = []
@@ -62,9 +51,6 @@ class DsaStats:
         self.totalDmg = {char: 0 for char in self.characters}
         self.traitUsageCounts = {char: {trait: 0 for trait in TRAITS} for char in self.characters}
         self.traitValues = {char: {trait: 0 for trait in TRAITS} for char in self.characters}
-
-        self.directoryDateDependent = os.path.join(BASE_DIR, "data", "rolls_results", f"{today}_rolls_results")
-        self.directoryRecent = os.path.join(BASE_DIR, "data", "rolls_results", "000000_rolls_results_recent")
 
         self.traits_df = pd.DataFrame(
             columns=["character_id", "category", "talent", "trait", "modifier", "success", "tap_zfp", "taw_zfw"]
@@ -109,19 +95,19 @@ class DsaStats:
         self.initiatives_df = pd.DataFrame(columns=["character_id", "rolled_ini", "current_ini", "modifier"])
         self.totalDmg_df = pd.DataFrame(columns=["character_id", "total_damage"])
 
+    def load_characters_from_db(self):
+        """
+        Fetch characters and their aliases from the database.
+        """
+        self.cursor.execute("SELECT name, alias FROM characters")
+        characters = self.cursor.fetchall()
+        return {char[0]: char[1] if char[1] is not None else [] for char in characters}
+
     # retrieved chatlog parsing
     def process_chatlog(self, chatlog_path):
         with open(chatlog_path, "r") as chatlogFile:
             chatlogLines = chatlogFile.readlines()
         return chatlogLines
-
-    # Esnure the directory for result files exist or is created
-    def ensure_directories(self):
-        # Create directories if they don't exist
-        if not os.path.exists(self.directoryDateDependent):
-            os.makedirs(self.directoryDateDependent)
-        if not os.path.exists(self.directoryRecent):
-            os.makedirs(self.directoryRecent)
 
     def currentCharCorrection(self):
         # Iterate through each character and their aliases
@@ -131,7 +117,7 @@ class DsaStats:
         return self.currentChar
 
     def talentsCurrection(self, talent):
-        return self.talent_corrections.get(talent, talent)
+        return TALENT_CORRECTIONS.get(talent, talent)
 
     # Potential event cleanup functions
     def validate_item(self, item, category):
@@ -471,7 +457,6 @@ class DsaStats:
 
     # Main function to process the chatlog
     def main(self, chatlogLines):
-        self.ensure_directories()
 
         for i in range(len(chatlogLines)):
             potentialEvent = chatlogLines[i].strip()

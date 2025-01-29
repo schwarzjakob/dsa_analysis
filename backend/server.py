@@ -15,7 +15,7 @@ from dsa_analysis_app.traits_needed_for_some_talents import traits_needed_for_so
 # TODO: Remove remaining file based operations into functions (e.g talent_corrections)
 # TODO: Refactor backend (e.g database service, etc.)
 # TODO: Update database schema names to be precise and more descriptive and update all queries accordingly
-# TODO: Review unused character management (archive, etc.) and remove if not needed
+# TODO: Review unused character management (archive, etc.) and remove if not needed. Definetly remove the json files
 
 
 # Enabling logging (must come first to enable it globally, also for imported modules and packages)
