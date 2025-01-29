@@ -7,7 +7,6 @@ import logging
 from dotenv import load_dotenv
 import psycopg2
 from sqlalchemy import create_engine
-from dsa_analysis_app.auth.google_auth import google_authorization
 from dsa_analysis_app.chat_processing.chat_log_parser import DsaStats
 from dsa_analysis_app.traits_needed_for_some_talents import traits_needed_for_some_talents
 
@@ -33,29 +32,6 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 def get_db_connection():
     conn = psycopg2.connect(DATABASE_URL)
     return conn
-
-
-app.secret_key = os.getenv("GOOGLE_CLIENT_SECRET")
-google_authorization(app)
-
-
-# Authorization for the Google API
-@app.route("/auth/login")
-def login():
-    google = app.config.get("google")
-    logger.debug(f"Google: {google}")
-    return google.authorize_redirect(redirect_uri=url_for("authorize", _external=True))
-
-
-@app.route("/auth/login/authorize")
-def authorize():
-    google = app.config.get("google")
-    logger.debug(f"Google: {google}")
-    google.authorize_access_token()
-    user_info = google.get("https://www.googleapis.com/oauth2/v1/userinfo").json()
-    session["user"] = user_info
-    logger.debug(f"User info: {user_info}")
-    return redirect("http://127.0.0.1:3000/start")  # Redirect to the start page
 
 
 # Chatlog parsing
