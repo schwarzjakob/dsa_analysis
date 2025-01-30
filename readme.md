@@ -74,6 +74,9 @@ psql -U dsa_user -d dsa_analysis -f database/characters.sql
 
    ```bash
    DATABASE_URL=postgresql://dsa_user:password@localhost:5432/dsa_analysis
+   POSTGRES_DB=dsa_analysis
+   POSTGRES_USER=dsa_user
+   POSTGRES_PASSWORD=dsa_user
    ```
 
 4. **Start the Flask Server:**
@@ -138,5 +141,37 @@ For more information or to join the discussion, visit the DSA Forum: [Kreative I
 
 ## Ideas
 
+- Refactor backend
+  1. Database Service ✅
+  2. Chatlog preprocessing microservice 🚧
+
+```
+backend/
+├── services/
+│   ├── chat_preprocessing.py          # High-level orchestration (Step 1, 2, 3, 4, 5)
+│   ├── chat_preprocessing/            # Subfolder for components
+│   │   ├── parser/
+│   │   │   ├── chat_parser.py         # Handles parsing logic
+│   │   ├── validator/
+│   │   │   ├── chat_validator.py      # Handles validation logic
+│   ├── database_service.py            # Handles database interactions
+│   ├── talent_service.py              # Handles talent-related logic
+│   ├── traits_service.py              # Handles trait-related logic (formerly traits_needed_for_some_talents.py)
+│   ├── roll_result_service.py         # Processes roll results
+├── models/
+│   ├── game.py                 # Contains all DSA-related data models
+│   ├── database.py             # Defines database models (if using SQLAlchemy)
+├── utils/
+│   ├── logging.py                     # Handles centralized logging
+├── server.py
+├── requirements.txt
+├── uploads/
+│   ├── chatlog.txt
+```
+
 - Talent Boxplots sortable after quartiles, mean, max, succes-rate etc.
 - Collapsible Content: Show e.g. Talents only if interested, below spells with the same charts if applicable
+
+### Bugs
+
+- Aliases not displayed properly
