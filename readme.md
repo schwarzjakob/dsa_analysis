@@ -155,8 +155,9 @@ backend/
 │   │   ├── validator/
 │   │   │   ├── chat_validator.py      # Handles validation logic
 │   ├── database_service.py            # Handles database interactions
-│   ├── character_analysis.py          # Handles character analysis like talents, attacks, and trait usage logic (formerly traits_needed_for_some_talents.py)
-│   ├── roll_result_service.py         # Processes roll results
+│   ├── character_analysis.py          # Handles character analysis like talents, attacks, and trait usage logic
+│   ├── exploratory_analysis.py        # Handles additional exploratory analysis (like formerly traits_needed_for_some_talents.py)
+│   ├── roll_result_service.py         # Tbd.
 ├── models/
 │   ├── game.py                 # Contains all DSA-related data models
 │   ├── database.py             # Defines database models (if using SQLAlchemy)

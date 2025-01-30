@@ -3,7 +3,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def count_traits(traits_list):
+def get_trait_counts(traits_list):
     """
     Count occurrences of each trait from the given list.
     :param traits_list: List of trait abbreviations.

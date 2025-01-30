@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import sys
-import json
 import logging
 from dotenv import load_dotenv
 import psycopg2
@@ -10,7 +9,7 @@ from sqlalchemy import create_engine
 
 from services.database_service import DatabaseService
 from dsa_analysis_app.chat_processing.chat_log_parser import DsaStats
-from dsa_analysis_app.traits_needed_for_some_talents import traits_needed_for_some_talents
+from services import exloratory_analysis
 
 
 # TODO: Remove most file based operations and replace with database operations
@@ -386,8 +385,8 @@ def get_traits_for_selected_talents():
         # Flatten
         traits_list = [trait for row in fetched_talents for trait in row]
         # Use your existing function for counting
-        traits_counts = traits_needed_for_some_talents.count_traits(traits_list)
-        return jsonify(traits_counts), 200
+        trait_counts = exloratory_analysis.get_trait_counts(traits_list)
+        return jsonify(trait_counts), 200
 
     except Exception as e:
         logger.error(f"Error fetching traits for talents: {e}")
