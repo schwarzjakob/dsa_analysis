@@ -144,6 +144,7 @@ For more information or to join the discussion, visit the DSA Forum: [Kreative I
 - Refactor backend
   1. Database Service ✅
   2. Chatlog preprocessing microservice 🚧
+     - It kind of works but the `chat_log_event_processor.py` does not utilize the database service. However I realize this may not be the ideal solution.
 
 ```
 backend/
