@@ -64,35 +64,42 @@ def process_chatlog_route():
         file = request.files["file"]
         if file.filename == "":
             return "No selected file", 400
+
         if file:
             filename = "chatlog.txt"
-
-            # Make sure the uploads folder exists
             if not os.path.exists(UPLOAD_FOLDER):
                 os.makedirs(UPLOAD_FOLDER)
 
-            # Save the file to the uploads folder
             chatlog_file_path = os.path.join(UPLOAD_FOLDER, filename)
             file.save(chatlog_file_path)
 
-            # Establish database connection and SQLAlchemy engine
+            # Create a psycopg2 connection & a SQLAlchemy engine
             conn = get_db_connection()
-            engine = create_engine(DATABASE_URL)  # Create SQLAlchemy engine
+            engine = create_engine(DATABASE_URL)
 
-            # Fetch everything in one go
+            # 1) Fetch all relevant data in one go
             characters_and_aliases = database_service.get_characters_and_aliases()
             known_talents = database_service.get_talents()
             known_spells = database_service.get_spells()
             known_attacks = database_service.get_attacks()
 
-            # Pass preloaded data to the processor
+            # 2) Pass them into the chat processor
             chat_processor = ChatLogProcessingService(
                 conn, engine, characters_and_aliases, known_talents, known_spells, known_attacks
             )
             dataframes_dict = chat_processor.process_chat_log(chatlog_file_path)
-            logger.debug(f"Dataframes: {dataframes_dict}")
-            logger.debug(f"File uploaded successfully to {chatlog_file_path}")
-            return f"File uploaded successfully to {chatlog_file_path}", 200
+            logger.debug(f"Total Damage: {dataframes_dict['total_damage_df']}")
+
+            # 3) Use DatabaseService to insert the events
+            database_service.insert_traits_rolls(dataframes_dict["traits_df"])
+            database_service.insert_talents_rolls(dataframes_dict["talents_df"])
+            database_service.insert_spells_rolls(dataframes_dict["spells_df"])
+            database_service.insert_attacks_rolls(dataframes_dict["attacks_df"])
+            database_service.insert_initiatives(dataframes_dict["initiatives_df"])
+            database_service.insert_total_damage(dataframes_dict["total_damage_df"])
+
+            logger.debug(f"File uploaded and events inserted from {chatlog_file_path}")
+            return f"File uploaded and events inserted from {chatlog_file_path}", 200
 
     except Exception as e:
         logger.error(e)

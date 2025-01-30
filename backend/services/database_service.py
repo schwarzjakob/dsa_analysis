@@ -1,5 +1,6 @@
 import logging
 from typing import Optional, List, Any, Dict
+import pandas as pd
 
 from models.database import Database
 
@@ -97,6 +98,197 @@ class DatabaseService:
         query = "SELECT attack_name FROM attacks"
         results = self.database.fetch_query(query)
         return set(row["attack_name"] for row in results) if results else set()
+
+    def insert_traits_rolls(self, traits_df: pd.DataFrame) -> None:
+        """
+        Insert rows from traits_df into traits_rolls.
+        """
+        if traits_df.empty:
+            return
+
+        # A row-by-row example
+        insert_query = """
+            INSERT INTO traits_rolls 
+                (character_id, category, talent, trait, modifier, success, tap_zfp, taw_zfw)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in traits_df.iterrows():
+                    cur.execute(
+                        insert_query,
+                        [
+                            row["character_id"],
+                            row["category"],
+                            row["talent"],
+                            row["trait"],
+                            row["modifier"],
+                            row["success"],
+                            row["tap_zfp"],
+                            row["taw_zfw"],
+                        ],
+                    )
+                conn.commit()
+
+    def insert_talents_rolls(self, talents_df: pd.DataFrame) -> None:
+        """
+        Insert rows from talents_df into talents_rolls.
+        """
+        if talents_df.empty:
+            return
+
+        insert_query = """
+            INSERT INTO talents_rolls 
+                (character_id, category, talent, trait1, trait2, trait3, modifier, success, 
+                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in talents_df.iterrows():
+                    cur.execute(
+                        insert_query,
+                        [
+                            row["character_id"],
+                            row["category"],
+                            row["talent"],
+                            row["trait1"],
+                            row["trait2"],
+                            row["trait3"],
+                            row["modifier"],
+                            row["success"],
+                            row["tap_zfp"],
+                            row["taw_zfw"],
+                            row["trait_value1"],
+                            row["trait_value2"],
+                            row["trait_value3"],
+                        ],
+                    )
+                conn.commit()
+
+    def insert_spells_rolls(self, spells_df: pd.DataFrame) -> None:
+        """
+        Insert rows from spells_df into spells_rolls.
+        """
+        if spells_df.empty:
+            return
+
+        insert_query = """
+            INSERT INTO spells_rolls 
+                (character_id, category, spell, trait1, trait2, trait3, modifier, success, 
+                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in spells_df.iterrows():
+                    cur.execute(
+                        insert_query,
+                        [
+                            row["character_id"],
+                            row["category"],
+                            row["spell"],
+                            row["trait1"],
+                            row["trait2"],
+                            row["trait3"],
+                            row["modifier"],
+                            row["success"],
+                            row["tap_zfp"],
+                            row["taw_zfw"],
+                            row["trait_value1"],
+                            row["trait_value2"],
+                            row["trait_value3"],
+                        ],
+                    )
+                conn.commit()
+
+    def insert_attacks_rolls(self, attacks_df: pd.DataFrame) -> None:
+        """
+        Insert rows from attacks_df into attacks_rolls.
+        """
+        if attacks_df.empty:
+            return
+
+        insert_query = """
+            INSERT INTO attacks_rolls 
+                (character_id, category, attack, modifier, success, tap_zfp, taw_zfw)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in attacks_df.iterrows():
+                    cur.execute(
+                        insert_query,
+                        [
+                            row["character_id"],
+                            row["category"],
+                            row["attack"],
+                            row["modifier"],
+                            row["success"],
+                            row["tap_zfp"],
+                            row["taw_zfw"],
+                        ],
+                    )
+                conn.commit()
+
+    def insert_initiatives(self, initiatives_df: pd.DataFrame) -> None:
+        """
+        Insert rows from initiatives_df into initiative_rolls.
+        """
+        if initiatives_df.empty:
+            return
+
+        insert_query = """
+            INSERT INTO initiative_rolls 
+                (character_id, rolled_ini, current_ini, modifier)
+            VALUES (%s, %s, %s, %s)
+        """
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in initiatives_df.iterrows():
+                    cur.execute(
+                        insert_query,
+                        [
+                            row["character_id"],
+                            row["rolled_ini"],
+                            row["current_ini"],
+                            row["modifier"],
+                        ],
+                    )
+                conn.commit()
+
+    def insert_total_damage(self, total_damage_df: pd.DataFrame) -> None:
+        """
+        Insert rows into total_damage if they don't exist.
+        If they do exist, update the total_damage value.
+        """
+        if total_damage_df.empty:
+            return
+
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in total_damage_df.iterrows():
+                    character_id = row["character_id"]
+                    damage_value = row["total_damage"]
+
+                    # Check if character_id already exists in total_damage
+                    cur.execute("SELECT total_damage FROM total_damage WHERE character_id = %s", (character_id,))
+                    existing = cur.fetchone()
+
+                    if existing:
+                        # Update the existing row
+                        cur.execute(
+                            "UPDATE total_damage SET total_damage = total_damage + %s WHERE character_id = %s",
+                            (damage_value, character_id),
+                        )
+                    else:
+                        # Insert a new row
+                        cur.execute(
+                            "INSERT INTO total_damage (character_id, total_damage) VALUES (%s, %s)",
+                            (character_id, damage_value),
+                        )
+
+                    conn.commit()
 
     def update_character(self, character_name: str, attributes: dict, aliases: list) -> bool:
         """

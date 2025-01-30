@@ -1,9 +1,8 @@
-# services/chat_log_processing.py
 import logging
 from sqlalchemy.engine import Engine
-from typing import List
+from typing import Dict
 
-# Import our 3 new modules
+# Import our 3 modules
 from services.chat_log_processing.chat_log_parser import ChatLogParser
 from services.chat_log_processing.chat_log_event_validator import ChatLogEventValidator
 from services.chat_log_processing.chat_log_event_processor import ChatLogEventProcessor
@@ -15,13 +14,17 @@ class ChatLogProcessingService:
       1) Parsing raw lines
       2) Determining event types
       3) Processing and collecting results
-      4) Returning DataFrames or performing final DB insert
+      4) Returning DataFrames (NO insertion to DB)
     """
 
     def __init__(self, db_conn, sqlalchemy_engine, characters_and_aliases, talents, spells, attacks):
         """
         :param db_conn: psycopg2 connection
-        :param sqlalchemy_engine: SQLAlchemy Engine for .to_sql
+        :param sqlalchemy_engine: SQLAlchemy Engine
+        :param characters_and_aliases: List of names & aliases from DB
+        :param talents: Set of valid talent names from DB
+        :param spells: Set of valid spell names from DB
+        :param attacks: Set of valid attack names from DB
         """
         self.logger = logging.getLogger(__name__)
         self.db_conn = db_conn
@@ -42,27 +45,23 @@ class ChatLogProcessingService:
         )
         self.processor = ChatLogEventProcessor(db_conn, sqlalchemy_engine, self.cursor)
 
-    def process_chat_log(self, file_path: str):
+    def process_chat_log(self, file_path: str) -> Dict[str, "pd.DataFrame"]:
         """
-        Main pipeline: parse -> validate -> process -> batch_insert
+        Main pipeline: parse -> validate -> process -> return DataFrames
         """
         # 1) Parse lines
         lines = self.parser.parse(file_path)
 
-        # 2) For each line, figure out what it is, pass it to the processor
+        # 2) Classify lines & gather events in DataFrames
         i = 0
         while i < len(lines):
             event_type = self.validator.determine_event_type(lines[i])
             if event_type:
                 i = self.processor.process_event(event_type, lines, i)
             else:
-                # Not recognized -> skip
                 i += 1
 
-        # 3) (Optional) do a final .to_sql / DB insert in bulk
-        self.processor.batch_insert_to_db()
-
-        # 4) Return the final DataFrames if you want to do something else with them
+        # 3) Return the final DataFrames (DO NOT insert here)
         return {
             "traits_df": self.processor.traits_df,
             "talents_df": self.processor.talents_df,

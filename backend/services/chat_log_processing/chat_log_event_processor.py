@@ -496,30 +496,3 @@ class ChatLogEventProcessor:
 
         # Raise an error if no match found
         raise ValueError(f"Character '{character_name}' not found in DB.")
-
-    # --------------------------------------------------------------------------
-    # Batch Insert Example
-    # --------------------------------------------------------------------------
-    def batch_insert_to_db(self):
-        """
-        If you want to do final .to_sql inserts here.
-        Note: You must have self.engine (SQLAlchemy) set up for .to_sql to work.
-        """
-        try:
-            if not self.traits_df.empty:
-                self.traits_df.to_sql("traits_rolls", self.engine, if_exists="append", index=False)
-            if not self.talents_df.empty:
-                self.talents_df.to_sql("talents_rolls", self.engine, if_exists="append", index=False)
-            if not self.spells_df.empty:
-                self.spells_df.to_sql("spells_rolls", self.engine, if_exists="append", index=False)
-            if not self.attacks_df.empty:
-                self.attacks_df.to_sql("attacks_rolls", self.engine, if_exists="append", index=False)
-            if not self.initiatives_df.empty:
-                self.initiatives_df.to_sql("initiative_rolls", self.engine, if_exists="append", index=False)
-            if not self.total_damage_df.empty:
-                self.total_damage_df.to_sql("total_damage", self.engine, if_exists="append", index=False)
-
-            self.logger.debug("Batch insertion to database successful.")
-        except Exception as e:
-            self.logger.error(f"Error during batch insertion: {e}")
-            raise
