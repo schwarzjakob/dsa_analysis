@@ -8,7 +8,7 @@ import psycopg2
 from sqlalchemy import create_engine
 
 from services.database_service import DatabaseService
-from dsa_analysis_app.chat_processing.chat_log_parser import DsaStats
+from services.chat_log_processing_service import ChatLogProcessingService
 from services import exloratory_analysis
 
 
@@ -80,10 +80,9 @@ def process_chatlog_route():
             engine = create_engine(DATABASE_URL)  # Create SQLAlchemy engine
 
             # Pass the connection and engine to DsaStats
-            current_dsa_stats = DsaStats(conn, engine)
-            chatlogLines = current_dsa_stats.process_chatlog(chatlog_file_path)
-            current_dsa_stats.main(chatlogLines)
-
+            chat_processor = ChatLogProcessingService(conn, engine)
+            dataframes_dict = chat_processor.process_chat_log(chatlog_file_path)
+            logger.debug(f"Dataframes: {dataframes_dict}")
             logger.debug(f"File uploaded successfully to {chatlog_file_path}")
             return f"File uploaded successfully to {chatlog_file_path}", 200
 
