@@ -80,7 +80,8 @@ def process_chatlog_route():
             engine = create_engine(DATABASE_URL)  # Create SQLAlchemy engine
 
             # Pass the connection and engine to DsaStats
-            chat_processor = ChatLogProcessingService(conn, engine)
+            characters_and_aliases = database_service.get_characters_and_aliases()
+            chat_processor = ChatLogProcessingService(conn, engine, characters_and_aliases)
             dataframes_dict = chat_processor.process_chat_log(chatlog_file_path)
             logger.debug(f"Dataframes: {dataframes_dict}")
             logger.debug(f"File uploaded successfully to {chatlog_file_path}")

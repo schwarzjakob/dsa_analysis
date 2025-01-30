@@ -58,6 +58,22 @@ class DatabaseService:
             )
         return character_list
 
+    def get_characters_and_aliases(self):
+        """
+        Fetch all characters and their aliases as a single flat list.
+
+        Returns:
+            [ "Character One", "Character Two", "Alias Three", "Alias Four" ]
+        """
+        query = "SELECT name, alias FROM characters"
+        results = self.database.fetch_query(query)
+
+        if not results:
+            return []
+
+        # Flatten the list: Include the character name and all aliases
+        return [name for row in results for name in ([row["name"]] + (row["alias"] if row["alias"] else []))]
+
     def update_character(self, character_name: str, attributes: dict, aliases: list) -> bool:
         """
         Update the specified character with new attributes and aliases.

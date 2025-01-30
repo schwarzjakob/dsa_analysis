@@ -30,15 +30,15 @@ class ChatLogEventValidator:
     of event it might represent: trait, talent, spell, attack, damage, etc.
     """
 
-    def __init__(self, db_cursor, known_characters_with_colon):
+    def __init__(self, db_cursor, characters_and_aliases):
         """
         :param db_cursor: a DB cursor or a DB service that we can use
                           to check if a name is a recognized talent/spell/etc.
-        :param known_characters_with_colon: e.g. ['Alrik:', 'Andergast:', ...]
+        :param characters_and_aliases: e.g. ['Alrik:', 'Andergast:', ...]
         """
         self.logger = logging.getLogger(__name__)
         self.cursor = db_cursor
-        self.known_characters_with_colon = known_characters_with_colon
+        self.characters_and_aliases = characters_and_aliases
 
     def _validate_talent_in_db(self, potential_talent: str) -> bool:
         """
@@ -86,7 +86,7 @@ class ChatLogEventValidator:
         The logic for referencing i+1, i+2 lines is handled in the processor.
         """
         # 1) Is this line a switch to a new character? (like "Alrik:")
-        if line in self.known_characters_with_colon:
+        if line in (character + ":" for character in self.characters_and_aliases):
             return "character"
 
         # 2) Correct any known spelling differences

@@ -18,7 +18,7 @@ class ChatLogProcessingService:
       4) Returning DataFrames or performing final DB insert
     """
 
-    def __init__(self, db_conn, sqlalchemy_engine: Engine):
+    def __init__(self, db_conn, sqlalchemy_engine, characters_and_aliases):
         """
         :param db_conn: psycopg2 connection
         :param sqlalchemy_engine: SQLAlchemy Engine for .to_sql
@@ -33,17 +33,12 @@ class ChatLogProcessingService:
         # We need to figure out known_characters_with_colon,
         # just like in old `DsaStats`:
         #  e.g. ["Alrik:", "Andergast:"]
-        known_characters = self._load_characters_and_aliases()
-        self.known_characters_with_colon = []
-        for char_name, aliases in known_characters.items():
-            self.known_characters_with_colon.append(char_name + ":")
-            for alias in aliases:
-                self.known_characters_with_colon.append(alias + ":")
+        self.characters_and_aliases = characters_and_aliases
 
         # Initialize the new modules
         self.parser = ChatLogParser()
         self.validator = ChatLogEventValidator(
-            db_cursor=self.cursor, known_characters_with_colon=self.known_characters_with_colon
+            db_cursor=self.cursor, characters_and_aliases=self.characters_and_aliases
         )
         self.processor = ChatLogEventProcessor(db_conn, sqlalchemy_engine, self.cursor)
 
@@ -76,14 +71,3 @@ class ChatLogProcessingService:
             "initiatives_df": self.processor.initiatives_df,
             "total_damage_df": self.processor.total_damage_df,
         }
-
-    def _load_characters_and_aliases(self):
-        """
-        Load the characters + aliases from DB for building known_characters_with_colon
-        Return dict: { 'Alrik': ['Alri', 'Alking'] , 'Andergast': [], ... }
-        """
-        self.cursor.execute("SELECT name, alias FROM characters")
-        rows = self.cursor.fetchall()
-        if not rows:
-            return {}
-        return {row[0]: row[1] or [] for row in rows}
