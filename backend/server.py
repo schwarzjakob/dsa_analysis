@@ -148,68 +148,7 @@ def add_character():
     """
     Add a new character to the database.
     """
-    try:
-        character_data = request.json
-        # Expecting JSON structure like:
-        # {
-        #   "name": "Some Character",
-        #   "traits": {
-        #       "Mut": 12,
-        #       "Klugheit": 10,
-        #       ...
-        #   },
-        #   "alias": []
-        # }
-        success = database_service.insert_character(character_data)
-        if not success:
-            return jsonify({"error": "An error occurred while adding character"}), 500
-
-        return jsonify({"message": "Character added successfully"}), 200
-    except Exception as e:
-        logger.error(f"Error adding character: {e}")
-        return jsonify({"error": "An error occurred"}), 500
-
-
-@app.route("/characters_management/archive-character", methods=["POST"])
-def archive_character():
-    """
-    Archive a character by removing it from characters.json
-    and appending to archived_characters.json (file-based).
-    """
-    try:
-        # This part is still file-based. You can refactor it to use DB if desired.
-        character_data = request.json
-        characters_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "characters.json")
-        archived_file_path = os.path.join(base_dir, "dsa_analysis_app", "data", "json", "archived_characters.json")
-
-        with open(characters_file_path, "r") as file:
-            characters = json.load(file)
-
-        # Remove the character to archive
-        characters["characters"] = [char for char in characters["characters"] if char["name"] != character_data["name"]]
-
-        # Update characters.json
-        with open(characters_file_path, "w") as file:
-            json.dump(characters, file, indent=4)
-
-        # Load archived characters
-        if not os.path.exists(archived_file_path):
-            with open(archived_file_path, "w") as file:
-                json.dump({"characters": []}, file)
-
-        with open(archived_file_path, "r+") as file:
-            archived_characters = json.load(file)
-            archived_characters["characters"].append(character_data)
-            file.seek(0)
-            file.truncate()
-            json.dump(archived_characters, file, indent=4)
-
-        logger.debug(f"Character archived successfully: {character_data['name']}")
-        return jsonify({"message": "Character archived successfully"}), 200
-
-    except Exception as e:
-        logger.error(f"Error archiving character: {e}")
-        return jsonify({"error": "An error occurred"}), 500
+    # TODO: Implement
 
 
 # -------------------------------------------------------------------

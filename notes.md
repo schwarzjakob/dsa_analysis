@@ -14,17 +14,8 @@
 
 - run project in virtual environment and install packages via requirements.txt inside the virtual environment
    - start the venv with ```source venv/bin/activate```
-- Change last commit with: ```GIT_EDITOR=nano git commit --amend``` Make sure to add the files before with ```git add path/to/file```
+- Change last commit with: ```git commit --amend``` Make sure to add the files before with ```git add path/to/file```
 - Showing the git tree: ```git ls-tree -r HEAD --name-only | tree --fromfile```
-- Reloading Modules while testing in Pyhton shell:
- ```bash
- import dsa_analysis_app.character_analysis.character_analysis as ca
- from importlib import reload
- name = "Hanzo Shimada"
- get_character_best_and_worst_talents(name)
- reload(ca) # After changes in the script
- get_character_best_and_worst_talents(name)
- ```
 
 ## Ideas / Features planned
 
