@@ -1,6 +1,5 @@
 # services/chat_log_processing/chat_log_event_validator.py
 import logging
-import re
 
 # For example, your known trait names, short or long
 TRAITS_LONG = [
@@ -30,62 +29,24 @@ class ChatLogEventValidator:
     of event it might represent: trait, talent, spell, attack, damage, etc.
     """
 
-    def __init__(self, db_cursor, characters_and_aliases):
+    def __init__(self, characters_and_aliases, talents, spells, attacks):
         """
-        :param db_cursor: a DB cursor or a DB service that we can use
-                          to check if a name is a recognized talent/spell/etc.
-        :param characters_and_aliases: e.g. ['Alrik:', 'Andergast:', ...]
+        :param characters_and_aliases: List of character names and aliases
+        :param talents: Set of valid talent names
+        :param spells: Set of valid spell names
+        :param attacks: Set of valid attack names
         """
         self.logger = logging.getLogger(__name__)
-        self.cursor = db_cursor
         self.characters_and_aliases = characters_and_aliases
-
-    def _validate_talent_in_db(self, potential_talent: str) -> bool:
-        """
-        Check if a talent with this name exists in the 'talents' table.
-        """
-        try:
-            self.cursor.execute(
-                "SELECT 1 FROM talents WHERE talent_name = %s LIMIT 1",
-                (potential_talent,),
-            )
-            return self.cursor.fetchone() is not None
-        except Exception:
-            return False
-
-    def _validate_spell_in_db(self, potential_spell: str) -> bool:
-        """
-        Check if a spell with this name exists in the 'spells' table.
-        """
-        try:
-            self.cursor.execute(
-                "SELECT 1 FROM spells WHERE spell_name = %s LIMIT 1",
-                (potential_spell,),
-            )
-            return self.cursor.fetchone() is not None
-        except Exception:
-            return False
-
-    def _validate_attack_in_db(self, potential_attack: str) -> bool:
-        """
-        Check if an attack with this name exists in the 'attacks' table.
-        """
-        try:
-            self.cursor.execute(
-                "SELECT 1 FROM attacks WHERE attack_name = %s LIMIT 1",
-                (potential_attack,),
-            )
-            return self.cursor.fetchone() is not None
-        except Exception:
-            return False
+        self.known_talents = talents
+        self.known_spells = spells
+        self.known_attacks = attacks
 
     def determine_event_type(self, line: str):
         """
-        Given a single line from the chatlog,
-        returns one of the recognized event types or None.
-        The logic for referencing i+1, i+2 lines is handled in the processor.
+        Given a single line from the chatlog, determine what kind of event it represents.
         """
-        # 1) Is this line a switch to a new character? (like "Alrik:")
+        # 1) Is this line a character switch? (like "Alrik:")
         if line in (character + ":" for character in self.characters_and_aliases):
             return "character"
 
@@ -97,24 +58,22 @@ class ChatLogEventValidator:
             return "trait"
 
         # 4) If it is a known Talent
-        if self._validate_talent_in_db(line):
+        if line in self.known_talents:
             return "talent"
 
         # 5) If it is a known Spell
-        if self._validate_spell_in_db(line):
+        if line in self.known_spells:
             return "spell"
 
         # 6) If it is a known Attack
-        if self._validate_attack_in_db(line):
+        if line in self.known_attacks:
             return "attack"
 
         # 7) If it's initiative
-        #    e.g. "Alrik Initiative..."
         if "Initiative" in line and "Initiativewurf" not in line:
             return "initiative"
 
         # 8) If it's damage
-        #    e.g. "treffer"
         if "treffer" in line.lower():
             return "damage"
 

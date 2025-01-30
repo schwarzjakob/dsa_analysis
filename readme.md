@@ -175,3 +175,4 @@ backend/
 ### Bugs
 
 - Aliases not displayed properly
+- Categories in distribution include N/A (potentially spells, traits, etc.)

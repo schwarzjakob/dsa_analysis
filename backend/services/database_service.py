@@ -74,6 +74,30 @@ class DatabaseService:
         # Flatten the list: Include the character name and all aliases
         return [name for row in results for name in ([row["name"]] + (row["alias"] if row["alias"] else []))]
 
+    def get_talents(self):
+        """
+        Fetch all valid talent names from the database and return as a set.
+        """
+        query = "SELECT talent_name FROM talents"
+        results = self.database.fetch_query(query)
+        return set(row["talent_name"] for row in results) if results else set()
+
+    def get_spells(self):
+        """
+        Fetch all valid spell names from the database and return as a set.
+        """
+        query = "SELECT spell_name FROM spells"
+        results = self.database.fetch_query(query)
+        return set(row["spell_name"] for row in results) if results else set()
+
+    def get_attacks(self):
+        """
+        Fetch all valid attack names from the database and return as a set.
+        """
+        query = "SELECT attack_name FROM attacks"
+        results = self.database.fetch_query(query)
+        return set(row["attack_name"] for row in results) if results else set()
+
     def update_character(self, character_name: str, attributes: dict, aliases: list) -> bool:
         """
         Update the specified character with new attributes and aliases.

@@ -18,7 +18,7 @@ class ChatLogProcessingService:
       4) Returning DataFrames or performing final DB insert
     """
 
-    def __init__(self, db_conn, sqlalchemy_engine, characters_and_aliases):
+    def __init__(self, db_conn, sqlalchemy_engine, characters_and_aliases, talents, spells, attacks):
         """
         :param db_conn: psycopg2 connection
         :param sqlalchemy_engine: SQLAlchemy Engine for .to_sql
@@ -30,15 +30,15 @@ class ChatLogProcessingService:
         # We'll create a cursor for validations and queries
         self.cursor = self.db_conn.cursor()
 
-        # We need to figure out known_characters_with_colon,
-        # just like in old `DsaStats`:
-        #  e.g. ["Alrik:", "Andergast:"]
         self.characters_and_aliases = characters_and_aliases
+        self.known_talents = talents
+        self.known_spells = spells
+        self.known_attacks = attacks
 
         # Initialize the new modules
         self.parser = ChatLogParser()
         self.validator = ChatLogEventValidator(
-            db_cursor=self.cursor, characters_and_aliases=self.characters_and_aliases
+            self.characters_and_aliases, self.known_talents, self.known_spells, self.known_attacks
         )
         self.processor = ChatLogEventProcessor(db_conn, sqlalchemy_engine, self.cursor)
 
