@@ -12,6 +12,7 @@ from services import exloratory_analysis
 
 # TODO: Fix relationships in database (with new tables) for consistency and integrity
 # TODO: Update database schema names to be precise and more descriptive and update all queries accordingly.
+# TODO: Implement data models such as Character, BaseEvent, Talent, Spell, Attack, etc.
 
 
 # Enabling logging
@@ -34,10 +35,6 @@ database_service = DatabaseService()
 # -------------------------------------------------------------------
 # Chat processing
 # -------------------------------------------------------------------
-
-
-# Chatlog parsing
-UPLOAD_FOLDER = os.path.join(base_dir, "uploads")
 
 
 @app.route("/chat_processing/process_chatlog", methods=["POST"])
