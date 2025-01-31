@@ -35,11 +35,11 @@ class ChatLogEventProcessor:
 
         # Prepare DataFrames
         self.traits_df = pd.DataFrame(
-            columns=["character_id", "category", "talent", "trait", "modifier", "success", "tap_zfp", "taw_zfw"]
+            columns=["character_name", "category", "talent", "trait", "modifier", "success", "tap_zfp", "taw_zfw"]
         )
         self.talents_df = pd.DataFrame(
             columns=[
-                "character_id",
+                "character_name",
                 "talent",
                 "modifier",
                 "success",
@@ -52,7 +52,7 @@ class ChatLogEventProcessor:
         )
         self.spells_df = pd.DataFrame(
             columns=[
-                "character_id",
+                "character_name",
                 "spell",
                 "modifier",
                 "success",
@@ -63,9 +63,9 @@ class ChatLogEventProcessor:
                 "trait_value3",
             ]
         )
-        self.attacks_df = pd.DataFrame(columns=["character_id", "modifier", "success", "tap_zfp", "taw_zfw"])
-        self.initiatives_df = pd.DataFrame(columns=["character_id", "rolled_ini", "current_ini", "modifier"])
-        self.total_damage_df = pd.DataFrame(columns=["character_id", "total_damage"])
+        self.attacks_df = pd.DataFrame(columns=["character_name", "modifier", "success", "tap_zfp", "taw_zfw"])
+        self.initiatives_df = pd.DataFrame(columns=["character_name", "rolled_ini", "current_ini", "modifier"])
+        self.total_damage_df = pd.DataFrame(columns=["character_name", "total_damage"])
 
         # Keep track of current character name as we see lines like "Alrik:"
         # The 'currentChar' is updated whenever we detect an event_type == "character"
@@ -139,9 +139,8 @@ class ChatLogEventProcessor:
         currentTaWZfW = self._extract_taw_zfw(third_line, "EW:")
 
         # Insert into self.traits_df
-        character_id = self._get_character_id(self.currentChar)
         new_row = {
-            "character_id": character_id,
+            "character_name": self.currentChar,
             "category": "Eigenschaftsprobe",
             "talent": trait_name,  # or None
             "trait": self._trait_abbreviation(trait_name),
@@ -169,9 +168,8 @@ class ChatLogEventProcessor:
         # For the trait values in the third line, e.g. "Eigenschaften: 14/15/15"
         trait_values = self._extract_trait_values(third_line)
 
-        character_id = self._get_character_id(self.currentChar)
         new_row = {
-            "character_id": character_id,
+            "character_name": self.currentChar,
             "talent": talent_name,
             "modifier": currentMod,
             "success": bool(currentSuccess),
@@ -198,10 +196,8 @@ class ChatLogEventProcessor:
         currentTaWZfW = self._extract_taw_zfw(third_line, "ZfW:")
         trait_values = self._extract_trait_values(third_line)
 
-        character_id = self._get_character_id(self.currentChar)
-
         new_row = {
-            "character_id": character_id,
+            "character_name": self.currentChar,
             "spell": spell_name,
             "modifier": currentMod,
             "success": bool(currentSuccess),
@@ -233,10 +229,8 @@ class ChatLogEventProcessor:
         currentTaPZfP = currentTaWZfW - self._extract_parenthetical_roll(second_line) - currentMod
         currentSuccess = 1 if currentTaPZfP >= 0 else 0
 
-        character_id = self._get_character_id(self.currentChar)
-
         new_row = {
-            "character_id": character_id,
+            "character_name": self.currentChar,
             "attack": attack_name,
             "modifier": currentMod,
             "success": bool(currentSuccess),
@@ -259,9 +253,8 @@ class ChatLogEventProcessor:
         rolled_ini = self._extract_rolled_initiative(first_line)
         (current_ini, current_mod) = self._extract_current_initiative_and_mod(second_line)
 
-        character_id = self._get_character_id(self.currentChar)
         new_row = {
-            "character_id": character_id,
+            "character_name": self.currentChar,
             "rolled_ini": rolled_ini,
             "current_ini": current_ini,
             "modifier": current_mod,
@@ -280,15 +273,13 @@ class ChatLogEventProcessor:
         match = re.search(r"\d+", damage_line)
         dmg = int(match.group()) if match else 0
 
-        character_id = self._get_character_id(self.currentChar)
-
         # Update total damage in self.total_damage_df
-        existing = self.total_damage_df[self.total_damage_df["character_id"] == character_id]
+        existing = self.total_damage_df[self.total_damage_df["character_name"] == self.currentChar]
         if not existing.empty:
             idx = existing.index[0]
             self.total_damage_df.at[idx, "total_damage"] += dmg
         else:
-            new_row = {"character_id": character_id, "total_damage": dmg}
+            new_row = {"character_name": self.currentChar, "total_damage": dmg}
             self.total_damage_df = pd.concat([self.total_damage_df, pd.DataFrame([new_row])], ignore_index=True)
 
         return i + 2
@@ -398,23 +389,3 @@ class ChatLogEventProcessor:
         if match_mod:
             current_mod = int(match_mod.group(1))
         return (current_ini, current_mod)
-
-    def _get_character_id(self, character_name: str) -> int:
-        """
-        Retrieve the character's DB ID. If the character_name is an alias,
-        return the main character's ID instead.
-        """
-        # Try direct match
-        self.cursor.execute("SELECT id FROM characters WHERE name = %s LIMIT 1", (character_name,))
-        row = self.cursor.fetchone()
-        if row:
-            return row[0]
-
-        # If not found, search aliases
-        self.cursor.execute("SELECT id, name FROM characters WHERE %s = ANY(alias) LIMIT 1", (character_name,))
-        row = self.cursor.fetchone()
-        if row:
-            return row[0]
-
-        # Raise an error if no match found
-        raise ValueError(f"Character '{character_name}' not found in DB.")

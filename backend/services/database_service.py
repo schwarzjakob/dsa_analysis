@@ -110,7 +110,17 @@ class DatabaseService:
         insert_query = """
             INSERT INTO traits_rolls 
                 (character_id, category, talent, trait, modifier, success, tap_zfp, taw_zfw)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            SELECT 
+                c.id AS character_id,
+                %s AS category,
+                %s AS talent,
+                %s AS trait,
+                %s AS modifier,
+                %s AS success,
+                %s AS tap_zfp,
+                %s AS taw_zfw
+            FROM characters c
+            WHERE c.name = %s
         """
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
@@ -118,7 +128,6 @@ class DatabaseService:
                     cur.execute(
                         insert_query,
                         [
-                            row["character_id"],
                             row["category"],
                             row["talent"],
                             row["trait"],
@@ -126,13 +135,14 @@ class DatabaseService:
                             row["success"],
                             row["tap_zfp"],
                             row["taw_zfw"],
+                            row["character_name"],
                         ],
                     )
                 conn.commit()
 
     def insert_talents_rolls(self, talents_df: pd.DataFrame) -> None:
         """
-        Insert rows from talents_df into talents_rolls, dynamically resolving category and traits.
+        Insert rows from talents_df into talents_rolls, dynamically resolving character_id, category, and traits.
         """
         if talents_df.empty:
             return
@@ -142,7 +152,7 @@ class DatabaseService:
                 (character_id, category, talent, trait1, trait2, trait3, modifier, success, 
                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
             SELECT
-                %s AS character_id,
+                c.id AS character_id, 
                 tc.talent_category_name AS category,
                 t.talent_name AS talent,
                 ct1.trait_abbreviation AS trait1,
@@ -160,6 +170,7 @@ class DatabaseService:
             LEFT JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
             LEFT JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
             LEFT JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
+            JOIN characters c ON c.name = %s  
             WHERE t.talent_name = %s
         """
 
@@ -169,7 +180,6 @@ class DatabaseService:
                     cur.execute(
                         insert_query,
                         [
-                            row["character_id"],
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],
@@ -177,6 +187,7 @@ class DatabaseService:
                             row["trait_value1"],
                             row["trait_value2"],
                             row["trait_value3"],
+                            row["character_name"],
                             row["talent"],
                         ],
                     )
@@ -194,7 +205,7 @@ class DatabaseService:
                 (character_id, category, spell, trait1, trait2, trait3, modifier, success, 
                  tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
             SELECT
-                %s AS character_id,
+                c.id AS character_id, 
                 'Zauber' AS category,
                 s.spell_name AS spell,
                 ct1.trait_abbreviation AS trait1,
@@ -211,6 +222,7 @@ class DatabaseService:
             LEFT JOIN character_traits ct1 ON s.spell_trait_one_id = ct1.trait_id
             LEFT JOIN character_traits ct2 ON s.spell_trait_two_id = ct2.trait_id
             LEFT JOIN character_traits ct3 ON s.spell_trait_three_id = ct3.trait_id
+            JOIN characters c ON c.name = %s
             WHERE s.spell_name = %s
         """
 
@@ -220,7 +232,6 @@ class DatabaseService:
                     cur.execute(
                         insert_query,
                         [
-                            row["character_id"],
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],
@@ -228,6 +239,7 @@ class DatabaseService:
                             row["trait_value1"],
                             row["trait_value2"],
                             row["trait_value3"],
+                            row["character_name"],
                             row["spell"],
                         ],
                     )
@@ -244,7 +256,7 @@ class DatabaseService:
             INSERT INTO attacks_rolls 
                 (character_id, category, attack, modifier, success, tap_zfp, taw_zfw)
             SELECT
-                %s AS character_id,
+                c.id AS character_id, 
                 ac.attack_category_name AS category,
                 a.attack_name AS attack,
                 %s AS modifier,
@@ -253,6 +265,7 @@ class DatabaseService:
                 %s AS taw_zfw
             FROM attack_categories ac
             LEFT JOIN attacks a ON ac.attack_category_id = a.attack_category_id
+            JOIN characters c ON c.name = %s
             WHERE a.attack_name = %s
         """
 
@@ -262,11 +275,11 @@ class DatabaseService:
                     cur.execute(
                         insert_query,
                         [
-                            row["character_id"],
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],
                             row["taw_zfw"],
+                            row["character_name"],
                             row["attack"],
                         ],
                     )
@@ -282,7 +295,13 @@ class DatabaseService:
         insert_query = """
             INSERT INTO initiative_rolls 
                 (character_id, rolled_ini, current_ini, modifier)
-            VALUES (%s, %s, %s, %s)
+            SELECT
+                c.id AS character_id,
+                %s AS rolled_ini,
+                %s AS current_ini,
+                %s AS modifier
+            FROM characters c
+            WHERE c.name = %s
         """
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
@@ -290,10 +309,10 @@ class DatabaseService:
                     cur.execute(
                         insert_query,
                         [
-                            row["character_id"],
                             row["rolled_ini"],
                             row["current_ini"],
                             row["modifier"],
+                            row["character_name"],
                         ],
                     )
                 conn.commit()
@@ -309,10 +328,20 @@ class DatabaseService:
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
                 for _, row in total_damage_df.iterrows():
-                    character_id = row["character_id"]
+                    character_name = row["character_name"]
                     damage_value = row["total_damage"]
 
-                    # Check if character_id already exists in total_damage
+                    # Fetch character_id dynamically
+                    cur.execute("SELECT id FROM characters WHERE name = %s", (character_name,))
+                    result = cur.fetchone()
+
+                    if not result:
+                        self.logger.warning(f"Character '{character_name}' not found in database. Skipping...")
+                        continue  # Skip if character is not found
+
+                    character_id = result[0]
+
+                    # Check if total_damage entry exists
                     cur.execute("SELECT total_damage FROM total_damage WHERE character_id = %s", (character_id,))
                     existing = cur.fetchone()
 
