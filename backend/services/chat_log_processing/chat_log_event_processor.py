@@ -22,16 +22,13 @@ class ChatLogEventProcessor:
     Populates local DataFrames or does direct DB inserts.
     """
 
-    def __init__(self, db_conn, sqlalchemy_engine, cursor):
+    def __init__(self):
         """
         :param db_conn: The psycopg2 connection object
         :param sqlalchemy_engine: The SQLAlchemy engine for DataFrame .to_sql
         :param cursor: psycopg2 cursor for direct queries if needed
         """
         self.logger = logging.getLogger(__name__)
-        self.conn = db_conn
-        self.cursor = cursor
-        self.engine = sqlalchemy_engine
 
         # Prepare DataFrames
         self.traits_df = pd.DataFrame(
@@ -70,19 +67,6 @@ class ChatLogEventProcessor:
         # Keep track of current character name as we see lines like "Alrik:"
         # The 'currentChar' is updated whenever we detect an event_type == "character"
         self.currentChar = None
-        self.known_characters = self._load_characters_from_db()
-
-    def _load_characters_from_db(self):
-        """
-        Return a dict { character_name: alias_list, ... }
-        so we can do character name -> ID lookups, etc.
-        """
-        self.cursor.execute("SELECT name, alias FROM characters")
-        rows = self.cursor.fetchall()
-        if not rows:
-            return {}
-        # Each row is [name, alias_array]
-        return {row[0]: row[1] or [] for row in rows}
 
     def process_event(self, event_type, lines, i):
         """

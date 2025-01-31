@@ -4,20 +4,14 @@ import os
 import sys
 import logging
 from dotenv import load_dotenv
-import psycopg2
-from sqlalchemy import create_engine
 
 from services.database_service import DatabaseService
 from services.chat_log_processing_service import ChatLogProcessingService
 from services import exloratory_analysis
 
 
-# TODO: Remove most file based operations and replace with database operations
-# TODO: Remove remaining file based operations into functions (e.g talent_corrections)
-# TODO: Refactor backend (e.g database service, etc.)
-# TODO: Fix relationships in database with new tables for consistency and integrity
+# TODO: Fix relationships in database (with new tables) for consistency and integrity
 # TODO: Update database schema names to be precise and more descriptive and update all queries accordingly.
-# TODO: Review unused character management (archive, etc.) and remove if not needed. Definetly remove the json files (Bug: Character aliases not properly shown in frontend)
 
 
 # Enabling logging
@@ -42,15 +36,6 @@ database_service = DatabaseService()
 # -------------------------------------------------------------------
 
 
-# TODO: Remove when refactored Chatlog parser to use database
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-
-def get_db_connection():
-    conn = psycopg2.connect(DATABASE_URL)
-    return conn
-
-
 # Chatlog parsing
 UPLOAD_FOLDER = os.path.join(base_dir, "uploads")
 
@@ -73,10 +58,6 @@ def process_chatlog_route():
             chatlog_file_path = os.path.join(UPLOAD_FOLDER, filename)
             file.save(chatlog_file_path)
 
-            # Create a psycopg2 connection & a SQLAlchemy engine
-            conn = get_db_connection()
-            engine = create_engine(DATABASE_URL)
-
             # 1) Fetch all relevant data in one go
             characters_and_aliases = database_service.get_characters_and_aliases()
             known_talents = database_service.get_talents()
@@ -85,7 +66,7 @@ def process_chatlog_route():
 
             # 2) Pass them into the chat processor
             chat_processor = ChatLogProcessingService(
-                conn, engine, characters_and_aliases, known_talents, known_spells, known_attacks
+                characters_and_aliases, known_talents, known_spells, known_attacks
             )
             dataframes_dict = chat_processor.process_chat_log(chatlog_file_path)
             logger.debug(f"Total Damage: {dataframes_dict['total_damage_df']}")

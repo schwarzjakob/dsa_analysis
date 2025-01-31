@@ -1,5 +1,4 @@
 import logging
-from sqlalchemy.engine import Engine
 from typing import Dict
 
 # Import our 3 modules
@@ -17,7 +16,7 @@ class ChatLogProcessingService:
       4) Returning DataFrames (NO insertion to DB)
     """
 
-    def __init__(self, db_conn, sqlalchemy_engine, characters_and_aliases, talents, spells, attacks):
+    def __init__(self, characters_and_aliases, talents, spells, attacks):
         """
         :param db_conn: psycopg2 connection
         :param sqlalchemy_engine: SQLAlchemy Engine
@@ -27,11 +26,6 @@ class ChatLogProcessingService:
         :param attacks: Set of valid attack names from DB
         """
         self.logger = logging.getLogger(__name__)
-        self.db_conn = db_conn
-        self.engine = sqlalchemy_engine
-
-        # We'll create a cursor for validations and queries
-        self.cursor = self.db_conn.cursor()
 
         self.characters_and_aliases = characters_and_aliases
         self.known_talents = talents
@@ -43,7 +37,7 @@ class ChatLogProcessingService:
         self.validator = ChatLogEventValidator(
             self.characters_and_aliases, self.known_talents, self.known_spells, self.known_attacks
         )
-        self.processor = ChatLogEventProcessor(db_conn, sqlalchemy_engine, self.cursor)
+        self.processor = ChatLogEventProcessor()
 
     def process_chat_log(self, file_path: str) -> Dict[str, "pd.DataFrame"]:
         """
