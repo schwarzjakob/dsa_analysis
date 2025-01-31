@@ -141,35 +141,6 @@ For more information or to join the discussion, visit the DSA Forum: [Kreative I
 
 ## Ideas
 
-- Refactor backend
-  1. Database Service ✅
-  2. Chatlog preprocessing microservice 🚧
-     - It kind of works but the `chat_log_event_processor.py` does not utilize the database service. However I realize this may not be the ideal solution.
-
-```
-backend/
-├── services/
-│   ├── chat_preprocessing.py          # High-level orchestration (Step 1, 2, 3, 4, 5)
-│   ├── chat_preprocessing/            # Subfolder for components
-│   │   ├── parser/
-│   │   │   ├── chat_parser.py         # Handles parsing logic
-│   │   ├── validator/
-│   │   │   ├── chat_validator.py      # Handles validation logic
-│   ├── database_service.py            # Handles database interactions
-│   ├── character_analysis.py          # Handles character analysis like talents, attacks, and trait usage logic
-│   ├── exploratory_analysis.py        # Handles additional exploratory analysis (like formerly traits_needed_for_some_talents.py)
-│   ├── roll_result_service.py         # Tbd.
-├── models/
-│   ├── game.py                 # Contains all DSA-related data models
-│   ├── database.py             # Defines database models (if using SQLAlchemy)
-├── utils/
-│   ├── logging.py                     # Handles centralized logging
-├── server.py
-├── requirements.txt
-├── uploads/
-│   ├── chatlog.txt
-```
-
 - Talent Boxplots sortable after quartiles, mean, max, succes-rate etc.
 - Collapsible Content: Show e.g. Talents only if interested, below spells with the same charts if applicable
 
