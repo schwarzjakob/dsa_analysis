@@ -23,11 +23,6 @@ class ChatLogEventProcessor:
     """
 
     def __init__(self):
-        """
-        :param db_conn: The psycopg2 connection object
-        :param sqlalchemy_engine: The SQLAlchemy engine for DataFrame .to_sql
-        :param cursor: psycopg2 cursor for direct queries if needed
-        """
         self.logger = logging.getLogger(__name__)
 
         # Prepare DataFrames
@@ -65,8 +60,8 @@ class ChatLogEventProcessor:
         self.total_damage_df = pd.DataFrame(columns=["character_name", "total_damage"])
 
         # Keep track of current character name as we see lines like "Alrik:"
-        # The 'currentChar' is updated whenever we detect an event_type == "character"
-        self.currentChar = None
+        # The 'current_character' is updated whenever we detect an event_type == "character"
+        self.current_character = None
 
     def process_event(self, event_type, lines, i):
         """
@@ -74,10 +69,10 @@ class ChatLogEventProcessor:
         Returns the updated line-index, because some events span multiple lines.
         """
         if event_type == "character":
-            self.currentChar = lines[i].replace(":", "")
+            self.current_character = lines[i].replace(":", "")
             return i + 1  # we only used this line
 
-        if self.currentChar is None:
+        if self.current_character is None:
             # We can't process an event if we have no current character
             return i + 1
 
@@ -118,20 +113,20 @@ class ChatLogEventProcessor:
         third_line = lines[i + 2]
 
         # Extract roll data
-        currentSuccess, currentMod = self._mod_and_success_check(second_line)
-        currentTaPZfP = self._extract_tap_zfp(second_line, " EP")
-        currentTaWZfW = self._extract_taw_zfw(third_line, "EW:")
+        current_success, current_modifier = self._mod_and_success_check(second_line)
+        current_talent_or_spell_points = self._extract_talent_or_spell_points(second_line, " EP")
+        current_talent_or_spell_value = self._extract_talent_or_spell_value(third_line, "EW:")
 
         # Insert into self.traits_df
         new_row = {
-            "character_name": self.currentChar,
+            "character_name": self.current_character,
             "category": "Eigenschaftsprobe",
             "talent": trait_name,  # or None
             "trait": self._trait_abbreviation(trait_name),
-            "modifier": currentMod,
-            "success": bool(currentSuccess),
-            "tap_zfp": currentTaPZfP,
-            "taw_zfw": currentTaWZfW,
+            "modifier": current_modifier,
+            "success": bool(current_success),
+            "tap_zfp": current_talent_or_spell_points,
+            "taw_zfw": current_talent_or_spell_value,
         }
         self.traits_df = pd.concat([self.traits_df, pd.DataFrame([new_row])], ignore_index=True)
 
@@ -146,19 +141,19 @@ class ChatLogEventProcessor:
         second_line = lines[i + 1]
         third_line = lines[i + 2]
 
-        currentSuccess, currentMod = self._mod_and_success_check(second_line)
-        currentTaPZfP = self._extract_tap_zfp(second_line, "TaP")
-        currentTaWZfW = self._extract_taw_zfw(third_line, "TaW:")
+        current_success, current_modifier = self._mod_and_success_check(second_line)
+        current_talent_or_spell_points = self._extract_talent_or_spell_points(second_line, "TaP")
+        current_talent_or_spell_value = self._extract_talent_or_spell_value(third_line, "TaW:")
         # For the trait values in the third line, e.g. "Eigenschaften: 14/15/15"
         trait_values = self._extract_trait_values(third_line)
 
         new_row = {
-            "character_name": self.currentChar,
+            "character_name": self.current_character,
             "talent": talent_name,
-            "modifier": currentMod,
-            "success": bool(currentSuccess),
-            "tap_zfp": currentTaPZfP,
-            "taw_zfw": currentTaWZfW,
+            "modifier": current_modifier,
+            "success": bool(current_success),
+            "tap_zfp": current_talent_or_spell_points,
+            "taw_zfw": current_talent_or_spell_value,
             "trait_value1": trait_values[0],
             "trait_value2": trait_values[1],
             "trait_value3": trait_values[2],
@@ -175,18 +170,18 @@ class ChatLogEventProcessor:
         second_line = lines[i + 1]
         third_line = lines[i + 2]
 
-        currentSuccess, currentMod = self._mod_and_success_check(second_line)
-        currentTaPZfP = self._extract_tap_zfp(second_line, "ZfP")
-        currentTaWZfW = self._extract_taw_zfw(third_line, "ZfW:")
+        current_success, current_modifier = self._mod_and_success_check(second_line)
+        current_talent_or_spell_points = self._extract_talent_or_spell_points(second_line, "ZfP")
+        current_talent_or_spell_value = self._extract_talent_or_spell_value(third_line, "ZfW:")
         trait_values = self._extract_trait_values(third_line)
 
         new_row = {
-            "character_name": self.currentChar,
+            "character_name": self.current_character,
             "spell": spell_name,
-            "modifier": currentMod,
-            "success": bool(currentSuccess),
-            "tap_zfp": currentTaPZfP,
-            "taw_zfw": currentTaWZfW,
+            "modifier": current_modifier,
+            "success": bool(current_success),
+            "tap_zfp": current_talent_or_spell_points,
+            "taw_zfw": current_talent_or_spell_value,
             "trait_value1": trait_values[0],
             "trait_value2": trait_values[1],
             "trait_value3": trait_values[2],
@@ -207,19 +202,21 @@ class ChatLogEventProcessor:
             third_line = lines[i + 3]
 
         # We'll do something like the old method:
-        currentMod = self._extract_attack_mod(second_line)
+        current_modifier = self._extract_attack_mod(second_line)
         # Roughly replicate old approach
-        currentTaWZfW = self._extract_taw_zfw(third_line)  # depends on your chat format
-        currentTaPZfP = currentTaWZfW - self._extract_parenthetical_roll(second_line) - currentMod
-        currentSuccess = 1 if currentTaPZfP >= 0 else 0
+        current_talent_or_spell_value = self._extract_talent_or_spell_value(third_line)  # depends on your chat format
+        current_talent_or_spell_points = (
+            current_talent_or_spell_value - self._extract_parenthetical_roll(second_line) - current_modifier
+        )
+        current_success = 1 if current_talent_or_spell_points >= 0 else 0
 
         new_row = {
-            "character_name": self.currentChar,
+            "character_name": self.current_character,
             "attack": attack_name,
-            "modifier": currentMod,
-            "success": bool(currentSuccess),
-            "tap_zfp": currentTaPZfP,
-            "taw_zfw": currentTaWZfW,
+            "modifier": current_modifier,
+            "success": bool(current_success),
+            "tap_zfp": current_talent_or_spell_points,
+            "taw_zfw": current_talent_or_spell_value,
         }
         self.attacks_df = pd.concat([self.attacks_df, pd.DataFrame([new_row])], ignore_index=True)
 
@@ -238,7 +235,7 @@ class ChatLogEventProcessor:
         (current_ini, current_mod) = self._extract_current_initiative_and_mod(second_line)
 
         new_row = {
-            "character_name": self.currentChar,
+            "character_name": self.current_character,
             "rolled_ini": rolled_ini,
             "current_ini": current_ini,
             "modifier": current_mod,
@@ -258,12 +255,12 @@ class ChatLogEventProcessor:
         dmg = int(match.group()) if match else 0
 
         # Update total damage in self.total_damage_df
-        existing = self.total_damage_df[self.total_damage_df["character_name"] == self.currentChar]
+        existing = self.total_damage_df[self.total_damage_df["character_name"] == self.current_character]
         if not existing.empty:
             idx = existing.index[0]
             self.total_damage_df.at[idx, "total_damage"] += dmg
         else:
-            new_row = {"character_name": self.currentChar, "total_damage": dmg}
+            new_row = {"character_name": self.current_character, "total_damage": dmg}
             self.total_damage_df = pd.concat([self.total_damage_df, pd.DataFrame([new_row])], ignore_index=True)
 
         return i + 2
@@ -292,7 +289,7 @@ class ChatLogEventProcessor:
             current_success = 1
         return (current_success, current_mod)
 
-    def _extract_tap_zfp(self, line: str, pattern="TaP"):
+    def _extract_talent_or_spell_points(self, line: str, pattern="TaP"):
         """
         Looks for e.g. "(16 TaP*)." or "(16 ZfP*)."
         Return the integer found or 0 if not found.
@@ -304,7 +301,7 @@ class ChatLogEventProcessor:
             return int(match.group(1))
         return 0
 
-    def _extract_taw_zfw(self, line: str, prefix="TaW:"):
+    def _extract_talent_or_spell_value(self, line: str, prefix="TaW:"):
         """
         e.g. if the line says "Eigenschaften: 14/15/15  TaW: 5"
         we want to get 5
