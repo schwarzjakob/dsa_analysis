@@ -50,37 +50,29 @@ def process_chatlog_route():
         if file.filename == "":
             return "No selected file", 400
 
-        if file:
-            filename = "chatlog.txt"
-            if not os.path.exists(UPLOAD_FOLDER):
-                os.makedirs(UPLOAD_FOLDER)
+        # 1) Read the uploaded file into memory
+        chatlog_lines = file.read().decode("utf-8").splitlines()
 
-            chatlog_file_path = os.path.join(UPLOAD_FOLDER, filename)
-            file.save(chatlog_file_path)
+        # 2) Fetch all relevant game data
+        characters_and_aliases = database_service.get_characters_and_aliases()
+        known_talents = database_service.get_talents()
+        known_spells = database_service.get_spells()
+        known_attacks = database_service.get_attacks()
 
-            # 1) Fetch all relevant data in one go
-            characters_and_aliases = database_service.get_characters_and_aliases()
-            known_talents = database_service.get_talents()
-            known_spells = database_service.get_spells()
-            known_attacks = database_service.get_attacks()
+        # 3) Pass them into the chat processor
+        chat_processor = ChatLogProcessingService(characters_and_aliases, known_talents, known_spells, known_attacks)
+        dataframes_dict = chat_processor.process_chat_log(chatlog_lines)
 
-            # 2) Pass them into the chat processor
-            chat_processor = ChatLogProcessingService(
-                characters_and_aliases, known_talents, known_spells, known_attacks
-            )
-            dataframes_dict = chat_processor.process_chat_log(chatlog_file_path)
-            logger.debug(f"Total Damage: {dataframes_dict['total_damage_df']}")
+        # 4) Use DatabaseService to insert events
+        database_service.insert_traits_rolls(dataframes_dict["traits_df"])
+        database_service.insert_talents_rolls(dataframes_dict["talents_df"])
+        database_service.insert_spells_rolls(dataframes_dict["spells_df"])
+        database_service.insert_attacks_rolls(dataframes_dict["attacks_df"])
+        database_service.insert_initiatives(dataframes_dict["initiatives_df"])
+        database_service.insert_total_damage(dataframes_dict["total_damage_df"])
 
-            # 3) Use DatabaseService to insert the events
-            database_service.insert_traits_rolls(dataframes_dict["traits_df"])
-            database_service.insert_talents_rolls(dataframes_dict["talents_df"])
-            database_service.insert_spells_rolls(dataframes_dict["spells_df"])
-            database_service.insert_attacks_rolls(dataframes_dict["attacks_df"])
-            database_service.insert_initiatives(dataframes_dict["initiatives_df"])
-            database_service.insert_total_damage(dataframes_dict["total_damage_df"])
-
-            logger.debug(f"File uploaded and events inserted from {chatlog_file_path}")
-            return f"File uploaded and events inserted from {chatlog_file_path}", 200
+        logger.debug("Chat log processed and events inserted.")
+        return "Chat log processed and events inserted.", 200
 
     except Exception as e:
         logger.error(e)
