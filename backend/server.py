@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 from services.database_service import DatabaseService
 from services.chat_log_processing_service import ChatLogProcessingService
-from services import exloratory_analysis
+from services import exploratory_analysis
 
 
 # TODO: Fix relationships in database (with new tables) for consistency and integrity
@@ -369,7 +369,7 @@ def get_traits_for_selected_talents():
         # Flatten
         traits_list = [trait for row in fetched_talents for trait in row]
         # Use your existing function for counting
-        trait_counts = exloratory_analysis.get_trait_counts(traits_list)
+        trait_counts = exploratory_analysis.get_trait_counts(traits_list)
         return jsonify(trait_counts), 200
 
     except Exception as e:
