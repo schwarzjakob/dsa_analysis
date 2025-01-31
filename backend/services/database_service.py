@@ -132,7 +132,7 @@ class DatabaseService:
 
     def insert_talents_rolls(self, talents_df: pd.DataFrame) -> None:
         """
-        Insert rows from talents_df into talents_rolls.
+        Insert rows from talents_df into talents_rolls, dynamically resolving category and traits.
         """
         if talents_df.empty:
             return
@@ -140,9 +140,29 @@ class DatabaseService:
         insert_query = """
             INSERT INTO talents_rolls 
                 (character_id, category, talent, trait1, trait2, trait3, modifier, success, 
-                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
+            SELECT
+                %s AS character_id,
+                tc.talent_category_name AS category,
+                t.talent_name AS talent,
+                ct1.trait_abbreviation AS trait1,
+                ct2.trait_abbreviation AS trait2,
+                ct3.trait_abbreviation AS trait3,
+                %s AS modifier,
+                %s AS success,
+                %s AS tap_zfp,
+                %s AS taw_zfw,
+                %s AS trait_value1,
+                %s AS trait_value2,
+                %s AS trait_value3
+            FROM talents t
+            LEFT JOIN talent_categories tc ON t.talent_category_id = tc.talent_category_id
+            LEFT JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
+            LEFT JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
+            LEFT JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
+            WHERE t.talent_name = %s
         """
+
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
                 for _, row in talents_df.iterrows():
@@ -150,11 +170,6 @@ class DatabaseService:
                         insert_query,
                         [
                             row["character_id"],
-                            row["category"],
-                            row["talent"],
-                            row["trait1"],
-                            row["trait2"],
-                            row["trait3"],
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],
@@ -162,6 +177,7 @@ class DatabaseService:
                             row["trait_value1"],
                             row["trait_value2"],
                             row["trait_value3"],
+                            row["talent"],
                         ],
                     )
                 conn.commit()
@@ -177,8 +193,27 @@ class DatabaseService:
             INSERT INTO spells_rolls 
                 (character_id, category, spell, trait1, trait2, trait3, modifier, success, 
                  tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            SELECT
+                %s AS character_id,
+                'Zauber' AS category,
+                s.spell_name AS spell,
+                ct1.trait_abbreviation AS trait1,
+                ct2.trait_abbreviation AS trait2,
+                ct3.trait_abbreviation AS trait3,
+                %s AS modifier,
+                %s AS success,
+                %s AS tap_zfp,
+                %s AS taw_zfw,
+                %s AS trait_value1,
+                %s AS trait_value2,
+                %s AS trait_value3
+            FROM spells s
+            LEFT JOIN character_traits ct1 ON s.spell_trait_one_id = ct1.trait_id
+            LEFT JOIN character_traits ct2 ON s.spell_trait_two_id = ct2.trait_id
+            LEFT JOIN character_traits ct3 ON s.spell_trait_three_id = ct3.trait_id
+            WHERE s.spell_name = %s
         """
+
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
                 for _, row in spells_df.iterrows():
@@ -186,11 +221,6 @@ class DatabaseService:
                         insert_query,
                         [
                             row["character_id"],
-                            row["category"],
-                            row["spell"],
-                            row["trait1"],
-                            row["trait2"],
-                            row["trait3"],
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],
@@ -198,6 +228,7 @@ class DatabaseService:
                             row["trait_value1"],
                             row["trait_value2"],
                             row["trait_value3"],
+                            row["spell"],
                         ],
                     )
                 conn.commit()
@@ -212,8 +243,19 @@ class DatabaseService:
         insert_query = """
             INSERT INTO attacks_rolls 
                 (character_id, category, attack, modifier, success, tap_zfp, taw_zfw)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
+            SELECT
+                %s AS character_id,
+                ac.attack_category_name AS category,
+                a.attack_name AS attack,
+                %s AS modifier,
+                %s AS success,
+                %s AS tap_zfp,
+                %s AS taw_zfw
+            FROM attack_categories ac
+            LEFT JOIN attacks a ON ac.attack_category_id = a.attack_category_id
+            WHERE a.attack_name = %s
         """
+
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
                 for _, row in attacks_df.iterrows():
@@ -221,12 +263,11 @@ class DatabaseService:
                         insert_query,
                         [
                             row["character_id"],
-                            row["category"],
-                            row["attack"],
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],
                             row["taw_zfw"],
+                            row["attack"],
                         ],
                     )
                 conn.commit()

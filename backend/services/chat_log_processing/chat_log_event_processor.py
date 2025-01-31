@@ -40,11 +40,7 @@ class ChatLogEventProcessor:
         self.talents_df = pd.DataFrame(
             columns=[
                 "character_id",
-                "category",
                 "talent",
-                "trait1",
-                "trait2",
-                "trait3",
                 "modifier",
                 "success",
                 "tap_zfp",
@@ -57,11 +53,7 @@ class ChatLogEventProcessor:
         self.spells_df = pd.DataFrame(
             columns=[
                 "character_id",
-                "category",
                 "spell",
-                "trait1",
-                "trait2",
-                "trait3",
                 "modifier",
                 "success",
                 "tap_zfp",
@@ -71,9 +63,7 @@ class ChatLogEventProcessor:
                 "trait_value3",
             ]
         )
-        self.attacks_df = pd.DataFrame(
-            columns=["character_id", "category", "attack", "modifier", "success", "tap_zfp", "taw_zfw"]
-        )
+        self.attacks_df = pd.DataFrame(columns=["character_id", "modifier", "success", "tap_zfp", "taw_zfw"])
         self.initiatives_df = pd.DataFrame(columns=["character_id", "rolled_ini", "current_ini", "modifier"])
         self.total_damage_df = pd.DataFrame(columns=["character_id", "total_damage"])
 
@@ -179,17 +169,10 @@ class ChatLogEventProcessor:
         # For the trait values in the third line, e.g. "Eigenschaften: 14/15/15"
         trait_values = self._extract_trait_values(third_line)
 
-        # Query DB to get the category + trait abbreviations
-        category, t1, t2, t3 = self._get_traits_from_db("talent", talent_name)
-
         character_id = self._get_character_id(self.currentChar)
         new_row = {
             "character_id": character_id,
-            "category": category,
             "talent": talent_name,
-            "trait1": t1,
-            "trait2": t2,
-            "trait3": t3,
             "modifier": currentMod,
             "success": bool(currentSuccess),
             "tap_zfp": currentTaPZfP,
@@ -215,16 +198,11 @@ class ChatLogEventProcessor:
         currentTaWZfW = self._extract_taw_zfw(third_line, "ZfW:")
         trait_values = self._extract_trait_values(third_line)
 
-        category, t1, t2, t3 = self._get_traits_from_db("spell", spell_name)
         character_id = self._get_character_id(self.currentChar)
 
         new_row = {
             "character_id": character_id,
-            "category": category,
             "spell": spell_name,
-            "trait1": t1,
-            "trait2": t2,
-            "trait3": t3,
             "modifier": currentMod,
             "success": bool(currentSuccess),
             "tap_zfp": currentTaPZfP,
@@ -255,12 +233,10 @@ class ChatLogEventProcessor:
         currentTaPZfP = currentTaWZfW - self._extract_parenthetical_roll(second_line) - currentMod
         currentSuccess = 1 if currentTaPZfP >= 0 else 0
 
-        category, t1, t2, t3 = self._get_traits_from_db("attack", attack_name)
         character_id = self._get_character_id(self.currentChar)
 
         new_row = {
             "character_id": character_id,
-            "category": category,
             "attack": attack_name,
             "modifier": currentMod,
             "success": bool(currentSuccess),
@@ -383,60 +359,6 @@ class ChatLogEventProcessor:
             idx = TRAITS_LONG.index(trait_name)
             return TRAITS_ABBR[idx]
         return trait_name
-
-    def _get_traits_from_db(self, item_type: str, name: str):
-        """
-        item_type: "talent", "spell", or "attack"
-        name: the name of the talent/spell/attack
-        Returns (category, trait1, trait2, trait3).
-        If not found, returns default fallback.
-        """
-        if item_type == "talent":
-            query = """
-            SELECT COALESCE(tc.talent_category_name, 'N/A'),
-                   COALESCE(ct1.trait_abbreviation, 'N/A'),
-                   COALESCE(ct2.trait_abbreviation, 'N/A'),
-                   COALESCE(ct3.trait_abbreviation, 'N/A')
-            FROM talents t
-            LEFT JOIN talent_categories tc ON t.talent_category_id = tc.talent_category_id
-            LEFT JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
-            LEFT JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
-            LEFT JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
-            WHERE t.talent_name = %s
-            LIMIT 1
-            """
-        elif item_type == "spell":
-            query = """
-            SELECT 'Zauber' AS category,
-                   COALESCE(ct1.trait_abbreviation, 'N/A'),
-                   COALESCE(ct2.trait_abbreviation, 'N/A'),
-                   COALESCE(ct3.trait_abbreviation, 'N/A')
-            FROM spells s
-            LEFT JOIN character_traits ct1 ON s.spell_trait_one_id = ct1.trait_id
-            LEFT JOIN character_traits ct2 ON s.spell_trait_two_id = ct2.trait_id
-            LEFT JOIN character_traits ct3 ON s.spell_trait_three_id = ct3.trait_id
-            WHERE s.spell_name = %s
-            LIMIT 1
-            """
-        else:  # "attack"
-            query = """
-            SELECT ac.attack_category_name,
-                   COALESCE(ct1.trait_abbreviation, 'N/A'),
-                   COALESCE(ct2.trait_abbreviation, 'N/A'),
-                   COALESCE(ct3.trait_abbreviation, 'N/A')
-            FROM attacks a
-            LEFT JOIN attack_categories ac ON a.attack_category_id = ac.attack_category_id
-            LEFT JOIN character_traits ct1 ON a.attack_trait_one_id = ct1.trait_id
-            LEFT JOIN character_traits ct2 ON a.attack_trait_two_id = ct2.trait_id
-            LEFT JOIN character_traits ct3 ON a.attack_trait_three_id = ct3.trait_id
-            WHERE a.attack_name = %s
-            LIMIT 1
-            """
-        self.cursor.execute(query, (name,))
-        row = self.cursor.fetchone()
-        if row:
-            return row[0], row[1], row[2], row[3]
-        return ("N/A", "N/A", "N/A", "N/A")
 
     def _extract_attack_mod(self, line: str) -> int:
         # Example: line = "Attack ±2"
