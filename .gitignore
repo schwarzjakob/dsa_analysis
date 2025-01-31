@@ -10,7 +10,7 @@
 *.swp
 *.DS_Store
 
-/flask-server/venv
+/backend/venv
 /venv/
 
 /dsa_rolls_analysis/archive

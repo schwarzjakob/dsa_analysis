@@ -39,12 +39,7 @@ const TraitsForSelectedTalents = () => {
     try {
       const response = await fetch("/talents-options");
       const data = await response.json();
-      const categories = data.talents.reduce((acc, talent) => {
-        acc[talent.category] = acc[talent.category] || [];
-        acc[talent.category].push(talent.talent);
-        return acc;
-      }, {});
-      setTalentsByCategory(categories);
+      setTalentsByCategory(data.talents);
     } catch (error) {
       console.error("Failed to fetch talents options", error);
     }

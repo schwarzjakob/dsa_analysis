@@ -14,54 +14,6 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
 
 ## Installation and Setup
 
-### Backend Setup
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/AixPrime/dsa_analysis.git
-   cd dsa_rolls_webapp
-   ```
-
-2. **Setup the Python Flask Backend:**
-
-   ```bash
-   cd flask-server
-   # Create a virtual environment (Linux/Mac)
-   python3 -m venv venv
-   source venv/bin/activate
-   # For Windows
-   python -m venv venv
-   venv\Scripts\activate
-   # Install dependencies
-   pip install -r requirements.txt
-   ```
-
-3. **Set Up Environment Variables:**
-   Create a `.env` file in the `flask-server` directory and add the following lines to it:
-
-   ```bash
-   # Google Auth
-   GOOGLE_CLIENT_ID=your-google-client-id
-   GOOGLE_CLIENT_SECRET=your-google-client-secret
-   ```
-
-   Replace `your-google-client-id` and `your-google-client-secret` with your actual Google OAuth credentials. Visit the [Google OAuth 2.0 Documentation](https://developers.google.com/identity/protocols/oauth2?hl=de) for further instructions.
-
-4. **Start the Flask Server:**
-
-   ```bash
-   python server.py
-   ```
-
-5. **Setup Dotenv:**
-   Create a `.env` file containing your Google OAuth credentials as well as a Database url:
-   ```bash
-   GOOGLE_CLIENT_ID=Your_Client_ID
-   GOOGLE_CLIENT_SECRET=Your_Client_Secret
-   DATABASE_URL=postgresql://dsa_user:password@localhost:5432/dsa_analysis
-   ```
-
 ### Database Setup
 
 1. **Install and Run PostgreSQL:**
@@ -88,8 +40,49 @@ The DSA Rolls Analysis Web Application is a powerful tool designed to analyze an
 
 Don't forget to setup the DATABASE_URL in your `.env` file before continuing.
 
+```bash
+psql -U dsa_user -d dsa_analysis -f database/schema.sql
+psql -U dsa_user -d dsa_analysis -f database/talents_spells_and_attacks.sql
+psql -U dsa_user -d dsa_analysis -f database/characters.sql
+```
+
+### Backend Setup
+
+1. **Clone the Repository:**
+
    ```bash
-   psql -U dsa_user -d dsa_analysis -f database/setup.sql
+   git clone https://github.com/AixPrime/dsa_analysis.git
+   cd dsa_rolls_webapp
+   ```
+
+2. **Setup the Python Flask Backend:**
+
+   ```bash
+   cd backend
+   # Create a virtual environment (Linux/Mac)
+   python3 -m venv venv
+   source venv/bin/activate
+   # For Windows
+   python -m venv venv
+   venv\Scripts\activate
+   # Install dependencies
+   pip install -r requirements.txt
+   ```
+
+3. **Set Up Environment Variables:**
+   Create a `.env` file in the `backend` directory and add the following lines to it:
+
+   ```bash
+   DATABASE_URL=postgresql://dsa_user:password@localhost:5432/dsa_analysis
+   POSTGRES_DB=dsa_analysis
+   POSTGRES_USER=dsa_user
+   POSTGRES_PASSWORD=dsa_user
+   ```
+
+4. **Start the Flask Server:**
+
+   ```bash
+   python server.py
    ```
 
 ### Frontend Setup
@@ -145,3 +138,13 @@ The primary goal of this project is to create a robust and modular analysis tool
 ## DSA Forum Thread (German)
 
 For more information or to join the discussion, visit the DSA Forum: [Kreative Ideen für Datenanalyse in DSA gesucht](https://dsaforum.de/viewtopic.php?p=2130810&sid=35430a31d27d49c3c592265d31acf1e0#p2130810)
+
+## Ideas
+
+- Talent Boxplots sortable after quartiles, mean, max, succes-rate etc.
+- Collapsible Content: Show e.g. Talents only if interested, below spells with the same charts if applicable
+
+### Bugs
+
+- Aliases not displayed properly
+- Categories in distribution include N/A (potentially spells, traits, etc.)

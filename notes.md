@@ -13,18 +13,9 @@
 ### While working on the project
 
 - run project in virtual environment and install packages via requirements.txt inside the virtual environment
-   - start the venv with ```source venv/bin/activate```
-- Change last commit with: ```GIT_EDITOR=nano git commit --amend``` Make sure to add the files before with ```git add path/to/file```
-- Showing the git tree: ```git ls-tree -r HEAD --name-only | tree --fromfile```
-- Reloading Modules while testing in Pyhton shell:
- ```bash
- import dsa_analysis_app.character_analysis.character_analysis as ca
- from importlib import reload
- name = "Hanzo Shimada"
- get_character_best_and_worst_talents(name)
- reload(ca) # After changes in the script
- get_character_best_and_worst_talents(name)
- ```
+  - start the venv with `source venv/bin/activate`
+- Change last commit with: `git commit --amend` Make sure to add the files before with `git add path/to/file`
+- Showing the git tree: `git ls-tree -r HEAD --name-only | tree --fromfile`
 
 ## Ideas / Features planned
 
@@ -32,9 +23,9 @@
 
 1. [x] A good user interface landing page
 2. [x] Current trait values (e.g.: MU: 14, GE: 16, ...)
-    1. [x] create an empty csv file for each character and initialize it with 0
-    2. [x] for each roll update this .csv with the (3) trait values
-    3. [x] communicate with front end and visualize it in the analytics hub
+   1. [x] create an empty csv file for each character and initialize it with 0
+   2. [x] for each roll update this .csv with the (3) trait values
+   3. [x] communicate with front end and visualize it in the analytics hub
 3. [x] Relative Categories Distribution
 4. [x] Modularization of Backend
 5. [x] Login Landing page with Google Authentication
@@ -45,36 +36,36 @@
 8. [x] Check how logger can be used more usefull
    1. [ ] Debugging all accessed scripts
    2. [x] in multiple scripts logging is imported the same way. Not sure if that makes sense, might change that
-9.  [ ] Succes chance and expected value for next try of talents in the Talent, and Attack List table
-    1.  [x] First, include the same metrics into the attack table
-    2.  [ ] then create an .ipynb for data exploration
-    3.  [ ] then success chance and expected value algorithm 
-   1.  [ ] Need to determine current skill level of talent. (Current Traits already written down)
-10. [ ] Talent list -> Talent vertical bar chart
-11. [ ] Character insights
-   1. [ ] Top and Worst performing talents
-      1. [ ] Success Rate
-      2. [ ] Avg. TaP
-   2. [ ] Correlation (Scatter Plot) between total attempts and
-      1. [ ] Success Rate
-      2. [ ] Avg. TaP
-   3. [ ] Professional skills (e.g. plus 7 for last 10 attempts = pro, plus 14 for last 10 attempts = master, or 7 for 9/10 and 14 for 9/10 attempts)
-   4. [ ] Character types derived from the most used talents/categories
-   5. [ ] Wasted talents ("You seem to be good in Schleichen, but you barely use it")
-12. [ ] Start screen content
-   1. [x] Background image
-   2. [ ] guides
-   3. [ ] background information
-   4. [ ] video/gif/slides explaining the project
-   5. [ ] faq
-13. [ ] Predicter of future talent outcomes like (Hanzo Shimada: Schleichen -> 14)
-14. [ ] Talent upgrade suggestions (you used "Fährtensuchen" a lot recently but your average performance was low (2). What about an upgrade)
-   1. [ ] Upgrade suggestions based on XP input (this will be super complicated)
-15. [ ] Talent values (recent TaW/ZfW)
-16. [ ] Include list of spells for Wizards
-   1. [ ] Setup Wizard attribute to Character
-17. [ ] Access to pages restricted to loggedin user (google login is first page but I could just change url to dodge this login)
-18. [ ] Review Chatparser.py (PEP8)
+9. [ ] Succes chance and expected value for next try of talents in the Talent, and Attack List table
+   1. [x] First, include the same metrics into the attack table
+   2. [ ] then create an .ipynb for data exploration
+   3. [ ] then success chance and expected value algorithm
+10. [ ] Need to determine current skill level of talent. (Current Traits already written down)
+11. [ ] Talent list -> Talent vertical bar chart
+12. [ ] Character insights
+13. [ ] Top and Worst performing talents
+    1. [ ] Success Rate
+    2. [ ] Avg. TaP
+14. [ ] Correlation (Scatter Plot) between total attempts and
+    1. [ ] Success Rate
+    2. [ ] Avg. TaP
+15. [ ] Professional skills (e.g. plus 7 for last 10 attempts = pro, plus 14 for last 10 attempts = master, or 7 for 9/10 and 14 for 9/10 attempts)
+16. [ ] Character types derived from the most used talents/categories
+17. [ ] Wasted talents ("You seem to be good in Schleichen, but you barely use it")
+18. [ ] Start screen content
+19. [x] Background image
+20. [ ] guides
+21. [ ] background information
+22. [ ] video/gif/slides explaining the project
+23. [ ] faq
+24. [ ] Predicter of future talent outcomes like (Hanzo Shimada: Schleichen -> 14)
+25. [ ] Talent upgrade suggestions (you used "Fährtensuchen" a lot recently but your average performance was low (2). What about an upgrade)
+26. [ ] Upgrade suggestions based on XP input (this will be super complicated)
+27. [ ] Talent values (recent TaW/ZfW)
+28. [ ] Include list of spells for Wizards
+29. [ ] Setup Wizard attribute to Character
+30. [ ] Access to pages restricted to loggedin user (google login is first page but I could just change url to dodge this login)
+31. [ ] Review Chatparser.py (PEP8)
 
 ### Publish app
 
@@ -112,6 +103,7 @@ Approach to publish the app for my friends and potentially other groups
 Given your application structure and components, a well-organized folder structure can greatly improve maintainability and readability. Here's a recommended structure tailored to your project:
 
 ### Root Directory
+
 - **src/**
   - **components/**: Contains reusable UI components.
     - **common/**: For shared components like buttons, inputs, modals, etc.
@@ -131,13 +123,16 @@ Given your application structure and components, a well-organized folder structu
 ### Detailed Breakdown
 
 1. **src/components/common/**
+
    - Reusable UI elements like buttons, text inputs, loading spinners.
 
 2. **src/components/charts/**
+
    - Chart components like `PieChart`, `BarChart`, `LineChart`.
    - Each chart component can have its own folder if they are complex.
 
 3. **src/components/layout/**
+
    - `Header.js`, `Footer.js`, `NavigationBar.js`.
    - Could include `Home.js` if it becomes part of a menu bar or navbar.
 
@@ -155,26 +150,39 @@ Given your application structure and components, a well-organized folder structu
 
 ## Where I left off last time
 
+31.01.2025:
+
+- Removed google authentiaction (overengineering at the current state)
+- Removed all file based operations and updated database
+- Implemented a database service for a better microservice architecture
+- Streamlined chatlog processing file into a way better human readable service
+- **Next up would definetly be fixing the database schema and implementing data models**
+
 02.01.2024:
+
 - Removed webvitals
 - Created logger config (have to change that according to toms review. Actualy that's how I thought about it)
 - Created a notebook for exploration and created a stupid linear regression model
 - Next up is toms review and a simple success rate calculater based on eig1, eig2, eig3, and respective values plus tap and mod
 
 01.01.2024:
+
 - I further modularized the frontend and there is one Barchart processing still in the main dashboard but I am not sure if it makes sense to change it
 - Next up is webvitals accoring to Toms review and
 - reviewing the logger usage in the backend. The same code is written in each script. Might be possible to put it in a config instead
 
 30.12.2023:
+
 - I made the sorting for talents reusable and included it in the attacks table. That further allows to create the additional table columns for the attacks table and make them sortable as well.
 - Made the column headers looking like clickable buttons.
 - Tom introduced DTOs and encapsulation of functions. Need to revisit that
 
 27.12.2023:
+
 - Modularized last Chart (Pie Chart)
 
 26.12.2023:
+
 - I updated the talent table with other metrics (might remove them from the statistics of a single talent or at least reuse this for efficiency)
 - I created two new bar charts which might need some slight improvement for characters with less than 10 talents with more than 10 uses.
 - Next up is 100% creating a better structured front end modularity as the <mark>CharacterDashboard.js</mark> has already ~800 lines of code.

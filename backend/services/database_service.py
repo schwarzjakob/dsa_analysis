@@ -1,0 +1,618 @@
+import logging
+from typing import Optional, List, Any, Dict
+import pandas as pd
+
+from models.database import Database
+
+
+class DatabaseService:
+    """
+    Encapsulates higher-level database queries/updates.
+    """
+
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
+        self.database = Database()
+
+    def get_characters(self):
+        """
+        Fetch all characters with their attributes.
+        Returns a list of dicts or an empty list if none.
+        """
+        query = """
+            SELECT 
+                id, 
+                name, 
+                mut, 
+                klugheit, 
+                intuition, 
+                charisma,
+                fingerfertigkeit, 
+                gewandtheit, 
+                konstitution, 
+                körperkraft, 
+                alias
+            FROM characters
+        """
+        results = self.database.fetch_query(query)
+        if not results:
+            return []
+
+        character_list = []
+        for row in results:
+            character_list.append(
+                {
+                    "id": row["id"],
+                    "name": row["name"],
+                    "traits": {
+                        "Mut": row["mut"],
+                        "Klugheit": row["klugheit"],
+                        "Intuition": row["intuition"],
+                        "Charisma": row["charisma"],
+                        "Fingerfertigkeit": row["fingerfertigkeit"],
+                        "Gewandtheit": row["gewandtheit"],
+                        "Konstitution": row["konstitution"],
+                        "Körperkraft": row["körperkraft"],
+                    },
+                    "alias": row["alias"] if row["alias"] else [],
+                }
+            )
+        return character_list
+
+    def get_characters_and_aliases(self):
+        """
+        Fetch all characters and their aliases as a single flat list.
+
+        Returns:
+            [ "Character One", "Character Two", "Alias Three", "Alias Four" ]
+        """
+        query = "SELECT name, alias FROM characters"
+        results = self.database.fetch_query(query)
+
+        if not results:
+            return []
+
+        # Flatten the list: Include the character name and all aliases
+        return [name for row in results for name in ([row["name"]] + (row["alias"] if row["alias"] else []))]
+
+    def get_talents(self):
+        """
+        Fetch all valid talent names from the database and return as a set.
+        """
+        query = "SELECT talent_name FROM talents"
+        results = self.database.fetch_query(query)
+        return set(row["talent_name"] for row in results) if results else set()
+
+    def get_spells(self):
+        """
+        Fetch all valid spell names from the database and return as a set.
+        """
+        query = "SELECT spell_name FROM spells"
+        results = self.database.fetch_query(query)
+        return set(row["spell_name"] for row in results) if results else set()
+
+    def get_attacks(self):
+        """
+        Fetch all valid attack names from the database and return as a set.
+        """
+        query = "SELECT attack_name FROM attacks"
+        results = self.database.fetch_query(query)
+        return set(row["attack_name"] for row in results) if results else set()
+
+    def insert_traits_rolls(self, traits_df: pd.DataFrame) -> None:
+        """
+        Insert rows from traits_df into traits_rolls.
+        """
+        if traits_df.empty:
+            return
+
+        # A row-by-row example
+        insert_query = """
+            INSERT INTO traits_rolls 
+                (character_id, category, talent, trait, modifier, success, tap_zfp, taw_zfw)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in traits_df.iterrows():
+                    character_id = self.get_character_id_by_name(row["character_name"])
+
+                    if character_id is None:
+                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
+                        continue
+
+                    cur.execute(
+                        insert_query,
+                        [
+                            character_id,
+                            row["category"],
+                            row["talent"],
+                            row["trait"],
+                            row["modifier"],
+                            row["success"],
+                            row["tap_zfp"],
+                            row["taw_zfw"],
+                        ],
+                    )
+                conn.commit()
+
+    def insert_talents_rolls(self, talents_df: pd.DataFrame) -> None:
+        """
+        Insert rows from talents_df into talents_rolls, dynamically resolving character_id, category, and traits.
+        """
+        if talents_df.empty:
+            return
+
+        insert_query = """
+            INSERT INTO talents_rolls 
+                (character_id, category, talent, trait1, trait2, trait3, modifier, success, 
+                tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
+            SELECT
+                %s AS character_id, 
+                tc.talent_category_name AS category,
+                t.talent_name AS talent,
+                ct1.trait_abbreviation AS trait1,
+                ct2.trait_abbreviation AS trait2,
+                ct3.trait_abbreviation AS trait3,
+                %s AS modifier,
+                %s AS success,
+                %s AS tap_zfp,
+                %s AS taw_zfw,
+                %s AS trait_value1,
+                %s AS trait_value2,
+                %s AS trait_value3
+            FROM talents t
+            LEFT JOIN talent_categories tc ON t.talent_category_id = tc.talent_category_id
+            LEFT JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
+            LEFT JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
+            LEFT JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
+            WHERE t.talent_name = %s
+        """
+
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in talents_df.iterrows():
+                    character_id = self.get_character_id_by_name(row["character_name"])
+
+                    if character_id is None:
+                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
+                        continue
+
+                    cur.execute(
+                        insert_query,
+                        [
+                            character_id,
+                            row["modifier"],
+                            row["success"],
+                            row["tap_zfp"],
+                            row["taw_zfw"],
+                            row["trait_value1"],
+                            row["trait_value2"],
+                            row["trait_value3"],
+                            row["talent"],
+                        ],
+                    )
+                    conn.commit()
+
+    def insert_spells_rolls(self, spells_df: pd.DataFrame) -> None:
+        """
+        Insert rows from spells_df into spells_rolls.
+        """
+        if spells_df.empty:
+            return
+
+        insert_query = """
+            INSERT INTO spells_rolls 
+                (character_id, category, spell, trait1, trait2, trait3, modifier, success, 
+                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
+            SELECT
+                %s AS character_id, 
+                'Zauber' AS category,
+                s.spell_name AS spell,
+                ct1.trait_abbreviation AS trait1,
+                ct2.trait_abbreviation AS trait2,
+                ct3.trait_abbreviation AS trait3,
+                %s AS modifier,
+                %s AS success,
+                %s AS tap_zfp,
+                %s AS taw_zfw,
+                %s AS trait_value1,
+                %s AS trait_value2,
+                %s AS trait_value3
+            FROM spells s
+            LEFT JOIN character_traits ct1 ON s.spell_trait_one_id = ct1.trait_id
+            LEFT JOIN character_traits ct2 ON s.spell_trait_two_id = ct2.trait_id
+            LEFT JOIN character_traits ct3 ON s.spell_trait_three_id = ct3.trait_id
+            WHERE s.spell_name = %s
+        """
+
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in spells_df.iterrows():
+                    character_id = self.get_character_id_by_name(row["character_name"])
+
+                    if character_id is None:
+                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
+                        continue
+
+                    cur.execute(
+                        insert_query,
+                        [
+                            character_id,
+                            row["modifier"],
+                            row["success"],
+                            row["tap_zfp"],
+                            row["taw_zfw"],
+                            row["trait_value1"],
+                            row["trait_value2"],
+                            row["trait_value3"],
+                            row["spell"],
+                        ],
+                    )
+                conn.commit()
+
+    def insert_attacks_rolls(self, attacks_df: pd.DataFrame) -> None:
+        """
+        Insert rows from attacks_df into attacks_rolls.
+        """
+        if attacks_df.empty:
+            return
+
+        insert_query = """
+            INSERT INTO attacks_rolls 
+                (character_id, category, attack, modifier, success, tap_zfp, taw_zfw)
+            SELECT
+                %s AS character_id, 
+                ac.attack_category_name AS category,
+                a.attack_name AS attack,
+                %s AS modifier,
+                %s AS success,
+                %s AS tap_zfp,
+                %s AS taw_zfw
+            FROM attack_categories ac
+            LEFT JOIN attacks a ON ac.attack_category_id = a.attack_category_id
+            WHERE a.attack_name = %s
+        """
+
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in attacks_df.iterrows():
+                    character_id = self.get_character_id_by_name(row["character_name"])
+
+                    if character_id is None:
+                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
+                        continue
+
+                    cur.execute(
+                        insert_query,
+                        [
+                            character_id,
+                            row["modifier"],
+                            row["success"],
+                            row["tap_zfp"],
+                            row["taw_zfw"],
+                            row["attack"],
+                        ],
+                    )
+                conn.commit()
+
+    def insert_initiatives(self, initiatives_df: pd.DataFrame) -> None:
+        """
+        Insert rows from initiatives_df into initiative_rolls.
+        """
+        if initiatives_df.empty:
+            return
+
+        insert_query = """
+            INSERT INTO initiative_rolls 
+                (character_id, rolled_ini, current_ini, modifier)
+            VALUES(%s, %s, %s, %s)
+        """
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in initiatives_df.iterrows():
+                    character_id = self.get_character_id_by_name(row["character_name"])
+
+                    if character_id is None:
+                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
+                        continue
+
+                    cur.execute(
+                        insert_query,
+                        [
+                            character_id,
+                            row["rolled_ini"],
+                            row["current_ini"],
+                            row["modifier"],
+                        ],
+                    )
+                conn.commit()
+
+    def insert_total_damage(self, total_damage_df: pd.DataFrame) -> None:
+        """
+        Insert rows into total_damage if they don't exist.
+        If they do exist, update the total_damage value.
+        """
+        if total_damage_df.empty:
+            return
+
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for _, row in total_damage_df.iterrows():
+                    character_name = row["character_name"]
+                    damage_value = row["total_damage"]
+
+                    # Use the updated function to fetch character_id (handles name & alias)
+                    character_id = self.get_character_id_by_name(character_name)
+
+                    if character_id is None:
+                        self.logger.warning(f"Character '{character_name}' not found in database. Skipping...")
+                        continue  # Skip if character is not found
+
+                    # Check if total_damage entry exists
+                    cur.execute("SELECT total_damage FROM total_damage WHERE character_id = %s", (character_id,))
+                    existing = cur.fetchone()
+
+                    if existing:
+                        # Update the existing row
+                        cur.execute(
+                            "UPDATE total_damage SET total_damage = total_damage + %s WHERE character_id = %s",
+                            (damage_value, character_id),
+                        )
+                    else:
+                        # Insert a new row
+                        cur.execute(
+                            "INSERT INTO total_damage (character_id, total_damage) VALUES (%s, %s)",
+                            (character_id, damage_value),
+                        )
+
+                    conn.commit()
+
+    def update_character(self, character_name: str, attributes: dict, aliases: list) -> bool:
+        """
+        Update the specified character with new attributes and aliases.
+        """
+        query = """
+            UPDATE characters
+            SET 
+                mut = %s, 
+                klugheit = %s, 
+                intuition = %s, 
+                charisma = %s,
+                fingerfertigkeit = %s, 
+                gewandtheit = %s, 
+                konstitution = %s, 
+                körperkraft = %s,
+                alias = %s
+            WHERE name = %s
+        """
+        params = [
+            attributes["Mut"],
+            attributes["Klugheit"],
+            attributes["Intuition"],
+            attributes["Charisma"],
+            attributes["Fingerfertigkeit"],
+            attributes["Gewandtheit"],
+            attributes["Konstitution"],
+            attributes["Körperkraft"],
+            aliases,
+            character_name,
+        ]
+        return self.database.execute_query(query, params)
+
+    def insert_character(self, character_data: dict) -> bool:
+        """
+        Inserts a new character into the characters table.
+        (Adjust fields as needed based on your schema)
+        """
+        query = """
+            INSERT INTO characters (
+                name, 
+                mut, 
+                klugheit, 
+                intuition, 
+                charisma,
+                fingerfertigkeit, 
+                gewandtheit, 
+                konstitution, 
+                körperkraft,
+                alias
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        params = [
+            character_data["name"],
+            character_data["traits"]["Mut"],
+            character_data["traits"]["Klugheit"],
+            character_data["traits"]["Intuition"],
+            character_data["traits"]["Charisma"],
+            character_data["traits"]["Fingerfertigkeit"],
+            character_data["traits"]["Gewandtheit"],
+            character_data["traits"]["Konstitution"],
+            character_data["traits"]["Körperkraft"],
+            character_data.get("alias", []),
+        ]
+        return self.database.execute_query(query, params)
+
+    def get_character_id_by_name(self, character_name: str) -> Optional[int]:
+        """
+        Returns the character_id given a character name or alias, or None if not found.
+        """
+        query = """
+            SELECT id FROM characters 
+            WHERE name = %s OR %s = ANY(alias)
+            LIMIT 1
+        """
+        result = self.database.fetch_query(query, [character_name, character_name])
+
+        if result:
+            character_id = result[0]["id"]
+            return character_id
+
+        return None
+
+    def fetch_talents_for_character(self, character_id: int):
+        """
+        Fetch talents data for a given character_id.
+        """
+        query = """
+            SELECT 
+                talent, 
+                COUNT(*) AS talent_count,
+                COALESCE(AVG(success::int), 0) AS success_rate,
+                COALESCE(1 - AVG(success::int), 0) AS failure_rate,
+                COALESCE(AVG(tap_zfp), 0) AS avg_score,
+                COALESCE(STDDEV(tap_zfp), 0) AS std_dev
+            FROM talents_rolls
+            WHERE character_id = %s
+            GROUP BY talent
+        """
+        return self.database.fetch_query(query, [character_id])
+
+    def fetch_traits_values_for_character(self, character_id: int):
+        """
+        For each trait slot (1,2,3), get the average trait_value from talents_rolls
+        """
+        query = """
+            SELECT 'Trait 1' AS trait, COALESCE(AVG(trait_value1), 0) AS avg_value 
+            FROM talents_rolls 
+            WHERE character_id = %s
+            UNION ALL
+            SELECT 'Trait 2' AS trait, COALESCE(AVG(trait_value2), 0) AS avg_value 
+            FROM talents_rolls 
+            WHERE character_id = %s
+            UNION ALL
+            SELECT 'Trait 3' AS trait, COALESCE(AVG(trait_value3), 0) AS avg_value 
+            FROM talents_rolls 
+            WHERE character_id = %s
+        """
+        return self.database.fetch_query(query, [character_id, character_id, character_id])
+
+    def fetch_traits_relative_for_character(self, character_id: int):
+        """
+        Count usage of each trait (trait1, trait2, trait3) in talents_rolls.
+        """
+        query = """
+            SELECT trait, COUNT(*) AS trait_count
+            FROM (
+                SELECT trait1 AS trait FROM talents_rolls WHERE character_id = %s
+                UNION ALL
+                SELECT trait2 AS trait FROM talents_rolls WHERE character_id = %s
+                UNION ALL
+                SELECT trait3 AS trait FROM talents_rolls WHERE character_id = %s
+            ) AS combined_traits
+            GROUP BY trait
+        """
+        return self.database.fetch_query(query, [character_id, character_id, character_id])
+
+    def fetch_categories_for_character(self, character_id: int):
+        """
+        Get how many times each category was used from talents_rolls.
+        """
+        query = """
+            SELECT category, COUNT(*) AS category_count
+            FROM talents_rolls
+            WHERE character_id = %s
+            GROUP BY category
+        """
+        return self.database.fetch_query(query, [character_id])
+
+    def fetch_talent_statistics(self, character_id: int, talent_name: str):
+        """
+        Example: number of attempts, success_rate, avg_score for a specific talent
+        """
+        query = """
+            SELECT COUNT(*) AS attempts,
+                   AVG(success::int) AS success_rate,
+                   AVG(tap_zfp) AS avg_score,
+                   STDDEV(tap_zfp) AS std_dev
+            FROM talents_rolls
+            WHERE character_id = %s AND talent = %s
+        """
+        return self.database.fetch_query(query, [character_id, talent_name])
+
+    def fetch_talent_line_chart(self, character_id: int, talent_name: str):
+        """
+        Return line chart data (id as sequence, tap_zfp) for a given talent
+        """
+        query = """
+            SELECT id AS sequence, tap_zfp
+            FROM talents_rolls
+            WHERE character_id = %s AND talent = %s
+            ORDER BY id
+        """
+        return self.database.fetch_query(query, [character_id, talent_name])
+
+    def fetch_attacks_for_character(self, character_id: int):
+        """
+        Summaries for all attacks for a given character
+        """
+        query = """
+            SELECT 
+                attack, 
+                COUNT(*) AS attack_count,
+                AVG(success::int) AS success_rate,
+                1 - AVG(success::int) AS failure_rate,
+                AVG(tap_zfp) AS avg_score,
+                STDDEV(tap_zfp) AS std_dev
+            FROM attacks_rolls
+            WHERE character_id = %s
+            GROUP BY attack
+        """
+        return self.database.fetch_query(query, [character_id])
+
+    def fetch_attack_statistics(self, character_id: int, attack_name: str):
+        """
+        Summaries for a specific attack
+        """
+        query = """
+            SELECT 
+                COUNT(*) AS attempts,
+                AVG(success::int) AS success_rate,
+                AVG(tap_zfp) AS avg_score,
+                STDDEV(tap_zfp) AS std_dev
+            FROM attacks_rolls
+            WHERE character_id = %s AND attack = %s
+        """
+        return self.database.fetch_query(query, [character_id, attack_name])
+
+    def fetch_attack_line_chart(self, character_id: int, attack_name: str):
+        """
+        Return line chart data (id as sequence, tap_zfp) for a given attack
+        """
+        query = """
+            SELECT id AS sequence, tap_zfp
+            FROM attacks_rolls
+            WHERE character_id = %s AND attack = %s
+            ORDER BY id
+        """
+        return self.database.fetch_query(query, [character_id, attack_name])
+
+    def fetch_traits_for_talents(self, talents_name_list: List[str]):
+        """
+        Return trait abbreviations for each talent in the list.
+        """
+        query = """
+            SELECT ct1.trait_abbreviation, ct2.trait_abbreviation, ct3.trait_abbreviation
+            FROM talents t
+            JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
+            JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
+            JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
+            WHERE t.talent_name = ANY(%s);
+        """
+        return self.database.fetch_query(query, [talents_name_list])
+
+    def fetch_talents_and_categories(self):
+        """
+        Return all talents with their category name.
+        """
+        query = """
+            SELECT t.talent_name, tc.talent_category_name
+            FROM talents t
+            JOIN talent_categories tc ON t.talent_category_id = tc.talent_category_id
+        """
+        return self.database.fetch_query(query)
+
+    def close(self):
+        """Close the database pool."""
+        self.database.close()
