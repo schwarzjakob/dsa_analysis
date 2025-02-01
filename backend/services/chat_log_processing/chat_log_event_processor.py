@@ -3,18 +3,6 @@ import logging
 import re
 import pandas as pd
 
-TRAITS_ABBR = ["MU", "KL", "IN", "CH", "FF", "GE", "KO", "KK"]
-TRAITS_LONG = [
-    "Mut",
-    "Klugheit",
-    "Intuition",
-    "Charisma",
-    "Fingerfertigkeit",
-    "Gewandtheit",
-    "Konstitution",
-    "Körperkraft",
-]
-
 
 class ChatLogEventProcessor:
     """
@@ -26,9 +14,7 @@ class ChatLogEventProcessor:
         self.logger = logging.getLogger(__name__)
 
         # Prepare DataFrames
-        self.traits_df = pd.DataFrame(
-            columns=["character_name", "category", "talent", "trait", "modifier", "success", "tap_zfp", "taw_zfw"]
-        )
+        self.traits_df = pd.DataFrame(columns=["character_name", "talent", "modifier", "success", "tap_zfp", "taw_zfw"])
         self.talents_df = pd.DataFrame(
             columns=[
                 "character_name",
@@ -55,7 +41,9 @@ class ChatLogEventProcessor:
                 "trait_value3",
             ]
         )
-        self.attacks_df = pd.DataFrame(columns=["character_name", "modifier", "success", "tap_zfp", "taw_zfw"])
+        self.attacks_df = pd.DataFrame(
+            columns=["character_name", "attack", "modifier", "success", "tap_zfp", "taw_zfw"]
+        )
         self.initiatives_df = pd.DataFrame(columns=["character_name", "rolled_ini", "current_ini", "modifier"])
         self.total_damage_df = pd.DataFrame(columns=["character_name", "total_damage"])
 
@@ -120,9 +108,7 @@ class ChatLogEventProcessor:
         # Insert into self.traits_df
         new_row = {
             "character_name": self.current_character,
-            "category": "Eigenschaftsprobe",
-            "talent": trait_name,  # or None
-            "trait": self._trait_abbreviation(trait_name),
+            "talent": trait_name,
             "modifier": current_modifier,
             "success": bool(current_success),
             "tap_zfp": current_talent_or_spell_points,
@@ -197,30 +183,29 @@ class ChatLogEventProcessor:
         attack_name = lines[i]
         second_line = lines[i + 1]
         third_line = lines[i + 2]
-        # Special check: if "Kampfgetümmel" in third_line, maybe skip?
+        # Special check: if "Kampfgetümmel" in third_line skip it
         if "Kampfgetümmel" in third_line and (i + 3 < len(lines)):
             third_line = lines[i + 3]
 
-        # We'll do something like the old method:
-        current_modifier = self._extract_attack_mod(second_line)
-        # Roughly replicate old approach
-        current_talent_or_spell_value = self._extract_talent_or_spell_value(third_line)  # depends on your chat format
-        current_talent_or_spell_points = (
-            current_talent_or_spell_value - self._extract_parenthetical_roll(second_line) - current_modifier
-        )
-        current_success = 1 if current_talent_or_spell_points >= 0 else 0
+        # Extract the attack modifier and the attack roll (tap_zfp) from the same line
+        current_modifier, current_tap_zfp = self._extract_attack_mod_and_tap_zfp(second_line)
+        current_taw_zfw = self._extract_attack_taw_zfw(third_line)
+
+        # Compute success similarly to the old logic:
+        # success if (taw - modifier - roll) >= 0
+        current_success = 1 if (current_taw_zfw - current_modifier - current_tap_zfp) >= 0 else 0
 
         new_row = {
             "character_name": self.current_character,
             "attack": attack_name,
             "modifier": current_modifier,
             "success": bool(current_success),
-            "tap_zfp": current_talent_or_spell_points,
-            "taw_zfw": current_talent_or_spell_value,
+            "tap_zfp": current_tap_zfp,
+            "taw_zfw": current_taw_zfw,
         }
         self.attacks_df = pd.concat([self.attacks_df, pd.DataFrame([new_row])], ignore_index=True)
 
-        # We used at least 3 lines, but we might have used 4 if "Kampfgetümmel" was present.
+        # Return the number of lines consumed (3 or 4 if extra info was skipped)
         return i + 3
 
     def _process_initiative_event(self, lines, i):
@@ -322,32 +307,43 @@ class ChatLogEventProcessor:
         # fallback
         return [0, 0, 0]
 
-    def _trait_abbreviation(self, trait_name: str):
+    def _extract_attack_mod_and_tap_zfp(self, line: str):
         """
-        Convert "Mut" -> "MU", "Klugheit" -> "KL", etc.
-        If not found, returns the original string.
+        Extracts the attack modifier and the attack roll (tap_zfp) from the same line.
+        For example, given a line like "FK-Angriff +1  (7).", it returns (1, 7).
         """
-        if trait_name in TRAITS_LONG:
-            idx = TRAITS_LONG.index(trait_name)
-            return TRAITS_ABBR[idx]
-        return trait_name
+        mod = 0
+        tap_zfp = 0
 
-    def _extract_attack_mod(self, line: str) -> int:
-        # Example: line = "Attack ±2"
+        # Extract modifier from the second token of the line
         parts = line.split()
         if len(parts) >= 2:
-            mod_part = parts[1].replace("±", "")
+            mod_str = parts[1].replace("±", "")
             try:
-                return int(mod_part)
+                mod = int(mod_str)
             except ValueError:
-                return 0
-        return 0
+                mod = 0
 
-    def _extract_parenthetical_roll(self, line: str) -> int:
-        # e.g. line might contain "(3)" => that's the base roll
+        # Extract tap_zfp by searching for the number in parentheses
         match = re.search(r"\((\d+)\)", line)
         if match:
-            return int(match.group(1))
+            tap_zfp = int(match.group(1))
+
+        return mod, tap_zfp
+
+    def _extract_attack_taw_zfw(self, line: str) -> int:
+        """
+        Extracts the attack value from the third line.
+        Depending on the type of attack the prefix may be:
+          - "FK-Wert:" for Fernkampfangriff
+          - "AT-Wert:" for Nahkampfangriff
+          - "PA-Wert:" for Nahkampfparade
+        """
+        for prefix in ["FK-Wert:", "AT-Wert:", "PA-Wert:"]:
+            if prefix in line:
+                match = re.search(re.escape(prefix) + r"\s*(\d+)", line)
+                if match:
+                    return int(match.group(1))
         return 0
 
     def _extract_rolled_initiative(self, line: str) -> int:
@@ -358,15 +354,23 @@ class ChatLogEventProcessor:
         return 0
 
     def _extract_current_initiative_and_mod(self, line: str):
-        # e.g. "Aktuelle Ini: 15  Mod: 2"
-        # parse out both
+        """
+        Extracts the current initiative (IB value) and modifier from a line.
+        Expected line format (example):
+            "#W6: 1    IB: 11    BE:    Mod.: 0"
+        Returns a tuple (current_ini, current_mod) where current_ini is taken from the IB field.
+        """
         current_ini = 0
         current_mod = 0
-        match_ini = re.search(r"(\d+)", line)
+
+        # Extract the IB value instead of the first number encountered
+        match_ini = re.search(r"IB:\s*(\d+)", line)
         if match_ini:
             current_ini = int(match_ini.group(1))
-        # if there's a second int, parse that too, etc.
+
+        # Extract the modifier using the existing pattern
         match_mod = re.search(r"Mod.*?(\d+)", line)
         if match_mod:
             current_mod = int(match_mod.group(1))
+
         return (current_ini, current_mod)

@@ -20,17 +20,17 @@ class DatabaseService:
         Returns a list of dicts or an empty list if none.
         """
         query = """
-            SELECT 
-                id, 
-                name, 
-                mut, 
-                klugheit, 
-                intuition, 
+            SELECT
+                id,
+                name,
+                mut,
+                klugheit,
+                intuition,
                 charisma,
-                fingerfertigkeit, 
-                gewandtheit, 
-                konstitution, 
-                körperkraft, 
+                fingerfertigkeit,
+                gewandtheit,
+                konstitution,
+                körperkraft,
                 alias
             FROM characters
         """
@@ -108,14 +108,20 @@ class DatabaseService:
 
         # A row-by-row example
         insert_query = """
-            INSERT INTO traits_rolls 
-                (character_id, category, talent, trait, modifier, success, tap_zfp, taw_zfw)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            INSERT INTO traits_rolls
+                (character_id, trait_id, modifier, success, tap_zfp, taw_zfw)
+            VALUES (%s, %s, %s, %s, %s, %s)
         """
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
                 for _, row in traits_df.iterrows():
                     character_id = self.get_character_id_by_name(row["character_name"])
+
+                    trait_id_query_result = self.database.fetch_query(
+                        "SELECT trait_id FROM character_traits WHERE trait_name = %s", [row["talent"]]
+                    )
+
+                    trait_id = trait_id_query_result[0][0] if trait_id_query_result else None
 
                     if character_id is None:
                         self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
@@ -125,9 +131,7 @@ class DatabaseService:
                         insert_query,
                         [
                             character_id,
-                            row["category"],
-                            row["talent"],
-                            row["trait"],
+                            trait_id,
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],
@@ -144,16 +148,12 @@ class DatabaseService:
             return
 
         insert_query = """
-            INSERT INTO talents_rolls 
-                (character_id, category, talent, trait1, trait2, trait3, modifier, success, 
+            INSERT INTO talents_rolls
+                (character_id, talent_id, modifier, success,
                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
             SELECT
-                %s AS character_id, 
-                tc.talent_category_name AS category,
-                t.talent_name AS talent,
-                ct1.trait_abbreviation AS trait1,
-                ct2.trait_abbreviation AS trait2,
-                ct3.trait_abbreviation AS trait3,
+                %s AS character_id,
+                t.talent_id AS talent_id,
                 %s AS modifier,
                 %s AS success,
                 %s AS tap_zfp,
@@ -162,10 +162,6 @@ class DatabaseService:
                 %s AS trait_value2,
                 %s AS trait_value3
             FROM talents t
-            LEFT JOIN talent_categories tc ON t.talent_category_id = tc.talent_category_id
-            LEFT JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
-            LEFT JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
-            LEFT JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
             WHERE t.talent_name = %s
         """
 
@@ -202,16 +198,12 @@ class DatabaseService:
             return
 
         insert_query = """
-            INSERT INTO spells_rolls 
-                (character_id, category, spell, trait1, trait2, trait3, modifier, success, 
+            INSERT INTO spells_rolls
+                (character_id, spell_id, modifier, success,
                  tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
             SELECT
-                %s AS character_id, 
-                'Zauber' AS category,
-                s.spell_name AS spell,
-                ct1.trait_abbreviation AS trait1,
-                ct2.trait_abbreviation AS trait2,
-                ct3.trait_abbreviation AS trait3,
+                %s AS character_id,
+                s.spell_id AS spell_id,
                 %s AS modifier,
                 %s AS success,
                 %s AS tap_zfp,
@@ -220,9 +212,6 @@ class DatabaseService:
                 %s AS trait_value2,
                 %s AS trait_value3
             FROM spells s
-            LEFT JOIN character_traits ct1 ON s.spell_trait_one_id = ct1.trait_id
-            LEFT JOIN character_traits ct2 ON s.spell_trait_two_id = ct2.trait_id
-            LEFT JOIN character_traits ct3 ON s.spell_trait_three_id = ct3.trait_id
             WHERE s.spell_name = %s
         """
 
@@ -259,39 +248,38 @@ class DatabaseService:
             return
 
         insert_query = """
-            INSERT INTO attacks_rolls 
-                (character_id, category, attack, modifier, success, tap_zfp, taw_zfw)
-            SELECT
-                %s AS character_id, 
-                ac.attack_category_name AS category,
-                a.attack_name AS attack,
-                %s AS modifier,
-                %s AS success,
-                %s AS tap_zfp,
-                %s AS taw_zfw
-            FROM attack_categories ac
-            LEFT JOIN attacks a ON ac.attack_category_id = a.attack_category_id
-            WHERE a.attack_name = %s
+            INSERT INTO attacks_rolls
+                (character_id, attack_id, modifier, success, tap_zfp, taw_zfw)
+            VALUES (%s, %s, %s, %s, %s, %s)
         """
 
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
                 for _, row in attacks_df.iterrows():
                     character_id = self.get_character_id_by_name(row["character_name"])
+                    attack_id_query_result = self.database.fetch_query(
+                        "SELECT attack_id FROM attacks WHERE attack_name = %s", [row["attack"]]
+                    )
+
+                    attack_id = attack_id_query_result[0][0] if attack_id_query_result else None
 
                     if character_id is None:
-                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
+                        self.logger.warning(f"Character '{row['character_name']}' not found. Skipping...")
+                        continue
+
+                    if attack_id is None:
+                        self.logger.warning(f"Attack '{row['attack']}' not found. Skipping...")
                         continue
 
                     cur.execute(
                         insert_query,
                         [
                             character_id,
+                            attack_id,
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],
                             row["taw_zfw"],
-                            row["attack"],
                         ],
                     )
                 conn.commit()
@@ -304,7 +292,7 @@ class DatabaseService:
             return
 
         insert_query = """
-            INSERT INTO initiative_rolls 
+            INSERT INTO initiative_rolls
                 (character_id, rolled_ini, current_ini, modifier)
             VALUES(%s, %s, %s, %s)
         """
@@ -374,14 +362,14 @@ class DatabaseService:
         """
         query = """
             UPDATE characters
-            SET 
-                mut = %s, 
-                klugheit = %s, 
-                intuition = %s, 
+            SET
+                mut = %s,
+                klugheit = %s,
+                intuition = %s,
                 charisma = %s,
-                fingerfertigkeit = %s, 
-                gewandtheit = %s, 
-                konstitution = %s, 
+                fingerfertigkeit = %s,
+                gewandtheit = %s,
+                konstitution = %s,
                 körperkraft = %s,
                 alias = %s
             WHERE name = %s
@@ -407,14 +395,14 @@ class DatabaseService:
         """
         query = """
             INSERT INTO characters (
-                name, 
-                mut, 
-                klugheit, 
-                intuition, 
+                name,
+                mut,
+                klugheit,
+                intuition,
                 charisma,
-                fingerfertigkeit, 
-                gewandtheit, 
-                konstitution, 
+                fingerfertigkeit,
+                gewandtheit,
+                konstitution,
                 körperkraft,
                 alias
             )
@@ -439,7 +427,7 @@ class DatabaseService:
         Returns the character_id given a character name or alias, or None if not found.
         """
         query = """
-            SELECT id FROM characters 
+            SELECT id FROM characters
             WHERE name = %s OR %s = ANY(alias)
             LIMIT 1
         """
@@ -456,16 +444,17 @@ class DatabaseService:
         Fetch talents data for a given character_id.
         """
         query = """
-            SELECT 
-                talent, 
+            SELECT
+                talents.talent_name AS talent,
                 COUNT(*) AS talent_count,
                 COALESCE(AVG(success::int), 0) AS success_rate,
                 COALESCE(1 - AVG(success::int), 0) AS failure_rate,
                 COALESCE(AVG(tap_zfp), 0) AS avg_score,
                 COALESCE(STDDEV(tap_zfp), 0) AS std_dev
             FROM talents_rolls
+            JOIN talents ON talents.talent_id = talents_rolls.talent_id
             WHERE character_id = %s
-            GROUP BY talent
+            GROUP BY talents.talent_name
         """
         return self.database.fetch_query(query, [character_id])
 
@@ -474,16 +463,16 @@ class DatabaseService:
         For each trait slot (1,2,3), get the average trait_value from talents_rolls
         """
         query = """
-            SELECT 'Trait 1' AS trait, COALESCE(AVG(trait_value1), 0) AS avg_value 
-            FROM talents_rolls 
+            SELECT 'Trait 1' AS trait, COALESCE(AVG(trait_value1), 0) AS avg_value
+            FROM talents_rolls
             WHERE character_id = %s
             UNION ALL
-            SELECT 'Trait 2' AS trait, COALESCE(AVG(trait_value2), 0) AS avg_value 
-            FROM talents_rolls 
+            SELECT 'Trait 2' AS trait, COALESCE(AVG(trait_value2), 0) AS avg_value
+            FROM talents_rolls
             WHERE character_id = %s
             UNION ALL
-            SELECT 'Trait 3' AS trait, COALESCE(AVG(trait_value3), 0) AS avg_value 
-            FROM talents_rolls 
+            SELECT 'Trait 3' AS trait, COALESCE(AVG(trait_value3), 0) AS avg_value
+            FROM talents_rolls
             WHERE character_id = %s
         """
         return self.database.fetch_query(query, [character_id, character_id, character_id])
@@ -493,15 +482,25 @@ class DatabaseService:
         Count usage of each trait (trait1, trait2, trait3) in talents_rolls.
         """
         query = """
-            SELECT trait, COUNT(*) AS trait_count
+            SELECT character_traits.trait_abbreviation AS trait, COUNT(*) AS trait_count
             FROM (
-                SELECT trait1 AS trait FROM talents_rolls WHERE character_id = %s
+                SELECT talent_trait_one_id AS trait_id
+                FROM talents
+                LEFT JOIN talents_rolls ON talents.talent_id = talents_rolls.talent_id
+                WHERE character_id = %s
                 UNION ALL
-                SELECT trait2 AS trait FROM talents_rolls WHERE character_id = %s
+                SELECT talent_trait_two_id AS trait_id
+                FROM talents
+                LEFT JOIN talents_rolls ON talents.talent_id = talents_rolls.talent_id 
+                WHERE character_id = %s
                 UNION ALL
-                SELECT trait3 AS trait FROM talents_rolls WHERE character_id = %s
-            ) AS combined_traits
-            GROUP BY trait
+                SELECT talent_trait_three_id AS trait_id
+                FROM talents
+                LEFT JOIN talents_rolls ON talents.talent_id = talents_rolls.talent_id
+                WHERE character_id = %s
+            ) AS combined_trait_ids
+            LEFT JOIN character_traits ON character_traits.trait_id = combined_trait_ids.trait_id
+            GROUP BY trait_abbreviation
         """
         return self.database.fetch_query(query, [character_id, character_id, character_id])
 
@@ -510,10 +509,12 @@ class DatabaseService:
         Get how many times each category was used from talents_rolls.
         """
         query = """
-            SELECT category, COUNT(*) AS category_count
+            SELECT talent_categories.talent_category_name AS category, COUNT(*) AS category_count
             FROM talents_rolls
+            LEFT JOIN talents ON talents.talent_id = talents_rolls.talent_id
+            LEFT JOIN talent_categories ON talent_categories.talent_category_id = talents.talent_category_id
             WHERE character_id = %s
-            GROUP BY category
+            GROUP BY talent_category_name
         """
         return self.database.fetch_query(query, [character_id])
 
@@ -527,7 +528,8 @@ class DatabaseService:
                    AVG(tap_zfp) AS avg_score,
                    STDDEV(tap_zfp) AS std_dev
             FROM talents_rolls
-            WHERE character_id = %s AND talent = %s
+            LEFT JOIN talents ON talents.talent_id = talents_rolls.talent_id
+            WHERE character_id = %s AND talent_name = %s
         """
         return self.database.fetch_query(query, [character_id, talent_name])
 
@@ -538,7 +540,8 @@ class DatabaseService:
         query = """
             SELECT id AS sequence, tap_zfp
             FROM talents_rolls
-            WHERE character_id = %s AND talent = %s
+            LEFT JOIN talents ON talents.talent_id = talents_rolls.talent_id
+            WHERE character_id = %s AND talent_name = %s
             ORDER BY id
         """
         return self.database.fetch_query(query, [character_id, talent_name])
@@ -548,16 +551,17 @@ class DatabaseService:
         Summaries for all attacks for a given character
         """
         query = """
-            SELECT 
-                attack, 
+            SELECT
+                attacks.attack_name AS attack,
                 COUNT(*) AS attack_count,
                 AVG(success::int) AS success_rate,
                 1 - AVG(success::int) AS failure_rate,
                 AVG(tap_zfp) AS avg_score,
                 STDDEV(tap_zfp) AS std_dev
             FROM attacks_rolls
+            LEFT JOIN attacks ON attacks.attack_id = attacks_rolls.attack_id
             WHERE character_id = %s
-            GROUP BY attack
+            GROUP BY attacks.attack_name
         """
         return self.database.fetch_query(query, [character_id])
 
@@ -566,13 +570,14 @@ class DatabaseService:
         Summaries for a specific attack
         """
         query = """
-            SELECT 
+            SELECT
                 COUNT(*) AS attempts,
                 AVG(success::int) AS success_rate,
                 AVG(tap_zfp) AS avg_score,
                 STDDEV(tap_zfp) AS std_dev
             FROM attacks_rolls
-            WHERE character_id = %s AND attack = %s
+            LEFT JOIN attacks ON attacks.attack_id = attacks_rolls.attack_id
+            WHERE character_id = %s AND attack_name = %s
         """
         return self.database.fetch_query(query, [character_id, attack_name])
 
@@ -583,7 +588,8 @@ class DatabaseService:
         query = """
             SELECT id AS sequence, tap_zfp
             FROM attacks_rolls
-            WHERE character_id = %s AND attack = %s
+            LEFT JOIN attacks ON attacks.attack_id = attacks_rolls.attack_id
+            WHERE character_id = %s AND attack_name = %s
             ORDER BY id
         """
         return self.database.fetch_query(query, [character_id, attack_name])

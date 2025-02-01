@@ -13,84 +13,6 @@ CREATE TABLE IF NOT EXISTS characters (
     Körperkraft INT        -- KK
 );
 
-
--- Table for trait rolls
-CREATE TABLE IF NOT EXISTS traits_rolls (
-    id SERIAL PRIMARY KEY,
-    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
-    category VARCHAR(255),
-    talent VARCHAR(255),
-    trait VARCHAR(255),
-    modifier INT,
-    success BOOLEAN,
-    tap_zfp INT,
-    taw_zfw INT
-);
-
--- Table for talent rolls
-CREATE TABLE IF NOT EXISTS talents_rolls (
-    id SERIAL PRIMARY KEY,
-    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
-    category VARCHAR(255),
-    talent VARCHAR(255),
-    trait1 VARCHAR(255),
-    trait2 VARCHAR(255),
-    trait3 VARCHAR(255),
-    modifier INT,
-    success BOOLEAN,
-    tap_zfp INT,
-    taw_zfw INT,
-    trait_value1 INT,
-    trait_value2 INT,
-    trait_value3 INT
-);
-
--- Table for spell rolls
-CREATE TABLE IF NOT EXISTS spells_rolls (
-    id SERIAL PRIMARY KEY,
-    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
-    category VARCHAR(255),
-    spell VARCHAR(255),
-    trait1 VARCHAR(255),
-    trait2 VARCHAR(255),
-    trait3 VARCHAR(255),
-    modifier INT,
-    success BOOLEAN,
-    tap_zfp INT,
-    taw_zfw INT,
-    trait_value1 INT,
-    trait_value2 INT,
-    trait_value3 INT
-);
-
--- Table for attack rolls
-CREATE TABLE IF NOT EXISTS attacks_rolls (
-    id SERIAL PRIMARY KEY,
-    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
-    category VARCHAR(255),
-    attack VARCHAR(255),
-    modifier INT,
-    success BOOLEAN,
-    tap_zfp INT,
-    taw_zfw INT
-);
-
--- Table for initiative rolls
-CREATE TABLE IF NOT EXISTS initiative_rolls (
-    id SERIAL PRIMARY KEY,
-    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
-    current_ini INT,
-    rolled_ini INT,
-    modifier INT
-);
-
--- Table for tracking total damage
-CREATE TABLE IF NOT EXISTS total_damage (
-    id SERIAL PRIMARY KEY,
-    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
-    total_damage INT
-);
-
 -- Table for character traits
 CREATE TABLE IF NOT EXISTS character_traits (
     trait_id SERIAL PRIMARY KEY,
@@ -139,4 +61,68 @@ CREATE TABLE IF NOT EXISTS attacks (
     attack_trait_three_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE
 );
 
+-- Table for trait rolls
+CREATE TABLE IF NOT EXISTS traits_rolls (
+    id SERIAL PRIMARY KEY,
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    trait_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
+    modifier INT,
+    success BOOLEAN,
+    tap_zfp INT,
+    taw_zfw INT
+);
 
+-- Table for talent rolls
+CREATE TABLE IF NOT EXISTS talents_rolls (
+    id SERIAL PRIMARY KEY,
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    talent_id INT REFERENCES talents(talent_id) ON DELETE CASCADE,
+    modifier INT,
+    success BOOLEAN,
+    tap_zfp INT,
+    taw_zfw INT,
+    trait_value1 INT,
+    trait_value2 INT,
+    trait_value3 INT
+);
+
+-- Table for spell rolls
+CREATE TABLE IF NOT EXISTS spells_rolls (
+    id SERIAL PRIMARY KEY,
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    spell_id INT REFERENCES spells(spell_id) ON DELETE CASCADE,
+    modifier INT,
+    success BOOLEAN,
+    tap_zfp INT,
+    taw_zfw INT,
+    trait_value1 INT,
+    trait_value2 INT,
+    trait_value3 INT
+);
+
+-- Table for attack rolls
+CREATE TABLE IF NOT EXISTS attacks_rolls (
+    id SERIAL PRIMARY KEY,
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    attack_id INT REFERENCES attacks(attack_id) ON DELETE CASCADE,
+    modifier INT,
+    success BOOLEAN,
+    tap_zfp INT,
+    taw_zfw INT
+);
+
+-- Table for initiative rolls
+CREATE TABLE IF NOT EXISTS initiative_rolls (
+    id SERIAL PRIMARY KEY,
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    current_ini INT,
+    rolled_ini INT,
+    modifier INT
+);
+
+-- Table for tracking total damage
+CREATE TABLE IF NOT EXISTS total_damage (
+    id SERIAL PRIMARY KEY,
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    total_damage INT
+);
