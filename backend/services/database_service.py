@@ -580,7 +580,8 @@ class DatabaseService:
                 AVG(tap_zfp) AS avg_score,
                 STDDEV(tap_zfp) AS std_dev
             FROM attacks_rolls
-            WHERE character_id = %s AND attack = %s
+            LEFT JOIN attacks ON attacks.attack_id = attacks_rolls.attack_id
+            WHERE character_id = %s AND attack_name = %s
         """
         return self.database.fetch_query(query, [character_id, attack_name])
 
@@ -591,7 +592,8 @@ class DatabaseService:
         query = """
             SELECT id AS sequence, tap_zfp
             FROM attacks_rolls
-            WHERE character_id = %s AND attack = %s
+            LEFT JOIN attacks ON attacks.attack_id = attacks_rolls.attack_id
+            WHERE character_id = %s AND attack_name = %s
             ORDER BY id
         """
         return self.database.fetch_query(query, [character_id, attack_name])
