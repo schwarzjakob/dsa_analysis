@@ -149,14 +149,11 @@ class DatabaseService:
 
         insert_query = """
             INSERT INTO talents_rolls
-                (character_id, talent_id, trait_one_id, trait_two_id, trait_three_id, modifier, success,
+                (character_id, talent_id, modifier, success,
                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
             SELECT
                 %s AS character_id,
                 t.talent_id AS talent_id,
-                ct1.trait_id AS trait_one_id,
-                ct2.trait_id AS trait_two_id,
-                ct3.trait_id AS trait_three_id,
                 %s AS modifier,
                 %s AS success,
                 %s AS tap_zfp,
@@ -165,9 +162,6 @@ class DatabaseService:
                 %s AS trait_value2,
                 %s AS trait_value3
             FROM talents t
-            LEFT JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
-            LEFT JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
-            LEFT JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
             WHERE t.talent_name = %s
         """
 
@@ -490,11 +484,20 @@ class DatabaseService:
         query = """
             SELECT character_traits.trait_abbreviation AS trait, COUNT(*) AS trait_count
             FROM (
-                SELECT trait_one_id AS trait_id FROM talents_rolls WHERE character_id = %s
+                SELECT talent_trait_one_id AS trait_id
+                FROM talents
+                LEFT JOIN talents_rolls ON talents.talent_id = talents_rolls.talent_id
+                WHERE character_id = %s
                 UNION ALL
-                SELECT trait_two_id AS trait_id FROM talents_rolls WHERE character_id = %s
+                SELECT talent_trait_two_id AS trait_id
+                FROM talents
+                LEFT JOIN talents_rolls ON talents.talent_id = talents_rolls.talent_id 
+                WHERE character_id = %s
                 UNION ALL
-                SELECT trait_three_id AS trait_id FROM talents_rolls WHERE character_id = %s
+                SELECT talent_trait_three_id AS trait_id
+                FROM talents
+                LEFT JOIN talents_rolls ON talents.talent_id = talents_rolls.talent_id
+                WHERE character_id = %s
             ) AS combined_trait_ids
             LEFT JOIN character_traits ON character_traits.trait_id = combined_trait_ids.trait_id
             GROUP BY trait_abbreviation
