@@ -13,6 +13,53 @@ CREATE TABLE IF NOT EXISTS characters (
     Körperkraft INT        -- KK
 );
 
+-- Table for character traits
+CREATE TABLE IF NOT EXISTS character_traits (
+    trait_id SERIAL PRIMARY KEY,
+    trait_name VARCHAR(255) UNIQUE NOT NULL,
+    trait_abbreviation CHAR(2) UNIQUE NOT NULL
+);
+
+-- Table for talent_categories
+CREATE TABLE IF NOT EXISTS talent_categories (
+    talent_category_id SERIAL PRIMARY KEY,
+    talent_category_name VARCHAR(255) UNIQUE NOT NULL
+);
+
+-- Table for talents
+CREATE TABLE IF NOT EXISTS talents (
+    talent_id SERIAL PRIMARY KEY,
+    talent_name VARCHAR(255) UNIQUE NOT NULL,
+    talent_category_id INT REFERENCES talent_categories(talent_category_id) ON DELETE CASCADE,
+    talent_trait_one_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
+    talent_trait_two_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
+    talent_trait_three_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE
+);
+
+-- Table for spells
+CREATE TABLE IF NOT EXISTS spells (
+    spell_id SERIAL PRIMARY KEY,
+    spell_name VARCHAR(255) UNIQUE NOT NULL,
+    spell_trait_one_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
+    spell_trait_two_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
+    spell_trait_three_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE
+);
+
+-- Table for attack_categories
+CREATE TABLE IF NOT EXISTS attack_categories (
+    attack_category_id SERIAL PRIMARY KEY,
+    attack_category_name VARCHAR(255) UNIQUE NOT NULL
+);
+
+-- Table for attacks
+CREATE TABLE IF NOT EXISTS attacks (
+    attack_id SERIAL PRIMARY KEY,
+    attack_name VARCHAR(255) UNIQUE NOT NULL,
+    attack_category_id INT REFERENCES attack_categories(attack_category_id) ON DELETE CASCADE,
+    attack_trait_one_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
+    attack_trait_two_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
+    attack_trait_three_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE
+);
 
 -- Table for trait rolls
 CREATE TABLE IF NOT EXISTS traits_rolls (
@@ -79,52 +126,3 @@ CREATE TABLE IF NOT EXISTS total_damage (
     character_id INT REFERENCES characters(id) ON DELETE CASCADE,
     total_damage INT
 );
-
--- Table for character traits
-CREATE TABLE IF NOT EXISTS character_traits (
-    trait_id SERIAL PRIMARY KEY,
-    trait_name VARCHAR(255) UNIQUE NOT NULL,
-    trait_abbreviation CHAR(2) UNIQUE NOT NULL
-);
-
--- Table for talent_categories
-CREATE TABLE IF NOT EXISTS talent_categories (
-    talent_category_id SERIAL PRIMARY KEY,
-    talent_category_name VARCHAR(255) UNIQUE NOT NULL
-);
-
--- Table for talents
-CREATE TABLE IF NOT EXISTS talents (
-    talent_id SERIAL PRIMARY KEY,
-    talent_name VARCHAR(255) UNIQUE NOT NULL,
-    talent_category_id INT REFERENCES talent_categories(talent_category_id) ON DELETE CASCADE,
-    talent_trait_one_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
-    talent_trait_two_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
-    talent_trait_three_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE
-);
-
--- Table for spells
-CREATE TABLE IF NOT EXISTS spells (
-    spell_id SERIAL PRIMARY KEY,
-    spell_name VARCHAR(255) UNIQUE NOT NULL,
-    spell_trait_one_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
-    spell_trait_two_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
-    spell_trait_three_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE
-);
-
--- Table for attack_categories
-CREATE TABLE IF NOT EXISTS attack_categories (
-    attack_category_id SERIAL PRIMARY KEY,
-    attack_category_name VARCHAR(255) UNIQUE NOT NULL
-);
-
--- Table for attacks
-CREATE TABLE IF NOT EXISTS attacks (
-    attack_id SERIAL PRIMARY KEY,
-    attack_name VARCHAR(255) UNIQUE NOT NULL,
-    attack_category_id INT REFERENCES attack_categories(attack_category_id) ON DELETE CASCADE,
-    attack_trait_one_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
-    attack_trait_two_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
-    attack_trait_three_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE
-);
-

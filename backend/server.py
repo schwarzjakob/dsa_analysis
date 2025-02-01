@@ -10,8 +10,6 @@ from services.chat_log_processing_service import ChatLogProcessingService
 from services import exploratory_analysis
 
 
-# TODO: Fix relationships in database (with new tables) for consistency and integrity
-# TODO: Update database schema names to be precise and more descriptive and update all queries accordingly.
 # TODO: Remove traits_values_output (also from frontend) as its not used at all.
 # TODO: Implement data models such as Character, BaseEvent, Talent, Spell, Attack, etc.
 
