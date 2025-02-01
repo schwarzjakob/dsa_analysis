@@ -354,15 +354,23 @@ class ChatLogEventProcessor:
         return 0
 
     def _extract_current_initiative_and_mod(self, line: str):
-        # e.g. "Aktuelle Ini: 15  Mod: 2"
-        # parse out both
+        """
+        Extracts the current initiative (IB value) and modifier from a line.
+        Expected line format (example):
+            "#W6: 1    IB: 11    BE:    Mod.: 0"
+        Returns a tuple (current_ini, current_mod) where current_ini is taken from the IB field.
+        """
         current_ini = 0
         current_mod = 0
-        match_ini = re.search(r"(\d+)", line)
+
+        # Extract the IB value instead of the first number encountered
+        match_ini = re.search(r"IB:\s*(\d+)", line)
         if match_ini:
             current_ini = int(match_ini.group(1))
-        # if there's a second int, parse that too, etc.
+
+        # Extract the modifier using the existing pattern
         match_mod = re.search(r"Mod.*?(\d+)", line)
         if match_mod:
             current_mod = int(match_mod.group(1))
+
         return (current_ini, current_mod)
