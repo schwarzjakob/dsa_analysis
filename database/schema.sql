@@ -46,11 +46,7 @@ CREATE TABLE IF NOT EXISTS talents_rolls (
 CREATE TABLE IF NOT EXISTS spells_rolls (
     id SERIAL PRIMARY KEY,
     character_id INT REFERENCES characters(id) ON DELETE CASCADE,
-    category VARCHAR(255),
-    spell VARCHAR(255),
-    trait1 VARCHAR(255),
-    trait2 VARCHAR(255),
-    trait3 VARCHAR(255),
+    spell_id INT REFERENCES spells(spell_id) ON DELETE CASCADE,
     modifier INT,
     success BOOLEAN,
     tap_zfp INT,

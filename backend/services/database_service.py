@@ -205,15 +205,11 @@ class DatabaseService:
 
         insert_query = """
             INSERT INTO spells_rolls
-                (character_id, category, spell, trait1, trait2, trait3, modifier, success,
+                (character_id, spell_id, modifier, success,
                  tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
             SELECT
                 %s AS character_id,
-                'Zauber' AS category,
-                s.spell_name AS spell,
-                ct1.trait_abbreviation AS trait1,
-                ct2.trait_abbreviation AS trait2,
-                ct3.trait_abbreviation AS trait3,
+                s.spell_id AS spell_id,
                 %s AS modifier,
                 %s AS success,
                 %s AS tap_zfp,
@@ -222,9 +218,6 @@ class DatabaseService:
                 %s AS trait_value2,
                 %s AS trait_value3
             FROM spells s
-            LEFT JOIN character_traits ct1 ON s.spell_trait_one_id = ct1.trait_id
-            LEFT JOIN character_traits ct2 ON s.spell_trait_two_id = ct2.trait_id
-            LEFT JOIN character_traits ct3 ON s.spell_trait_three_id = ct3.trait_id
             WHERE s.spell_name = %s
         """
 
