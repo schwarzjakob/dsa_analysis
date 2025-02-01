@@ -149,15 +149,14 @@ class DatabaseService:
 
         insert_query = """
             INSERT INTO talents_rolls
-                (character_id, category, talent, trait1, trait2, trait3, modifier, success,
+                (character_id, talent_id, trait_one_id, trait_two_id, trait_three_id, modifier, success,
                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
             SELECT
                 %s AS character_id,
-                tc.talent_category_name AS category,
-                t.talent_name AS talent,
-                ct1.trait_abbreviation AS trait1,
-                ct2.trait_abbreviation AS trait2,
-                ct3.trait_abbreviation AS trait3,
+                t.talent_id AS talent_id,
+                ct1.trait_id AS trait_one_id,
+                ct2.trait_id AS trait_two_id,
+                ct3.trait_id AS trait_three_id,
                 %s AS modifier,
                 %s AS success,
                 %s AS tap_zfp,
@@ -166,7 +165,6 @@ class DatabaseService:
                 %s AS trait_value2,
                 %s AS trait_value3
             FROM talents t
-            LEFT JOIN talent_categories tc ON t.talent_category_id = tc.talent_category_id
             LEFT JOIN character_traits ct1 ON t.talent_trait_one_id = ct1.trait_id
             LEFT JOIN character_traits ct2 ON t.talent_trait_two_id = ct2.trait_id
             LEFT JOIN character_traits ct3 ON t.talent_trait_three_id = ct3.trait_id
@@ -460,15 +458,16 @@ class DatabaseService:
         """
         query = """
             SELECT
-                talent,
+                talents.talent_name AS talent,
                 COUNT(*) AS talent_count,
                 COALESCE(AVG(success::int), 0) AS success_rate,
                 COALESCE(1 - AVG(success::int), 0) AS failure_rate,
                 COALESCE(AVG(tap_zfp), 0) AS avg_score,
                 COALESCE(STDDEV(tap_zfp), 0) AS std_dev
             FROM talents_rolls
+            JOIN talents ON talents.talent_id = talents_rolls.talent_id
             WHERE character_id = %s
-            GROUP BY talent
+            GROUP BY talents.talent_name
         """
         return self.database.fetch_query(query, [character_id])
 
@@ -496,15 +495,16 @@ class DatabaseService:
         Count usage of each trait (trait1, trait2, trait3) in talents_rolls.
         """
         query = """
-            SELECT trait, COUNT(*) AS trait_count
+            SELECT character_traits.trait_abbreviation AS trait, COUNT(*) AS trait_count
             FROM (
-                SELECT trait1 AS trait FROM talents_rolls WHERE character_id = %s
+                SELECT trait_one_id AS trait_id FROM talents_rolls WHERE character_id = %s
                 UNION ALL
-                SELECT trait2 AS trait FROM talents_rolls WHERE character_id = %s
+                SELECT trait_two_id AS trait_id FROM talents_rolls WHERE character_id = %s
                 UNION ALL
-                SELECT trait3 AS trait FROM talents_rolls WHERE character_id = %s
-            ) AS combined_traits
-            GROUP BY trait
+                SELECT trait_three_id AS trait_id FROM talents_rolls WHERE character_id = %s
+            ) AS combined_trait_ids
+            LEFT JOIN character_traits ON character_traits.trait_id = combined_trait_ids.trait_id
+            GROUP BY trait_abbreviation
         """
         return self.database.fetch_query(query, [character_id, character_id, character_id])
 
@@ -513,10 +513,12 @@ class DatabaseService:
         Get how many times each category was used from talents_rolls.
         """
         query = """
-            SELECT category, COUNT(*) AS category_count
+            SELECT talent_categories.talent_category_name AS category, COUNT(*) AS category_count
             FROM talents_rolls
+            LEFT JOIN talents ON talents.talent_id = talents_rolls.talent_id
+            LEFT JOIN talent_categories ON talent_categories.talent_category_id = talents.talent_category_id
             WHERE character_id = %s
-            GROUP BY category
+            GROUP BY talent_category_name
         """
         return self.database.fetch_query(query, [character_id])
 
@@ -530,7 +532,8 @@ class DatabaseService:
                    AVG(tap_zfp) AS avg_score,
                    STDDEV(tap_zfp) AS std_dev
             FROM talents_rolls
-            WHERE character_id = %s AND talent = %s
+            LEFT JOIN talents ON talents.talent_id = talents_rolls.talent_id
+            WHERE character_id = %s AND talent_name = %s
         """
         return self.database.fetch_query(query, [character_id, talent_name])
 
@@ -541,7 +544,8 @@ class DatabaseService:
         query = """
             SELECT id AS sequence, tap_zfp
             FROM talents_rolls
-            WHERE character_id = %s AND talent = %s
+            LEFT JOIN talents ON talents.talent_id = talents_rolls.talent_id
+            WHERE character_id = %s AND talent_name = %s
             ORDER BY id
         """
         return self.database.fetch_query(query, [character_id, talent_name])

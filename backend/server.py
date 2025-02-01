@@ -12,6 +12,7 @@ from services import exploratory_analysis
 
 # TODO: Fix relationships in database (with new tables) for consistency and integrity
 # TODO: Update database schema names to be precise and more descriptive and update all queries accordingly.
+# TODO: Remove traits_values_output (also from frontend) as its not used at all.
 # TODO: Implement data models such as Character, BaseEvent, Talent, Spell, Attack, etc.
 
 
@@ -195,7 +196,6 @@ def get_talents(character_name):
             "categories_relative": categories_relative if categories_relative else [],
         }
 
-        logger.info(data)
         return jsonify(data), 200
 
     except Exception as error:
@@ -235,6 +235,8 @@ def analyze_talent():
         line_chart_data = database_service.fetch_talent_line_chart(character_id, talent_name) or []
         timestamps = [int(r["sequence"]) for r in line_chart_data]
         scores = [float(r["tap_zfp"]) for r in line_chart_data]
+
+        logger.info(line_chart_data)
 
         data = {
             "talent_statistics": {
@@ -291,7 +293,6 @@ def get_attacks(character_name):
         # Format response to match previous behavior
         data = {"attacks": attacks_result}
 
-        logger.info(data)
         return jsonify(data), 200
 
     except Exception as error:
