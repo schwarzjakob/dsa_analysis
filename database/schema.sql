@@ -67,8 +67,7 @@ CREATE TABLE IF NOT EXISTS spells_rolls (
 CREATE TABLE IF NOT EXISTS attacks_rolls (
     id SERIAL PRIMARY KEY,
     character_id INT REFERENCES characters(id) ON DELETE CASCADE,
-    category VARCHAR(255),
-    attack VARCHAR(255),
+    attack_id INT REFERENCES attacks(attack_id) ON DELETE CASCADE,
     modifier INT,
     success BOOLEAN,
     tap_zfp INT,
@@ -138,5 +137,4 @@ CREATE TABLE IF NOT EXISTS attacks (
     attack_trait_two_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
     attack_trait_three_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE
 );
-
 

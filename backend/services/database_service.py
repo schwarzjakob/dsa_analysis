@@ -260,38 +260,37 @@ class DatabaseService:
 
         insert_query = """
             INSERT INTO attacks_rolls 
-                (character_id, category, attack, modifier, success, tap_zfp, taw_zfw)
-            SELECT
-                %s AS character_id, 
-                ac.attack_category_name AS category,
-                a.attack_name AS attack,
-                %s AS modifier,
-                %s AS success,
-                %s AS tap_zfp,
-                %s AS taw_zfw
-            FROM attack_categories ac
-            LEFT JOIN attacks a ON ac.attack_category_id = a.attack_category_id
-            WHERE a.attack_name = %s
+                (character_id, attack_id, modifier, success, tap_zfp, taw_zfw)
+            VALUES (%s, %s, %s, %s, %s, %s)
         """
 
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
                 for _, row in attacks_df.iterrows():
                     character_id = self.get_character_id_by_name(row["character_name"])
+                    attack_id_query_result = self.database.fetch_query(
+                        "SELECT attack_id FROM attacks WHERE attack_name = %s", [row["attack"]]
+                    )
+
+                    attack_id = attack_id_query_result[0][0] if attack_id_query_result else None
 
                     if character_id is None:
-                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
+                        self.logger.warning(f"Character '{row['character_name']}' not found. Skipping...")
+                        continue
+
+                    if attack_id is None:
+                        self.logger.warning(f"Attack '{row['attack']}' not found. Skipping...")
                         continue
 
                     cur.execute(
                         insert_query,
                         [
                             character_id,
+                            attack_id,
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],
                             row["taw_zfw"],
-                            row["attack"],
                         ],
                     )
                 conn.commit()
@@ -549,15 +548,16 @@ class DatabaseService:
         """
         query = """
             SELECT 
-                attack, 
+                attacks.attack_name AS attack, 
                 COUNT(*) AS attack_count,
                 AVG(success::int) AS success_rate,
                 1 - AVG(success::int) AS failure_rate,
                 AVG(tap_zfp) AS avg_score,
                 STDDEV(tap_zfp) AS std_dev
             FROM attacks_rolls
+            LEFT JOIN attacks ON attacks.attack_id = attacks_rolls.attack_id
             WHERE character_id = %s
-            GROUP BY attack
+            GROUP BY attacks.attack_name
         """
         return self.database.fetch_query(query, [character_id])
 
