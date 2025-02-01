@@ -18,9 +18,7 @@ CREATE TABLE IF NOT EXISTS characters (
 CREATE TABLE IF NOT EXISTS traits_rolls (
     id SERIAL PRIMARY KEY,
     character_id INT REFERENCES characters(id) ON DELETE CASCADE,
-    category VARCHAR(255),
-    talent VARCHAR(255),
-    trait VARCHAR(255),
+    trait_id INT REFERENCES character_traits(trait_id) ON DELETE CASCADE,
     modifier INT,
     success BOOLEAN,
     tap_zfp INT,

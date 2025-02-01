@@ -109,13 +109,19 @@ class DatabaseService:
         # A row-by-row example
         insert_query = """
             INSERT INTO traits_rolls
-                (character_id, category, talent, trait, modifier, success, tap_zfp, taw_zfw)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                (character_id, trait_id, modifier, success, tap_zfp, taw_zfw)
+            VALUES (%s, %s, %s, %s, %s, %s)
         """
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
                 for _, row in traits_df.iterrows():
                     character_id = self.get_character_id_by_name(row["character_name"])
+
+                    trait_id_query_result = self.database.fetch_query(
+                        "SELECT trait_id FROM character_traits WHERE trait_name = %s", [row["talent"]]
+                    )
+
+                    trait_id = trait_id_query_result[0][0] if trait_id_query_result else None
 
                     if character_id is None:
                         self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
@@ -125,9 +131,7 @@ class DatabaseService:
                         insert_query,
                         [
                             character_id,
-                            row["category"],
-                            row["talent"],
-                            row["trait"],
+                            trait_id,
                             row["modifier"],
                             row["success"],
                             row["tap_zfp"],

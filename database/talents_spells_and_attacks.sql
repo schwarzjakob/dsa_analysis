@@ -4,7 +4,7 @@ INSERT INTO character_traits (trait_name, trait_abbreviation) VALUES ('Klugheit'
 INSERT INTO character_traits (trait_name, trait_abbreviation) VALUES ('Intuition', 'IN') ON CONFLICT (trait_abbreviation) DO NOTHING;
 INSERT INTO character_traits (trait_name, trait_abbreviation) VALUES ('Charisma', 'CH') ON CONFLICT (trait_abbreviation) DO NOTHING;
 INSERT INTO character_traits (trait_name, trait_abbreviation) VALUES ('Fingerfertigkeit', 'FF') ON CONFLICT (trait_abbreviation) DO NOTHING;
-INSERT INTO character_traits (trait_name, trait_abbreviation) VALUES ('Gewandheit', 'GE') ON CONFLICT (trait_abbreviation) DO NOTHING;
+INSERT INTO character_traits (trait_name, trait_abbreviation) VALUES ('Gewandtheit', 'GE') ON CONFLICT (trait_abbreviation) DO NOTHING;
 INSERT INTO character_traits (trait_name, trait_abbreviation) VALUES ('Konstitution', 'KO') ON CONFLICT (trait_abbreviation) DO NOTHING;
 INSERT INTO character_traits (trait_name, trait_abbreviation) VALUES ('Körperkraft', 'KK') ON CONFLICT (trait_abbreviation) DO NOTHING;
 

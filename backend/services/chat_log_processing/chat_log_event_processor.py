@@ -3,18 +3,6 @@ import logging
 import re
 import pandas as pd
 
-TRAITS_ABBR = ["MU", "KL", "IN", "CH", "FF", "GE", "KO", "KK"]
-TRAITS_LONG = [
-    "Mut",
-    "Klugheit",
-    "Intuition",
-    "Charisma",
-    "Fingerfertigkeit",
-    "Gewandtheit",
-    "Konstitution",
-    "Körperkraft",
-]
-
 
 class ChatLogEventProcessor:
     """
@@ -26,9 +14,7 @@ class ChatLogEventProcessor:
         self.logger = logging.getLogger(__name__)
 
         # Prepare DataFrames
-        self.traits_df = pd.DataFrame(
-            columns=["character_name", "category", "talent", "trait", "modifier", "success", "tap_zfp", "taw_zfw"]
-        )
+        self.traits_df = pd.DataFrame(columns=["character_name", "talent", "modifier", "success", "tap_zfp", "taw_zfw"])
         self.talents_df = pd.DataFrame(
             columns=[
                 "character_name",
@@ -120,9 +106,7 @@ class ChatLogEventProcessor:
         # Insert into self.traits_df
         new_row = {
             "character_name": self.current_character,
-            "category": "Eigenschaftsprobe",
-            "talent": trait_name,  # or None
-            "trait": self._trait_abbreviation(trait_name),
+            "talent": trait_name,
             "modifier": current_modifier,
             "success": bool(current_success),
             "tap_zfp": current_talent_or_spell_points,
@@ -321,16 +305,6 @@ class ChatLogEventProcessor:
             return [int(match.group(1)), int(match.group(2)), int(match.group(3))]
         # fallback
         return [0, 0, 0]
-
-    def _trait_abbreviation(self, trait_name: str):
-        """
-        Convert "Mut" -> "MU", "Klugheit" -> "KL", etc.
-        If not found, returns the original string.
-        """
-        if trait_name in TRAITS_LONG:
-            idx = TRAITS_LONG.index(trait_name)
-            return TRAITS_ABBR[idx]
-        return trait_name
 
     def _extract_attack_mod(self, line: str) -> int:
         # Example: line = "Attack ±2"
