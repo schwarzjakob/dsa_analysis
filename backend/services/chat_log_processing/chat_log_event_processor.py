@@ -41,7 +41,9 @@ class ChatLogEventProcessor:
                 "trait_value3",
             ]
         )
-        self.attacks_df = pd.DataFrame(columns=["character_name", "modifier", "success", "tap_zfp", "taw_zfw"])
+        self.attacks_df = pd.DataFrame(
+            columns=["character_name", "attack", "modifier", "success", "tap_zfp", "taw_zfw"]
+        )
         self.initiatives_df = pd.DataFrame(columns=["character_name", "rolled_ini", "current_ini", "modifier"])
         self.total_damage_df = pd.DataFrame(columns=["character_name", "total_damage"])
 
