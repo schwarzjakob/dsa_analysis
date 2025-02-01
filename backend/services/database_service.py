@@ -20,17 +20,17 @@ class DatabaseService:
         Returns a list of dicts or an empty list if none.
         """
         query = """
-            SELECT 
-                id, 
-                name, 
-                mut, 
-                klugheit, 
-                intuition, 
+            SELECT
+                id,
+                name,
+                mut,
+                klugheit,
+                intuition,
                 charisma,
-                fingerfertigkeit, 
-                gewandtheit, 
-                konstitution, 
-                körperkraft, 
+                fingerfertigkeit,
+                gewandtheit,
+                konstitution,
+                körperkraft,
                 alias
             FROM characters
         """
@@ -108,7 +108,7 @@ class DatabaseService:
 
         # A row-by-row example
         insert_query = """
-            INSERT INTO traits_rolls 
+            INSERT INTO traits_rolls
                 (character_id, category, talent, trait, modifier, success, tap_zfp, taw_zfw)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """
@@ -144,11 +144,11 @@ class DatabaseService:
             return
 
         insert_query = """
-            INSERT INTO talents_rolls 
-                (character_id, category, talent, trait1, trait2, trait3, modifier, success, 
+            INSERT INTO talents_rolls
+                (character_id, category, talent, trait1, trait2, trait3, modifier, success,
                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
             SELECT
-                %s AS character_id, 
+                %s AS character_id,
                 tc.talent_category_name AS category,
                 t.talent_name AS talent,
                 ct1.trait_abbreviation AS trait1,
@@ -202,11 +202,11 @@ class DatabaseService:
             return
 
         insert_query = """
-            INSERT INTO spells_rolls 
-                (character_id, category, spell, trait1, trait2, trait3, modifier, success, 
+            INSERT INTO spells_rolls
+                (character_id, category, spell, trait1, trait2, trait3, modifier, success,
                  tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
             SELECT
-                %s AS character_id, 
+                %s AS character_id,
                 'Zauber' AS category,
                 s.spell_name AS spell,
                 ct1.trait_abbreviation AS trait1,
@@ -259,7 +259,7 @@ class DatabaseService:
             return
 
         insert_query = """
-            INSERT INTO attacks_rolls 
+            INSERT INTO attacks_rolls
                 (character_id, attack_id, modifier, success, tap_zfp, taw_zfw)
             VALUES (%s, %s, %s, %s, %s, %s)
         """
@@ -303,7 +303,7 @@ class DatabaseService:
             return
 
         insert_query = """
-            INSERT INTO initiative_rolls 
+            INSERT INTO initiative_rolls
                 (character_id, rolled_ini, current_ini, modifier)
             VALUES(%s, %s, %s, %s)
         """
@@ -373,14 +373,14 @@ class DatabaseService:
         """
         query = """
             UPDATE characters
-            SET 
-                mut = %s, 
-                klugheit = %s, 
-                intuition = %s, 
+            SET
+                mut = %s,
+                klugheit = %s,
+                intuition = %s,
                 charisma = %s,
-                fingerfertigkeit = %s, 
-                gewandtheit = %s, 
-                konstitution = %s, 
+                fingerfertigkeit = %s,
+                gewandtheit = %s,
+                konstitution = %s,
                 körperkraft = %s,
                 alias = %s
             WHERE name = %s
@@ -406,14 +406,14 @@ class DatabaseService:
         """
         query = """
             INSERT INTO characters (
-                name, 
-                mut, 
-                klugheit, 
-                intuition, 
+                name,
+                mut,
+                klugheit,
+                intuition,
                 charisma,
-                fingerfertigkeit, 
-                gewandtheit, 
-                konstitution, 
+                fingerfertigkeit,
+                gewandtheit,
+                konstitution,
                 körperkraft,
                 alias
             )
@@ -438,7 +438,7 @@ class DatabaseService:
         Returns the character_id given a character name or alias, or None if not found.
         """
         query = """
-            SELECT id FROM characters 
+            SELECT id FROM characters
             WHERE name = %s OR %s = ANY(alias)
             LIMIT 1
         """
@@ -455,8 +455,8 @@ class DatabaseService:
         Fetch talents data for a given character_id.
         """
         query = """
-            SELECT 
-                talent, 
+            SELECT
+                talent,
                 COUNT(*) AS talent_count,
                 COALESCE(AVG(success::int), 0) AS success_rate,
                 COALESCE(1 - AVG(success::int), 0) AS failure_rate,
@@ -473,16 +473,16 @@ class DatabaseService:
         For each trait slot (1,2,3), get the average trait_value from talents_rolls
         """
         query = """
-            SELECT 'Trait 1' AS trait, COALESCE(AVG(trait_value1), 0) AS avg_value 
-            FROM talents_rolls 
+            SELECT 'Trait 1' AS trait, COALESCE(AVG(trait_value1), 0) AS avg_value
+            FROM talents_rolls
             WHERE character_id = %s
             UNION ALL
-            SELECT 'Trait 2' AS trait, COALESCE(AVG(trait_value2), 0) AS avg_value 
-            FROM talents_rolls 
+            SELECT 'Trait 2' AS trait, COALESCE(AVG(trait_value2), 0) AS avg_value
+            FROM talents_rolls
             WHERE character_id = %s
             UNION ALL
-            SELECT 'Trait 3' AS trait, COALESCE(AVG(trait_value3), 0) AS avg_value 
-            FROM talents_rolls 
+            SELECT 'Trait 3' AS trait, COALESCE(AVG(trait_value3), 0) AS avg_value
+            FROM talents_rolls
             WHERE character_id = %s
         """
         return self.database.fetch_query(query, [character_id, character_id, character_id])
@@ -547,8 +547,8 @@ class DatabaseService:
         Summaries for all attacks for a given character
         """
         query = """
-            SELECT 
-                attacks.attack_name AS attack, 
+            SELECT
+                attacks.attack_name AS attack,
                 COUNT(*) AS attack_count,
                 AVG(success::int) AS success_rate,
                 1 - AVG(success::int) AS failure_rate,
@@ -566,7 +566,7 @@ class DatabaseService:
         Summaries for a specific attack
         """
         query = """
-            SELECT 
+            SELECT
                 COUNT(*) AS attempts,
                 AVG(success::int) AS success_rate,
                 AVG(tap_zfp) AS avg_score,
