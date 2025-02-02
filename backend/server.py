@@ -57,15 +57,15 @@ def process_chatlog_route():
 
         # 3) Pass them into the chat processor
         chat_processor = ChatLogProcessingService(characters_and_aliases, known_talents, known_spells, known_attacks)
-        dataframes_dict = chat_processor.process_chat_log(chatlog_lines)
+        dice_events = chat_processor.process_chat_log(chatlog_lines)
 
         # 4) Use DatabaseService to insert events
-        database_service.insert_traits_rolls(dataframes_dict["traits_df"])
-        database_service.insert_talents_rolls(dataframes_dict["talents_df"])
-        database_service.insert_spells_rolls(dataframes_dict["spells_df"])
-        database_service.insert_attacks_rolls(dataframes_dict["attacks_df"])
-        database_service.insert_initiatives(dataframes_dict["initiatives_df"])
-        database_service.insert_total_damage(dataframes_dict["total_damage_df"])
+        database_service.insert_traits_rolls(dice_events["traits"])
+        database_service.insert_talents_rolls(dice_events["talents"])
+        database_service.insert_spells_rolls(dice_events["spells"])
+        database_service.insert_attacks_rolls(dice_events["attacks"])
+        database_service.insert_initiatives(dice_events["initiatives"])
+        database_service.insert_total_damage(dice_events["total_damage"])
 
         logger.debug("Chat log processed and events inserted.")
         return "Chat log processed and events inserted.", 200

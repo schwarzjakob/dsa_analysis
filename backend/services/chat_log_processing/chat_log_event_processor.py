@@ -1,62 +1,28 @@
-# services/chat_log_processing/chat_log_event_processor.py
 import logging
 import re
-import pandas as pd
 
 from models.dice_event import DiceEvent
 
 
 class ChatLogEventProcessor:
     """
-    Contains methods to process each event type (trait, talent, etc.).
-    Populates local DataFrames or does direct DB inserts.
+    Processes events and collects rows for database insertion.
+    Instead of pandas DataFrames, events are stored as lists of dictionaries.
     """
 
     def __init__(self):
         self.logger = logging.getLogger(__name__)
-
-        # Prepare DataFrames
-        self.traits_df = pd.DataFrame(columns=["character_name", "talent", "modifier", "success", "tap_zfp", "taw_zfw"])
-        self.talents_df = pd.DataFrame(
-            columns=[
-                "character_name",
-                "talent",
-                "modifier",
-                "success",
-                "tap_zfp",
-                "taw_zfw",
-                "trait_value1",
-                "trait_value2",
-                "trait_value3",
-            ]
-        )
-        self.spells_df = pd.DataFrame(
-            columns=[
-                "character_name",
-                "spell",
-                "modifier",
-                "success",
-                "tap_zfp",
-                "taw_zfw",
-                "trait_value1",
-                "trait_value2",
-                "trait_value3",
-            ]
-        )
-        self.attacks_df = pd.DataFrame(
-            columns=["character_name", "attack", "modifier", "success", "tap_zfp", "taw_zfw"]
-        )
-        self.initiatives_df = pd.DataFrame(columns=["character_name", "rolled_ini", "current_ini", "modifier"])
-        self.total_damage_df = pd.DataFrame(columns=["character_name", "total_damage"])
+        self.traits_rows = []  # List[dict] for trait events
+        self.talents_rows = []  # List[dict] for talent events
+        self.spells_rows = []  # List[dict] for spell events
+        self.attacks_rows = []  # List[dict] for attack events
+        self.initiatives_rows = []  # List[dict] for initiative events
+        self.total_damage_rows = {}  # Dictionary mapping character to total damage
 
     def process_event(self, dice_event: DiceEvent):
-
         character_name = dice_event.character
         event_type = dice_event.event_type
         lines = dice_event.lines
-
-        # lines[0] => "<CharacterName>:"
-        # lines[1], lines[2], lines[3] => vary by event
 
         if event_type == "trait":
             self._process_trait_event(character_name, lines)
@@ -72,139 +38,120 @@ class ChatLogEventProcessor:
             self._process_damage_event(character_name, lines)
         else:
             self.logger.warning(f"Unknown event type: {event_type}")
-        # no return needed
 
     def _process_trait_event(self, character_name, lines):
-        """
-        lines might look like:
-        line[0] -> "Mut"
-        line[1] -> "Wurfprobe ±2 gelungen (3 TaP*)"
-        """
-
+        # Expected lines:
+        #   lines[0]: Trait name
+        #   lines[1]: Roll info (e.g., "Wurfprobe ±2 gelungen (3 EP*).")
+        #   lines[2]: Additional info with value (e.g., "Eigenschaften: 14/15/15  EW: 5")
         trait_name = lines[0].strip()
         second_line = lines[1].strip()
         third_line = lines[2].strip()
 
-        # Extract roll data
         current_success, current_modifier = self._mod_and_success_check(second_line)
-        current_talent_or_spell_points = self._extract_talent_or_spell_points(second_line, " EP")
-        current_talent_or_spell_value = self._extract_talent_or_spell_value(third_line, "EW:")
+        current_points = self._extract_talent_or_spell_points(second_line, " EP")
+        current_value = self._extract_talent_or_spell_value(third_line, "EW:")
 
-        # Insert into self.traits_df
-        new_row = {
+        row = {
             "character_name": character_name,
             "talent": trait_name,
             "modifier": current_modifier,
             "success": bool(current_success),
-            "tap_zfp": current_talent_or_spell_points,
-            "taw_zfw": current_talent_or_spell_value,
+            "tap_zfp": current_points,
+            "taw_zfw": current_value,
         }
-        self.traits_df = pd.concat([self.traits_df, pd.DataFrame([new_row])], ignore_index=True)
+        self.traits_rows.append(row)
 
     def _process_talent_event(self, character_name, lines):
-
         talent_name = lines[0].strip()
         second_line = lines[1].strip()
         third_line = lines[2].strip()
 
         current_success, current_modifier = self._mod_and_success_check(second_line)
-        current_talent_or_spell_points = self._extract_talent_or_spell_points(second_line, "TaP")
-        current_talent_or_spell_value = self._extract_talent_or_spell_value(third_line, "TaW:")
-        # For the trait values in the third line, e.g. "Eigenschaften: 14/15/15"
+        current_points = self._extract_talent_or_spell_points(second_line, "TaP")
+        current_value = self._extract_talent_or_spell_value(third_line, "TaW:")
         trait_values = self._extract_trait_values(third_line)
 
-        new_row = {
+        row = {
             "character_name": character_name,
             "talent": talent_name,
             "modifier": current_modifier,
             "success": bool(current_success),
-            "tap_zfp": current_talent_or_spell_points,
-            "taw_zfw": current_talent_or_spell_value,
+            "tap_zfp": current_points,
+            "taw_zfw": current_value,
             "trait_value1": trait_values[0],
             "trait_value2": trait_values[1],
             "trait_value3": trait_values[2],
         }
-        self.talents_df = pd.concat([self.talents_df, pd.DataFrame([new_row])], ignore_index=True)
+        self.talents_rows.append(row)
 
     def _process_spell_event(self, character_name, lines):
-
         spell_name = lines[0].strip()
         second_line = lines[1].strip()
         third_line = lines[2].strip()
 
         current_success, current_modifier = self._mod_and_success_check(second_line)
-        current_talent_or_spell_points = self._extract_talent_or_spell_points(second_line, "ZfP")
-        current_talent_or_spell_value = self._extract_talent_or_spell_value(third_line, "ZfW:")
+        current_points = self._extract_talent_or_spell_points(second_line, "ZfP")
+        current_value = self._extract_talent_or_spell_value(third_line, "ZfW:")
         trait_values = self._extract_trait_values(third_line)
 
-        new_row = {
+        row = {
             "character_name": character_name,
             "spell": spell_name,
             "modifier": current_modifier,
             "success": bool(current_success),
-            "tap_zfp": current_talent_or_spell_points,
-            "taw_zfw": current_talent_or_spell_value,
+            "tap_zfp": current_points,
+            "taw_zfw": current_value,
             "trait_value1": trait_values[0],
             "trait_value2": trait_values[1],
             "trait_value3": trait_values[2],
         }
-        self.spells_df = pd.concat([self.spells_df, pd.DataFrame([new_row])], ignore_index=True)
+        self.spells_rows.append(row)
 
     def _process_attack_event(self, character_name, lines):
         attack_name = lines[0].strip()
         second_line = lines[1].strip()
         third_line = lines[2].strip()
 
-        # Extract the attack modifier and the attack roll (tap_zfp) from the same line
-        current_modifier, current_tap_zfp = self._extract_attack_mod_and_tap_zfp(second_line)
-        current_taw_zfw = self._extract_attack_taw_zfw(third_line)
+        modifier, tap_zfp = self._extract_attack_mod_and_tap_zfp(second_line)
+        taw_zfw = self._extract_attack_taw_zfw(third_line)
+        current_success = 1 if (taw_zfw - modifier - tap_zfp) >= 0 else 0
 
-        # Compute success similarly to the old logic:
-        # success if (taw - modifier - roll) >= 0
-        current_success = 1 if (current_taw_zfw - current_modifier - current_tap_zfp) >= 0 else 0
-
-        new_row = {
+        row = {
             "character_name": character_name,
             "attack": attack_name,
-            "modifier": current_modifier,
+            "modifier": modifier,
             "success": bool(current_success),
-            "tap_zfp": current_tap_zfp,
-            "taw_zfw": current_taw_zfw,
+            "tap_zfp": tap_zfp,
+            "taw_zfw": taw_zfw,
         }
-        self.attacks_df = pd.concat([self.attacks_df, pd.DataFrame([new_row])], ignore_index=True)
+        self.attacks_rows.append(row)
 
     def _process_initiative_event(self, character_name, lines):
-
-        # Example approach
         first_line = lines[0].strip()
         second_line = lines[1].strip()
 
         rolled_ini = self._extract_rolled_initiative(first_line)
-        (current_ini, current_mod) = self._extract_current_initiative_and_mod(second_line)
+        current_ini, current_mod = self._extract_current_initiative_and_mod(second_line)
 
-        new_row = {
+        row = {
             "character_name": character_name,
             "rolled_ini": rolled_ini,
             "current_ini": current_ini,
             "modifier": current_mod,
         }
-        self.initiatives_df = pd.concat([self.initiatives_df, pd.DataFrame([new_row])], ignore_index=True)
+        self.initiatives_rows.append(row)
 
     def _process_damage_event(self, character_name, lines):
-
         damage_line = lines[0]
-        # Example parse
         match = re.search(r"\d+", damage_line)
         dmg = int(match.group()) if match else 0
 
-        # Update total damage in self.total_damage_df
-        existing = self.total_damage_df[self.total_damage_df["character_name"] == character_name]
-        if not existing.empty:
-            idx = existing.index[0]
-            self.total_damage_df.at[idx, "total_damage"] += dmg
+        # Accumulate damage per character
+        if character_name in self.total_damage_rows:
+            self.total_damage_rows[character_name] += dmg
         else:
-            new_row = {"character_name": character_name, "total_damage": dmg}
-            self.total_damage_df = pd.concat([self.total_damage_df, pd.DataFrame([new_row])], ignore_index=True)
+            self.total_damage_rows[character_name] = dmg
 
     # --------------------------------------------------------------------------
     # Helper / extraction methods
@@ -215,17 +162,14 @@ class ChatLogEventProcessor:
         success_flag is 1 or 0
         """
         parts = line.split()
-        # A naive example: "Wurfprobe ±2 gelungen" => parts = ["Wurfprobe", "±2", "gelungen"]
         current_mod = 0
         current_success = 0
         if len(parts) >= 2:
-            mod_part = parts[1]
-            mod_part = mod_part.replace("±", "")  # e.g. ±2 => 2
+            mod_part = parts[1].replace("±", "")
             try:
                 current_mod = int(mod_part)
             except ValueError:
                 current_mod = 0
-        # success?
         if "gelungen" in line.lower():
             current_success = 1
         return (current_success, current_mod)
@@ -235,12 +179,8 @@ class ChatLogEventProcessor:
         Looks for e.g. "(16 TaP*)." or "(16 ZfP*)."
         Return the integer found or 0 if not found.
         """
-        # One naive approach: try to split on "(" then parse the second part
-        # e.g. line = "Wurfprobe ±2 gelungen (3 TaP*)."
         match = re.search(r"\((\d+)\s+" + re.escape(pattern), line)
-        if match:
-            return int(match.group(1))
-        return 0
+        return int(match.group(1)) if match else 0
 
     def _extract_talent_or_spell_value(self, line: str, prefix="TaW:"):
         """
@@ -248,9 +188,7 @@ class ChatLogEventProcessor:
         we want to get 5
         """
         match = re.search(re.escape(prefix) + r"\s*(\d+)", line)
-        if match:
-            return int(match.group(1))
-        return 0
+        return int(match.group(1)) if match else 0
 
     def _extract_trait_values(self, line: str):
         """
@@ -260,7 +198,6 @@ class ChatLogEventProcessor:
         match = re.search(r"Eigenschaften:\s*(\d+)\s*/\s*(\d+)\s*/\s*(\d+)", line)
         if match:
             return [int(match.group(1)), int(match.group(2)), int(match.group(3))]
-        # fallback
         return [0, 0, 0]
 
     def _extract_attack_mod_and_tap_zfp(self, line: str):
@@ -268,23 +205,18 @@ class ChatLogEventProcessor:
         Extracts the attack modifier and the attack roll (tap_zfp) from the same line.
         For example, given a line like "FK-Angriff +1  (7).", it returns (1, 7).
         """
+        parts = line.split()
         mod = 0
         tap_zfp = 0
-
-        # Extract modifier from the second token of the line
-        parts = line.split()
         if len(parts) >= 2:
             mod_str = parts[1].replace("±", "")
             try:
                 mod = int(mod_str)
             except ValueError:
                 mod = 0
-
-        # Extract tap_zfp by searching for the number in parentheses
         match = re.search(r"\((\d+)\)", line)
         if match:
             tap_zfp = int(match.group(1))
-
         return mod, tap_zfp
 
     def _extract_attack_taw_zfw(self, line: str) -> int:
@@ -303,11 +235,8 @@ class ChatLogEventProcessor:
         return 0
 
     def _extract_rolled_initiative(self, line: str) -> int:
-        # e.g. line might be "Alrik Initiative (rolled) = 14"
         match = re.search(r"Initiative.*?(\d+)", line)
-        if match:
-            return int(match.group(1))
-        return 0
+        return int(match.group(1)) if match else 0
 
     def _extract_current_initiative_and_mod(self, line: str):
         """
@@ -318,15 +247,10 @@ class ChatLogEventProcessor:
         """
         current_ini = 0
         current_mod = 0
-
-        # Extract the IB value instead of the first number encountered
         match_ini = re.search(r"IB:\s*(\d+)", line)
         if match_ini:
             current_ini = int(match_ini.group(1))
-
-        # Extract the modifier using the existing pattern
         match_mod = re.search(r"Mod.*?(\d+)", line)
         if match_mod:
             current_mod = int(match_mod.group(1))
-
         return (current_ini, current_mod)

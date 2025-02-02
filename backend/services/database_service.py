@@ -99,11 +99,11 @@ class DatabaseService:
         results = self.database.fetch_query(query)
         return {row["attack_name"] for row in results} if results else {}
 
-    def insert_traits_rolls(self, traits_df: pd.DataFrame) -> None:
+    def insert_traits_rolls(self, traits: pd.DataFrame) -> None:
         """
-        Insert rows from traits_df into traits_rolls.
+        Insert rows from traits into traits_rolls.
         """
-        if traits_df.empty:
+        if not traits:
             return
 
         # A row-by-row example
@@ -114,7 +114,7 @@ class DatabaseService:
         """
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
-                for _, row in traits_df.iterrows():
+                for row in traits:
                     character_id = self.get_character_id_by_name(row["character_name"])
 
                     trait_id_query_result = self.database.fetch_query(
@@ -140,11 +140,12 @@ class DatabaseService:
                     )
                 conn.commit()
 
-    def insert_talents_rolls(self, talents_df: pd.DataFrame) -> None:
+    def insert_talents_rolls(self, talents: pd.DataFrame) -> None:
         """
-        Insert rows from talents_df into talents_rolls, dynamically resolving character_id, category, and traits.
+        Insert rows from talents into talents_rolls, dynamically resolving character_id, category, and traits.
         """
-        if talents_df.empty:
+        if not talents:
+
             return
 
         insert_query = """
@@ -167,7 +168,7 @@ class DatabaseService:
 
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
-                for _, row in talents_df.iterrows():
+                for row in talents:
                     character_id = self.get_character_id_by_name(row["character_name"])
 
                     if character_id is None:
@@ -190,11 +191,11 @@ class DatabaseService:
                     )
                     conn.commit()
 
-    def insert_spells_rolls(self, spells_df: pd.DataFrame) -> None:
+    def insert_spells_rolls(self, spells: pd.DataFrame) -> None:
         """
-        Insert rows from spells_df into spells_rolls.
+        Insert rows from spells into spells_rolls.
         """
-        if spells_df.empty:
+        if not spells:
             return
 
         insert_query = """
@@ -217,7 +218,7 @@ class DatabaseService:
 
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
-                for _, row in spells_df.iterrows():
+                for row in spells:
                     character_id = self.get_character_id_by_name(row["character_name"])
 
                     if character_id is None:
@@ -240,11 +241,11 @@ class DatabaseService:
                     )
                 conn.commit()
 
-    def insert_attacks_rolls(self, attacks_df: pd.DataFrame) -> None:
+    def insert_attacks_rolls(self, attacks: pd.DataFrame) -> None:
         """
-        Insert rows from attacks_df into attacks_rolls.
+        Insert rows from attacks into attacks_rolls.
         """
-        if attacks_df.empty:
+        if not attacks:
             return
 
         insert_query = """
@@ -255,7 +256,7 @@ class DatabaseService:
 
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
-                for _, row in attacks_df.iterrows():
+                for row in attacks:
                     character_id = self.get_character_id_by_name(row["character_name"])
                     attack_id_query_result = self.database.fetch_query(
                         "SELECT attack_id FROM attacks WHERE attack_name = %s", [row["attack"]]
@@ -284,11 +285,11 @@ class DatabaseService:
                     )
                 conn.commit()
 
-    def insert_initiatives(self, initiatives_df: pd.DataFrame) -> None:
+    def insert_initiatives(self, initiatives: pd.DataFrame) -> None:
         """
-        Insert rows from initiatives_df into initiative_rolls.
+        Insert rows from initiatives into initiative_rolls.
         """
-        if initiatives_df.empty:
+        if not initiatives:
             return
 
         insert_query = """
@@ -298,7 +299,7 @@ class DatabaseService:
         """
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
-                for _, row in initiatives_df.iterrows():
+                for row in initiatives:
                     character_id = self.get_character_id_by_name(row["character_name"])
 
                     if character_id is None:
@@ -316,17 +317,17 @@ class DatabaseService:
                     )
                 conn.commit()
 
-    def insert_total_damage(self, total_damage_df: pd.DataFrame) -> None:
+    def insert_total_damage(self, total_damage: pd.DataFrame) -> None:
         """
         Insert rows into total_damage if they don't exist.
         If they do exist, update the total_damage value.
         """
-        if total_damage_df.empty:
+        if not total_damage:
             return
 
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
-                for _, row in total_damage_df.iterrows():
+                for row in total_damage:
                     character_name = row["character_name"]
                     damage_value = row["total_damage"]
 

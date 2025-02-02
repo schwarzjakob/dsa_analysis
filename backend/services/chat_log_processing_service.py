@@ -59,10 +59,10 @@ class ChatLogProcessingService:
 
         # Return the final DataFrames
         return {
-            "traits_df": self.event_processor.traits_df,
-            "talents_df": self.event_processor.talents_df,
-            "spells_df": self.event_processor.spells_df,
-            "attacks_df": self.event_processor.attacks_df,
-            "initiatives_df": self.event_processor.initiatives_df,
-            "total_damage_df": self.event_processor.total_damage_df,
+            "traits": self.event_processor.traits_rows,
+            "talents": self.event_processor.talents_rows,
+            "spells": self.event_processor.spells_rows,
+            "attacks": self.event_processor.attacks_rows,
+            "initiatives": self.event_processor.initiatives_rows,
+            "total_damage": self.event_processor.total_damage_rows,
         }
