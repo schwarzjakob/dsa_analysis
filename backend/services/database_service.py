@@ -1,6 +1,6 @@
 import logging
 from typing import Optional, List, Any, Dict
-import pandas as pd
+from psycopg2.extras import execute_values
 
 from models.database import Database
 
@@ -13,6 +13,15 @@ class DatabaseService:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.database = Database()
+
+    def _fetch_mapping(self, table_name, key_column, value_column):
+        """
+        Fetches a dictionary mapping key_column to value_column for a given table.
+        Example: Fetching {"Mut": 1, "Klugheit": 2} for traits.
+        """
+        query = f"SELECT {key_column}, {value_column} FROM {table_name}"
+        result = self.database.fetch_query(query)
+        return {row[key_column]: row[value_column] for row in result} if result else {}
 
     def get_characters(self):
         """
@@ -99,263 +108,197 @@ class DatabaseService:
         results = self.database.fetch_query(query)
         return {row["attack_name"] for row in results} if results else {}
 
-    def insert_traits_rolls(self, traits: pd.DataFrame) -> None:
+    def insert_traits_rolls(self, traits: list) -> None:
         """
-        Insert rows from traits into traits_rolls.
+        Bulk insert trait rolls using `execute_values`.
         """
         if not traits:
             return
 
-        # A row-by-row example
-        insert_query = """
-            INSERT INTO traits_rolls
-                (character_id, trait_id, modifier, success, tap_zfp, taw_zfw)
-            VALUES (%s, %s, %s, %s, %s, %s)
-        """
-        with self.database.get_connection() as conn:
-            with conn.cursor() as cur:
-                for row in traits:
-                    character_id = self.get_character_id_by_name(row["character_name"])
+        trait_mapping = self._fetch_mapping("character_traits", "trait_name", "trait_id")
 
-                    trait_id_query_result = self.database.fetch_query(
-                        "SELECT trait_id FROM character_traits WHERE trait_name = %s", [row["talent"]]
-                    )
+        values = [
+            (
+                self.get_character_id_by_name(row["character_name"]),
+                trait_mapping.get(row["talent"]),
+                row["modifier"],
+                row["success"],
+                row["tap_zfp"],
+                row["taw_zfw"],
+            )
+            for row in traits
+            if self.get_character_id_by_name(row["character_name"])
+        ]
 
-                    trait_id = trait_id_query_result[0][0] if trait_id_query_result else None
-
-                    if character_id is None:
-                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
-                        continue
-
-                    cur.execute(
-                        insert_query,
-                        [
-                            character_id,
-                            trait_id,
-                            row["modifier"],
-                            row["success"],
-                            row["tap_zfp"],
-                            row["taw_zfw"],
-                        ],
-                    )
-                conn.commit()
-
-    def insert_talents_rolls(self, talents: pd.DataFrame) -> None:
-        """
-        Insert rows from talents into talents_rolls, dynamically resolving character_id, category, and traits.
-        """
-        if not talents:
-
+        if not values:
             return
 
-        insert_query = """
+        query = """
+            INSERT INTO traits_rolls
+            (character_id, trait_id, modifier, success, tap_zfp, taw_zfw)
+            VALUES %s
+        """
+        with self.database.transaction() as cursor:
+            execute_values(cursor, query, values)
+
+    def insert_talents_rolls(self, talents: list) -> None:
+        """
+        Bulk insert talents rolls using `execute_values`.
+        """
+        if not talents:
+            return
+
+        talent_mapping = self._fetch_mapping("talents", "talent_name", "talent_id")
+
+        values = [
+            (
+                self.get_character_id_by_name(row["character_name"]),
+                talent_mapping.get(row["talent"]),
+                row["modifier"],
+                row["success"],
+                row["tap_zfp"],
+                row["taw_zfw"],
+                row["trait_value1"],
+                row["trait_value2"],
+                row["trait_value3"],
+            )
+            for row in talents
+            if self.get_character_id_by_name(row["character_name"])
+        ]
+
+        if not values:
+            return
+
+        query = """
             INSERT INTO talents_rolls
-                (character_id, talent_id, modifier, success,
-                tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
-            SELECT
-                %s AS character_id,
-                t.talent_id AS talent_id,
-                %s AS modifier,
-                %s AS success,
-                %s AS tap_zfp,
-                %s AS taw_zfw,
-                %s AS trait_value1,
-                %s AS trait_value2,
-                %s AS trait_value3
-            FROM talents t
-            WHERE t.talent_name = %s
+            (character_id, talent_id, modifier, success, tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
+            VALUES %s
         """
+        with self.database.transaction() as cursor:
+            execute_values(cursor, query, values)
 
-        with self.database.get_connection() as conn:
-            with conn.cursor() as cur:
-                for row in talents:
-                    character_id = self.get_character_id_by_name(row["character_name"])
-
-                    if character_id is None:
-                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
-                        continue
-
-                    cur.execute(
-                        insert_query,
-                        [
-                            character_id,
-                            row["modifier"],
-                            row["success"],
-                            row["tap_zfp"],
-                            row["taw_zfw"],
-                            row["trait_value1"],
-                            row["trait_value2"],
-                            row["trait_value3"],
-                            row["talent"],
-                        ],
-                    )
-                    conn.commit()
-
-    def insert_spells_rolls(self, spells: pd.DataFrame) -> None:
+    def insert_spells_rolls(self, spells: list) -> None:
         """
-        Insert rows from spells into spells_rolls.
+        Bulk insert spells rolls using `execute_values`.
         """
         if not spells:
             return
 
-        insert_query = """
+        spell_mapping = self._fetch_mapping("spells", "spell_name", "spell_id")
+
+        values = [
+            (
+                self.get_character_id_by_name(row["character_name"]),
+                spell_mapping.get(row["spell"]),
+                row["modifier"],
+                row["success"],
+                row["tap_zfp"],
+                row["taw_zfw"],
+                row["trait_value1"],
+                row["trait_value2"],
+                row["trait_value3"],
+            )
+            for row in spells
+            if self.get_character_id_by_name(row["character_name"])
+        ]
+
+        if not values:
+            return
+
+        query = """
             INSERT INTO spells_rolls
-                (character_id, spell_id, modifier, success,
-                 tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
-            SELECT
-                %s AS character_id,
-                s.spell_id AS spell_id,
-                %s AS modifier,
-                %s AS success,
-                %s AS tap_zfp,
-                %s AS taw_zfw,
-                %s AS trait_value1,
-                %s AS trait_value2,
-                %s AS trait_value3
-            FROM spells s
-            WHERE s.spell_name = %s
+            (character_id, spell_id, modifier, success, tap_zfp, taw_zfw, trait_value1, trait_value2, trait_value3)
+            VALUES %s
         """
+        with self.database.transaction() as cursor:
+            execute_values(cursor, query, values)
 
-        with self.database.get_connection() as conn:
-            with conn.cursor() as cur:
-                for row in spells:
-                    character_id = self.get_character_id_by_name(row["character_name"])
-
-                    if character_id is None:
-                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
-                        continue
-
-                    cur.execute(
-                        insert_query,
-                        [
-                            character_id,
-                            row["modifier"],
-                            row["success"],
-                            row["tap_zfp"],
-                            row["taw_zfw"],
-                            row["trait_value1"],
-                            row["trait_value2"],
-                            row["trait_value3"],
-                            row["spell"],
-                        ],
-                    )
-                conn.commit()
-
-    def insert_attacks_rolls(self, attacks: pd.DataFrame) -> None:
+    def insert_attacks_rolls(self, attacks: list) -> None:
         """
-        Insert rows from attacks into attacks_rolls.
+        Bulk insert attack rolls using `execute_values`.
         """
         if not attacks:
             return
 
-        insert_query = """
+        attack_mapping = self._fetch_mapping("attacks", "attack_name", "attack_id")
+
+        values = [
+            (
+                self.get_character_id_by_name(row["character_name"]),
+                attack_mapping.get(row["attack"]),
+                row["modifier"],
+                row["success"],
+                row["tap_zfp"],
+                row["taw_zfw"],
+            )
+            for row in attacks
+            if self.get_character_id_by_name(row["character_name"])
+        ]
+
+        if not values:
+            return
+
+        query = """
             INSERT INTO attacks_rolls
-                (character_id, attack_id, modifier, success, tap_zfp, taw_zfw)
-            VALUES (%s, %s, %s, %s, %s, %s)
+            (character_id, attack_id, modifier, success, tap_zfp, taw_zfw)
+            VALUES %s
         """
+        with self.database.transaction() as cursor:
+            execute_values(cursor, query, values)
 
-        with self.database.get_connection() as conn:
-            with conn.cursor() as cur:
-                for row in attacks:
-                    character_id = self.get_character_id_by_name(row["character_name"])
-                    attack_id_query_result = self.database.fetch_query(
-                        "SELECT attack_id FROM attacks WHERE attack_name = %s", [row["attack"]]
-                    )
-
-                    attack_id = attack_id_query_result[0][0] if attack_id_query_result else None
-
-                    if character_id is None:
-                        self.logger.warning(f"Character '{row['character_name']}' not found. Skipping...")
-                        continue
-
-                    if attack_id is None:
-                        self.logger.warning(f"Attack '{row['attack']}' not found. Skipping...")
-                        continue
-
-                    cur.execute(
-                        insert_query,
-                        [
-                            character_id,
-                            attack_id,
-                            row["modifier"],
-                            row["success"],
-                            row["tap_zfp"],
-                            row["taw_zfw"],
-                        ],
-                    )
-                conn.commit()
-
-    def insert_initiatives(self, initiatives: pd.DataFrame) -> None:
+    def insert_initiatives(self, initiatives: list) -> None:
         """
-        Insert rows from initiatives into initiative_rolls.
+        Bulk insert initiative rolls using `execute_values`.
         """
         if not initiatives:
             return
 
-        insert_query = """
+        values = [
+            (
+                self.get_character_id_by_name(row["character_name"]),
+                row["rolled_ini"],
+                row["current_ini"],
+                row["modifier"],
+            )
+            for row in initiatives
+            if self.get_character_id_by_name(row["character_name"])
+        ]
+
+        if not values:
+            return
+
+        query = """
             INSERT INTO initiative_rolls
-                (character_id, rolled_ini, current_ini, modifier)
-            VALUES(%s, %s, %s, %s)
+            (character_id, rolled_ini, current_ini, modifier)
+            VALUES %s
         """
-        with self.database.get_connection() as conn:
-            with conn.cursor() as cur:
-                for row in initiatives:
-                    character_id = self.get_character_id_by_name(row["character_name"])
+        with self.database.transaction() as cursor:
+            execute_values(cursor, query, values)
 
-                    if character_id is None:
-                        self.logger.warning(f"Character '{row['character_name']}' not found in database. Skipping...")
-                        continue
-
-                    cur.execute(
-                        insert_query,
-                        [
-                            character_id,
-                            row["rolled_ini"],
-                            row["current_ini"],
-                            row["modifier"],
-                        ],
-                    )
-                conn.commit()
-
-    def insert_total_damage(self, total_damage: pd.DataFrame) -> None:
+    def insert_total_damage(self, total_damage: dict) -> None:
         """
-        Insert rows into total_damage if they don't exist.
-        If they do exist, update the total_damage value.
+        Bulk upsert for total damage using PostgreSQL's ON CONFLICT.
         """
         if not total_damage:
             return
 
-        with self.database.get_connection() as conn:
-            with conn.cursor() as cur:
-                for row in total_damage:
-                    character_name = row["character_name"]
-                    damage_value = row["total_damage"]
+        values = [
+            (self.get_character_id_by_name(character), damage)
+            for character, damage in total_damage.items()
+            if self.get_character_id_by_name(character)
+        ]
 
-                    # Use the updated function to fetch character_id (handles name & alias)
-                    character_id = self.get_character_id_by_name(character_name)
+        if not values:
+            return
 
-                    if character_id is None:
-                        self.logger.warning(f"Character '{character_name}' not found in database. Skipping...")
-                        continue  # Skip if character is not found
-
-                    # Check if total_damage entry exists
-                    cur.execute("SELECT total_damage FROM total_damage WHERE character_id = %s", (character_id,))
-                    existing = cur.fetchone()
-
-                    if existing:
-                        # Update the existing row
-                        cur.execute(
-                            "UPDATE total_damage SET total_damage = total_damage + %s WHERE character_id = %s",
-                            (damage_value, character_id),
-                        )
-                    else:
-                        # Insert a new row
-                        cur.execute(
-                            "INSERT INTO total_damage (character_id, total_damage) VALUES (%s, %s)",
-                            (character_id, damage_value),
-                        )
-
-                    conn.commit()
+        query = """
+            INSERT INTO total_damage (character_id, total_damage)
+            VALUES %s
+            ON CONFLICT (character_id)
+            DO UPDATE SET total_damage = total_damage.total_damage + EXCLUDED.total_damage
+        """
+        with self.database.transaction() as cursor:
+            execute_values(cursor, query, values)
 
     def update_character(self, character_name: str, attributes: dict, aliases: list) -> bool:
         """
