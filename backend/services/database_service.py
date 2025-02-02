@@ -275,30 +275,45 @@ class DatabaseService:
         with self.database.transaction() as cursor:
             execute_values(cursor, query, values)
 
-    def insert_total_damage(self, total_damage: dict) -> None:
+    def insert_total_damage(self, total_damage) -> None:
         """
-        Bulk upsert for total damage using PostgreSQL's ON CONFLICT.
+        Insert rows into total_damage if they don't exist.
+        If they do exist, update the total_damage value.
         """
         if not total_damage:
             return
 
-        values = [
-            (self.get_character_id_by_name(character), damage)
-            for character, damage in total_damage.items()
-            if self.get_character_id_by_name(character)
-        ]
+        logging.info(f"Inserting total damage: {total_damage}")
 
-        if not values:
-            return
+        with self.database.get_connection() as conn:
+            with conn.cursor() as cur:
+                for character_name, damage_value in total_damage.items():
 
-        query = """
-            INSERT INTO total_damage (character_id, total_damage)
-            VALUES %s
-            ON CONFLICT (character_id)
-            DO UPDATE SET total_damage = total_damage.total_damage + EXCLUDED.total_damage
-        """
-        with self.database.transaction() as cursor:
-            execute_values(cursor, query, values)
+                    # Use the updated function to fetch character_id (handles name & alias)
+                    character_id = self.get_character_id_by_name(character_name)
+
+                    if character_id is None:
+                        self.logger.warning(f"Character '{character_name}' not found in database. Skipping...")
+                        continue  # Skip if character is not found
+
+                    # Check if total_damage entry exists
+                    cur.execute("SELECT total_damage FROM total_damage WHERE character_id = %s", (character_id,))
+                    existing = cur.fetchone()
+
+                    if existing:
+                        # Update the existing row
+                        cur.execute(
+                            "UPDATE total_damage SET total_damage = total_damage + %s WHERE character_id = %s",
+                            (damage_value, character_id),
+                        )
+                    else:
+                        # Insert a new row
+                        cur.execute(
+                            "INSERT INTO total_damage (character_id, total_damage) VALUES (%s, %s)",
+                            (character_id, damage_value),
+                        )
+
+                    conn.commit()
 
     def update_character(self, character_name: str, attributes: dict, aliases: list) -> bool:
         """

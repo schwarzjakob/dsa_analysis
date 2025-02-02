@@ -56,14 +56,6 @@ class ChatLogEventValidator:
             second_line = lines_chunk[1].strip()
             second_line = TALENT_CORRECTIONS.get(second_line, second_line)
 
-            if (
-                second_line not in TRAITS_LONG
-                and second_line not in self.known_talents
-                and second_line not in self.known_spells
-                and second_line not in self.known_attacks
-            ):
-                return None
-
             # -- Trait event --
             if second_line in TRAITS_LONG and len(lines_chunk) >= 3:
                 return DiceEvent(character=self.current_character_name, event_type="trait", lines=lines_chunk[1:4])
@@ -81,5 +73,19 @@ class ChatLogEventValidator:
                 if len(lines_chunk) > 3 and "Kampfgetümmel" in lines_chunk[3]:
                     del lines_chunk[3]
                 return DiceEvent(character=self.current_character_name, event_type="attack", lines=lines_chunk[1:])
+
+            # -- Initiative event --
+            if "Initiative" in second_line and "Initiativewurf" not in second_line:
+                return DiceEvent(character=self.current_character_name, event_type="initiative", lines=lines_chunk[1:])
+
+            # -- Damage event --
+            if "treffer" in second_line.lower():
+                logging.info(
+                    DiceEvent(character=self.current_character_name, event_type="damage", lines=[lines_chunk[2]])
+                )
+                return DiceEvent(character=self.current_character_name, event_type="damage", lines=[lines_chunk[2]])
+
+            else:
+                return None
 
         return None
