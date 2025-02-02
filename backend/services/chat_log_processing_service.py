@@ -18,9 +18,9 @@ class ChatLogProcessingService:
     def __init__(self, characters_and_aliases, talents, spells, attacks):
         """
         :param characters_and_aliases: List of names & aliases from DB
-        :param talents: Set of valid talent names from DB
-        :param spells: Set of valid spell names from DB
-        :param attacks: Set of valid attack names from DB
+        :param talents: Dictionary of valid talent names from DB (hash map)
+        :param spells: Dictionary of valid spell names from DB (hash map)
+        :param attacks: Dictionary of valid attack names from DB (hash map)
         """
         self.logger = logging.getLogger(__name__)
 
@@ -36,16 +36,26 @@ class ChatLogProcessingService:
         self.event_processor = ChatLogEventProcessor()
 
     def process_chat_log(self, lines: List[str]) -> Dict[str, "pd.DataFrame"]:
-        """
-        Main pipeline: classify events -> extract events -> return events (DataFrames)
-        """
         i = 0
-        while i < len(lines):
-            event_type = self.event_validator.determine_event_type(lines[i])
-            if event_type:
-                i = self.event_processor.process_event(event_type, lines, i)
-            else:
+        n = len(lines)
+
+        while i < n:
+            # Grab up to 4 lines from i onward
+            chunk = lines[i : i + 5]
+            dice_event = self.event_validator.determine_dice_event(chunk)
+
+            if dice_event is None:
+                # No recognized event: just move forward by 1 line
                 i += 1
+                continue
+
+            # We have a recognized event
+            # Let the processor handle these lines
+            self.event_processor.process_event(dice_event)
+
+            # The number of lines consumed depends on the event's lines length
+            consumed = len(dice_event.lines)
+            i += consumed
 
         # Return the final DataFrames
         return {

@@ -3,6 +3,8 @@ import logging
 import re
 import pandas as pd
 
+from models.dice_event import DiceEvent
+
 
 class ChatLogEventProcessor:
     """
@@ -47,58 +49,41 @@ class ChatLogEventProcessor:
         self.initiatives_df = pd.DataFrame(columns=["character_name", "rolled_ini", "current_ini", "modifier"])
         self.total_damage_df = pd.DataFrame(columns=["character_name", "total_damage"])
 
-        # Keep track of current character name as we see lines like "Alrik:"
-        # The 'current_character' is updated whenever we detect an event_type == "character"
-        self.current_character = None
+    def process_event(self, dice_event: DiceEvent):
 
-    def process_event(self, event_type, lines, i):
-        """
-        Orchestrates the correct event-type processing function.
-        Returns the updated line-index, because some events span multiple lines.
-        """
-        if event_type == "character":
-            self.current_character = lines[i].replace(":", "")
-            return i + 1  # we only used this line
+        character_name = dice_event.character
+        event_type = dice_event.event_type
+        lines = dice_event.lines
 
-        if self.current_character is None:
-            # We can't process an event if we have no current character
-            return i + 1
+        # lines[0] => "<CharacterName>:"
+        # lines[1], lines[2], lines[3] => vary by event
 
         if event_type == "trait":
-            return self._process_trait_event(lines, i)
+            self._process_trait_event(character_name, lines)
+        elif event_type == "talent":
+            self._process_talent_event(character_name, lines)
+        elif event_type == "spell":
+            self._process_spell_event(character_name, lines)
+        elif event_type == "attack":
+            self._process_attack_event(character_name, lines)
+        elif event_type == "initiative":
+            self._process_initiative_event(character_name, lines)
+        elif event_type == "damage":
+            self._process_damage_event(character_name, lines)
+        else:
+            self.logger.warning(f"Unknown event type: {event_type}")
+        # no return needed
 
-        if event_type == "talent":
-            return self._process_talent_event(lines, i)
-
-        if event_type == "spell":
-            return self._process_spell_event(lines, i)
-
-        if event_type == "attack":
-            return self._process_attack_event(lines, i)
-
-        if event_type == "initiative":
-            return self._process_initiative_event(lines, i)
-
-        if event_type == "damage":
-            return self._process_damage_event(lines, i)
-
-        # If nothing matched, just move on
-        return i + 1
-
-    def _process_trait_event(self, lines, i):
+    def _process_trait_event(self, character_name, lines):
         """
-        For a trait roll, we likely need lines i, i+1, i+2
-        Example usage from old code:
-            lines[i] is the trait name (e.g. "Mut")
-            lines[i+1], lines[i+2] have details
+        lines might look like:
+        line[0] -> "Mut"
+        line[1] -> "Wurfprobe ±2 gelungen (3 TaP*)"
         """
-        # Safety check for index errors
-        if i + 2 >= len(lines):
-            return i + 1
 
-        trait_name = lines[i]
-        second_line = lines[i + 1]
-        third_line = lines[i + 2]
+        trait_name = lines[0].strip()
+        second_line = lines[1].strip()
+        third_line = lines[2].strip()
 
         # Extract roll data
         current_success, current_modifier = self._mod_and_success_check(second_line)
@@ -107,7 +92,7 @@ class ChatLogEventProcessor:
 
         # Insert into self.traits_df
         new_row = {
-            "character_name": self.current_character,
+            "character_name": character_name,
             "talent": trait_name,
             "modifier": current_modifier,
             "success": bool(current_success),
@@ -116,16 +101,11 @@ class ChatLogEventProcessor:
         }
         self.traits_df = pd.concat([self.traits_df, pd.DataFrame([new_row])], ignore_index=True)
 
-        return i + 3  # we've consumed 3 lines
+    def _process_talent_event(self, character_name, lines):
 
-    def _process_talent_event(self, lines, i):
-        # Safety check
-        if i + 2 >= len(lines):
-            return i + 1
-
-        talent_name = lines[i]
-        second_line = lines[i + 1]
-        third_line = lines[i + 2]
+        talent_name = lines[0].strip()
+        second_line = lines[1].strip()
+        third_line = lines[2].strip()
 
         current_success, current_modifier = self._mod_and_success_check(second_line)
         current_talent_or_spell_points = self._extract_talent_or_spell_points(second_line, "TaP")
@@ -134,7 +114,7 @@ class ChatLogEventProcessor:
         trait_values = self._extract_trait_values(third_line)
 
         new_row = {
-            "character_name": self.current_character,
+            "character_name": character_name,
             "talent": talent_name,
             "modifier": current_modifier,
             "success": bool(current_success),
@@ -146,15 +126,11 @@ class ChatLogEventProcessor:
         }
         self.talents_df = pd.concat([self.talents_df, pd.DataFrame([new_row])], ignore_index=True)
 
-        return i + 3
+    def _process_spell_event(self, character_name, lines):
 
-    def _process_spell_event(self, lines, i):
-        if i + 2 >= len(lines):
-            return i + 1
-
-        spell_name = lines[i]
-        second_line = lines[i + 1]
-        third_line = lines[i + 2]
+        spell_name = lines[0].strip()
+        second_line = lines[1].strip()
+        third_line = lines[2].strip()
 
         current_success, current_modifier = self._mod_and_success_check(second_line)
         current_talent_or_spell_points = self._extract_talent_or_spell_points(second_line, "ZfP")
@@ -162,7 +138,7 @@ class ChatLogEventProcessor:
         trait_values = self._extract_trait_values(third_line)
 
         new_row = {
-            "character_name": self.current_character,
+            "character_name": character_name,
             "spell": spell_name,
             "modifier": current_modifier,
             "success": bool(current_success),
@@ -174,18 +150,10 @@ class ChatLogEventProcessor:
         }
         self.spells_df = pd.concat([self.spells_df, pd.DataFrame([new_row])], ignore_index=True)
 
-        return i + 3
-
-    def _process_attack_event(self, lines, i):
-        if i + 2 >= len(lines):
-            return i + 1
-
-        attack_name = lines[i]
-        second_line = lines[i + 1]
-        third_line = lines[i + 2]
-        # Special check: if "Kampfgetümmel" in third_line skip it
-        if "Kampfgetümmel" in third_line and (i + 3 < len(lines)):
-            third_line = lines[i + 3]
+    def _process_attack_event(self, character_name, lines):
+        attack_name = lines[0].strip()
+        second_line = lines[1].strip()
+        third_line = lines[2].strip()
 
         # Extract the attack modifier and the attack roll (tap_zfp) from the same line
         current_modifier, current_tap_zfp = self._extract_attack_mod_and_tap_zfp(second_line)
@@ -196,7 +164,7 @@ class ChatLogEventProcessor:
         current_success = 1 if (current_taw_zfw - current_modifier - current_tap_zfp) >= 0 else 0
 
         new_row = {
-            "character_name": self.current_character,
+            "character_name": character_name,
             "attack": attack_name,
             "modifier": current_modifier,
             "success": bool(current_success),
@@ -205,50 +173,38 @@ class ChatLogEventProcessor:
         }
         self.attacks_df = pd.concat([self.attacks_df, pd.DataFrame([new_row])], ignore_index=True)
 
-        # Return the number of lines consumed (3 or 4 if extra info was skipped)
-        return i + 3
-
-    def _process_initiative_event(self, lines, i):
-        if i + 1 >= len(lines):
-            return i + 1
+    def _process_initiative_event(self, character_name, lines):
 
         # Example approach
-        first_line = lines[i]
-        second_line = lines[i + 1]
+        first_line = lines[0].strip()
+        second_line = lines[1].strip()
 
         rolled_ini = self._extract_rolled_initiative(first_line)
         (current_ini, current_mod) = self._extract_current_initiative_and_mod(second_line)
 
         new_row = {
-            "character_name": self.current_character,
+            "character_name": character_name,
             "rolled_ini": rolled_ini,
             "current_ini": current_ini,
             "modifier": current_mod,
         }
         self.initiatives_df = pd.concat([self.initiatives_df, pd.DataFrame([new_row])], ignore_index=True)
 
-        return i + 2
+    def _process_damage_event(self, character_name, lines):
 
-    def _process_damage_event(self, lines, i):
-        # Suppose the damage line is i, the next line i+1 has "8 SP" or something
-        if i + 1 >= len(lines):
-            return i + 1
-
-        damage_line = lines[i + 1]
+        damage_line = lines[0]
         # Example parse
         match = re.search(r"\d+", damage_line)
         dmg = int(match.group()) if match else 0
 
         # Update total damage in self.total_damage_df
-        existing = self.total_damage_df[self.total_damage_df["character_name"] == self.current_character]
+        existing = self.total_damage_df[self.total_damage_df["character_name"] == character_name]
         if not existing.empty:
             idx = existing.index[0]
             self.total_damage_df.at[idx, "total_damage"] += dmg
         else:
-            new_row = {"character_name": self.current_character, "total_damage": dmg}
+            new_row = {"character_name": character_name, "total_damage": dmg}
             self.total_damage_df = pd.concat([self.total_damage_df, pd.DataFrame([new_row])], ignore_index=True)
-
-        return i + 2
 
     # --------------------------------------------------------------------------
     # Helper / extraction methods

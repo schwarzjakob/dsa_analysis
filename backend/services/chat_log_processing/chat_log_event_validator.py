@@ -1,5 +1,7 @@
-# services/chat_log_processing/chat_log_event_validator.py
 import logging
+from typing import List, Optional
+
+from models.dice_event import DiceEvent
 
 # For example, your known trait names, short or long
 TRAITS_LONG = [
@@ -24,58 +26,60 @@ TALENT_CORRECTIONS = {
 
 
 class ChatLogEventValidator:
-    """
-    Classifies an individual line (or set of lines) to see what kind
-    of event it might represent: trait, talent, spell, attack, damage, etc.
-    """
-
     def __init__(self, characters_and_aliases, talents, spells, attacks):
-        """
-        :param characters_and_aliases: List of character names and aliases
-        :param talents: Set of valid talent names
-        :param spells: Set of valid spell names
-        :param attacks: Set of valid attack names
-        """
         self.logger = logging.getLogger(__name__)
         self.characters_and_aliases = characters_and_aliases
         self.known_talents = talents
         self.known_spells = spells
         self.known_attacks = attacks
+        self.current_character_name = ""
 
-    def determine_event_type(self, line: str):
+    def determine_dice_event(self, lines_chunk: List[str]) -> Optional[DiceEvent]:
         """
-        Given a single line from the chatlog, determine what kind of event it represents.
+        lines_chunk: up to 5 consecutive lines from the chat log.
+        Returns a DiceEvent if recognized, otherwise None.
         """
-        # 1) Is this line a character switch? (like "Alrik:")
-        if line in (character + ":" for character in self.characters_and_aliases):
-            return "character"
 
-        # 2) Correct any known spelling differences
-        line = TALENT_CORRECTIONS.get(line, line)
+        if not lines_chunk:
+            return None
 
-        # 3) If it's a trait from TRAITS_LONG
-        if line in TRAITS_LONG:
-            return "trait"
+        # 1) Check if first line is a character switch, e.g. "Alrik:"
+        first_line = lines_chunk[0].strip()
+        if first_line in (character + ":" for character in self.characters_and_aliases):
+            self.current_character_name = first_line[:-1].strip()
 
-        # 4) If it is a known Talent
-        if line in self.known_talents:
-            return "talent"
+        if not self.current_character_name:
+            return None
 
-        # 5) If it is a known Spell
-        if line in self.known_spells:
-            return "spell"
+        # 2) Check if the second line corresponds to a valid event type
+        if len(lines_chunk) > 1:
+            second_line = lines_chunk[1].strip()
+            second_line = TALENT_CORRECTIONS.get(second_line, second_line)
 
-        # 6) If it is a known Attack
-        if line in self.known_attacks:
-            return "attack"
+            if (
+                second_line not in TRAITS_LONG
+                and second_line not in self.known_talents
+                and second_line not in self.known_spells
+                and second_line not in self.known_attacks
+            ):
+                return None
 
-        # 7) If it's initiative
-        if "Initiative" in line and "Initiativewurf" not in line:
-            return "initiative"
+            # -- Trait event --
+            if second_line in TRAITS_LONG and len(lines_chunk) >= 3:
+                return DiceEvent(character=self.current_character_name, event_type="trait", lines=lines_chunk[1:4])
 
-        # 8) If it's damage
-        if "treffer" in line.lower():
-            return "damage"
+            # -- Talent event --
+            if second_line in self.known_talents and len(lines_chunk) >= 3:
+                return DiceEvent(character=self.current_character_name, event_type="talent", lines=lines_chunk[1:4])
 
-        # 9) Otherwise, not recognized
+            # -- Spell event --
+            if second_line in self.known_spells and len(lines_chunk) >= 3:
+                return DiceEvent(character=self.current_character_name, event_type="spell", lines=lines_chunk[1:4])
+
+            # -- Attack event --
+            if second_line in self.known_attacks:
+                if len(lines_chunk) > 3 and "Kampfgetümmel" in lines_chunk[3]:
+                    del lines_chunk[3]
+                return DiceEvent(character=self.current_character_name, event_type="attack", lines=lines_chunk[1:])
+
         return None

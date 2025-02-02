@@ -77,11 +77,11 @@ class DatabaseService:
 
     def get_talents(self):
         """
-        Fetch all valid talent names from the database and return as a set.
+        Fetch all valid talent names from the database and return as a dictionary.
         """
         query = "SELECT talent_name FROM talents"
         results = self.database.fetch_query(query)
-        return set(row["talent_name"] for row in results) if results else set()
+        return {row["talent_name"]: row for row in results} if results else {}
 
     def get_spells(self):
         """
@@ -89,7 +89,7 @@ class DatabaseService:
         """
         query = "SELECT spell_name FROM spells"
         results = self.database.fetch_query(query)
-        return set(row["spell_name"] for row in results) if results else set()
+        return {row["spell_name"] for row in results} if results else {}
 
     def get_attacks(self):
         """
@@ -97,7 +97,7 @@ class DatabaseService:
         """
         query = "SELECT attack_name FROM attacks"
         results = self.database.fetch_query(query)
-        return set(row["attack_name"] for row in results) if results else set()
+        return {row["attack_name"] for row in results} if results else {}
 
     def insert_traits_rolls(self, traits_df: pd.DataFrame) -> None:
         """
