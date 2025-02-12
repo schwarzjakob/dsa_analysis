@@ -1,0 +1,7512 @@
+[
+  {
+    "id": "PqlZC4s33nnaoxYB",
+    "name": "Akira Masamune",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 6,
+          "gearmodifier": 0,
+          "value": 14
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 3,
+          "gearmodifier": 0,
+          "value": 11
+        },
+        "in": {
+          "species": 1,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 3,
+          "gearmodifier": 0,
+          "value": 11
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 4,
+          "gearmodifier": 0,
+          "value": 12
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 6,
+          "gearmodifier": 0,
+          "value": 14
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 6,
+          "gearmodifier": 0,
+          "value": 14
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": "0",
+      "status": {
+        "wounds": {
+          "initial": 5,
+          "value": 40,
+          "advances": 7,
+          "modifier": 0,
+          "current": 33,
+          "max": 40,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -14
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 19,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 20,
+          "permanentLoss": 0,
+          "rebuy": 0,
+          "permanentGear": 0,
+          "gearmodifier": 20,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": -5,
+          "value": 1,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 1
+        },
+        "toughness": {
+          "initial": -5,
+          "value": 2,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 2
+        },
+        "dodge": {
+          "value": 6,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 6
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 8,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": -1,
+          "max": 7
+        },
+        "initiative": {
+          "value": 13.13,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": "Mensch"
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": "Maraskan"
+        },
+        "career": {
+          "value": "Schmied - Waffenschmied"
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 1555,
+          "spent": 1502,
+          "current": 53,
+          "description": "EXP.masterful"
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": "1",
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 6,
+        "used": 6
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "itemModifiers": {
+        "AsP": {
+          "value": 20,
+          "sources": ["Zauberer"]
+        },
+        "INI": {
+          "value": 0,
+          "sources": ["Kampfreflexe", "Winterkleidung"]
+        },
+        "GS": {
+          "value": -1,
+          "sources": ["Winterkleidung"]
+        }
+      },
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "Mensch",
+      "skillModifiers": {
+        "FP": [
+          {
+            "source": "Weg des Schmieds",
+            "value": "1",
+            "target": "Metallbearbeitung",
+            "item": "Weg des Schmieds"
+          }
+        ],
+        "step": [],
+        "QL": [
+          {
+            "source": "Gestählter Wille",
+            "value": "1",
+            "target": "Willenskraft",
+            "item": "Gestählter Wille"
+          },
+          {
+            "source": "Nerven aus Stahl",
+            "value": "1",
+            "target": "Willenskraft",
+            "item": "Nerven aus Stahl"
+          }
+        ],
+        "TPM": [
+          {
+            "source": "Schmiedehammer",
+            "value": "0|0|1",
+            "target": "Metallbearbeitung",
+            "item": "Schmiedehammer"
+          }
+        ],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 1,
+        "coldProtection": 2
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 29.834999999999997,
+      "moneyWeight": 0.682,
+      "isMage": true,
+      "canAdvance": true,
+      "carrycapacity": 28,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.ActorSheetdsa5Character"
+      }
+    }
+  },
+  {
+    "id": "Sg9cEo5NOSnD50vD",
+    "name": "Aleron von Sturmfels",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 7,
+          "gearmodifier": 0,
+          "value": 15
+        },
+        "ko": {
+          "species": 1,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": "0",
+      "status": {
+        "wounds": {
+          "initial": 5,
+          "value": 35,
+          "advances": 4,
+          "modifier": 0,
+          "current": 31,
+          "max": 35,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -13
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": -5,
+          "value": 1,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 1
+        },
+        "toughness": {
+          "initial": -5,
+          "value": 2,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 2
+        },
+        "dodge": {
+          "value": 8,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 8
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 8,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": -1,
+          "max": 7
+        },
+        "initiative": {
+          "value": 14.14,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": "Mensch"
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": "Mittelreich"
+        },
+        "career": {
+          "value": "Spitzelin - Geheimagent"
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 1555,
+          "spent": 1508
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 16,
+        "used": 4
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "playerView": false,
+      "itemModifiers": {
+        "INI": {
+          "value": 0,
+          "sources": ["Kampfreflexe", "Krötenhaut"]
+        },
+        "GS": {
+          "value": -1,
+          "sources": ["Krötenhaut"]
+        }
+      },
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "Mensch",
+      "skillModifiers": {
+        "FP": [
+          {
+            "source": "Bedrohliche Aura",
+            "value": "1",
+            "target": "Einschüchtern",
+            "item": "Bedrohliche Aura"
+          },
+          {
+            "source": "Pergament, gutes",
+            "value": "1",
+            "target": "Malen & Zeichnen",
+            "item": "Pergament"
+          }
+        ],
+        "step": [
+          {
+            "source": "Feuerstein und Stahl",
+            "value": "2",
+            "target": "Wildnisleben",
+            "item": "Feuerstein und Stahl"
+          },
+          {
+            "source": "Kapuzenumhang",
+            "value": "1",
+            "target": "Gassenwissen",
+            "item": "Kapuzenumhang"
+          }
+        ],
+        "QL": [
+          {
+            "source": "Nerven aus Stahl",
+            "value": "1",
+            "target": "Willenskraft",
+            "item": "Nerven aus Stahl"
+          },
+          {
+            "source": "Zunder",
+            "value": "1",
+            "target": "Wildnisleben",
+            "item": "Zunder"
+          }
+        ],
+        "TPM": [
+          {
+            "source": "Verbandszeug",
+            "value": "0|1|1",
+            "target": "Heilkunde Wunden",
+            "item": "Verband"
+          },
+          {
+            "source": "Kapuzenumhang",
+            "value": "0|1|0",
+            "target": "Verbergen",
+            "item": "Kapuzenumhang"
+          },
+          {
+            "source": "Dietrichset",
+            "value": "0|1|1",
+            "target": "Schlösserknacken",
+            "item": "Dietrichset (6 unterschiedliche Dietriche)"
+          }
+        ],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "meleeweaponRollModifiers": {
+        "doubleAttack": {
+          "mod": 2
+        }
+      },
+      "totalWeight": 25.801000000000002,
+      "moneyWeight": 2.8579999999999997,
+      "canAdvance": false,
+      "carrycapacity": 26,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.ActorSheetdsa5Character"
+      }
+    }
+  },
+  {
+    "id": "uuMyGdR4x4jhWMy4",
+    "name": "Baargan \"Treuwal\" Helgason",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 7,
+          "gearmodifier": 0,
+          "value": 15
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 7,
+          "gearmodifier": 0,
+          "value": 15
+        },
+        "kk": {
+          "species": 1,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 7,
+          "gearmodifier": 0,
+          "value": 15
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": "0",
+      "status": {
+        "wounds": {
+          "initial": 5,
+          "value": 40,
+          "advances": 5,
+          "modifier": 0,
+          "current": 35,
+          "max": 40,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -15
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": -5,
+          "value": 1,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 1
+        },
+        "toughness": {
+          "initial": -5,
+          "value": 3,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "dodge": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "fatePoints": {
+          "value": 4,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 1,
+          "max": 4
+        },
+        "speed": {
+          "initial": 8,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": -2,
+          "max": 5
+        },
+        "initiative": {
+          "value": 12.12,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": -1
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": "Mensch"
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": "Thorwal"
+        },
+        "career": {
+          "value": "Thorwaler Krieger"
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 1555,
+          "spent": 1498
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 6,
+        "used": 6
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "horse": {
+        "isRiding": false,
+        "actorId": "",
+        "actorLink": false
+      },
+      "itemModifiers": {
+        "Schip": {
+          "value": 1,
+          "sources": ["Glück"]
+        },
+        "INI": {
+          "value": -1,
+          "sources": [
+            "Kampfreflexe",
+            "Drachen Schuppenpanzer",
+            "Bärenpelzmantel"
+          ]
+        },
+        "GS": {
+          "value": -2,
+          "sources": ["Drachen Schuppenpanzer", "Bärenpelzmantel"]
+        }
+      },
+      "condition": {
+        "encumbered": 1,
+        "inpain": 0
+      },
+      "creatureType": "Mensch",
+      "skillModifiers": {
+        "FP": [],
+        "step": [
+          {
+            "source": "Feuerstein und Stahl",
+            "value": "2",
+            "target": "Wildnisleben",
+            "item": "Feuerstein und Stahl"
+          },
+          {
+            "source": "Wundnähzeug",
+            "value": "1",
+            "target": "Heilkunde Wunden",
+            "item": "Wundnähzeug"
+          }
+        ],
+        "QL": [
+          {
+            "source": "Gestählter Wille",
+            "value": "1",
+            "target": "Willenskraft",
+            "item": "Gestählter Wille"
+          },
+          {
+            "source": "Nerven aus Stahl",
+            "value": "1",
+            "target": "Willenskraft",
+            "item": "Nerven aus Stahl"
+          }
+        ],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 2
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [
+        {
+          "source": "Drachentöter",
+          "value": "1",
+          "target": "Drache",
+          "item": "Drachentöter"
+        }
+      ],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "woundThreshold": 1,
+      "totalWeight": 14.326999999999998,
+      "moneyWeight": 2.2489999999999997,
+      "canAdvance": false,
+      "carrycapacity": 30,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.ActorSheetdsa5Character"
+      }
+    }
+  },
+  {
+    "id": "4BV27vo5HZNWvdvd",
+    "name": "Balulox Sohn des Braggrimm",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 4,
+          "gearmodifier": 0,
+          "value": 12
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "ch": {
+          "species": -2,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 1,
+          "gearmodifier": 0,
+          "value": 9
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 4,
+          "gearmodifier": 0,
+          "value": 12
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "ko": {
+          "species": 1,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 9,
+          "gearmodifier": 0,
+          "value": 17
+        },
+        "kk": {
+          "species": 1,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 7,
+          "gearmodifier": 0,
+          "value": 15
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": "0",
+      "status": {
+        "wounds": {
+          "initial": 8,
+          "value": 47,
+          "advances": 8,
+          "modifier": 0,
+          "current": 42,
+          "max": 50,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -17
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": -4,
+          "value": 2,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 2
+        },
+        "toughness": {
+          "initial": -4,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 1,
+          "max": 5
+        },
+        "dodge": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 6,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 6
+        },
+        "initiative": {
+          "value": 14.14,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 1
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": "Zwerg"
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": "Ambosszwerge"
+        },
+        "career": {
+          "value": "Wirtin - Rausschmeißerin"
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 1505,
+          "spent": 1445
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 8,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": true
+      },
+      "itemModifiers": {
+        "ZK": {
+          "value": 1,
+          "sources": ["Hohe Zähigkeit"]
+        },
+        "INI": {
+          "value": 1,
+          "sources": ["Kampfreflexe"]
+        }
+      },
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "Zwerg",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [
+          {
+            "source": "Beil oder Handaxt",
+            "value": "1|0|0",
+            "target": "Holzbearbeitung",
+            "item": "Beil oder Handaxt"
+          },
+          {
+            "source": "Hängematte",
+            "value": "0|0|1",
+            "target": "Wildnisleben",
+            "item": "Hängematte"
+          }
+        ],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "woundThreshold": 1,
+      "totalWeight": 23.45,
+      "moneyWeight": 3.75,
+      "canAdvance": false,
+      "carrycapacity": 30,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.ActorSheetdsa5Character"
+      }
+    }
+  },
+  {
+    "id": "iIKV14Pj5pwQrPBo",
+    "name": "Elanor Walham",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 4,
+          "gearmodifier": 0,
+          "value": 12
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "in": {
+          "species": 1,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 7,
+          "gearmodifier": 0,
+          "value": 15
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 4,
+          "gearmodifier": 0,
+          "value": 12
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 6,
+          "gearmodifier": 0,
+          "value": 14
+        },
+        "ge": {
+          "species": 1,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 6,
+          "gearmodifier": 0,
+          "value": 14
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 4,
+          "gearmodifier": 0,
+          "value": 12
+        },
+        "kk": {
+          "species": -2,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 3,
+          "gearmodifier": 0,
+          "value": 11
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": "0",
+      "status": {
+        "wounds": {
+          "initial": 2,
+          "value": 35,
+          "advances": 9,
+          "modifier": 0,
+          "current": 26,
+          "max": 35,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -12
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 34,
+          "advances": 0,
+          "modifier": 0,
+          "current": 15,
+          "max": 35,
+          "permanentLoss": 0,
+          "rebuy": 0,
+          "permanentGear": 0,
+          "gearmodifier": 20,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": -4,
+          "value": 3,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "toughness": {
+          "initial": -6,
+          "value": 0,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "dodge": {
+          "value": 9,
+          "modifier": 0,
+          "gearmodifier": 2,
+          "max": 9
+        },
+        "fatePoints": {
+          "value": 2,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 8,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": -1,
+          "max": 4
+        },
+        "initiative": {
+          "value": 9.09,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": -1
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": "Elf"
+        },
+        "gender": {
+          "value": "Mänlich"
+        },
+        "culture": {
+          "value": "Auelfen"
+        },
+        "career": {
+          "value": "Wildnisläufer"
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": "27. Phex 921 BF = 89 Jahre"
+        },
+        "haircolor": {
+          "value": "Blond"
+        },
+        "eyecolor": {
+          "value": "smaragdgrün"
+        },
+        "height": {
+          "value": "1,89 Schritt"
+        },
+        "weight": {
+          "value": "69 Stein"
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 1555,
+          "spent": 1500
+        },
+        "Home": {
+          "value": "Kvirasim"
+        }
+      },
+      "guidevalue": {
+        "magical": "in",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": "1",
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "Tradition (Elfen)",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 2,
+        "used": 2
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "itemModifiers": {
+        "AsP": {
+          "value": 20,
+          "sources": ["Zauberer"]
+        },
+        "AW": {
+          "value": 2,
+          "sources": ["Verbessertes Ausweichen"]
+        },
+        "GS": {
+          "value": -1,
+          "sources": ["Winterkleidung"]
+        },
+        "INI": {
+          "value": -1,
+          "sources": ["Winterkleidung"]
+        }
+      },
+      "condition": {
+        "encumbered": 3,
+        "inpain": 0
+      },
+      "creatureType": "Elf",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [
+          {
+            "source": "Sammler",
+            "value": "1",
+            "target": "Pflanzenkunde",
+            "item": "Sammler"
+          }
+        ],
+        "TPM": [
+          {
+            "source": "Verbandszeug",
+            "value": "0|1|1",
+            "target": "Heilkunde Wunden",
+            "item": "Verband"
+          }
+        ],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 36.105000000000004,
+      "moneyWeight": 0,
+      "isMage": true,
+      "canAdvance": false,
+      "carrycapacity": 22,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.ActorSheetdsa5Character"
+      }
+    }
+  },
+  {
+    "id": "2QJQXLg562XUcgVG",
+    "name": "Krämer",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 4,
+          "gearmodifier": 0,
+          "value": 12
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 4,
+          "gearmodifier": 0,
+          "value": 12
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 3,
+          "gearmodifier": 0,
+          "value": 11
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 3,
+          "gearmodifier": 0,
+          "value": 11
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": "0",
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 25,
+          "advances": 5,
+          "modifier": 0,
+          "current": 20,
+          "max": 25,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -10
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 6,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 6
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 5,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 5
+        },
+        "dodge": {
+          "value": 6,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 6
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 11.11,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 1000,
+          "spent": 409
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "sellingFactor": 1.5,
+        "buyingFactor": 0.5,
+        "hidePlayer": "1",
+        "hideMoney": "1",
+        "factors": {
+          "sellingFactor": {
+            "pl5tIPlGPCNCSdXR": 1,
+            "05EAAZ6Pf087Vryh": 1.2,
+            "LS0x6t0rgRQ7zgil": 1,
+            "wU7m59BZK7QkiLAN": 1,
+            "HrRgoVgjpeMaXNPa": 1
+          },
+          "buyingFactor": {
+            "pl5tIPlGPCNCSdXR": 1,
+            "05EAAZ6Pf087Vryh": 0.9,
+            "LS0x6t0rgRQ7zgil": 1,
+            "wU7m59BZK7QkiLAN": 1,
+            "HrRgoVgjpeMaXNPa": 1
+          }
+        }
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [
+          {
+            "source": "Großer Aventurischer Atlas",
+            "value": "1",
+            "target": "Geographie",
+            "item": "Großer Aventurischer Atlas"
+          }
+        ],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 30.807000000000013,
+      "moneyWeight": 0.7040000000000001,
+      "canAdvance": false,
+      "carrycapacity": 20,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  },
+  {
+    "id": "MIt4k6Qz6yal6fK7",
+    "name": "Körperpflege",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.MU",
+          "abrev": "CHARAbbrev.MU",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KL",
+          "abrev": "CHARAbbrev.KL",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.IN",
+          "abrev": "CHARAbbrev.IN",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.CH",
+          "abrev": "CHARAbbrev.CH",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.FF",
+          "abrev": "CHARAbbrev.FF",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.GE",
+          "abrev": "CHARAbbrev.GE",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KO",
+          "abrev": "CHARAbbrev.KO",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KK",
+          "abrev": "CHARAbbrev.KK",
+          "gearmodifier": 0,
+          "value": 8
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": 0,
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 16,
+          "advances": 0,
+          "modifier": 0,
+          "current": 16,
+          "max": 16,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -8
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "dodge": {
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 8.08,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 0,
+          "spent": 0
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "playerView": true,
+        "sellingFactor": null,
+        "buyingFactor": null,
+        "hidePlayer": null,
+        "hideMoney": null
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 0,
+      "moneyWeight": 0,
+      "canAdvance": false,
+      "carrycapacity": 16,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  },
+  {
+    "id": "035WLZqOOGaLxNOB",
+    "name": "Löhne",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.MU",
+          "abrev": "CHARAbbrev.MU",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KL",
+          "abrev": "CHARAbbrev.KL",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.IN",
+          "abrev": "CHARAbbrev.IN",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.CH",
+          "abrev": "CHARAbbrev.CH",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.FF",
+          "abrev": "CHARAbbrev.FF",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.GE",
+          "abrev": "CHARAbbrev.GE",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KO",
+          "abrev": "CHARAbbrev.KO",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KK",
+          "abrev": "CHARAbbrev.KK",
+          "gearmodifier": 0,
+          "value": 8
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": 0,
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 13,
+          "advances": 0,
+          "modifier": 0,
+          "current": 16,
+          "max": 16,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -8
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "dodge": {
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 8.08,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 0,
+          "spent": 0
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": true
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "sellingFactor": null,
+        "buyingFactor": null,
+        "hidePlayer": null,
+        "hideMoney": null,
+        "playerView": true
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 0,
+      "moneyWeight": 0,
+      "canAdvance": false,
+      "carrycapacity": 16,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  },
+  {
+    "id": "qQIJZmnYbAqNEhM4",
+    "name": "Mieten",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.MU",
+          "abrev": "CHARAbbrev.MU",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KL",
+          "abrev": "CHARAbbrev.KL",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.IN",
+          "abrev": "CHARAbbrev.IN",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.CH",
+          "abrev": "CHARAbbrev.CH",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.FF",
+          "abrev": "CHARAbbrev.FF",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.GE",
+          "abrev": "CHARAbbrev.GE",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KO",
+          "abrev": "CHARAbbrev.KO",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KK",
+          "abrev": "CHARAbbrev.KK",
+          "gearmodifier": 0,
+          "value": 8
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": 0,
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 16,
+          "advances": 0,
+          "modifier": 0,
+          "current": 16,
+          "max": 16,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -8
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "dodge": {
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 8.08,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 0,
+          "spent": 0
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "sellingFactor": null,
+        "buyingFactor": null,
+        "hidePlayer": null,
+        "hideMoney": null,
+        "playerView": true
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 0,
+      "moneyWeight": 0,
+      "canAdvance": false,
+      "carrycapacity": 16,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  },
+  {
+    "id": "GQGjrbn4lAIhUzqo",
+    "name": "Mpemba",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 3,
+          "gearmodifier": 0,
+          "value": 11
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 3,
+          "gearmodifier": 0,
+          "value": 11
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 3,
+          "gearmodifier": 0,
+          "value": 11
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 7,
+          "gearmodifier": 0,
+          "value": 15
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "kk": {
+          "species": 1,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 7,
+          "gearmodifier": 0,
+          "value": 15
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": "0",
+      "status": {
+        "wounds": {
+          "initial": 5,
+          "value": 40,
+          "advances": 9,
+          "modifier": 0,
+          "current": 31,
+          "max": 40,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -13
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": -5,
+          "value": 1,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 1
+        },
+        "toughness": {
+          "initial": -5,
+          "value": 2,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 2
+        },
+        "dodge": {
+          "value": 8,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 8
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 8,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "initiative": {
+          "value": 13.13,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 3,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 3,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": "Mensch"
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": "Utulus"
+        },
+        "career": {
+          "value": "Sklavin - Leibsklave"
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 1220,
+          "spent": 1145
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "itemModifiers": {},
+      "condition": {
+        "encumbered": 1,
+        "inpain": 0
+      },
+      "creatureType": "Mensch",
+      "skillModifiers": {
+        "FP": [],
+        "step": [
+          {
+            "source": "Kletterseil",
+            "value": "1",
+            "target": "Klettern",
+            "item": "Kletterseil"
+          },
+          {
+            "source": "Feuerstein und Stahl",
+            "value": "2",
+            "target": "Wildnisleben",
+            "item": "Feuerstein und Stahl"
+          }
+        ],
+        "QL": [
+          {
+            "source": "Zunder",
+            "value": "1",
+            "target": "Wildnisleben",
+            "item": "Zunder"
+          },
+          {
+            "source": "Stechender Blick",
+            "value": "1",
+            "target": "Einschüchtern",
+            "item": "Stechender Blick"
+          }
+        ],
+        "TPM": [
+          {
+            "source": "Verbandszeug",
+            "value": "0|1|1",
+            "target": "Heilkunde Wunden",
+            "item": "Verband"
+          }
+        ],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 36.458999999999996,
+      "moneyWeight": 1.7289999999999999,
+      "canAdvance": false,
+      "carrycapacity": 30,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.ActorSheetdsa5Character"
+      }
+    }
+  },
+  {
+    "id": "57hVI7FK2GGqBM6R",
+    "name": "Reisekosten",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.MU",
+          "abrev": "CHARAbbrev.MU",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KL",
+          "abrev": "CHARAbbrev.KL",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.IN",
+          "abrev": "CHARAbbrev.IN",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.CH",
+          "abrev": "CHARAbbrev.CH",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.FF",
+          "abrev": "CHARAbbrev.FF",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.GE",
+          "abrev": "CHARAbbrev.GE",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KO",
+          "abrev": "CHARAbbrev.KO",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KK",
+          "abrev": "CHARAbbrev.KK",
+          "gearmodifier": 0,
+          "value": 8
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": 0,
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 16,
+          "advances": 0,
+          "modifier": 0,
+          "current": 16,
+          "max": 16,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -8
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "dodge": {
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 8.08,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 0,
+          "spent": 0
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "sellingFactor": null,
+        "buyingFactor": null,
+        "hidePlayer": null,
+        "hideMoney": null,
+        "playerView": true
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 0,
+      "moneyWeight": 0,
+      "canAdvance": false,
+      "carrycapacity": 16,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  },
+  {
+    "id": "bXznxRx3UcUYrSxV",
+    "name": "Tempel/Bibliothek/Museum",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.MU",
+          "abrev": "CHARAbbrev.MU",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KL",
+          "abrev": "CHARAbbrev.KL",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.IN",
+          "abrev": "CHARAbbrev.IN",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.CH",
+          "abrev": "CHARAbbrev.CH",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.FF",
+          "abrev": "CHARAbbrev.FF",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.GE",
+          "abrev": "CHARAbbrev.GE",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KO",
+          "abrev": "CHARAbbrev.KO",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KK",
+          "abrev": "CHARAbbrev.KK",
+          "gearmodifier": 0,
+          "value": 8
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": 0,
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 16,
+          "advances": 0,
+          "modifier": 0,
+          "current": 16,
+          "max": 16,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -8
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "dodge": {
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 8.08,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 0,
+          "spent": 0
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "sellingFactor": null,
+        "buyingFactor": null,
+        "hidePlayer": null,
+        "hideMoney": null,
+        "playerView": true
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 0,
+      "moneyWeight": 0,
+      "canAdvance": false,
+      "carrycapacity": 16,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  },
+  {
+    "id": "HCZFRtpxb9ezlZr0",
+    "name": "Walla Burija Sabu Hasmanin",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 6,
+          "gearmodifier": 0,
+          "value": 14
+        },
+        "kl": {
+          "species": 1,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 9,
+          "gearmodifier": 0,
+          "value": 17
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 6,
+          "gearmodifier": 0,
+          "value": 14
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 6,
+          "gearmodifier": 0,
+          "value": 14
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 5,
+          "gearmodifier": 0,
+          "value": 13
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 2,
+          "gearmodifier": 0,
+          "value": 10
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": "0",
+      "status": {
+        "wounds": {
+          "initial": 5,
+          "value": 31,
+          "advances": 0,
+          "modifier": 0,
+          "current": 31,
+          "max": 31,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -13
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 36,
+          "advances": 1,
+          "modifier": 0,
+          "current": 17,
+          "max": 36,
+          "permanentLoss": 0,
+          "rebuy": 0,
+          "permanentGear": 2,
+          "gearmodifier": 20,
+          "permanentLossSum": 2
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": -5,
+          "value": 3,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "toughness": {
+          "initial": -5,
+          "value": 1,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 1
+        },
+        "dodge": {
+          "value": 5,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 5
+        },
+        "fatePoints": {
+          "value": 4,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 1,
+          "max": 4
+        },
+        "speed": {
+          "initial": 8,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 8
+        },
+        "initiative": {
+          "value": 12.12,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": "Mensch"
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": "Mhanadistan"
+        },
+        "career": {
+          "value": "Weißmagier der Akademie Schwert und Stab zu Gareth"
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 1555,
+          "spent": 1546
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "kl",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": "1",
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "Tradition (Gildenmagier)",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 10,
+        "used": 10
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "itemModifiers": {
+        "AsP": {
+          "value": 20,
+          "sources": ["Zauberer"]
+        },
+        "Schip": {
+          "value": 1,
+          "sources": ["Glück"]
+        }
+      },
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "Mensch",
+      "skillModifiers": {
+        "FP": [
+          {
+            "source": "Papier",
+            "value": "1",
+            "target": "Malen & Zeichnen",
+            "item": "Papier"
+          }
+        ],
+        "step": [
+          {
+            "source": "Hochnäsig",
+            "value": "-1",
+            "target": "Überreden",
+            "item": "Weiße Gilde"
+          }
+        ],
+        "QL": [],
+        "TPM": [
+          {
+            "source": "Gutes Namensgedächtnis",
+            "value": "1|0|0",
+            "target": "Etikette",
+            "item": "Gutes Namensgedächtnis"
+          }
+        ],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": -1,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 17.861,
+      "moneyWeight": 0.811,
+      "isMage": true,
+      "canAdvance": false,
+      "carrycapacity": 20,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.ActorSheetdsa5Character"
+      }
+    }
+  },
+  {
+    "id": "i1ArDKeHfc0su7pD",
+    "name": "Wirt",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.MU",
+          "abrev": "CHARAbbrev.MU",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KL",
+          "abrev": "CHARAbbrev.KL",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.IN",
+          "abrev": "CHARAbbrev.IN",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.CH",
+          "abrev": "CHARAbbrev.CH",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.FF",
+          "abrev": "CHARAbbrev.FF",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.GE",
+          "abrev": "CHARAbbrev.GE",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KO",
+          "abrev": "CHARAbbrev.KO",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KK",
+          "abrev": "CHARAbbrev.KK",
+          "gearmodifier": 0,
+          "value": 8
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": 0,
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 16,
+          "advances": 0,
+          "modifier": 0,
+          "current": 16,
+          "max": 16,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -8
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "dodge": {
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 8.08,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 0,
+          "spent": 0
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "sellingFactor": null,
+        "buyingFactor": null,
+        "hidePlayer": null,
+        "hideMoney": null,
+        "playerView": true
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 0,
+      "moneyWeight": 0,
+      "canAdvance": false,
+      "carrycapacity": 16,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  },
+  {
+    "id": "TzV1LAQvxtJwvAZI",
+    "name": "Wirt (Bornland)",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.MU",
+          "abrev": "CHARAbbrev.MU",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KL",
+          "abrev": "CHARAbbrev.KL",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.IN",
+          "abrev": "CHARAbbrev.IN",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.CH",
+          "abrev": "CHARAbbrev.CH",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.FF",
+          "abrev": "CHARAbbrev.FF",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.GE",
+          "abrev": "CHARAbbrev.GE",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KO",
+          "abrev": "CHARAbbrev.KO",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KK",
+          "abrev": "CHARAbbrev.KK",
+          "gearmodifier": 0,
+          "value": 8
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": 0,
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 16,
+          "advances": 0,
+          "modifier": 0,
+          "current": 16,
+          "max": 16,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -8
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "dodge": {
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 8.08,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 0,
+          "spent": 0
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "sellingFactor": null,
+        "buyingFactor": null,
+        "hidePlayer": null,
+        "hideMoney": null,
+        "playerView": true
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 0,
+      "moneyWeight": 0,
+      "canAdvance": false,
+      "carrycapacity": 16,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  },
+  {
+    "id": "NoMpuNhzstfAtJvv",
+    "name": "Wirt (Kosch)",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.MU",
+          "abrev": "CHARAbbrev.MU",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KL",
+          "abrev": "CHARAbbrev.KL",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.IN",
+          "abrev": "CHARAbbrev.IN",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.CH",
+          "abrev": "CHARAbbrev.CH",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.FF",
+          "abrev": "CHARAbbrev.FF",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.GE",
+          "abrev": "CHARAbbrev.GE",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KO",
+          "abrev": "CHARAbbrev.KO",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KK",
+          "abrev": "CHARAbbrev.KK",
+          "gearmodifier": 0,
+          "value": 8
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": 0,
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 16,
+          "advances": 0,
+          "modifier": 0,
+          "current": 16,
+          "max": 16,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -8
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "dodge": {
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 8.08,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 0,
+          "spent": 0
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "sellingFactor": null,
+        "buyingFactor": null,
+        "hidePlayer": null,
+        "hideMoney": null,
+        "playerView": true
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 0,
+      "moneyWeight": 0,
+      "canAdvance": false,
+      "carrycapacity": 16,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  },
+  {
+    "id": "JZyfMcZZr09nVkOs",
+    "name": "Wirt (Sonnenküste)",
+    "type": "character",
+    "system": {
+      "characteristics": {
+        "mu": {
+          "initial": 8,
+          "species": 0,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.MU",
+          "abrev": "CHARAbbrev.MU",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kl": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KL",
+          "abrev": "CHARAbbrev.KL",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "in": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.IN",
+          "abrev": "CHARAbbrev.IN",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ch": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.CH",
+          "abrev": "CHARAbbrev.CH",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ff": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.FF",
+          "abrev": "CHARAbbrev.FF",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ge": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.GE",
+          "abrev": "CHARAbbrev.GE",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "ko": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KO",
+          "abrev": "CHARAbbrev.KO",
+          "gearmodifier": 0,
+          "value": 8
+        },
+        "kk": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 0,
+          "label": "CHAR.KK",
+          "abrev": "CHARAbbrev.KK",
+          "gearmodifier": 0,
+          "value": 8
+        }
+      },
+      "swarm": {
+        "count": 1,
+        "gg": 1,
+        "attack": 0,
+        "parry": 0,
+        "damage": 0
+      },
+      "hitbox": 0,
+      "status": {
+        "wounds": {
+          "initial": 0,
+          "value": 16,
+          "advances": 0,
+          "modifier": 0,
+          "current": 16,
+          "max": 16,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "min": -8
+        },
+        "temporaryLeP": {
+          "max": 0,
+          "value": 0
+        },
+        "astralenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "karmaenergy": {
+          "initial": 0,
+          "value": 0,
+          "advances": 0,
+          "modifier": 0,
+          "current": 0,
+          "max": 0,
+          "permanentGear": 0,
+          "gearmodifier": 0,
+          "rebuy": 0,
+          "permanentLoss": 0,
+          "permanentLossSum": 0
+        },
+        "soulpower": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "toughness": {
+          "initial": 0,
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "dodge": {
+          "value": 4,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 4
+        },
+        "fatePoints": {
+          "value": 3,
+          "modifier": 0,
+          "current": 3,
+          "gearmodifier": 0,
+          "max": 3
+        },
+        "speed": {
+          "initial": 0,
+          "modifier": 0,
+          "value": 0,
+          "multiplier": 1,
+          "gearmodifier": 0,
+          "max": 0
+        },
+        "initiative": {
+          "value": 8.08,
+          "modifier": 0,
+          "current": 0,
+          "die": "1d6",
+          "diemodifier": "",
+          "multiplier": 1,
+          "gearmodifier": 0
+        },
+        "size": {
+          "value": "average"
+        },
+        "regeneration": {
+          "LePTemp": 0,
+          "AsPTemp": 0,
+          "KaPTemp": 0,
+          "LePMod": 0,
+          "AsPMod": 0,
+          "KaPMod": 0,
+          "LePgearmodifier": 0,
+          "KaPgearmodifier": 0,
+          "AsPgearmodifier": 0,
+          "LePmax": 0,
+          "KaPmax": 0,
+          "AsPmax": 0
+        }
+      },
+      "details": {
+        "species": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        },
+        "culture": {
+          "value": ""
+        },
+        "career": {
+          "value": ""
+        },
+        "socialstate": {
+          "value": ""
+        },
+        "home": {
+          "value": ""
+        },
+        "family": {
+          "value": ""
+        },
+        "age": {
+          "value": ""
+        },
+        "haircolor": {
+          "value": ""
+        },
+        "eyecolor": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "distinguishingmark": {
+          "value": ""
+        },
+        "biography": {
+          "value": ""
+        },
+        "notes": {
+          "value": "",
+          "gmdescription": "",
+          "ownerdescription": ""
+        },
+        "experience": {
+          "total": 0,
+          "spent": 0
+        },
+        "Home": {
+          "value": ""
+        }
+      },
+      "guidevalue": {
+        "magical": "-",
+        "clerical": "-"
+      },
+      "energyfactor": {
+        "magical": 1,
+        "clerical": 1
+      },
+      "tradition": {
+        "magical": "",
+        "clerical": ""
+      },
+      "feature": {
+        "magical": "",
+        "clerical": ""
+      },
+      "happyTalents": {
+        "value": ""
+      },
+      "config": {
+        "autoBar": true,
+        "autoSize": true
+      },
+      "freeLanguagePoints": {
+        "value": 0,
+        "used": 0
+      },
+      "sheetLocked": {
+        "value": false
+      },
+      "merchant": {
+        "merchantType": "merchant",
+        "sellingFactor": null,
+        "buyingFactor": null,
+        "hidePlayer": null,
+        "hideMoney": null,
+        "playerView": true
+      },
+      "itemModifiers": {},
+      "condition": {
+        "inpain": 0
+      },
+      "creatureType": "",
+      "skillModifiers": {
+        "FP": [],
+        "step": [],
+        "QL": [],
+        "TPM": [],
+        "FW": [],
+        "botch": 20,
+        "crit": 1,
+        "global": [],
+        "conditional": {
+          "AsPCost": [],
+          "KaPCost": []
+        },
+        "combat": {
+          "step": [],
+          "parry": [],
+          "attack": [],
+          "damage": []
+        },
+        "feature": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": [],
+          "KaPCost": [],
+          "AsPCost": []
+        },
+        "liturgy": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ceremony": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "ritual": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "spell": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        },
+        "skill": {
+          "FP": [],
+          "step": [],
+          "QL": [],
+          "TPM": [],
+          "FW": []
+        }
+      },
+      "repeatingEffects": {
+        "startOfRound": {
+          "wounds": [],
+          "karmaenergy": [],
+          "astralenergy": []
+        }
+      },
+      "temperature": {
+        "heatProtection": 0,
+        "coldProtection": 0
+      },
+      "totalArmor": 0,
+      "spellArmor": 0,
+      "liturgyArmor": 0,
+      "carryModifier": 0,
+      "aspModifier": 0,
+      "kapModifier": 0,
+      "immunities": [],
+      "thresholds": {
+        "effects": []
+      },
+      "creatureBonus": [],
+      "miracle": {
+        "attack": 0,
+        "parry": 0
+      },
+      "spellStats": {
+        "damage": "0"
+      },
+      "liturgyStats": {
+        "damage": "0"
+      },
+      "meleeStats": {
+        "parry": 0,
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "rangeStats": {
+        "attack": 0,
+        "damage": "0",
+        "defenseMalus": 0,
+        "botch": 20,
+        "crit": 1
+      },
+      "defaultWeapon": {
+        "system": {
+          "damageThreshold": {
+            "value": 14
+          },
+          "reach": {
+            "value": "short"
+          },
+          "guidevalue": {
+            "value": "ge/kk"
+          }
+        }
+      },
+      "totalWeight": 0,
+      "moneyWeight": 0,
+      "canAdvance": false,
+      "carrycapacity": 16,
+      "armorEncumbrance": 0
+    },
+    "flags": {
+      "core": {
+        "sheetClass": "dsa5.CharacterMerchantSheetDSA5"
+      }
+    }
+  }
+]
