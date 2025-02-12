@@ -107,44 +107,29 @@ psql -U dsa_user -d dsa_analysis -f database/characters.sql
 
    The client should now be running and accessible at `http://localhost:3000`.
 
-## Project Roadmap
+## Current Issues
 
-### Objective
-
-The primary goal of this project is to create a robust and modular analysis tool that not only processes DSA chat logs but also evolves into a platform capable of supporting multiple player groups and advanced data analysis.
-
-### Phases
-
-1. **Database Migration:**
-
-   - **Transition to PostgreSQL:** Move from file-based storage to a PostgreSQL database hosted on neon.tech. This migration will ensure data integrity and scalability, enabling the application to handle large datasets and incremental updates without data loss.
-
-2. **Data Parsing Enhancement:**
-
-   - **HTML-Based Parsing:** Upgrade the data parsing script to extract information from HTML logs rather than plain text. This will allow for more accurate data capture, including timestamps, and prevent duplicate data entries.
-
-3. **Modular Frontend Development:**
-
-   - **Component-Based Architecture:** Refactor the React frontend into reusable components, focusing on maintainability and future enhancements. Unnecessary features, such as Google Authentication, will be removed or re-evaluated for future use.
-
-4. **API Development:**
-
-   - **RESTful API Design:** Implement a RESTful API to manage communication between the frontend and backend, supporting features like data fetching, filtering, and real-time updates.
-
-5. **Scalability Preparation:**
-   - **Multi-Tenancy Support:** Design the application to support multiple player groups, allowing for broader data collection and analysis.
-   - **Advanced Analytics & Machine Learning:** Lay the groundwork for future machine learning projects by ensuring data is collected and stored in a format suitable for advanced analysis.
-
-## DSA Forum Thread (German)
-
-For more information or to join the discussion, visit the DSA Forum: [Kreative Ideen für Datenanalyse in DSA gesucht](https://dsaforum.de/viewtopic.php?p=2130810&sid=35430a31d27d49c3c592265d31acf1e0#p2130810)
+- Refine dsa5 foundry scripts to extract **relevant** data only
+- Create database and ingest sample data
+- Build MVP
+  - Design Landing Page (What must an overview page have, Navbar, Group Analysis, Character Analysis)
+  - Create Group Analysis page with some charts for analysis
+  - Create Character Analysis page with some charts for analysis
+- Review and potentially host and integrate into foundry (module for data retreival)
+  - Implement login to scale application for different groups
 
 ## Ideas
+
+### Analysis
 
 - Talent Boxplots sortable after quartiles, mean, max, succes-rate etc.
 - Collapsible Content: Show e.g. Talents only if interested, below spells with the same charts if applicable
 
-### Bugs
+### Bugs (dsa4 version)
 
 - Aliases not displayed properly
 - Categories in distribution include N/A (potentially spells, traits, etc.)
+
+## DSA Forum Thread (German)
+
+For more information or to join the discussion, visit the DSA Forum: [Kreative Ideen für Datenanalyse in DSA gesucht](https://dsaforum.de/viewtopic.php?p=2130810&sid=35430a31d27d49c3c592265d31acf1e0#p2130810)
