@@ -1,6 +1,4 @@
-import logging
-
-logger = logging.getLogger(__name__)
+from config.logger_config import logger
 
 
 def get_trait_counts(traits_list):

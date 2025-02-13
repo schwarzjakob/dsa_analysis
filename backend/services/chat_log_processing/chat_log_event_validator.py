@@ -1,6 +1,6 @@
-import logging
 from typing import List, Optional
 
+from config.logger_config import logger
 from models.dice_event import DiceEvent
 
 # For example, your known trait names, short or long
@@ -27,7 +27,6 @@ TALENT_CORRECTIONS = {
 
 class ChatLogEventValidator:
     def __init__(self, characters_and_aliases, talents, spells, attacks):
-        self.logger = logging.getLogger(__name__)
         self.characters_and_aliases = characters_and_aliases
         self.known_talents = talents
         self.known_spells = spells
@@ -80,9 +79,6 @@ class ChatLogEventValidator:
 
             # -- Damage event --
             if "treffer" in second_line.lower():
-                logging.info(
-                    DiceEvent(character=self.current_character_name, event_type="damage", lines=[lines_chunk[2]])
-                )
                 return DiceEvent(character=self.current_character_name, event_type="damage", lines=[lines_chunk[2]])
 
             else:

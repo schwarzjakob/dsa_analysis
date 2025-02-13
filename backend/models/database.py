@@ -1,8 +1,9 @@
 import os
-import logging
 from contextlib import contextmanager
 from psycopg2 import pool, extras
 from dotenv import load_dotenv
+
+from config.logger_config import logger
 
 # Load environment variables (DATABASE_URL, etc.)
 load_dotenv()
@@ -37,9 +38,9 @@ class Database:
                     minconn, maxconn, dbname=dbname, user=user, password=password, host=host, port=port
                 )
                 self.__initialized = True
-                logging.info("Database connection pool initialized successfully.")
+                logger.info("Database connection pool initialized successfully.")
             except Exception as e:
-                logging.error(f"Error initializing connection pool: {e}")
+                logger.error(f"Error initializing connection pool: {e}")
                 raise
 
     @contextmanager
@@ -68,7 +69,7 @@ class Database:
                 conn.commit()
             except Exception as e:
                 conn.rollback()
-                logging.error(f"Transaction failed: {e}")
+                logger.error(f"Transaction failed: {e}")
                 raise
             finally:
                 cursor.close()
@@ -83,7 +84,7 @@ class Database:
                 cursor.execute(query, params)
             return True
         except Exception as e:
-            logging.error(f"Error executing query: {e}")
+            logger.error(f"Error executing query: {e}")
             return False
 
     def fetch_query(self, query: str, params=None):
@@ -97,11 +98,11 @@ class Database:
                 result = cursor.fetchall()
                 return result
         except Exception as e:
-            logging.error(f"Error fetching query: {e}")
+            logger.error(f"Error fetching query: {e}")
             return None
 
     def close(self):
         """Close the connection pool when shutting down."""
         if self.__pool:
             self.__pool.closeall()
-            logging.info("Database connection pool closed.")
+            logger.info("Database connection pool closed.")

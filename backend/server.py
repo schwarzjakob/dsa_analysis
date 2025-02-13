@@ -2,9 +2,9 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import sys
-import logging
 from dotenv import load_dotenv
 
+from config.logger_config import logger
 from services.database_service import DatabaseService
 from services.chat_log_processing_service import ChatLogProcessingService
 from services import exploratory_analysis
@@ -15,9 +15,6 @@ from services import exploratory_analysis
 
 
 # Enabling logging
-logger_format = "[%(asctime)s %(filename)s->%(funcName)s():%(lineno)d] %(levelname)s: %(message)s"
-logging.basicConfig(format=logger_format, level=logging.DEBUG)
-logger = logging.getLogger(__name__)
 
 load_dotenv()
 

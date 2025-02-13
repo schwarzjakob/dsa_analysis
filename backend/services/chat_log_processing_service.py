@@ -1,7 +1,6 @@
-import logging
 from typing import Dict, List
 
-# Import event validator and processor
+from config.logger_config import logger
 from services.chat_log_processing.chat_log_event_validator import ChatLogEventValidator
 from services.chat_log_processing.chat_log_event_processor import ChatLogEventProcessor
 
@@ -22,7 +21,6 @@ class ChatLogProcessingService:
         :param spells: Dictionary of valid spell names from DB (hash map)
         :param attacks: Dictionary of valid attack names from DB (hash map)
         """
-        self.logger = logging.getLogger(__name__)
 
         self.characters_and_aliases = characters_and_aliases
         self.known_talents = talents

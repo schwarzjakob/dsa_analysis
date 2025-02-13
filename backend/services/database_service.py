@@ -1,7 +1,7 @@
-import logging
 from typing import Optional, List, Any, Dict
 from psycopg2.extras import execute_values
 
+from config.logger_config import logger
 from models.database import Database
 
 
@@ -11,7 +11,6 @@ class DatabaseService:
     """
 
     def __init__(self):
-        self.logger = logging.getLogger(__name__)
         self.database = Database()
 
     def _fetch_mapping(self, table_name, key_column, value_column):
@@ -283,8 +282,6 @@ class DatabaseService:
         if not total_damage:
             return
 
-        logging.info(f"Inserting total damage: {total_damage}")
-
         with self.database.get_connection() as conn:
             with conn.cursor() as cur:
                 for character_name, damage_value in total_damage.items():
@@ -293,7 +290,7 @@ class DatabaseService:
                     character_id = self.get_character_id_by_name(character_name)
 
                     if character_id is None:
-                        self.logger.warning(f"Character '{character_name}' not found in database. Skipping...")
+                        logger.warning(f"Character '{character_name}' not found in database. Skipping...")
                         continue  # Skip if character is not found
 
                     # Check if total_damage entry exists

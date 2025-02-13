@@ -1,6 +1,6 @@
-import logging
 import re
 
+from config.logger_config import logger
 from models.dice_event import DiceEvent
 
 
@@ -11,7 +11,6 @@ class ChatLogEventProcessor:
     """
 
     def __init__(self):
-        self.logger = logging.getLogger(__name__)
         self.traits_rows = []  # List[dict] for trait events
         self.talents_rows = []  # List[dict] for talent events
         self.spells_rows = []  # List[dict] for spell events
@@ -37,7 +36,7 @@ class ChatLogEventProcessor:
         elif event_type == "damage":
             self._process_damage_event(character_name, lines)
         else:
-            self.logger.warning(f"Unknown event type: {event_type}")
+            logger.warning(f"Unknown event type: {event_type}")
 
     def _process_trait_event(self, character_name, lines):
         # Expected lines:
