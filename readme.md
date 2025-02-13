@@ -82,7 +82,7 @@ psql -U dsa_user -d dsa_analysis -f database/characters.sql
 4. **Start the Flask Server:**
 
    ```bash
-   python server.py
+   python backend.py
    ```
 
 ### Frontend Setup

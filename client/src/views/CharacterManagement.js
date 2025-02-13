@@ -81,7 +81,7 @@ const CharacterManagement = () => {
   const saveCharacter = async () => {
     try {
       await axios.post(
-        "http://127.0.0.1:5000/characters_management/update-character",
+        "http://127.0.0.1:5000/dsa4/characters_management/update-character",
         characterDetails
       );
       alert("Character updated successfully");

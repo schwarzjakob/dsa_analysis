@@ -15,7 +15,7 @@ const TraitsForSelectedTalents = () => {
   useEffect(() => {
     const fetchTraitsData = async () => {
       try {
-        const response = await fetch("/traits-for-selected-talents", {
+        const response = await fetch("/dsa4/traits-for-selected-talents", {
           method: "POST",
           body: JSON.stringify({ talentsNameList: selectedTalents }),
           headers: {
@@ -37,7 +37,7 @@ const TraitsForSelectedTalents = () => {
 
   const fetchTalentsOptions = async () => {
     try {
-      const response = await fetch("/talents-options");
+      const response = await fetch("/dsa4/talents-options");
       const data = await response.json();
       setTalentsByCategory(data.talents);
     } catch (error) {

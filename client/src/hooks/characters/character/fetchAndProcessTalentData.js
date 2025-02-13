@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchAndProcessTalentData = async (characterName, talentName) => {
   try {
     const response = await axios.post(
-      `http://127.0.0.1:5000/character_analysis/analyze-talent`,
+      `http://127.0.0.1:5000/dsa4/character_analysis/analyze-talent`,
       {
         characterName: characterName,
         talentName: talentName,

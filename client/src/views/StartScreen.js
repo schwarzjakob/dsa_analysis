@@ -16,7 +16,7 @@ function StartScreen() {
 
     try {
       await axios.post(
-        "http://127.0.0.1:5000/chat_processing/process_chatlog",
+        "http://127.0.0.1:5000/dsa4/chat_processing/process_chatlog",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

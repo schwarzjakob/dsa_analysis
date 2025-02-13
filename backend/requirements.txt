@@ -8,3 +8,4 @@ python-dotenv
 psycopg2
 sqlalchemy
 pydantic==2.10.6
+flask_smorest==0.45.0

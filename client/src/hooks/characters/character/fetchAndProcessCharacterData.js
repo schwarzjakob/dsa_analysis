@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchAndProcessData = async (characterName) => {
   try {
     const response = await axios.get(
-      `http://127.0.0.1:5000/character_analysis/talents/${characterName}`
+      `http://127.0.0.1:5000/dsa4/character_analysis/talents/${characterName}`
     );
     const { talents, traits_relative, traits_values, categories_relative } =
       response.data;
@@ -14,7 +14,7 @@ export const fetchAndProcessData = async (characterName) => {
     const processedCategoryCount = processCategoryCount(categories_relative);
 
     const attacksResponse = await axios.get(
-      `http://127.0.0.1:5000/character_analysis/attacks/${characterName}`
+      `http://127.0.0.1:5000/dsa4/character_analysis/attacks/${characterName}`
     );
     const { attacks } = attacksResponse.data;
     const processedAttacks = processAttacks(attacks);

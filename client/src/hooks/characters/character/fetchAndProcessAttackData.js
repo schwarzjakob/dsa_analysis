@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchAndProcessAttackData = async (characterName, attackName) => {
   try {
     const response = await axios.post(
-      `http://127.0.0.1:5000/character_analysis/analyze-attack`,
+      `http://127.0.0.1:5000/dsa4/character_analysis/analyze-attack`,
       {
         characterName: characterName,
         attackName: attackName,

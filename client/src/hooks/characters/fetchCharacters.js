@@ -1,6 +1,6 @@
 export const fetchCharacters = async () => {
   try {
-    const response = await fetch("/characters_management/characters");
+    const response = await fetch("/dsa4/characters_management/characters");
     const data = await response.json();
     return (
       data.characters.map((char) => ({
