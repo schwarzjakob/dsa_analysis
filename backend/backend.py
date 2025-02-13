@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Blueprint
+from flask import Flask, jsonify
 from flask.wrappers import Response
 from flask_cors import CORS
 from flask_smorest import Api

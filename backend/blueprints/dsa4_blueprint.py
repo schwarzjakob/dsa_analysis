@@ -1,11 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import request, jsonify
 from flask_smorest import Blueprint
-import os
-import sys
-from dotenv import load_dotenv
+
 
 from config.logger_config import logger
-from blueprints import dsa4_blueprint
 from services.database_service import DatabaseService
 from services.chat_log_processing_service import ChatLogProcessingService
 from services import exploratory_analysis
@@ -13,11 +10,6 @@ from services import exploratory_analysis
 
 # TODO: Remove traits_values_output (also from frontend) as its not used at all.
 # TODO: Implement data models such as Character, BaseEvent, Talent, Spell, Attack, etc.
-
-
-# Enabling logging
-
-load_dotenv()
 
 
 class Dsa4Blueprint:
