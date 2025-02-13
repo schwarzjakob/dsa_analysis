@@ -176,10 +176,13 @@ class ChatLogEventProcessor:
 
     def _extract_talent_or_spell_points(self, line: str, pattern="TaP"):
         """
-        Looks for e.g. "(16 TaP*)." or "(16 ZfP*)."
-        Return the integer found or 0 if not found.
+        Extracts talent or spell points, allowing for negative values.
+        Example patterns:
+            - "(16 TaP*)"
+            - "(-2 TaP*)"
+        Returns the integer found or 0 if not found.
         """
-        match = re.search(r"\((\d+)\s+" + re.escape(pattern), line)
+        match = re.search(r"\((-?\d+)\s+" + re.escape(pattern), line)
         return int(match.group(1)) if match else 0
 
     def _extract_talent_or_spell_value(self, line: str, prefix="TaW:"):
