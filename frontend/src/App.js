@@ -1,21 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CharacterData from "./views/CharacterDashboard";
-import StartScreen from "./views/StartScreen";
-import CharacterManagement from "./views/CharacterManagement";
-import TraitsForSelectedTalents from "./views/TraitsForSelectedTalents";
+import LandingPage from "./landing/LandingPage";
+import Dsa5App from "./dsa5/App";
+import Dsa4App from "./dsa4/App";
+import "./App.css";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<StartScreen />} />
-        <Route path="/talents/:characterName" element={<CharacterData />} />
-        <Route path="/characters" element={<CharacterManagement />} />
-        <Route
-          path="/traits-for-selected-talents"
-          element={<TraitsForSelectedTalents />}
-        />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/dsa5/*" element={<Dsa5App />} />
+        <Route path="/dsa4/*" element={<Dsa4App />} />
       </Routes>
     </Router>
   );

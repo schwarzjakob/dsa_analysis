@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/layout/Home.js";
-import "../App.css";
+import "../dsa4.css";
 
 function StartScreen() {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ function StartScreen() {
       <div className="start-container">
         {/* Welcoming Section */}
         <section className="welcome-section">
-          <h1>Welcome to DSA Character Analyzer</h1>
+          <h1>Welcome to our DSA Insights Hub</h1>
           <p>
             Discover the depths of your characters in the world of Das Schwarze
             Auge.
@@ -83,12 +83,15 @@ function StartScreen() {
             Explore the talents of your characters and how they have developed
             over time.
           </p>
-          <button className="button" onClick={() => navigate("/characters")}>
+          <button
+            className="button"
+            onClick={() => navigate("/dsa4/characters")}
+          >
             Manage Characters
           </button>
           <button
             className="button"
-            onClick={() => navigate("/talents/<character_name>")}
+            onClick={() => navigate("/dsa4/talents/<character_name>")}
           >
             Explore Characters
           </button>
@@ -103,7 +106,7 @@ function StartScreen() {
           </p>
           <button
             className="button"
-            onClick={() => navigate("/traits-for-selected-talents")}
+            onClick={() => navigate("/dsa4/traits-for-selected-talents")}
           >
             Explorer
           </button>

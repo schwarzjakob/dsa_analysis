@@ -21,7 +21,7 @@ import {
 import "chartjs-plugin-annotation";
 import annotationPlugin from "chartjs-plugin-annotation";
 import Home from "../components/layout/Home.js";
-import "../App.css"; // Import the CSS file for styles
+import "../dsa4.css"; // Import the CSS file for styles
 
 // import Chart modules
 import LineChart from "../components/charts/LineChart.js";

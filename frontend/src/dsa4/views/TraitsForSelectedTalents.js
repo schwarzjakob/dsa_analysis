@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-import "../App.css";
+import "../dsa4.css";
 import Header from "../components/layout/Home.js";
 
 const TraitsForSelectedTalents = () => {

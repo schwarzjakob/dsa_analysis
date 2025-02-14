@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Home from "../components/layout/Home";
 import { fetchCharacters } from "../hooks/characters/fetchCharacters";
-import "../App.css";
+import "../dsa4.css";
 
 const CharacterManagement = () => {
   const [characters, setCharacters] = useState([]);
