@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Box } from "@mui/material";
 import { styled, keyframes } from "@mui/system";
@@ -52,16 +52,6 @@ const LandingPage = () => {
     { name: "DSA 5", link: "/dsa5/" },
     { name: "DSA 4", link: "/dsa4/" },
   ];
-
-  useEffect(() => {
-    // Override global styles that affect the landing page.
-    document.body.style.backgroundColor = "#000";
-    document.body.style.backgroundImage = "none"; // Remove the dsa image
-    return () => {
-      // Optional cleanup: reset background image on unmount
-      document.body.style.backgroundImage = "";
-    };
-  }, []);
 
   const handleClick = (link) => {
     navigate(link);
