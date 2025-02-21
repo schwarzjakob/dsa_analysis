@@ -7,50 +7,35 @@
     (actor) => actor.type === "character"
   );
 
-  // Map over the filtered actors to extract the required fields.
-  const actorsData = characterActors.map((actor) => {
-    const system = actor.system || {};
-    const characteristics = system.characteristics || {};
-    const status = system.status || {};
-    const details = system.details || {};
-
-    return {
-      id: actor.id,
-      name: actor.name,
-      type: actor.type,
-      mu: characteristics.mu?.value || null,
-      kl: characteristics.kl?.value || null,
-      in: characteristics.in?.value || null,
-      ch: characteristics.ch?.value || null,
-      ff: characteristics.ff?.value || null,
-      ge: characteristics.ge?.value || null,
-      ko: characteristics.ko?.value || null,
-      kk: characteristics.kk?.value || null,
-      life_points_value: status.wounds?.value || null,
-      life_points_max: status.wounds?.max || null,
-      astral_energy_value: status.astralenergy?.value || null,
-      astral_energy_max: status.astralenergy?.max || null,
-      initiative: status.initiative?.value || null,
-      species: details.species?.value || null,
-      culture: details.culture?.value || null,
-      career: details.career?.value || null,
-      experience_total: details.experience?.total || null,
-      experience_spent: details.experience?.spent || null,
-    };
-  });
+  // Map over the filtered actors to extract the required fields, including the full image URL.
+  const actorsData = characterActors.map((actor) => ({
+    id: actor.id,
+    name: actor.name,
+    type: actor.type,
+    image_url: actor.img
+      ? `${game.data.addresses.remote}/assets/${actor.img}`
+      : null,
+    mu: actor.system?.characteristics?.mu?.value ?? null,
+    kl: actor.system?.characteristics?.kl?.value ?? null,
+    in: actor.system?.characteristics?.in?.value ?? null,
+    ch: actor.system?.characteristics?.ch?.value ?? null,
+    ff: actor.system?.characteristics?.ff?.value ?? null,
+    ge: actor.system?.characteristics?.ge?.value ?? null,
+    ko: actor.system?.characteristics?.ko?.value ?? null,
+    kk: actor.system?.characteristics?.kk?.value ?? null,
+    life_points_value: actor.system?.status?.wounds?.value ?? null,
+    life_points_max: actor.system?.status?.wounds?.max ?? null,
+    astral_energy_value: actor.system?.status?.astralenergy?.value ?? null,
+    astral_energy_max: actor.system?.status?.astralenergy?.max ?? null,
+    initiative: actor.system?.status?.initiative?.value ?? null,
+    species: actor.system?.details?.species?.value ?? null,
+    culture: actor.system?.details?.culture?.value ?? null,
+    career: actor.system?.details?.career?.value ?? null,
+    experience_total: actor.system?.details?.experience?.total ?? null,
+    experience_spent: actor.system?.details?.experience?.spent ?? null,
+  }));
 
   // Convert the extracted data into a JSON string.
   const jsonOutput = JSON.stringify(actorsData, null, 2);
   console.log(jsonOutput);
-
-  // Create a Blob from the JSON string and trigger a download.
-  const blob = new Blob([jsonOutput], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = "characterActors.json";
-  document.body.appendChild(anchor);
-  anchor.click();
-  document.body.removeChild(anchor);
-  URL.revokeObjectURL(url);
 })();

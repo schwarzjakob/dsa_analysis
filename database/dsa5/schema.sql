@@ -5,10 +5,11 @@ CREATE SCHEMA IF NOT EXISTS dsa5;
 CREATE TABLE IF NOT EXISTS dsa5.actors (
     id VARCHAR(50) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
+    image_url TEXT,
     type VARCHAR(50),
     mut INT,
     klugheit INT,
-    intuition INT, -- renamed from "in" to avoid conflict with reserved words
+    intuition INT,
     charisma INT,
     fingerfertigkeit INT,
     gewandtheit INT,

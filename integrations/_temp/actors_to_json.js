@@ -12,6 +12,9 @@
   const actorsData = characterActors.map((actor) => ({
     id: actor.id,
     name: actor.name,
+    image_url: actor.img
+      ? `${game.data.addresses.remote}/assets/${actor.img}`
+      : null,
     type: actor.type,
     system: actor.system,
     flags: actor.flags,
@@ -22,15 +25,4 @@
   // Convert the extracted data into a JSON string.
   const jsonOutput = JSON.stringify(actorsData, null, 2);
   console.log(jsonOutput);
-
-  // Create a Blob from the JSON string and trigger a download.
-  const blob = new Blob([jsonOutput], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = "characterActors.json";
-  document.body.appendChild(anchor);
-  anchor.click();
-  document.body.removeChild(anchor);
-  URL.revokeObjectURL(url);
 })();

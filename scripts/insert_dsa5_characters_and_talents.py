@@ -30,10 +30,10 @@ def connect_db():
 def insert_characters(conn, characters):
     query = """
     INSERT INTO dsa5.actors
-    (id, name, type, mut, klugheit, intuition, charisma, fingerfertigkeit, gewandtheit, konstitution, köperkraft,
+    (id, name, image_url, type, mut, klugheit, intuition, charisma, fingerfertigkeit, gewandtheit, konstitution, köperkraft,
      life_points_value, life_points_max, astral_energy_value, astral_energy_max, initiative, species, culture, career,
      experience_total, experience_spent)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     ON CONFLICT (id) DO NOTHING;
     """
     with conn.cursor() as cur:
@@ -43,6 +43,7 @@ def insert_characters(conn, characters):
                 (
                     char["id"],
                     char["name"],
+                    char["image_url"],
                     char.get("type"),
                     char["mu"],
                     char["kl"],
