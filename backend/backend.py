@@ -7,6 +7,7 @@ from typing import Literal
 
 
 from blueprints.dsa4_blueprint import Dsa4Blueprint
+from blueprints.dsa5_blueprint import Dsa5Blueprint
 
 backend = Flask(import_name=__name__)
 backend.config["API_TITLE"] = "Dsa Analysis Backend"
@@ -22,6 +23,9 @@ CORS(backend, resources={r"/*": {"origins": origins}})
 
 dsa4_blueprint = Dsa4Blueprint()
 api.register_blueprint(dsa4_blueprint.blueprint)
+
+dsa5_blueprint = Dsa5Blueprint()
+api.register_blueprint(dsa5_blueprint.blueprint)
 
 
 @backend.route("/health", methods=["GET"])

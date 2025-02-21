@@ -89,14 +89,14 @@ class Database:
 
     def fetch_query(self, query: str, params=None):
         """
-        Execute a SELECT query and fetch all results as a list of DictRows.
+        Execute a SELECT query and fetch all results as a list of dictionaries.
         Returns None on error.
         """
         try:
             with self.transaction() as cursor:
                 cursor.execute(query, params)
                 result = cursor.fetchall()
-                return result
+                return [dict(row) for row in result]  # Convert DictRow to a standard dictionary
         except Exception as e:
             logger.error(f"Error fetching query: {e}")
             return None
