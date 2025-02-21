@@ -23,15 +23,4 @@
   // Convert the extracted data into a JSON string.
   const jsonOutput = JSON.stringify(extractedData, null, 2);
   console.log(jsonOutput);
-
-  // Optional: Create and trigger a download of the JSON file.
-  const blob = new Blob([jsonOutput], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = "talentRolls.json";
-  document.body.appendChild(anchor);
-  anchor.click();
-  document.body.removeChild(anchor);
-  URL.revokeObjectURL(url);
 })();

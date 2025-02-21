@@ -1,0 +1,1054 @@
+[
+  {
+    "id": "rpPcOC1C6KlYWhBH",
+    "speaker": {
+      "scene": "FmRxOC9wksfJ5xS9",
+      "actor": "iIKV14Pj5pwQrPBo",
+      "token": "ljL5q8FETRICP1RW",
+      "alias": "Elanor Walham"
+    },
+    "title": null,
+    "timestamp": 1730579488545,
+    "createdTime": 1730579488263,
+    "preData": {
+      "opposable": false,
+      "source": {
+        "_id": "6MTcpd9catRwFLTE",
+        "name": "Haselbusch",
+        "type": "spell",
+        "img": "systems/dsa5/icons/spellicons/spells/haselbusch.webp",
+        "system": {
+          "description": {
+            "value": "<p>Der Spruch lässt nicht nur Blumen blühen und Bäume in die Höhe schießen, man kann diese auch hervorragend als Kletterhilfen nutzen.</p><h3>Geste und Formel</h3><ul class=\"dsalist\"><li><em>Elfen</em>: Der Elf berührt Pflanze oder Samen und singt ihre Gestalt mit dem \"la sala biunda sanya’ray\" in die ersehnte Form.</li><li><em>Geoden</em>: Der Geode häuft Humus und Laub um Samen oder Pflanze auf und redet wohlwollend auf sie ein.</li><li><em>Goblinzauberinnen</em>: Die Goblinzauberin hockt sich neben die Pflanze oder den Samen und spuckt sie kräftig an.</li></ul>"
+          },
+          "gmdescription": {
+            "value": ""
+          },
+          "characteristic1": {
+            "value": "in"
+          },
+          "characteristic2": {
+            "value": "ch"
+          },
+          "characteristic3": {
+            "value": "ff"
+          },
+          "effect": {
+            "value": "Der Zauber regt das Wachstum von Pflanzen an. Der Zauberer muss eine Pflanze oder Pflanzensamen an dem Objekt, das er erklettern will, ablegen und warten. Am Ende der Zauberdauer wächst die Pflanze pro KR 1 Schritt (bis maximal QS x 3 Schritt) hoch und erleichtert Klettern-Proben an der ausgewählten Stelle um +QS/2 Punkte. Nach Ende der Wirkungsdauer schrumpft die Pflanze zurück in ihre alte Form."
+          },
+          "castingTime": {
+            "value": "16",
+            "progress": 0,
+            "modified": 0
+          },
+          "AsPCost": {
+            "value": 4
+          },
+          "AsPCostDetail": {
+            "value": "4 AsP"
+          },
+          "maintainCost": {
+            "value": "0"
+          },
+          "distribution": {
+            "value": "Elfen, Geoden, Goblinzauberinnen"
+          },
+          "StF": {
+            "value": "B"
+          },
+          "resistanceModifier": {
+            "value": "-"
+          },
+          "canChangeCastingTime": {
+            "value": "true"
+          },
+          "canChangeCost": {
+            "value": "true"
+          },
+          "canChangeRange": {
+            "value": "true"
+          },
+          "variableBaseCost": "false",
+          "effectFormula": {
+            "value": ""
+          },
+          "target": {
+            "value": "0",
+            "type": "",
+            "width": 0,
+            "angle": 45
+          },
+          "range": {
+            "value": "2 Schritt"
+          },
+          "duration": {
+            "value": "1 Tag"
+          },
+          "targetCategory": {
+            "value": "Pflanze"
+          },
+          "talentValue": {
+            "value": 3
+          },
+          "feature": "Elementar",
+          "gestures": "",
+          "reversalis": "Die reversalisierte Version des Zaubers kehrt das Wachstum einer Pflanze um, sodass sie bis zum Ende der Zauberdauer zu einem Samen wird. (Merkmal: Elementar)"
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "hHlKZ4nX7TYX5yFZ": 3,
+          "LS0x6t0rgRQ7zgil": 3
+        },
+        "flags": {},
+        "_stats": {
+          "coreVersion": "12.331",
+          "systemId": "dsa5",
+          "systemVersion": "6.1.3",
+          "createdTime": 1729452311655,
+          "modifiedTime": 1729453108495,
+          "lastModifiedBy": "LS0x6t0rgRQ7zgil",
+          "compendiumSource": "Compendium.dsa5-magic-1.magic1equipment.Item.jNl4uViNBWu82lQp",
+          "duplicateSource": null
+        }
+      },
+      "extra": {
+        "options": {},
+        "speaker": {
+          "token": "ljL5q8FETRICP1RW",
+          "actor": "iIKV14Pj5pwQrPBo",
+          "scene": "FmRxOC9wksfJ5xS9"
+        },
+        "miraclePaid": true
+      },
+      "advancedModifiers": {
+        "chars": [0, 0, 0],
+        "fws": 0,
+        "qls": 0
+      },
+      "calculatedSpellModifiers": {
+        "castingTime": "16",
+        "cost": "4",
+        "reach": "2 Schritt",
+        "maintainCost": "0",
+        "finalcost": 2,
+        "description": ""
+      },
+      "testDifficulty": 0,
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Schmerz ",
+          "value": -2,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Geste weglassen",
+          "value": 0
+        },
+        {
+          "name": "Formel/Gebet weglassen",
+          "value": 0
+        },
+        {
+          "name": "Aktionsdauer",
+          "value": 0
+        },
+        {
+          "name": "Kosten",
+          "value": 0
+        },
+        {
+          "name": "Reichweite",
+          "value": 0
+        },
+        {
+          "name": "Zähigkeit (Ziel)",
+          "value": 0
+        },
+        {
+          "name": "Seelenkraft (Ziel)",
+          "value": 0
+        },
+        {
+          "name": "Aufrechterhaltene Zauber/Liturgien (je -1)",
+          "value": 0
+        },
+        {
+          "name": "Schwierigkeit",
+          "value": 0,
+          "type": ""
+        }
+      ],
+      "extensions": [],
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20 + 1d20 + 1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "in",
+              "appearance": {
+                "colorset": "in",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 10,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "ch",
+              "appearance": {
+                "colorset": "ch",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 13,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "ff",
+              "appearance": {
+                "colorset": "ff",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 1,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 24,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "result": -1,
+      "characteristics": [
+        {
+          "char": "in",
+          "res": 10,
+          "suc": true,
+          "tar": 12
+        },
+        {
+          "char": "ch",
+          "res": 13,
+          "suc": false,
+          "tar": 9
+        },
+        {
+          "char": "ff",
+          "res": 1,
+          "suc": true,
+          "tar": 11
+        }
+      ],
+      "qualityStep": 0,
+      "description": "Misserfolg",
+      "successLevel": -1,
+      "modifiers": -3,
+      "extra": {},
+      "rollType": "spell",
+      "options": {},
+      "speaker": {
+        "token": "ljL5q8FETRICP1RW",
+        "actor": "iIKV14Pj5pwQrPBo",
+        "scene": "FmRxOC9wksfJ5xS9"
+      },
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "L0MZ44XHA7ebDxpC",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "iIKV14Pj5pwQrPBo",
+      "token": "TfmvXQCBCG7jRwQ2",
+      "alias": "Elanor Walham"
+    },
+    "title": null,
+    "timestamp": 1736022516183,
+    "createdTime": 1736022517016,
+    "preData": {
+      "opposable": false,
+      "source": {
+        "_id": "iQVk70o59Z4lXVkx",
+        "name": "Blitz dich find",
+        "type": "spell",
+        "img": "systems/dsa5/icons/spellicons/spells/blitz-dich-find.webp",
+        "system": {
+          "description": {
+            "value": "<p>Der Zauberspruch vermag einen Gegner zu verwirren. Seine Sinne, insbesondere das Sehen, werden vom Zauberspruch durch störende, flackernde Lichter beeinträchtigt.</p><h3>Geste und Formel</h3><ul class=\"dsalist\"><li><em>Borbaradianer</em>: Der Borbaradianer deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und spricht die Formel: „Blitz dich find!“</li><li><em>Druiden</em>: Der Druide deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel, während er sich vorstellt, wie ein Blitz aus ihnen hervorschießt und das Ziel trifft.</li><li><em>Elfen</em>: Der Elf deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und spricht die Formel: „Bha’iza dha feyra!“</li><li><em>Geoden</em>: Der Geode deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel, während er sich vorstellt, wie ein Blitz aus ihnen hervorschießt und das Ziel trifft.</li><li><em>Gildenmagier</em>: Der Magier deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und spricht die Formel: „Fulgur! (bosp.) / Bahay! (tul.) / Glampi! (thorw.)“</li><li><em>Goblinzauberinnen</em>: Die Goblinzauberin deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und kreischt, während sie sich vorstellt, wie ein Blitz aus ihnen hervorschießt und das Ziel trifft.</li><li><em>Hexen</em>: Die Hexe konzentriert sich auf den Zeigeund Mittelfinger ihrer linken Hand, während sie sich vorstellt, wie ein Blitz aus ihnen hervorschießt und das Ziel trifft, welches sie anblickt. Dabei murmelt sie eine Verwünschung.</li><li><em>Kristallomanten</em>: Der Kristallomant hält einen Amethysten zwischen Zeige- und Mittelfinger seiner linken Hand und deutet damit auf das Ziel, während er sich vorstellt, wie ein Blitz aus dem Stein hervorschießt und das Ziel trifft.</li><li><em>Scharlatane</em>: Der Scharlatan deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und spricht die Formel: „Blitz dich find – Werde blind!“</li></ul>"
+          },
+          "gmdescription": {
+            "value": ""
+          },
+          "characteristic1": {
+            "value": "mu"
+          },
+          "characteristic2": {
+            "value": "in"
+          },
+          "characteristic3": {
+            "value": "ch"
+          },
+          "effect": {
+            "value": "Der Verzauberte wird geblendet. Er erhält 1 Stufe des Zustands Verwirrung."
+          },
+          "castingTime": {
+            "value": "1",
+            "progress": 0,
+            "modified": 0
+          },
+          "AsPCost": {
+            "value": 4
+          },
+          "AsPCostDetail": {
+            "value": "4 AsP"
+          },
+          "maintainCost": {
+            "value": "0"
+          },
+          "distribution": {
+            "value": "allgemein"
+          },
+          "StF": {
+            "value": "A"
+          },
+          "resistanceModifier": {
+            "value": "SK"
+          },
+          "canChangeCastingTime": {
+            "value": "true"
+          },
+          "canChangeCost": {
+            "value": "true"
+          },
+          "canChangeRange": {
+            "value": "true"
+          },
+          "variableBaseCost": "false",
+          "effectFormula": {
+            "value": ""
+          },
+          "target": {
+            "value": "0",
+            "type": "",
+            "width": 0,
+            "angle": 45
+          },
+          "range": {
+            "value": "8 Schritt"
+          },
+          "duration": {
+            "value": "QS KR x 2",
+            "regular": "QS KR"
+          },
+          "targetCategory": {
+            "value": "Lebewesen"
+          },
+          "talentValue": {
+            "value": 12
+          },
+          "feature": "Einfluss",
+          "gestures": "",
+          "reversalis": "Der Zauber kann 1 Stufe des Zustands Verwirrung aufheben. (Merkmal: Einfluss)"
+        },
+        "effects": [
+          {
+            "_id": "9rtj4HS3pyWKpsWf",
+            "name": "Blitz dich find",
+            "img": "icons/svg/aura.svg",
+            "type": "base",
+            "system": {},
+            "changes": [],
+            "disabled": false,
+            "duration": {
+              "startTime": 0,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "origin": null,
+            "tint": "#ffffff",
+            "transfer": true,
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dsa5": {
+                "description": "Blitz dich find",
+                "hideOnToken": false,
+                "hidePlayers": false,
+                "advancedFunction": 1,
+                "args0": "confused",
+                "args1": "1"
+              }
+            },
+            "_stats": {
+              "coreVersion": "12.331",
+              "systemId": "dsa5",
+              "systemVersion": "6.1.3",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null
+            }
+          }
+        ],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "xf9OPWll0XjpX0Cv": 3,
+          "LS0x6t0rgRQ7zgil": 3
+        },
+        "flags": {},
+        "_stats": {
+          "coreVersion": "12.331",
+          "systemId": "dsa5",
+          "systemVersion": "6.1.3",
+          "createdTime": 1729450105245,
+          "modifiedTime": 1729450183975,
+          "lastModifiedBy": "LS0x6t0rgRQ7zgil",
+          "compendiumSource": "Compendium.dsa5-core.coreequipment.Item.4zcfNhDnFWt9a0YW",
+          "duplicateSource": null
+        }
+      },
+      "extra": {
+        "options": {},
+        "speaker": {
+          "token": "TfmvXQCBCG7jRwQ2",
+          "actor": "iIKV14Pj5pwQrPBo",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "miraclePaid": true
+      },
+      "advancedModifiers": {
+        "chars": [0, 0, 0],
+        "fws": 0,
+        "qls": 0
+      },
+      "calculatedSpellModifiers": {
+        "castingTime": "1",
+        "cost": "4",
+        "reach": "8 Schritt",
+        "maintainCost": "0",
+        "finalcost": 4,
+        "description": ""
+      },
+      "testDifficulty": 0,
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Schmerz ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Geste weglassen",
+          "value": 0
+        },
+        {
+          "name": "Formel/Gebet weglassen",
+          "value": 0
+        },
+        {
+          "name": "Aktionsdauer",
+          "value": 0
+        },
+        {
+          "name": "Kosten",
+          "value": 0
+        },
+        {
+          "name": "Reichweite",
+          "value": 0
+        },
+        {
+          "name": "Zähigkeit (Ziel)",
+          "value": 0
+        },
+        {
+          "name": "Seelenkraft (Ziel)",
+          "value": 0
+        },
+        {
+          "name": "Aufrechterhaltene Zauber/Liturgien (je -1)",
+          "value": 0
+        },
+        {
+          "name": "Schwierigkeit",
+          "value": 0,
+          "type": ""
+        }
+      ],
+      "extensions": [],
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20 + 1d20 + 1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "mu",
+              "appearance": {
+                "colorset": "mu",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 13,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "in",
+              "appearance": {
+                "colorset": "in",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 19,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "ch",
+              "appearance": {
+                "colorset": "ch",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 3,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 35,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "result": 3,
+      "characteristics": [
+        {
+          "char": "mu",
+          "res": 13,
+          "suc": false,
+          "tar": 10
+        },
+        {
+          "char": "in",
+          "res": 19,
+          "suc": false,
+          "tar": 13
+        },
+        {
+          "char": "ch",
+          "res": 3,
+          "suc": true,
+          "tar": 10
+        }
+      ],
+      "qualityStep": 1,
+      "description": "Erfolg",
+      "successLevel": 1,
+      "modifiers": -2,
+      "extra": {},
+      "rollType": "spell",
+      "options": {},
+      "speaker": {
+        "token": "TfmvXQCBCG7jRwQ2",
+        "actor": "iIKV14Pj5pwQrPBo",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "B00GMbsns3rCzGgV",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "iIKV14Pj5pwQrPBo",
+      "token": "TfmvXQCBCG7jRwQ2",
+      "alias": "Elanor Walham"
+    },
+    "title": null,
+    "timestamp": 1736022574462,
+    "createdTime": 1736022575294,
+    "preData": {
+      "opposable": false,
+      "source": {
+        "_id": "iQVk70o59Z4lXVkx",
+        "name": "Blitz dich find",
+        "type": "spell",
+        "img": "systems/dsa5/icons/spellicons/spells/blitz-dich-find.webp",
+        "system": {
+          "description": {
+            "value": "<p>Der Zauberspruch vermag einen Gegner zu verwirren. Seine Sinne, insbesondere das Sehen, werden vom Zauberspruch durch störende, flackernde Lichter beeinträchtigt.</p><h3>Geste und Formel</h3><ul class=\"dsalist\"><li><em>Borbaradianer</em>: Der Borbaradianer deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und spricht die Formel: „Blitz dich find!“</li><li><em>Druiden</em>: Der Druide deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel, während er sich vorstellt, wie ein Blitz aus ihnen hervorschießt und das Ziel trifft.</li><li><em>Elfen</em>: Der Elf deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und spricht die Formel: „Bha’iza dha feyra!“</li><li><em>Geoden</em>: Der Geode deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel, während er sich vorstellt, wie ein Blitz aus ihnen hervorschießt und das Ziel trifft.</li><li><em>Gildenmagier</em>: Der Magier deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und spricht die Formel: „Fulgur! (bosp.) / Bahay! (tul.) / Glampi! (thorw.)“</li><li><em>Goblinzauberinnen</em>: Die Goblinzauberin deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und kreischt, während sie sich vorstellt, wie ein Blitz aus ihnen hervorschießt und das Ziel trifft.</li><li><em>Hexen</em>: Die Hexe konzentriert sich auf den Zeigeund Mittelfinger ihrer linken Hand, während sie sich vorstellt, wie ein Blitz aus ihnen hervorschießt und das Ziel trifft, welches sie anblickt. Dabei murmelt sie eine Verwünschung.</li><li><em>Kristallomanten</em>: Der Kristallomant hält einen Amethysten zwischen Zeige- und Mittelfinger seiner linken Hand und deutet damit auf das Ziel, während er sich vorstellt, wie ein Blitz aus dem Stein hervorschießt und das Ziel trifft.</li><li><em>Scharlatane</em>: Der Scharlatan deutet mit Zeige- und Mittelfinger der linken Hand auf das Ziel und spricht die Formel: „Blitz dich find – Werde blind!“</li></ul>"
+          },
+          "gmdescription": {
+            "value": ""
+          },
+          "characteristic1": {
+            "value": "mu"
+          },
+          "characteristic2": {
+            "value": "in"
+          },
+          "characteristic3": {
+            "value": "ch"
+          },
+          "effect": {
+            "value": "Der Verzauberte wird geblendet. Er erhält 1 Stufe des Zustands Verwirrung."
+          },
+          "castingTime": {
+            "value": "1",
+            "progress": 0,
+            "modified": 0
+          },
+          "AsPCost": {
+            "value": 4
+          },
+          "AsPCostDetail": {
+            "value": "4 AsP"
+          },
+          "maintainCost": {
+            "value": "0"
+          },
+          "distribution": {
+            "value": "allgemein"
+          },
+          "StF": {
+            "value": "A"
+          },
+          "resistanceModifier": {
+            "value": "SK"
+          },
+          "canChangeCastingTime": {
+            "value": "true"
+          },
+          "canChangeCost": {
+            "value": "true"
+          },
+          "canChangeRange": {
+            "value": "true"
+          },
+          "variableBaseCost": "false",
+          "effectFormula": {
+            "value": ""
+          },
+          "target": {
+            "value": "0",
+            "type": "",
+            "width": 0,
+            "angle": 45
+          },
+          "range": {
+            "value": "8 Schritt"
+          },
+          "duration": {
+            "value": "QS KR x 2",
+            "regular": "QS KR"
+          },
+          "targetCategory": {
+            "value": "Lebewesen"
+          },
+          "talentValue": {
+            "value": 12
+          },
+          "feature": "Einfluss",
+          "gestures": "",
+          "reversalis": "Der Zauber kann 1 Stufe des Zustands Verwirrung aufheben. (Merkmal: Einfluss)"
+        },
+        "effects": [
+          {
+            "_id": "9rtj4HS3pyWKpsWf",
+            "name": "Blitz dich find",
+            "img": "icons/svg/aura.svg",
+            "type": "base",
+            "system": {},
+            "changes": [],
+            "disabled": false,
+            "duration": {
+              "startTime": 0,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "",
+            "origin": null,
+            "tint": "#ffffff",
+            "transfer": true,
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dsa5": {
+                "description": "Blitz dich find",
+                "hideOnToken": false,
+                "hidePlayers": false,
+                "advancedFunction": 1,
+                "args0": "confused",
+                "args1": "1"
+              }
+            },
+            "_stats": {
+              "coreVersion": "12.331",
+              "systemId": "dsa5",
+              "systemVersion": "6.1.3",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null
+            }
+          }
+        ],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "xf9OPWll0XjpX0Cv": 3,
+          "LS0x6t0rgRQ7zgil": 3
+        },
+        "flags": {},
+        "_stats": {
+          "coreVersion": "12.331",
+          "systemId": "dsa5",
+          "systemVersion": "6.1.3",
+          "createdTime": 1729450105245,
+          "modifiedTime": 1729450183975,
+          "lastModifiedBy": "LS0x6t0rgRQ7zgil",
+          "compendiumSource": "Compendium.dsa5-core.coreequipment.Item.4zcfNhDnFWt9a0YW",
+          "duplicateSource": null
+        }
+      },
+      "extra": {
+        "options": {},
+        "speaker": {
+          "token": "TfmvXQCBCG7jRwQ2",
+          "actor": "iIKV14Pj5pwQrPBo",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "miraclePaid": true
+      },
+      "advancedModifiers": {
+        "chars": [0, 0, 0],
+        "fws": 0,
+        "qls": 0
+      },
+      "calculatedSpellModifiers": {
+        "castingTime": "1",
+        "cost": "4",
+        "reach": "8 Schritt",
+        "maintainCost": "0",
+        "finalcost": 4,
+        "description": ""
+      },
+      "testDifficulty": 0,
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Schmerz ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Geste weglassen",
+          "value": 0
+        },
+        {
+          "name": "Formel/Gebet weglassen",
+          "value": 0
+        },
+        {
+          "name": "Aktionsdauer",
+          "value": 0
+        },
+        {
+          "name": "Kosten",
+          "value": 0
+        },
+        {
+          "name": "Reichweite",
+          "value": 0
+        },
+        {
+          "name": "Zähigkeit (Ziel)",
+          "value": 0
+        },
+        {
+          "name": "Seelenkraft (Ziel)",
+          "value": -1
+        },
+        {
+          "name": "Aufrechterhaltene Zauber/Liturgien (je -1)",
+          "value": 0
+        },
+        {
+          "name": "Schwierigkeit",
+          "value": 0,
+          "type": ""
+        }
+      ],
+      "extensions": [],
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20 + 1d20 + 1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "mu",
+              "appearance": {
+                "colorset": "mu",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 5,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "in",
+              "appearance": {
+                "colorset": "in",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 1,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "ch",
+              "appearance": {
+                "colorset": "ch",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 8,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 14,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "result": 12,
+      "characteristics": [
+        {
+          "char": "mu",
+          "res": 5,
+          "suc": true,
+          "tar": 9
+        },
+        {
+          "char": "in",
+          "res": 1,
+          "suc": true,
+          "tar": 12
+        },
+        {
+          "char": "ch",
+          "res": 8,
+          "suc": true,
+          "tar": 9
+        }
+      ],
+      "qualityStep": 4,
+      "description": "Erfolg",
+      "successLevel": 1,
+      "modifiers": -3,
+      "extra": {},
+      "rollType": "spell",
+      "options": {},
+      "speaker": {
+        "token": "TfmvXQCBCG7jRwQ2",
+        "actor": "iIKV14Pj5pwQrPBo",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "postFunction": "basicTest"
+    }
+  }
+]
