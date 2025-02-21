@@ -12,9 +12,7 @@
     id: actor.id,
     name: actor.name,
     type: actor.type,
-    image_url: actor.img
-      ? `${game.data.addresses.remote}/assets/${actor.img}`
-      : null,
+    image_url: actor.img ? `${game.data.addresses.remote}${actor.img}` : null,
     mu: actor.system?.characteristics?.mu?.value ?? null,
     kl: actor.system?.characteristics?.kl?.value ?? null,
     in: actor.system?.characteristics?.in?.value ?? null,
