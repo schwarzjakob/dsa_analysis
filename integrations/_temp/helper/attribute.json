@@ -1,0 +1,106 @@
+[
+  {
+    "id": "86a2e0d3VDialHnC",
+    "speaker": {
+      "scene": "rOOJPlPFBuP1UuUG",
+      "actor": "PqlZC4s33nnaoxYB",
+      "token": "9YvmM0gRb0eOnKYC",
+      "alias": "Akira Masamune"
+    },
+    "title": null,
+    "timestamp": 1736013663087,
+    "createdTime": 1736013644994,
+    "preData": {
+      "opposable": false,
+      "source": {
+        "type": "char",
+        "system": {
+          "species": 0,
+          "initial": 8,
+          "modifier": 0,
+          "advances": 3,
+          "gearmodifier": 0,
+          "value": 11,
+          "attr": "kl"
+        }
+      },
+      "extra": {
+        "characteristicId": "kl",
+        "options": {},
+        "speaker": {
+          "actor": "PqlZC4s33nnaoxYB",
+          "scene": "rOOJPlPFBuP1UuUG"
+        },
+        "miraclePaid": true
+      },
+      "testDifficulty": 0,
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": -2,
+          "type": ""
+        },
+        {
+          "name": "Schwierigkeit",
+          "value": 0,
+          "type": ""
+        }
+      ],
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "kl",
+              "appearance": {
+                "colorset": "kl",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 18,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 18,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "kl",
+          "res": 18,
+          "suc": false,
+          "tar": 9
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -2,
+      "extra": {},
+      "rollType": "attribute",
+      "characteristicId": "kl",
+      "options": {},
+      "speaker": {
+        "actor": "PqlZC4s33nnaoxYB",
+        "scene": "rOOJPlPFBuP1UuUG"
+      },
+      "postFunction": "basicTest"
+    }
+  }
+]

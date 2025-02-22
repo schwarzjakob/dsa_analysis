@@ -18,5 +18,4 @@ class Dsa5Blueprint:
 
     def get_characters(self):
         characters = self.database_service.get_characters()
-        logger.info(f"Characters: {characters}")
         return jsonify(characters)

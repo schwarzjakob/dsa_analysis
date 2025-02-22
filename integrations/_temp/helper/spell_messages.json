@@ -1,0 +1,322 @@
+[
+  {
+    "id": "rpPcOC1C6KlYWhBH",
+    "speaker": {
+      "scene": "FmRxOC9wksfJ5xS9",
+      "actor": "iIKV14Pj5pwQrPBo",
+      "token": "ljL5q8FETRICP1RW",
+      "alias": "Elanor Walham"
+    },
+    "title": null,
+    "timestamp": 1730579488545,
+    "createdTime": 1730579488263,
+    "preData": {
+      "opposable": false,
+      "source": {
+        "_id": "6MTcpd9catRwFLTE",
+        "name": "Haselbusch",
+        "type": "spell",
+        "img": "systems/dsa5/icons/spellicons/spells/haselbusch.webp",
+        "system": {
+          "description": {
+            "value": "<p>Der Spruch lässt nicht nur Blumen blühen und Bäume in die Höhe schießen, man kann diese auch hervorragend als Kletterhilfen nutzen.</p><h3>Geste und Formel</h3><ul class=\"dsalist\"><li><em>Elfen</em>: Der Elf berührt Pflanze oder Samen und singt ihre Gestalt mit dem \"la sala biunda sanya’ray\" in die ersehnte Form.</li><li><em>Geoden</em>: Der Geode häuft Humus und Laub um Samen oder Pflanze auf und redet wohlwollend auf sie ein.</li><li><em>Goblinzauberinnen</em>: Die Goblinzauberin hockt sich neben die Pflanze oder den Samen und spuckt sie kräftig an.</li></ul>"
+          },
+          "gmdescription": {
+            "value": ""
+          },
+          "characteristic1": {
+            "value": "in"
+          },
+          "characteristic2": {
+            "value": "ch"
+          },
+          "characteristic3": {
+            "value": "ff"
+          },
+          "effect": {
+            "value": "Der Zauber regt das Wachstum von Pflanzen an. Der Zauberer muss eine Pflanze oder Pflanzensamen an dem Objekt, das er erklettern will, ablegen und warten. Am Ende der Zauberdauer wächst die Pflanze pro KR 1 Schritt (bis maximal QS x 3 Schritt) hoch und erleichtert Klettern-Proben an der ausgewählten Stelle um +QS/2 Punkte. Nach Ende der Wirkungsdauer schrumpft die Pflanze zurück in ihre alte Form."
+          },
+          "castingTime": {
+            "value": "16",
+            "progress": 0,
+            "modified": 0
+          },
+          "AsPCost": {
+            "value": 4
+          },
+          "AsPCostDetail": {
+            "value": "4 AsP"
+          },
+          "maintainCost": {
+            "value": "0"
+          },
+          "distribution": {
+            "value": "Elfen, Geoden, Goblinzauberinnen"
+          },
+          "StF": {
+            "value": "B"
+          },
+          "resistanceModifier": {
+            "value": "-"
+          },
+          "canChangeCastingTime": {
+            "value": "true"
+          },
+          "canChangeCost": {
+            "value": "true"
+          },
+          "canChangeRange": {
+            "value": "true"
+          },
+          "variableBaseCost": "false",
+          "effectFormula": {
+            "value": ""
+          },
+          "target": {
+            "value": "0",
+            "type": "",
+            "width": 0,
+            "angle": 45
+          },
+          "range": {
+            "value": "2 Schritt"
+          },
+          "duration": {
+            "value": "1 Tag"
+          },
+          "targetCategory": {
+            "value": "Pflanze"
+          },
+          "talentValue": {
+            "value": 3
+          },
+          "feature": "Elementar",
+          "gestures": "",
+          "reversalis": "Die reversalisierte Version des Zaubers kehrt das Wachstum einer Pflanze um, sodass sie bis zum Ende der Zauberdauer zu einem Samen wird. (Merkmal: Elementar)"
+        },
+        "effects": [],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "hHlKZ4nX7TYX5yFZ": 3,
+          "LS0x6t0rgRQ7zgil": 3
+        },
+        "flags": {},
+        "_stats": {
+          "coreVersion": "12.331",
+          "systemId": "dsa5",
+          "systemVersion": "6.1.3",
+          "createdTime": 1729452311655,
+          "modifiedTime": 1729453108495,
+          "lastModifiedBy": "LS0x6t0rgRQ7zgil",
+          "compendiumSource": "Compendium.dsa5-magic-1.magic1equipment.Item.jNl4uViNBWu82lQp",
+          "duplicateSource": null
+        }
+      },
+      "extra": {
+        "options": {},
+        "speaker": {
+          "token": "ljL5q8FETRICP1RW",
+          "actor": "iIKV14Pj5pwQrPBo",
+          "scene": "FmRxOC9wksfJ5xS9"
+        },
+        "miraclePaid": true
+      },
+      "advancedModifiers": {
+        "chars": [0, 0, 0],
+        "fws": 0,
+        "qls": 0
+      },
+      "calculatedSpellModifiers": {
+        "castingTime": "16",
+        "cost": "4",
+        "reach": "2 Schritt",
+        "maintainCost": "0",
+        "finalcost": 2,
+        "description": ""
+      },
+      "testDifficulty": 0,
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Schmerz ",
+          "value": -2,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Geste weglassen",
+          "value": 0
+        },
+        {
+          "name": "Formel/Gebet weglassen",
+          "value": 0
+        },
+        {
+          "name": "Aktionsdauer",
+          "value": 0
+        },
+        {
+          "name": "Kosten",
+          "value": 0
+        },
+        {
+          "name": "Reichweite",
+          "value": 0
+        },
+        {
+          "name": "Zähigkeit (Ziel)",
+          "value": 0
+        },
+        {
+          "name": "Seelenkraft (Ziel)",
+          "value": 0
+        },
+        {
+          "name": "Aufrechterhaltene Zauber/Liturgien (je -1)",
+          "value": 0
+        },
+        {
+          "name": "Schwierigkeit",
+          "value": 0,
+          "type": ""
+        }
+      ],
+      "extensions": [],
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20 + 1d20 + 1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "in",
+              "appearance": {
+                "colorset": "in",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 10,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "ch",
+              "appearance": {
+                "colorset": "ch",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 13,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "ff",
+              "appearance": {
+                "colorset": "ff",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 1,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 24,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "result": -1,
+      "characteristics": [
+        {
+          "char": "in",
+          "res": 10,
+          "suc": true,
+          "tar": 12
+        },
+        {
+          "char": "ch",
+          "res": 13,
+          "suc": false,
+          "tar": 9
+        },
+        {
+          "char": "ff",
+          "res": 1,
+          "suc": true,
+          "tar": 11
+        }
+      ],
+      "qualityStep": 0,
+      "description": "Misserfolg",
+      "successLevel": -1,
+      "modifiers": -3,
+      "extra": {},
+      "rollType": "spell",
+      "options": {},
+      "speaker": {
+        "token": "ljL5q8FETRICP1RW",
+        "actor": "iIKV14Pj5pwQrPBo",
+        "scene": "FmRxOC9wksfJ5xS9"
+      },
+      "postFunction": "basicTest"
+    }
+  }
+]

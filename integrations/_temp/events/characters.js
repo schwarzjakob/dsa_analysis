@@ -37,3 +37,9 @@
   const jsonOutput = JSON.stringify(actorsData, null, 2);
   console.log(jsonOutput);
 })();
+
+(async () => {
+  const myGame = Array.from(game);
+  const jsonOutput = JSON.stringify(game, null, 2);
+  console.log(jsonOutput);
+})();

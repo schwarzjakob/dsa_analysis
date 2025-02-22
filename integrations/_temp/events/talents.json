@@ -1,6 +1,7 @@
 [
   {
-    "message_id": "Gt0Kr3DYZpf1WXZC",
+    "event_id": "Gt0Kr3DYZpf1WXZC",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1730571181353,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -9,15 +10,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -2,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "Nl8fP1bdbfa3bEUV",
+    "event_id": "Nl8fP1bdbfa3bEUV",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1730571204654,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -26,15 +26,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "OGMd8yUBtubMdkcP",
+    "event_id": "OGMd8yUBtubMdkcP",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730571242905,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -43,15 +42,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "PDeDDaFX0P0Py18p",
+    "event_id": "PDeDDaFX0P0Py18p",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1730571314800,
     "talent_name": "Malen & Zeichnen",
     "talent_group": "trade",
@@ -60,15 +58,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ff",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "s4yKCMEo7WBwfQU0",
+    "event_id": "s4yKCMEo7WBwfQU0",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730574629890,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -77,15 +74,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "wnjquHQ8Yk3te0Tx",
+    "event_id": "wnjquHQ8Yk3te0Tx",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730574709641,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -94,15 +90,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -7,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "T9dZ5Nyn1hmCD4SG",
+    "event_id": "T9dZ5Nyn1hmCD4SG",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730574827987,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -111,15 +106,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "BbJpAsQKij61VSUs",
+    "event_id": "BbJpAsQKij61VSUs",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730574909902,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -128,15 +122,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "66It6pR0Na8KzvoN",
+    "event_id": "66It6pR0Na8KzvoN",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730575052155,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -145,15 +138,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "orzv5JbetzOEiOc1",
+    "event_id": "orzv5JbetzOEiOc1",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730575308128,
     "talent_name": "Verbergen",
     "talent_group": "body",
@@ -162,15 +154,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ge",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 1,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "xoHIk3V5vykxVvsQ",
+    "event_id": "xoHIk3V5vykxVvsQ",
+    "character_id": "GQGjrbn4lAIhUzqo",
     "timestamp": 1730575335128,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -179,15 +170,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "GQGjrbn4lAIhUzqo",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "IamesXaiNlfxArv0",
+    "event_id": "IamesXaiNlfxArv0",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730576389367,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -196,15 +186,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -6,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -7,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "G8bwwjqO34UEPhGy",
+    "event_id": "G8bwwjqO34UEPhGy",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730576416535,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -213,15 +202,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -5,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "SDyAoPfB2W1YDGmN",
+    "event_id": "SDyAoPfB2W1YDGmN",
+    "character_id": "Yv9BEG99dUWSJevt",
     "timestamp": 1730577303356,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -230,15 +218,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "Yv9BEG99dUWSJevt",
     "result": -8,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "OCA1nZ7432cEOIDW",
+    "event_id": "OCA1nZ7432cEOIDW",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730577342435,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -247,15 +234,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -10,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "UnXGer5VH3wCX2gd",
+    "event_id": "UnXGer5VH3wCX2gd",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730577355315,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -264,15 +250,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "SbU5Jz7Skrzzv8NH",
+    "event_id": "SbU5Jz7Skrzzv8NH",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730577362131,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -281,15 +266,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -8,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "XwtKlYhh3KqJkjhE",
+    "event_id": "XwtKlYhh3KqJkjhE",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730577375034,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -298,15 +282,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -8,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "ERSWnbeLrAHIMXoo",
+    "event_id": "ERSWnbeLrAHIMXoo",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730578160756,
     "talent_name": "Heilkunde Wunden",
     "talent_group": "trade",
@@ -315,15 +298,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ff",
     "modifier": -4,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 3,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "VeeWExRSHCxezC6m",
+    "event_id": "VeeWExRSHCxezC6m",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1730578792175,
     "talent_name": "Wildnisleben",
     "talent_group": "nature",
@@ -332,15 +314,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 493,
     "quality_step": 6,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "zJXSvWdUptDdWuTJ",
+    "event_id": "zJXSvWdUptDdWuTJ",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730579364357,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -349,15 +330,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": -5,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "kLvRHFnqFqsgbvLN",
+    "event_id": "kLvRHFnqFqsgbvLN",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730579392399,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -366,15 +346,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -2,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "QbjroDKed3ASOJHQ",
+    "event_id": "QbjroDKed3ASOJHQ",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730579420474,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -383,15 +362,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": -5,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "ii3mkngY84aAvL5H",
+    "event_id": "ii3mkngY84aAvL5H",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730579425775,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -400,15 +378,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 6,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "bJTVLfQnMNtp3716",
+    "event_id": "bJTVLfQnMNtp3716",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1730579984347,
     "talent_name": "Orientierung",
     "talent_group": "nature",
@@ -417,15 +394,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 8,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "UtLrIGNvrzFLJVYg",
+    "event_id": "UtLrIGNvrzFLJVYg",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1730580342507,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -434,15 +410,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -4,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "guT4pUtcLJax1HnE",
+    "event_id": "guT4pUtcLJax1HnE",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1730581353131,
     "talent_name": "Gaukeleien",
     "talent_group": "body",
@@ -451,15 +426,14 @@
     "talent_trait_2": "ch",
     "talent_trait_3": "ff",
     "modifier": -3,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "GUNHEIuJG0LCklic",
+    "event_id": "GUNHEIuJG0LCklic",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1730581552359,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -468,15 +442,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -3,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -12,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "lDJ3XMwC3HrnlOp2",
+    "event_id": "lDJ3XMwC3HrnlOp2",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1730582043019,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -485,15 +458,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -22,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "ded5orukQWZ7o1ZH",
+    "event_id": "ded5orukQWZ7o1ZH",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1730585007237,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -502,15 +474,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "063fpMtvGqfBWDHA",
+    "event_id": "063fpMtvGqfBWDHA",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1731613795869,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -519,15 +490,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "hk7v6FpbJX1IGbXN",
+    "event_id": "hk7v6FpbJX1IGbXN",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1731614417715,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -536,15 +506,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "ZJnHY8YCPupgyaYi",
+    "event_id": "ZJnHY8YCPupgyaYi",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1731614421277,
     "talent_name": "Menschenkenntnis",
     "talent_group": "social",
@@ -553,15 +522,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "7qLigdnRUsKvjUsp",
+    "event_id": "7qLigdnRUsKvjUsp",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1731614475482,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -570,15 +538,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -1,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -12,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "tXWk7Sketj7yEszm",
+    "event_id": "tXWk7Sketj7yEszm",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614498083,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -587,15 +554,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -5,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "QedTndkWp5iZDWNJ",
+    "event_id": "QedTndkWp5iZDWNJ",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614513922,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -604,15 +570,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -2,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "oRyDYxLX6NYYfblI",
+    "event_id": "oRyDYxLX6NYYfblI",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614525842,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -621,15 +586,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -4,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -15,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "3lsNVG7XoVkVSrqD",
+    "event_id": "3lsNVG7XoVkVSrqD",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1731614578110,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -638,15 +602,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -3,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -19,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "JbMckrGbPPtvBrZw",
+    "event_id": "JbMckrGbPPtvBrZw",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614661107,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -655,15 +618,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -4,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -2,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "Jykpn7qadNxUBref",
+    "event_id": "Jykpn7qadNxUBref",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614688786,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -672,15 +634,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "KzqI5xxCxQhTW3HO",
+    "event_id": "KzqI5xxCxQhTW3HO",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614696576,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -689,15 +650,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "m0MseRUsjFztQUhp",
+    "event_id": "m0MseRUsjFztQUhp",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614713512,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -706,15 +666,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -9,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "jwZbRyJImWuk6rDF",
+    "event_id": "jwZbRyJImWuk6rDF",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614719065,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -723,15 +682,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "tk8zAWoT5XRBTtmx",
+    "event_id": "tk8zAWoT5XRBTtmx",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614732457,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -740,15 +698,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -2,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "87rx16o7H2YsZClm",
+    "event_id": "87rx16o7H2YsZClm",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614737023,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -757,15 +714,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -5,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "SmSxm9AIlVydAtMv",
+    "event_id": "SmSxm9AIlVydAtMv",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731614741768,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -774,15 +730,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -4,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "YATz4pmodjuYvhqo",
+    "event_id": "YATz4pmodjuYvhqo",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1731615019425,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -791,15 +746,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "ib3LsFOJeXljaPiK",
+    "event_id": "ib3LsFOJeXljaPiK",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1731615027508,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -808,15 +762,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -6,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "eo6U7aBcbDhCTL6j",
+    "event_id": "eo6U7aBcbDhCTL6j",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1731615038642,
     "talent_name": "Gassenwissen",
     "talent_group": "social",
@@ -825,15 +778,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -13,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "XYyipLUAjnCW4btz",
+    "event_id": "XYyipLUAjnCW4btz",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1731618035843,
     "talent_name": "Überreden",
     "talent_group": "social",
@@ -842,15 +794,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 12,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "yHCRItpvlasJVEE3",
+    "event_id": "yHCRItpvlasJVEE3",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1731619557608,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -859,15 +810,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "OAxFJdbdimCh2ymf",
+    "event_id": "OAxFJdbdimCh2ymf",
+    "character_id": "2QJQXLg562XUcgVG",
     "timestamp": 1731619563368,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -876,15 +826,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "2QJQXLg562XUcgVG",
     "result": 5,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "s9ZgISezzcg1mRXY",
+    "event_id": "s9ZgISezzcg1mRXY",
+    "character_id": "ALhm2wSwvtDPtMBi",
     "timestamp": 1732216612596,
     "talent_name": "Fliegen",
     "talent_group": "body",
@@ -893,15 +842,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ge",
     "modifier": 0,
-    "actor": "ALhm2wSwvtDPtMBi",
     "result": -6,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "uU0ZSi1hhmPoHhPT",
+    "event_id": "uU0ZSi1hhmPoHhPT",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732217271524,
     "talent_name": "Menschenkenntnis",
     "talent_group": "social",
@@ -910,15 +858,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "pdlDAsfDc2lyvrz1",
+    "event_id": "pdlDAsfDc2lyvrz1",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732217356076,
     "talent_name": "Menschenkenntnis",
     "talent_group": "social",
@@ -927,15 +874,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -5,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "dHyomIGTK9RktXCA",
+    "event_id": "dHyomIGTK9RktXCA",
+    "character_id": "6WxRoiXc91YmpNK3",
     "timestamp": 1732217407409,
     "talent_name": "Überreden",
     "talent_group": "social",
@@ -944,15 +890,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "6WxRoiXc91YmpNK3",
     "result": 0,
     "quality_step": 1,
-    "description": "Würfel 2 wegen Unfähigkeit erneut geworfen (2/6), Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Würfel 2 wegen Unfähigkeit erneut geworfen (2/6), Erfolg"
   },
   {
-    "message_id": "6aBi2ZyZ75DAJ3JD",
+    "event_id": "6aBi2ZyZ75DAJ3JD",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732217644555,
     "talent_name": "Überreden",
     "talent_group": "social",
@@ -961,15 +906,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 12,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "c6pAdMd3zMLEan0J",
+    "event_id": "c6pAdMd3zMLEan0J",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732217648496,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -978,15 +922,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 3,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "GfoqJJTDNstZgpTm",
+    "event_id": "GfoqJJTDNstZgpTm",
+    "character_id": "6WxRoiXc91YmpNK3",
     "timestamp": 1732217669808,
     "talent_name": "Willenskraft",
     "talent_group": "social",
@@ -995,15 +938,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "6WxRoiXc91YmpNK3",
     "result": -9,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "ijSNXb0ASLQlU7fs",
+    "event_id": "ijSNXb0ASLQlU7fs",
+    "character_id": "6WxRoiXc91YmpNK3",
     "timestamp": 1732221800558,
     "talent_name": "Wildnisleben",
     "talent_group": "nature",
@@ -1012,15 +954,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "ko",
     "modifier": 2,
-    "actor": "6WxRoiXc91YmpNK3",
     "result": 6,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "nytLN7w4KQcQ0av1",
+    "event_id": "nytLN7w4KQcQ0av1",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1732222095515,
     "talent_name": "Lebensmittelbearbeitung",
     "talent_group": "trade",
@@ -1029,15 +970,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ff",
     "modifier": 0,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "37uxMAr65nkyeWWj",
+    "event_id": "37uxMAr65nkyeWWj",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732222491510,
     "talent_name": "Malen & Zeichnen",
     "talent_group": "trade",
@@ -1046,15 +986,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ff",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 1,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "NGZp6czEc3eYw9Lg",
+    "event_id": "NGZp6czEc3eYw9Lg",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732222901595,
     "talent_name": "Malen & Zeichnen",
     "talent_group": "trade",
@@ -1063,15 +1002,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ff",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 5,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "xybvlmsucQwEyT1F",
+    "event_id": "xybvlmsucQwEyT1F",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732223023309,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1080,15 +1018,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "bdCxeZ9mlwcx9NwE",
+    "event_id": "bdCxeZ9mlwcx9NwE",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732223412473,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1097,15 +1034,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "xqvIToPJClI6sQur",
+    "event_id": "xqvIToPJClI6sQur",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1732223638679,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -1114,15 +1050,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": -2,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -8,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "nDEjMBkS4GRB9Eo5",
+    "event_id": "nDEjMBkS4GRB9Eo5",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1732223644248,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -1131,15 +1066,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -10,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "qIZJpVYxYmyv0HiM",
+    "event_id": "qIZJpVYxYmyv0HiM",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1732223663268,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -1148,15 +1082,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "Ysjo9ahnxnwfHLxe",
+    "event_id": "Ysjo9ahnxnwfHLxe",
+    "character_id": "6WxRoiXc91YmpNK3",
     "timestamp": 1732223703259,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -1165,15 +1098,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "6WxRoiXc91YmpNK3",
     "result": -2,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "qOstHgMuExMhlPMx",
+    "event_id": "qOstHgMuExMhlPMx",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1732223742690,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -1182,15 +1114,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": -1,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": -17,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "74YGGaJlRMAYWgOf",
+    "event_id": "74YGGaJlRMAYWgOf",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732223743928,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -1199,15 +1130,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "MvpNLYGtvxRqlwGe",
+    "event_id": "MvpNLYGtvxRqlwGe",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732223768548,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -1216,15 +1146,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "ChR0cy35eEi9HyEa",
+    "event_id": "ChR0cy35eEi9HyEa",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1732223894290,
     "talent_name": "Heilkunde Wunden",
     "talent_group": "trade",
@@ -1233,15 +1162,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ff",
     "modifier": 1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 8,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "OVthkvjsMo3a3pnx",
+    "event_id": "OVthkvjsMo3a3pnx",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732224330619,
     "talent_name": "Boote & Schiffe",
     "talent_group": "trade",
@@ -1250,15 +1178,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "kk",
     "modifier": 2,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 12,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "9GoG69KaNhpQwFBP",
+    "event_id": "9GoG69KaNhpQwFBP",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1732224505585,
     "talent_name": "Fährtensuchen",
     "talent_group": "nature",
@@ -1267,15 +1194,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ge",
     "modifier": 0,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 3,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "pCGMdb1Zz7WvD2N8",
+    "event_id": "pCGMdb1Zz7WvD2N8",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1732224521150,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -1284,15 +1210,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "36EhmMaEB5fk4yBS",
+    "event_id": "36EhmMaEB5fk4yBS",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732224670887,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -1301,15 +1226,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 7,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "FjdYXdh6ecFSJavi",
+    "event_id": "FjdYXdh6ecFSJavi",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732224696931,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -1318,15 +1242,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "5urkjunpuBYVV5E8",
+    "event_id": "5urkjunpuBYVV5E8",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1732224741578,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -1335,15 +1258,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -2,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -2,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "Zu5MS9f77hHjiNey",
+    "event_id": "Zu5MS9f77hHjiNey",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1732224991053,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -1352,15 +1274,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "KsLF2DXzMv9CkxV2",
+    "event_id": "KsLF2DXzMv9CkxV2",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732225087452,
     "talent_name": "Rechnen",
     "talent_group": "knowledge",
@@ -1369,15 +1290,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -11,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "Vc4Fmwq8IYEkddF9",
+    "event_id": "Vc4Fmwq8IYEkddF9",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732225162259,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1386,15 +1306,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 9,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "l3Dv2OqT8QDkVt8x",
+    "event_id": "l3Dv2OqT8QDkVt8x",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732225182600,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1403,15 +1322,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 1,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "BAJchHT9jMdTsNGM",
+    "event_id": "BAJchHT9jMdTsNGM",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732225190312,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1420,15 +1338,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "qvAjc7l8dxBMfn7A",
+    "event_id": "qvAjc7l8dxBMfn7A",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732225707390,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -1437,15 +1354,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -2,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 7,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "flAAP7x10UPALOUB",
+    "event_id": "flAAP7x10UPALOUB",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732225771464,
     "talent_name": "Orientierung",
     "talent_group": "nature",
@@ -1454,15 +1370,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "9ztBQof5DaKyoC9f",
+    "event_id": "9ztBQof5DaKyoC9f",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732225823899,
     "talent_name": "Orientierung",
     "talent_group": "nature",
@@ -1471,15 +1386,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -10,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "7lPXttxGYPOrqhK1",
+    "event_id": "7lPXttxGYPOrqhK1",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1732225873470,
     "talent_name": "Orientierung",
     "talent_group": "nature",
@@ -1488,15 +1402,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -2,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "cC6AHrg2N6Z3SQ2u",
+    "event_id": "cC6AHrg2N6Z3SQ2u",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732226307612,
     "talent_name": "Orientierung",
     "talent_group": "nature",
@@ -1505,15 +1418,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "VD0gWHF8jdCzPnv0",
+    "event_id": "VD0gWHF8jdCzPnv0",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732226743359,
     "talent_name": "Boote & Schiffe",
     "talent_group": "trade",
@@ -1522,15 +1434,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "kk",
     "modifier": -2,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 12,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "zKBpyFWEzMr6QNGz",
+    "event_id": "zKBpyFWEzMr6QNGz",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732226872210,
     "talent_name": "Körperbeherrschung",
     "talent_group": "body",
@@ -1539,15 +1450,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "ko",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 3,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "SlnZDXGHjQcmmu77",
+    "event_id": "SlnZDXGHjQcmmu77",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732227061174,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1556,15 +1466,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "5SmXjvdzw0G1MIqc",
+    "event_id": "5SmXjvdzw0G1MIqc",
+    "character_id": "6WxRoiXc91YmpNK3",
     "timestamp": 1732227398553,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1573,15 +1482,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "6WxRoiXc91YmpNK3",
     "result": -13,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "KIc0jNP2RullqRpu",
+    "event_id": "KIc0jNP2RullqRpu",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1732227406115,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1590,15 +1498,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "V9bAG10NlTqVajyc",
     "result": 1,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "NB9I75FbstOeCSaC",
+    "event_id": "NB9I75FbstOeCSaC",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1732227418291,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1607,15 +1514,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "tDmblHUeHUiGa72N",
+    "event_id": "tDmblHUeHUiGa72N",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1732227483000,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1624,15 +1530,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "N2a8Km6ThCocpUaz",
+    "event_id": "N2a8Km6ThCocpUaz",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1732227546824,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -1641,15 +1546,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 1,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "nklkpzFgydbIHxOw",
+    "event_id": "nklkpzFgydbIHxOw",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736012034236,
     "talent_name": "Willenskraft",
     "talent_group": "social",
@@ -1658,15 +1562,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "LZHmkPMoSCRmwUXq",
+    "event_id": "LZHmkPMoSCRmwUXq",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736012086583,
     "talent_name": "Willenskraft",
     "talent_group": "social",
@@ -1675,15 +1578,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "tSrlVwYeTRCUXOJi",
+    "event_id": "tSrlVwYeTRCUXOJi",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1736012107145,
     "talent_name": "Willenskraft",
     "talent_group": "social",
@@ -1692,15 +1594,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "4eydfXzowgUzftGk",
+    "event_id": "4eydfXzowgUzftGk",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736012111527,
     "talent_name": "Willenskraft",
     "talent_group": "social",
@@ -1709,15 +1610,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "sErQAJzNdgkGtXhU",
+    "event_id": "sErQAJzNdgkGtXhU",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736012125093,
     "talent_name": "Willenskraft",
     "talent_group": "social",
@@ -1726,15 +1626,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 6,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "pudKmravEh4NgdWF",
+    "event_id": "pudKmravEh4NgdWF",
+    "character_id": "6WxRoiXc91YmpNK3",
     "timestamp": 1736012229933,
     "talent_name": "Willenskraft",
     "talent_group": "social",
@@ -1743,15 +1642,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "6WxRoiXc91YmpNK3",
     "result": -2,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "qAUJtECBOcCVu7x0",
+    "event_id": "qAUJtECBOcCVu7x0",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736012314040,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -1760,15 +1658,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 3,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "qTuTXjvYgJhZZ23v",
+    "event_id": "qTuTXjvYgJhZZ23v",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736012439263,
     "talent_name": "Magiekunde",
     "talent_group": "knowledge",
@@ -1777,15 +1674,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -3,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -6,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "ap3U6u2ZprxTnacq",
+    "event_id": "ap3U6u2ZprxTnacq",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736012460833,
     "talent_name": "Magiekunde",
     "talent_group": "knowledge",
@@ -1794,15 +1690,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -4,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "dDsj9qzM4POZ3Hu0",
+    "event_id": "dDsj9qzM4POZ3Hu0",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736013161026,
     "talent_name": "Sagen & Legenden",
     "talent_group": "knowledge",
@@ -1811,15 +1706,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "V9bAG10NlTqVajyc",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "eg4Gcyy8o4FGIzB6",
+    "event_id": "eg4Gcyy8o4FGIzB6",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1736013220815,
     "talent_name": "Sagen & Legenden",
     "talent_group": "knowledge",
@@ -1828,15 +1722,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": -6,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "H6fDn8ODilQRm6Qd",
+    "event_id": "H6fDn8ODilQRm6Qd",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736013235015,
     "talent_name": "Sagen & Legenden",
     "talent_group": "knowledge",
@@ -1845,15 +1738,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 6,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "CUhlaZeGTuZjMg5O",
+    "event_id": "CUhlaZeGTuZjMg5O",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736013243773,
     "talent_name": "Sagen & Legenden",
     "talent_group": "knowledge",
@@ -1862,15 +1754,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "BhQDabZolV0BI966",
+    "event_id": "BhQDabZolV0BI966",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736014237405,
     "talent_name": "Verbergen",
     "talent_group": "body",
@@ -1879,15 +1770,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ge",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "gsExxJrbTVIeG4pR",
+    "event_id": "gsExxJrbTVIeG4pR",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736014242408,
     "talent_name": "Verbergen",
     "talent_group": "body",
@@ -1896,15 +1786,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ge",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 5,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "FMy7yPqI1o1bhgz5",
+    "event_id": "FMy7yPqI1o1bhgz5",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736014248002,
     "talent_name": "Verbergen",
     "talent_group": "body",
@@ -1913,15 +1802,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ge",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 5,
     "quality_step": 2,
-    "description": "Kritischer Erfolg",
     "success_level": 2,
-    "roll_type": "talent"
+    "description": "Kritischer Erfolg"
   },
   {
-    "message_id": "eo4cdE5K3x1QeOdH",
+    "event_id": "eo4cdE5K3x1QeOdH",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736014485944,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -1930,15 +1818,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 8,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "77p5qRGIuncFvhVA",
+    "event_id": "77p5qRGIuncFvhVA",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736015709218,
     "talent_name": "Verbergen",
     "talent_group": "body",
@@ -1947,15 +1834,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ge",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "HqRESl7ucwf420mw",
+    "event_id": "HqRESl7ucwf420mw",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736015850582,
     "talent_name": "Sagen & Legenden",
     "talent_group": "knowledge",
@@ -1964,15 +1850,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "JAtMTmPU7YB4agOD",
+    "event_id": "JAtMTmPU7YB4agOD",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736015861199,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -1981,15 +1866,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "ctwgjgzx13hWDaDJ",
+    "event_id": "ctwgjgzx13hWDaDJ",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736015866847,
     "talent_name": "Sagen & Legenden",
     "talent_group": "knowledge",
@@ -1998,15 +1882,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "V9bAG10NlTqVajyc",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "tBrUBbISHCNEW4rw",
+    "event_id": "tBrUBbISHCNEW4rw",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736015876032,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2015,15 +1898,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "ptvMumChAEq800uB",
+    "event_id": "ptvMumChAEq800uB",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736015898069,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2032,15 +1914,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -7,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "vp7Rrt2ufNVfv5Ch",
+    "event_id": "vp7Rrt2ufNVfv5Ch",
+    "character_id": "6WxRoiXc91YmpNK3",
     "timestamp": 1736015986063,
     "talent_name": "Verbergen",
     "talent_group": "body",
@@ -2049,15 +1930,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ge",
     "modifier": 0,
-    "actor": "6WxRoiXc91YmpNK3",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "K2uL954wuRfV8wrK",
+    "event_id": "K2uL954wuRfV8wrK",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736016416870,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2066,15 +1946,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "V9bAG10NlTqVajyc",
     "result": 1,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "cRM1DnVHk3ex6w66",
+    "event_id": "cRM1DnVHk3ex6w66",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736016429866,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2083,15 +1962,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 0,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "yxQ0cwrw4p7Laoas",
+    "event_id": "yxQ0cwrw4p7Laoas",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1736016444027,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2100,15 +1978,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": -9,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "zGGLD4AGdFvlYDPT",
+    "event_id": "zGGLD4AGdFvlYDPT",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736018023901,
     "talent_name": "Magiekunde",
     "talent_group": "knowledge",
@@ -2117,15 +1994,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "XcVc2NAdz2978qvP",
+    "event_id": "XcVc2NAdz2978qvP",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1736018025058,
     "talent_name": "Magiekunde",
     "talent_group": "knowledge",
@@ -2134,15 +2010,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": -12,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "1SBXDL9arjIGcxvI",
+    "event_id": "1SBXDL9arjIGcxvI",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736018027978,
     "talent_name": "Magiekunde",
     "talent_group": "knowledge",
@@ -2151,15 +2026,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -11,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "aNiwLW2itlXo2MFE",
+    "event_id": "aNiwLW2itlXo2MFE",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736018042077,
     "talent_name": "Magiekunde",
     "talent_group": "knowledge",
@@ -2168,15 +2042,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "BBu6DwCAVI1GRE7V",
+    "event_id": "BBu6DwCAVI1GRE7V",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736018083842,
     "talent_name": "Magiekunde",
     "talent_group": "knowledge",
@@ -2185,15 +2058,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "DDlwrwu7z4HXqFRB",
+    "event_id": "DDlwrwu7z4HXqFRB",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736019492338,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2202,15 +2074,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -1,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "sKnT65jBdqTSI74i",
+    "event_id": "sKnT65jBdqTSI74i",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1736020059505,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2219,15 +2090,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "bt1fHCzg2KaebAeB",
+    "event_id": "bt1fHCzg2KaebAeB",
+    "character_id": "epcjOnoav9xfgO56",
     "timestamp": 1736020092263,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2236,15 +2106,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "epcjOnoav9xfgO56",
     "result": 9,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "ItotyN1oPU4qEj87",
+    "event_id": "ItotyN1oPU4qEj87",
+    "character_id": "epcjOnoav9xfgO56",
     "timestamp": 1736020161223,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2253,15 +2122,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -1,
-    "actor": "epcjOnoav9xfgO56",
     "result": 9,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "loTWnsUnFtkCkyPj",
+    "event_id": "loTWnsUnFtkCkyPj",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736020436494,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2270,15 +2138,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -2,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -8,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "l3WqbkvfDW6oAOQL",
+    "event_id": "l3WqbkvfDW6oAOQL",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736020860014,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2287,15 +2154,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "iBg2OQ23Yh03BAzH",
+    "event_id": "iBg2OQ23Yh03BAzH",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736020891890,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2304,15 +2170,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -7,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -12,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "501TnG2IEOPYDnKB",
+    "event_id": "501TnG2IEOPYDnKB",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736021846379,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2321,15 +2186,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "wvooTfbf5o1BGfoL",
+    "event_id": "wvooTfbf5o1BGfoL",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1736021997920,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2338,15 +2202,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "emrHaeerCXMbLZeu",
+    "event_id": "emrHaeerCXMbLZeu",
+    "character_id": "epcjOnoav9xfgO56",
     "timestamp": 1736022029767,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2355,15 +2218,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "epcjOnoav9xfgO56",
     "result": 9,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "6RZCYVo5EaxsnpxE",
+    "event_id": "6RZCYVo5EaxsnpxE",
+    "character_id": "epcjOnoav9xfgO56",
     "timestamp": 1736022389921,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2372,15 +2234,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -1,
-    "actor": "epcjOnoav9xfgO56",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "kjcsvDCFyfgSfIjn",
+    "event_id": "kjcsvDCFyfgSfIjn",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736023113701,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2389,15 +2250,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -1,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 6,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "AsdYOWFFKcJrCdK3",
+    "event_id": "AsdYOWFFKcJrCdK3",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736023175353,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2406,15 +2266,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 8,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "I5vuQEvg3YK2xPXa",
+    "event_id": "I5vuQEvg3YK2xPXa",
+    "character_id": "V9bAG10NlTqVajyc",
     "timestamp": 1736026012938,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2423,15 +2282,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -8,
-    "actor": "V9bAG10NlTqVajyc",
     "result": -15,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "EL3buCrnDOgSzOgB",
+    "event_id": "EL3buCrnDOgSzOgB",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1736026224383,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2440,15 +2298,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": 7,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "BdkQIpBgKZpFnn6w",
+    "event_id": "BdkQIpBgKZpFnn6w",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1736026260132,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2457,15 +2314,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -9,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "7Y80v5oA4XAUPjEF",
+    "event_id": "7Y80v5oA4XAUPjEF",
+    "character_id": "epcjOnoav9xfgO56",
     "timestamp": 1736026570511,
     "talent_name": "Selbstbeherrschung",
     "talent_group": "body",
@@ -2474,15 +2330,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ko",
     "modifier": -1,
-    "actor": "epcjOnoav9xfgO56",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "efhyWbWUnB6dpbIC",
+    "event_id": "efhyWbWUnB6dpbIC",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736026772108,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -2491,15 +2346,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "KipPlxtTqystMpaR",
+    "event_id": "KipPlxtTqystMpaR",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736026835477,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -2508,15 +2362,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "m9QqAtdcRnWBwZTt",
+    "event_id": "m9QqAtdcRnWBwZTt",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736027010853,
     "talent_name": "Wildnisleben",
     "talent_group": "nature",
@@ -2525,15 +2378,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "ko",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "5p2GvHv83OmKCqTE",
+    "event_id": "5p2GvHv83OmKCqTE",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1736027017527,
     "talent_name": "Wildnisleben",
     "talent_group": "nature",
@@ -2542,15 +2394,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "ko",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "9RKkObIeRilByxz4",
+    "event_id": "9RKkObIeRilByxz4",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736450709778,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2559,15 +2410,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -9,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "GCbYOQweopYAAc99",
+    "event_id": "GCbYOQweopYAAc99",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1736450881283,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2576,15 +2426,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -8,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "v9oPXHazQAcix5ab",
+    "event_id": "v9oPXHazQAcix5ab",
+    "character_id": "4BV27vo5HZNWvdvd",
     "timestamp": 1736450985838,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2593,15 +2442,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -1,
-    "actor": "4BV27vo5HZNWvdvd",
     "result": -2,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "xQnJXQqX21qrolIz",
+    "event_id": "xQnJXQqX21qrolIz",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1736451969344,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2610,15 +2458,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "1TLPIhLzrZDUCGGG",
+    "event_id": "1TLPIhLzrZDUCGGG",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736451990190,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2627,15 +2474,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 5,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "B2iQDiKe98ribEgv",
+    "event_id": "B2iQDiKe98ribEgv",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736452221899,
     "talent_name": "Tierkunde",
     "talent_group": "nature",
@@ -2644,15 +2490,14 @@
     "talent_trait_2": "mu",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 2,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "veyyCjZ1P3y3t2Hz",
+    "event_id": "veyyCjZ1P3y3t2Hz",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1736453912764,
     "talent_name": "Überreden",
     "talent_group": "social",
@@ -2661,15 +2506,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "Enw7c5lNXvTQ3e0N",
+    "event_id": "Enw7c5lNXvTQ3e0N",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736453915743,
     "talent_name": "Überreden",
     "talent_group": "social",
@@ -2678,15 +2522,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "zKEzhH60uQGYDK4i",
+    "event_id": "zKEzhH60uQGYDK4i",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1736454026037,
     "talent_name": "Überreden",
     "talent_group": "social",
@@ -2695,15 +2538,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "6lenEjHFxN0hfsJ0",
+    "event_id": "6lenEjHFxN0hfsJ0",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1736454848950,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -2712,15 +2554,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "t5m6UbxmFFBzzT2N",
+    "event_id": "t5m6UbxmFFBzzT2N",
+    "character_id": "DtwW5ATTCre9us1O",
     "timestamp": 1736454899069,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -2729,15 +2570,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "DtwW5ATTCre9us1O",
     "result": -6,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "mj5i17v9lfO44lSy",
+    "event_id": "mj5i17v9lfO44lSy",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1737665114233,
     "talent_name": "Klettern",
     "talent_group": "body",
@@ -2746,15 +2586,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "kk",
     "modifier": 2,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 8,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "V8IYEOa0QfkvFDkO",
+    "event_id": "V8IYEOa0QfkvFDkO",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1737665211044,
     "talent_name": "Klettern",
     "talent_group": "body",
@@ -2763,15 +2602,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "kk",
     "modifier": 2,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 5,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "kEuSFelCpmkgOXFy",
+    "event_id": "kEuSFelCpmkgOXFy",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1737665400393,
     "talent_name": "Überreden",
     "talent_group": "social",
@@ -2780,15 +2618,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 3,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "kgyEmEz2BIUoIRhA",
+    "event_id": "kgyEmEz2BIUoIRhA",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1737666549740,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -2797,15 +2634,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": -2,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "LHnHD4cowDul34RZ",
+    "event_id": "LHnHD4cowDul34RZ",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1737667083677,
     "talent_name": "Sagen & Legenden",
     "talent_group": "knowledge",
@@ -2814,15 +2650,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -7,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "1KAylSRJDsnGTn0s",
+    "event_id": "1KAylSRJDsnGTn0s",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738872203809,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -2831,15 +2666,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 1,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "VnXXZpXTFMfg8ldJ",
+    "event_id": "VnXXZpXTFMfg8ldJ",
+    "character_id": "DtwW5ATTCre9us1O",
     "timestamp": 1738872231179,
     "talent_name": "Handel",
     "talent_group": "trade",
@@ -2848,15 +2682,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "DtwW5ATTCre9us1O",
     "result": 6,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "EZt7ZzRu65jzZoAJ",
+    "event_id": "EZt7ZzRu65jzZoAJ",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1738873235851,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -2865,15 +2698,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 12,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "4fjBRhIxEvgrWL25",
+    "event_id": "4fjBRhIxEvgrWL25",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738873255421,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -2882,15 +2714,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "IyOJMsMvkWeX1agh",
+    "event_id": "IyOJMsMvkWeX1agh",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738873274822,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -2899,15 +2730,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 6,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "g8KbpmXf10GeHCQp",
+    "event_id": "g8KbpmXf10GeHCQp",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738873379687,
     "talent_name": "Menschenkenntnis",
     "talent_group": "social",
@@ -2916,15 +2746,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "jrl41YYmHcIsfv2i",
+    "event_id": "jrl41YYmHcIsfv2i",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1738874381947,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2933,15 +2762,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -4,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "jzpfwpsDT1h5lKtQ",
+    "event_id": "jzpfwpsDT1h5lKtQ",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738874395759,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2950,15 +2778,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -3,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -1,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "4GmhU8leyVMDpSgv",
+    "event_id": "4GmhU8leyVMDpSgv",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738874395868,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2967,15 +2794,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -3,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -12,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "uYnzy1QtBwHO2Hxf",
+    "event_id": "uYnzy1QtBwHO2Hxf",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1738874400882,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -2984,15 +2810,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -3,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 7,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "UBHHW2oMOlXKsopz",
+    "event_id": "UBHHW2oMOlXKsopz",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1738874416164,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3001,15 +2826,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -6,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 3,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "61a33OulAWNoXbl4",
+    "event_id": "61a33OulAWNoXbl4",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738874423339,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3018,15 +2842,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -5,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -22,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "Vqnow4hb6dODF3BF",
+    "event_id": "Vqnow4hb6dODF3BF",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738874443870,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3035,15 +2858,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -6,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -20,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "sWIRMfLbq0N6elIR",
+    "event_id": "sWIRMfLbq0N6elIR",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1738874467905,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3052,15 +2874,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "MuKuh9rbzm6zTmtE",
+    "event_id": "MuKuh9rbzm6zTmtE",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1738874524411,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3069,15 +2890,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 6,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "uJVW99dwCQRfdpaF",
+    "event_id": "uJVW99dwCQRfdpaF",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1738874540167,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3086,15 +2906,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 3,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "TVcrcQfX7ZQZ1hjd",
+    "event_id": "TVcrcQfX7ZQZ1hjd",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738874597830,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3103,15 +2922,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "AhaV9sVOQs4lz97t",
+    "event_id": "AhaV9sVOQs4lz97t",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738874621689,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3120,15 +2938,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "yKD72iyCnhsPYuCg",
+    "event_id": "yKD72iyCnhsPYuCg",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738874649585,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3137,15 +2954,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -1,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -11,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "oUcCA8BTxc0lFckK",
+    "event_id": "oUcCA8BTxc0lFckK",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738874660204,
     "talent_name": "Kraftakt",
     "talent_group": "body",
@@ -3154,15 +2970,14 @@
     "talent_trait_2": "kk",
     "talent_trait_3": "kk",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -3,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "SU0cmuTWLmWYyZpm",
+    "event_id": "SU0cmuTWLmWYyZpm",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1738875398267,
     "talent_name": "Einschüchtern",
     "talent_group": "social",
@@ -3171,15 +2986,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "b7Vsf3Aomx8xUu2g",
+    "event_id": "b7Vsf3Aomx8xUu2g",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738875408915,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -3188,15 +3002,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -4,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": 5,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "yYKEBLDSqhyJjlld",
+    "event_id": "yYKEBLDSqhyJjlld",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738875676403,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -3205,15 +3018,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -4,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": -9,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "oViHLWhohGLHb1UK",
+    "event_id": "oViHLWhohGLHb1UK",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738875690712,
     "talent_name": "Sinnesschärfe",
     "talent_group": "body",
@@ -3222,15 +3034,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -4,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 10,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "wUPCpjhC1swmcJrc",
+    "event_id": "wUPCpjhC1swmcJrc",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1738878505330,
     "talent_name": "Wildnisleben",
     "talent_group": "nature",
@@ -3239,15 +3050,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "ko",
     "modifier": 1,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "EjVqmqB75qllUmwH",
+    "event_id": "EjVqmqB75qllUmwH",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738878553149,
     "talent_name": "Wildnisleben",
     "talent_group": "nature",
@@ -3256,15 +3066,14 @@
     "talent_trait_2": "ge",
     "talent_trait_3": "ko",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -5,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "mqqA42I4Q2gZb8Zn",
+    "event_id": "mqqA42I4Q2gZb8Zn",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738879996087,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -3273,15 +3082,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -6,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "oD15gbFrOGXRy8Zl",
+    "event_id": "oD15gbFrOGXRy8Zl",
+    "character_id": "PqlZC4s33nnaoxYB",
     "timestamp": 1738880001766,
     "talent_name": "Orientierung",
     "talent_group": "nature",
@@ -3290,15 +3098,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "PqlZC4s33nnaoxYB",
     "result": -11,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "wzTYg2LKCvSzTHMX",
+    "event_id": "wzTYg2LKCvSzTHMX",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738880004715,
     "talent_name": "Pflanzenkunde",
     "talent_group": "nature",
@@ -3307,15 +3114,14 @@
     "talent_trait_2": "ff",
     "talent_trait_3": "ko",
     "modifier": 0,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 12,
     "quality_step": 4,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "EHWtM8ovYK6uTKmz",
+    "event_id": "EHWtM8ovYK6uTKmz",
+    "character_id": "iIKV14Pj5pwQrPBo",
     "timestamp": 1738880020307,
     "talent_name": "Orientierung",
     "talent_group": "nature",
@@ -3324,15 +3130,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": -2,
-    "actor": "iIKV14Pj5pwQrPBo",
     "result": 8,
     "quality_step": 3,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "zIVCUaavW9hvagTy",
+    "event_id": "zIVCUaavW9hvagTy",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1740082829162,
     "talent_name": "Menschenkenntnis",
     "talent_group": "social",
@@ -3341,15 +3146,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 1,
     "quality_step": 1,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "caAqiHo7ayO9iUHS",
+    "event_id": "caAqiHo7ayO9iUHS",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1740082849827,
     "talent_name": "Überreden",
     "talent_group": "social",
@@ -3358,15 +3162,14 @@
     "talent_trait_2": "in",
     "talent_trait_3": "ch",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": 4,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   },
   {
-    "message_id": "Cy3aqHRrzX76liCk",
+    "event_id": "Cy3aqHRrzX76liCk",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1740083590341,
     "talent_name": "Zechen",
     "talent_group": "body",
@@ -3375,15 +3178,14 @@
     "talent_trait_2": "ko",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -5,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "DjtPG7HxEAP2hOLe",
+    "event_id": "DjtPG7HxEAP2hOLe",
+    "character_id": "uuMyGdR4x4jhWMy4",
     "timestamp": 1740084204585,
     "talent_name": "Zechen",
     "talent_group": "body",
@@ -3392,15 +3194,14 @@
     "talent_trait_2": "ko",
     "talent_trait_3": "kk",
     "modifier": 0,
-    "actor": "uuMyGdR4x4jhWMy4",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "E1iTw25A9M2pxODW",
+    "event_id": "E1iTw25A9M2pxODW",
+    "character_id": "Sg9cEo5NOSnD50vD",
     "timestamp": 1740086663394,
     "talent_name": "Götter & Kulte",
     "talent_group": "knowledge",
@@ -3409,15 +3210,14 @@
     "talent_trait_2": "kl",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "Sg9cEo5NOSnD50vD",
     "result": -4,
     "quality_step": 0,
-    "description": "Misserfolg",
     "success_level": -1,
-    "roll_type": "talent"
+    "description": "Misserfolg"
   },
   {
-    "message_id": "4Cguc3CAfNJiGw9x",
+    "event_id": "4Cguc3CAfNJiGw9x",
+    "character_id": "Sg9cEo5NOSnD50vD",
     "timestamp": 1740086941786,
     "talent_name": "Orientierung",
     "talent_group": "nature",
@@ -3426,11 +3226,9 @@
     "talent_trait_2": "in",
     "talent_trait_3": "in",
     "modifier": 0,
-    "actor": "Sg9cEo5NOSnD50vD",
     "result": 6,
     "quality_step": 2,
-    "description": "Erfolg",
     "success_level": 1,
-    "roll_type": "talent"
+    "description": "Erfolg"
   }
 ]

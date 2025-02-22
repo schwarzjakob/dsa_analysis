@@ -1,0 +1,831 @@
+[
+  {
+    "id": "ERpCLi9onCxIWFJw",
+    "speaker": {
+      "scene": "FmRxOC9wksfJ5xS9",
+      "actor": "iIKV14Pj5pwQrPBo",
+      "token": "ljL5q8FETRICP1RW",
+      "alias": "Elanor Walham"
+    },
+    "title": null,
+    "timestamp": 1730575944374,
+    "createdTime": 1730575944062,
+    "preData": {
+      "opposable": true,
+      "source": {
+        "_id": "1Vhr0H6R2rCH8ilk",
+        "name": "Elfenbogen",
+        "type": "rangeweapon",
+        "img": "modules/dsa5-armory/icons/rangeweapon/Elfenbogen.webp",
+        "system": {
+          "templates:": ["equipment", "description"],
+          "crit": 1,
+          "botch": 20,
+          "region": "Elfen",
+          "damage": {
+            "value": "1W6+5"
+          },
+          "reloadTime": {
+            "value": "1",
+            "progress": 0
+          },
+          "reach": {
+            "value": "50/100/200"
+          },
+          "ammunitiongroup": {
+            "value": "arrow"
+          },
+          "currentAmmo": {
+            "value": "P18cHZrIseXzZOLq"
+          },
+          "combatskill": {
+            "value": "Bögen"
+          },
+          "worn": {
+            "value": true
+          },
+          "structure": {
+            "max": 4,
+            "value": 4
+          },
+          "description": {
+            "value": "<p><em>»Jeder Händler, von Thalusa bis nach Norburg, würde einen stolzen Preis zahlen, wenn er den Bogen eines Dschinns bekommen könnte. Sie sind so selten und noch seltener trennt sich einer der Meister der Zauberkunst von seinem Bogen. Ich habe eigentlich noch nie gehört, dass er es freiwillig getan hat.«</em></p><p>—Salim al‘Dhalsim, Fernhändler aus Thalusa, 1037 BF</p><p>Als der mit Abstand beste Bogen gilt der Elfenbogen, der von den Elfen auch yara genannt wird. Ein Elf versteht damit äußerst präzise zu schießen. Die Maße des Bogens sind auf die eines Elfenkörpers angepasst, sodass kein Mensch jemals die gleiche Perfektion mit dem Elfenbogen erlangen kann. Darüber hinaus verfügt der Bogen auch über eine große Durchschlagskraft und eine exzellente Reichweite, die die eines Langbogens übertrifft.Nur vom Pferderücken aus kann der yara nicht eingesetzt werden (die Steppenelfen der Grünen Ebene verfügen für Schüsse von ihren Tieren über einen speziellen elfischen Reiterbogen, der nicht identisch mit diesem Bogen ist).</p><p>Anmerkung: Um den Elfenbogen zu erwerben, muss der Held einer elfischen Kultur angehören.</p>"
+          },
+          "price": {
+            "value": 400
+          },
+          "quantity": {
+            "value": 1
+          },
+          "weight": {
+            "value": 0.5
+          },
+          "effect": {
+            "value": "",
+            "attributes": ""
+          },
+          "preparedWeight": 0.5,
+          "damageToolTip": {
+            "msg": "In gutem Zustand",
+            "css": "gearD damaged0"
+          }
+        },
+        "effects": [
+          {
+            "_id": "4hifnWhnAQtq207v",
+            "name": "Elfenbogen",
+            "img": "icons/svg/aura.svg",
+            "type": "base",
+            "system": {
+              "equipmentAdvantage": 1
+            },
+            "changes": [
+              {
+                "key": "self.maneuver.atbonus",
+                "value": "Präziser Schuss/Wurf 1",
+                "mode": 2,
+                "priority": null
+              }
+            ],
+            "disabled": false,
+            "duration": {
+              "startTime": 0,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "Bei Benutzung eines Elfenbogens ist das Manöver Präziser Schuss um 1 erleichtert.",
+            "origin": null,
+            "tint": "#ffffff",
+            "transfer": true,
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dsa5": {
+                "applyToOwner": true,
+                "hideOnToken": true,
+                "hidePlayers": false,
+                "description": "Elfenbogen"
+              }
+            },
+            "_stats": {
+              "coreVersion": "12.331",
+              "systemId": "dsa5",
+              "systemVersion": "6.1.3",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null
+            }
+          },
+          {
+            "_id": "65sMgXgnelnTcXLJ",
+            "name": "Elfenbogen",
+            "img": "icons/svg/aura.svg",
+            "type": "base",
+            "system": {
+              "equipmentAdvantage": 2
+            },
+            "changes": [
+              {
+                "key": "self.situational.attack",
+                "value": "Nichtelf -2",
+                "mode": 0,
+                "priority": null
+              }
+            ],
+            "disabled": false,
+            "duration": {
+              "startTime": 0,
+              "seconds": null,
+              "combat": null,
+              "rounds": null,
+              "turns": null,
+              "startRound": null,
+              "startTurn": null
+            },
+            "description": "Wird der Elfenbogen von Nichtelfen geführt, erhält er einen Malus von –2 auf FK. Es ist nicht möglich, einen Elfenbogen vom Rücken eines Reittiers aus einzusetzen.",
+            "origin": null,
+            "tint": "#ffffff",
+            "transfer": true,
+            "statuses": [],
+            "sort": 0,
+            "flags": {
+              "dsa5": {
+                "applyToOwner": true,
+                "hideOnToken": true,
+                "hidePlayers": false,
+                "description": "Elfenbogen"
+              }
+            },
+            "_stats": {
+              "coreVersion": "12.331",
+              "systemId": "dsa5",
+              "systemVersion": "6.1.3",
+              "createdTime": null,
+              "modifiedTime": null,
+              "lastModifiedBy": null,
+              "compendiumSource": null,
+              "duplicateSource": null
+            }
+          }
+        ],
+        "folder": null,
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "r7geRrVa5eADuK1T": 3,
+          "LS0x6t0rgRQ7zgil": 3
+        },
+        "flags": {},
+        "_stats": {
+          "coreVersion": "12.331",
+          "systemId": "dsa5",
+          "systemVersion": "6.1.3",
+          "createdTime": 1729452778828,
+          "modifiedTime": 1729466883750,
+          "lastModifiedBy": "tqC8qMWVo42jlAsk",
+          "compendiumSource": "Compendium.dsa5-armory.armoryequipment.Item.7qp3vNO27SO1ZXyV",
+          "duplicateSource": null
+        },
+        "calculatedRange": "50/100/200",
+        "attack": 18,
+        "ammo": [],
+        "LZ": 0,
+        "subweapons": {},
+        "damagedie": "1d6",
+        "damageAdd": "+5"
+      },
+      "mode": "attack",
+      "extra": {
+        "options": {
+          "mode": "attack"
+        },
+        "speaker": {
+          "token": "ljL5q8FETRICP1RW",
+          "actor": "iIKV14Pj5pwQrPBo",
+          "scene": "FmRxOC9wksfJ5xS9"
+        },
+        "ammo": {
+          "name": "Jagdpfeil",
+          "type": "ammunition",
+          "effects": [],
+          "img": "modules/dsa5-armory2/icons/rangeweapon/Jagdpfeil.webp",
+          "system": {
+            "description": {
+              "value": "<p>Diese Pfeile und Bolzen sind die Standardmunition von Armbrüsten und Bögen. Sofern ein Spieler keine andere Art von Pfeil oder Bolzen auswählt, ist es immer ein Jagdpfeil/-bolzen, den er herstellt oder einkauft. Sie werden üblicherweise für Jagdzwecke eingesetzt, können aber ebenso einen Gegner schwer verletzten, wobei es andere Munitionstypen gibt, die sich für einen Kampf besser eignen.</p>"
+            },
+            "gmdescription": {
+              "value": ""
+            },
+            "price": {
+              "value": 0.4
+            },
+            "quantity": {
+              "value": 6
+            },
+            "weight": {
+              "value": 0
+            },
+            "effect": {
+              "value": "",
+              "attributes": ""
+            },
+            "parent_id": 0,
+            "ammunitiongroup": {
+              "value": "arrow"
+            },
+            "damageMod": "",
+            "rangeMultiplier": 1,
+            "armorMod": "",
+            "atmod": 0,
+            "mag": {
+              "max": 0,
+              "value": 0
+            }
+          },
+          "_id": "P18cHZrIseXzZOLq",
+          "folder": "vuP08SDW0HZS2Lf7",
+          "flags": {},
+          "_stats": {
+            "compendiumSource": "Compendium.dsa5-armory2.armory2equipment.Item.rfGB2Y22SzBglNpB",
+            "duplicateSource": null,
+            "coreVersion": "12.331",
+            "systemId": "dsa5",
+            "systemVersion": "6.1.5",
+            "createdTime": 1729452911134,
+            "modifiedTime": 1730550822383,
+            "lastModifiedBy": "tqC8qMWVo42jlAsk"
+          },
+          "sort": 0,
+          "ownership": {
+            "default": 0,
+            "ZdJs17QujUDl2wrl": 3,
+            "LS0x6t0rgRQ7zgil": 3
+          }
+        },
+        "ammoDecreased": true,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Belastung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Bögen - Verteidigungsmalus ",
+          "value": -4,
+          "type": "defenseMalus"
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Ziel bewegt sich leicht (+-0)",
+          "value": 0
+        },
+        {
+          "name": "Schütze ist stationär (+-0)",
+          "value": 0
+        },
+        {
+          "name": "Reittier steht (0)",
+          "value": 0
+        },
+        {
+          "name": "Ziel schlägt Haken",
+          "value": 0
+        },
+        {
+          "name": "Schuss ins Kampfgetümmel",
+          "value": 0
+        },
+        {
+          "name": "Zielen",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "damageBonus": 0,
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Entfernung",
+          "value": "2",
+          "damageBonus": 1
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "attack",
+              "appearance": {
+                "colorset": "attack",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 4,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 4,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": 1,
+      "characteristics": [
+        {
+          "char": "attack",
+          "res": 4,
+          "suc": true,
+          "tar": 18
+        },
+        {
+          "char": "damage",
+          "res": 5,
+          "die": "d6"
+        }
+      ],
+      "description": "Erfolg",
+      "modifiers": 0,
+      "extra": {},
+      "armorPen": [],
+      "damagedescription": "Wurf 5, Waffenmodifikator 5, Entfernung 1",
+      "damage": 11,
+      "damageRoll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d6 + 5",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 6,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 5,
+                "active": true
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "NumericTerm",
+            "options": {
+              "flavor": null
+            },
+            "evaluated": true,
+            "number": 5
+          }
+        ],
+        "total": 10,
+        "evaluated": true
+      },
+      "rollType": "weapon",
+      "options": {
+        "mode": "attack"
+      },
+      "speaker": {
+        "token": "ljL5q8FETRICP1RW",
+        "actor": "iIKV14Pj5pwQrPBo",
+        "scene": "FmRxOC9wksfJ5xS9"
+      },
+      "ammo": {
+        "name": "Jagdpfeil",
+        "type": "ammunition",
+        "effects": [],
+        "img": "modules/dsa5-armory2/icons/rangeweapon/Jagdpfeil.webp",
+        "system": {
+          "description": {
+            "value": "<p>Diese Pfeile und Bolzen sind die Standardmunition von Armbrüsten und Bögen. Sofern ein Spieler keine andere Art von Pfeil oder Bolzen auswählt, ist es immer ein Jagdpfeil/-bolzen, den er herstellt oder einkauft. Sie werden üblicherweise für Jagdzwecke eingesetzt, können aber ebenso einen Gegner schwer verletzten, wobei es andere Munitionstypen gibt, die sich für einen Kampf besser eignen.</p>"
+          },
+          "gmdescription": {
+            "value": ""
+          },
+          "price": {
+            "value": 0.4
+          },
+          "quantity": {
+            "value": 7
+          },
+          "weight": {
+            "value": 0
+          },
+          "effect": {
+            "value": "",
+            "attributes": ""
+          },
+          "parent_id": 0,
+          "ammunitiongroup": {
+            "value": "arrow"
+          },
+          "damageMod": "",
+          "rangeMultiplier": 1,
+          "armorMod": "",
+          "atmod": 0,
+          "mag": {
+            "max": 0,
+            "value": 0
+          }
+        },
+        "_id": "P18cHZrIseXzZOLq",
+        "folder": "vuP08SDW0HZS2Lf7",
+        "flags": {},
+        "_stats": {
+          "compendiumSource": "Compendium.dsa5-armory2.armory2equipment.Item.rfGB2Y22SzBglNpB",
+          "duplicateSource": null,
+          "coreVersion": "12.331",
+          "systemId": "dsa5",
+          "systemVersion": "6.1.5",
+          "createdTime": 1729452911134,
+          "modifiedTime": 1730550822383,
+          "lastModifiedBy": "tqC8qMWVo42jlAsk"
+        },
+        "sort": 0,
+        "ownership": {
+          "default": 0,
+          "ZdJs17QujUDl2wrl": 3,
+          "LS0x6t0rgRQ7zgil": 3
+        }
+      },
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "GquA7bBzin4qT9BK",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "PqlZC4s33nnaoxYB",
+      "token": "y0FB4g5OtUknyADk",
+      "alias": "Akira Masamune"
+    },
+    "title": null,
+    "timestamp": 1736022373783,
+    "createdTime": 1736022355474,
+    "preData": {
+      "opposable": true,
+      "source": {
+        "_id": "VNf8uPZ27sSbnZEY",
+        "name": "Drachenzorn (2H)",
+        "type": "meleeweapon",
+        "img": "9323caf8d19d1f69c3717bec906bed8e.jpg",
+        "system": {
+          "price": {
+            "value": 360
+          },
+          "quantity": {
+            "value": 1
+          },
+          "weight": {
+            "value": 1.75
+          },
+          "effect": {
+            "value": "",
+            "attributes": ""
+          },
+          "parent_id": 0,
+          "description": {
+            "value": "<p><strong>Waffenvorteil</strong>: Wird das Manöver Hohe Klinge oder Weiter Schwung ausgeführt, bekommt der Held einen Bonus von +1 TP (siehe Aventurisches Kompendium Seite 162/165).</p><p><strong>Waffennachteil</strong>: Wuchtschläge sind mit dem Tuzakmesser nur um 1 erschwert durchzuführen. Das Manöver Schildspalter richtet 4 TP weniger an.</p><p></p><p>Aus Zwergenstahl in Lehmbacktechnik gefertigt, dreifach geschärft und mit einem zum Drachenkopf geschnitzten Höhlendrachenzahn als Tsuka und einem vergoldetem Tsuba. Das Saya ist aus Steineichenholz gefertigt und mit schwarz/rot besprenkelten Haileder überzogen.</p><p>Wert etwa 640 Dukaten</p><p>Personalisierter auf Akira AT+1</p>"
+          },
+          "gmdescription": {
+            "value": ""
+          },
+          "crit": 1,
+          "botch": 20,
+          "region": "Maraskan",
+          "damage": {
+            "value": "1W6+7"
+          },
+          "atmod": {
+            "value": 1,
+            "offhandMod": 0
+          },
+          "pamod": {
+            "value": 0,
+            "offhandMod": 0
+          },
+          "reach": {
+            "value": "medium",
+            "shieldSize": "average"
+          },
+          "damageThreshold": {
+            "value": 14
+          },
+          "guidevalue": {
+            "value": "kk"
+          },
+          "combatskill": {
+            "value": "Zweihandschwerter"
+          },
+          "worn": {
+            "value": true,
+            "offhand": false,
+            "wrongGrip": false
+          },
+          "structure": {
+            "max": 4,
+            "value": 4,
+            "breakPointRating": null
+          },
+          "preparedWeight": 1.75,
+          "damageToolTip": {
+            "msg": "In gutem Zustand",
+            "css": "gearD damaged0"
+          }
+        },
+        "effects": [],
+        "folder": "7RkwkHcA43tk1K1U",
+        "sort": 200000,
+        "ownership": {
+          "default": 0,
+          "xf9OPWll0XjpX0Cv": 3,
+          "tqC8qMWVo42jlAsk": 3
+        },
+        "flags": {
+          "dsa5": {
+            "onUseEffect": ""
+          }
+        },
+        "_stats": {
+          "coreVersion": "12.331",
+          "systemId": "dsa5",
+          "systemVersion": "6.1.8",
+          "createdTime": 1730332454394,
+          "modifiedTime": 1736018458650,
+          "lastModifiedBy": "05EAAZ6Pf087Vryh",
+          "compendiumSource": "Compendium.dsa5-core.coreequipment.Item.PNmAZBzugmtNrCoE",
+          "duplicateSource": "Item.MAmTtJbKoJcXPzTF"
+        },
+        "attack": 20,
+        "parry": 11,
+        "yieldedTwoHand": true,
+        "damagedie": "1d6",
+        "damageAdd": "+7",
+        "subweapons": {}
+      },
+      "mode": "attack",
+      "extra": {
+        "options": {
+          "mode": "attack"
+        },
+        "speaker": {
+          "token": "y0FB4g5OtUknyADk",
+          "actor": "PqlZC4s33nnaoxYB",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "aimedHit": {
+          "location": {
+            "name": "captive",
+            "interval": 20,
+            "type": 2,
+            "modifier": 8
+          },
+          "result": 20
+        },
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "damageBonus": 0,
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": -4
+        },
+        {
+          "name": "Waffengröße Gegner",
+          "value": -2,
+          "type": ""
+        }
+      ],
+      "opposingWeaponSize": "long",
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "attack",
+              "appearance": {
+                "colorset": "attack",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 6,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 6,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": 1,
+      "characteristics": [
+        {
+          "char": "attack",
+          "res": 6,
+          "suc": true,
+          "tar": 14
+        },
+        {
+          "char": "damage",
+          "res": 5,
+          "die": "d6"
+        }
+      ],
+      "description": "Erfolg",
+      "modifiers": -6,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "armorPen": [],
+      "damagedescription": "Wurf 5, Waffenmodifikator 7",
+      "damage": 12,
+      "damageRoll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d6 + 7",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 6,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 5,
+                "active": true
+              }
+            ]
+          },
+          {
+            "class": "OperatorTerm",
+            "options": {},
+            "evaluated": false,
+            "operator": "+"
+          },
+          {
+            "class": "NumericTerm",
+            "options": {
+              "flavor": null
+            },
+            "evaluated": true,
+            "number": 7
+          }
+        ],
+        "total": 12,
+        "evaluated": true
+      },
+      "rollType": "weapon",
+      "options": {
+        "mode": "attack"
+      },
+      "speaker": {
+        "token": "y0FB4g5OtUknyADk",
+        "actor": "PqlZC4s33nnaoxYB",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "aimedHit": {
+        "location": {
+          "name": "captive",
+          "interval": 20,
+          "type": 2,
+          "modifier": 8
+        },
+        "result": 20
+      },
+      "postFunction": "basicTest",
+      "hits": {
+        "Rc2vNwdBfnH1OgNM": {
+          "location": {
+            "name": "captive",
+            "interval": 20,
+            "type": 2,
+            "modifier": 8
+          },
+          "result": 20
+        }
+      }
+    }
+  }
+]

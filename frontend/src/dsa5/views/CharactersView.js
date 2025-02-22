@@ -18,10 +18,10 @@ const Characters = () => {
   const fetchCharacters = async () => {
     try {
       const response = await axios.get("http://localhost:5000/dsa5/characters");
-      setCharacters(response.data);
+      setCharacters(response.data || []);
     } catch (error) {
       console.error("Error fetching characters", error);
-      return [];
+      setCharacters([]);
     } finally {
       setLoading(false);
     }
@@ -37,7 +37,7 @@ const Characters = () => {
 
   return (
     <Grid container spacing={4} sx={{ padding: 2 }}>
-      {characters.length === 0 && !loading ? (
+      {Array.isArray(characters) && characters.length === 0 && !loading ? (
         <Grid size={12} sx={{ textAlign: "center" }}>
           <Typography
             variant="h4"

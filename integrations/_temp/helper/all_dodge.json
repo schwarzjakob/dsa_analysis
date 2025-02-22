@@ -1,0 +1,3342 @@
+[
+  {
+    "id": "ML9s5uUhfeLlUQHa",
+    "speaker": {
+      "scene": "FmRxOC9wksfJ5xS9",
+      "actor": "Yv9BEG99dUWSJevt",
+      "token": "jyVSEZVTz55xoy0V",
+      "alias": "Orkenzombie"
+    },
+    "title": null,
+    "timestamp": 1730576058228,
+    "createdTime": 1730576058258,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 6,
+          "modifier": 0,
+          "gearmodifier": -1,
+          "max": 6
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "jyVSEZVTz55xoy0V",
+          "actor": "Yv9BEG99dUWSJevt",
+          "scene": "FmRxOC9wksfJ5xS9"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Bögen - Verteidigungsmalus  ",
+          "value": -4,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 12,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 12,
+        "evaluated": true
+      },
+      "rollMode": "blindroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 12,
+          "suc": false,
+          "tar": 2
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -4,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "jyVSEZVTz55xoy0V",
+        "actor": "Yv9BEG99dUWSJevt",
+        "scene": "FmRxOC9wksfJ5xS9"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "OPFO85McDoCXqDF3",
+    "speaker": {
+      "scene": "FmRxOC9wksfJ5xS9",
+      "actor": "iIKV14Pj5pwQrPBo",
+      "token": "ljL5q8FETRICP1RW",
+      "alias": "Elanor Walham"
+    },
+    "title": null,
+    "timestamp": 1730576361590,
+    "createdTime": 1730576361301,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 9,
+          "modifier": 0,
+          "gearmodifier": 2,
+          "max": 9
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "ljL5q8FETRICP1RW",
+          "actor": "iIKV14Pj5pwQrPBo",
+          "scene": "FmRxOC9wksfJ5xS9"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Belastung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Verteidigungsmalus - Halbe Verteidigung ",
+          "value": 0.5,
+          "type": "*"
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -2)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 17,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 17,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 17,
+          "suc": false,
+          "tar": 4
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -2,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "ljL5q8FETRICP1RW",
+        "actor": "iIKV14Pj5pwQrPBo",
+        "scene": "FmRxOC9wksfJ5xS9"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "KYrJ1TsiXldgqkPq",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "PqlZC4s33nnaoxYB",
+      "token": "y0FB4g5OtUknyADk",
+      "alias": "Akira Masamune"
+    },
+    "title": null,
+    "timestamp": 1736017987759,
+    "createdTime": 1736017969562,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 6,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 6
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "y0FB4g5OtUknyADk",
+          "actor": "PqlZC4s33nnaoxYB",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 5,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 5,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": 1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 5,
+          "suc": true,
+          "tar": 6
+        }
+      ],
+      "description": "Erfolg",
+      "modifiers": 0,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "y0FB4g5OtUknyADk",
+        "actor": "PqlZC4s33nnaoxYB",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "IxQRmw95rJErA8jA",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736018835188,
+    "createdTime": 1736018835239,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 3,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 3,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": 1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 3,
+          "suc": true,
+          "tar": 7
+        }
+      ],
+      "description": "Erfolg",
+      "modifiers": 0,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "3cvrQdVkaJSrYuXH",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "V9bAG10NlTqVajyc",
+      "token": "5WcN81FFEJwYgdMJ",
+      "alias": "Pranken- Wina"
+    },
+    "title": null,
+    "timestamp": 1736019468277,
+    "createdTime": 1736019468332,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "5WcN81FFEJwYgdMJ",
+          "actor": "V9bAG10NlTqVajyc",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": -4,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": -4
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 5,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 5,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 5,
+          "suc": false,
+          "tar": 3
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -4,
+      "extra": {
+        "attackFromBehind": -4
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "5WcN81FFEJwYgdMJ",
+        "actor": "V9bAG10NlTqVajyc",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": -4,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "SHQz8akgcDWtDp84",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736020151231,
+    "createdTime": 1736020151299,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 13,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 13,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 13,
+          "suc": false,
+          "tar": 7
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": 0,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "Rdvvy0nDxcuNcwhM",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "iIKV14Pj5pwQrPBo",
+      "token": "TfmvXQCBCG7jRwQ2",
+      "alias": "Elanor Walham"
+    },
+    "title": null,
+    "timestamp": 1736020579328,
+    "createdTime": 1736020580142,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 9,
+          "modifier": 0,
+          "gearmodifier": 2,
+          "max": 9
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "TfmvXQCBCG7jRwQ2",
+          "actor": "iIKV14Pj5pwQrPBo",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -2)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 8,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 8,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": 1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 8,
+          "suc": true,
+          "tar": 8
+        }
+      ],
+      "description": "Erfolg",
+      "modifiers": -1,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "TfmvXQCBCG7jRwQ2",
+        "actor": "iIKV14Pj5pwQrPBo",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "cnxhA0bNrCXzs0J8",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736020776150,
+    "createdTime": 1736020776227,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 10,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 10,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 10,
+          "suc": false,
+          "tar": 7
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": 0,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "Xwy7i7VgDu4X3zPt",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736021140126,
+    "createdTime": 1736021140213,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 5,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 5,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": 1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 5,
+          "suc": true,
+          "tar": 7
+        }
+      ],
+      "description": "Erfolg",
+      "modifiers": 0,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "5voKvPQr0qZ4lHC4",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "iIKV14Pj5pwQrPBo",
+      "token": "TfmvXQCBCG7jRwQ2",
+      "alias": "Elanor Walham"
+    },
+    "title": null,
+    "timestamp": 1736021811127,
+    "createdTime": 1736021811943,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 9,
+          "modifier": 0,
+          "gearmodifier": 2,
+          "max": 9
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "TfmvXQCBCG7jRwQ2",
+          "actor": "iIKV14Pj5pwQrPBo",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -2)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 16,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 16,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 16,
+          "suc": false,
+          "tar": 8
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -1,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "TfmvXQCBCG7jRwQ2",
+        "actor": "iIKV14Pj5pwQrPBo",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "M1vbAcP4UY3g2aDQ",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736022364467,
+    "createdTime": 1736022364568,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 10,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 10,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 10,
+          "suc": false,
+          "tar": 7
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": 0,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "b5ZR6opzj9f0iAca",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "PqlZC4s33nnaoxYB",
+      "token": "y0FB4g5OtUknyADk",
+      "alias": "Akira Masamune"
+    },
+    "title": null,
+    "timestamp": 1736023067057,
+    "createdTime": 1736023048726,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 6,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 6
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "y0FB4g5OtUknyADk",
+          "actor": "PqlZC4s33nnaoxYB",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 15,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 15,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 15,
+          "suc": false,
+          "tar": 6
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": 0,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "y0FB4g5OtUknyADk",
+        "actor": "PqlZC4s33nnaoxYB",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "NlSUWyyaWRntFU0h",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "iIKV14Pj5pwQrPBo",
+      "token": "TfmvXQCBCG7jRwQ2",
+      "alias": "Elanor Walham"
+    },
+    "title": null,
+    "timestamp": 1736023162700,
+    "createdTime": 1736023163534,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 9,
+          "modifier": 0,
+          "gearmodifier": 2,
+          "max": 9
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "TfmvXQCBCG7jRwQ2",
+          "actor": "iIKV14Pj5pwQrPBo",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Schmerz ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Liegend ",
+          "value": -2,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -2)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 10,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 10,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 10,
+          "suc": false,
+          "tar": 5
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -4,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "TfmvXQCBCG7jRwQ2",
+        "actor": "iIKV14Pj5pwQrPBo",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "Xt73jvwqkpgglzP5",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736024317307,
+    "createdTime": 1736024317430,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {
+          "cheat": true
+        },
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 12,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 12,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 12,
+          "suc": false,
+          "tar": 6
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -1,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {
+        "cheat": true
+      },
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest",
+      "hits": {
+        "TfmvXQCBCG7jRwQ2": {
+          "location": {
+            "name": "torso",
+            "interval": 12,
+            "type": 1,
+            "modifier": 4
+          },
+          "result": 8
+        }
+      }
+    }
+  },
+  {
+    "id": "o82YHDROWvc7yqgw",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736024592449,
+    "createdTime": 1736024592574,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {
+          "cheat": true
+        },
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": -3
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 11,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 11,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 11,
+          "suc": false,
+          "tar": 3
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -4,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {
+        "cheat": true
+      },
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest",
+      "hits": {
+        "TfmvXQCBCG7jRwQ2": {
+          "location": {
+            "name": "torso",
+            "interval": 12,
+            "type": 1,
+            "modifier": 4
+          },
+          "result": 8
+        }
+      }
+    }
+  },
+  {
+    "id": "OEleiNNQgb8BiUKe",
+    "speaker": {
+      "scene": null,
+      "actor": "4BV27vo5HZNWvdvd",
+      "token": null,
+      "alias": "Balulox Sohn des Braggrimm"
+    },
+    "title": null,
+    "timestamp": 1736025308409,
+    "createdTime": 1736025308540,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "1aVW6foj3pC2U9KO",
+          "actor": "4BV27vo5HZNWvdvd",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Schmerz ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -2)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 3,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 3,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": 1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 3,
+          "suc": true,
+          "tar": 6
+        }
+      ],
+      "description": "Erfolg",
+      "modifiers": -1,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "1aVW6foj3pC2U9KO",
+        "actor": "4BV27vo5HZNWvdvd",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "9i8q3D72IO4zxfh0",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "PqlZC4s33nnaoxYB",
+      "token": "y0FB4g5OtUknyADk",
+      "alias": "Akira Masamune"
+    },
+    "title": null,
+    "timestamp": 1736025385692,
+    "createdTime": 1736025367302,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 6,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 2
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "y0FB4g5OtUknyADk",
+          "actor": "PqlZC4s33nnaoxYB",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 2,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 2,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": 1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 2,
+          "suc": true,
+          "tar": 2
+        }
+      ],
+      "description": "Erfolg",
+      "modifiers": 0,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "y0FB4g5OtUknyADk",
+        "actor": "PqlZC4s33nnaoxYB",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "ZnQjVj6E6eVuL5Pz",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736025717744,
+    "createdTime": 1736025717892,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {
+          "cheat": true
+        },
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 8,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 8,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 8,
+          "suc": false,
+          "tar": 6
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -1,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {
+        "cheat": true
+      },
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest",
+      "hits": {
+        "y0FB4g5OtUknyADk": {
+          "location": {
+            "name": "torso",
+            "interval": 12,
+            "type": 1,
+            "modifier": 4
+          },
+          "result": 8
+        }
+      }
+    }
+  },
+  {
+    "id": "liK3TZxYdRbtzg00",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "4BV27vo5HZNWvdvd",
+      "token": "1aVW6foj3pC2U9KO",
+      "alias": "Balulox Sohn des Braggrimm"
+    },
+    "title": null,
+    "timestamp": 1736026178268,
+    "createdTime": 1736026182198,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "1aVW6foj3pC2U9KO",
+          "actor": "4BV27vo5HZNWvdvd",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Schmerz ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -2)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 13,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 13,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 13,
+          "suc": false,
+          "tar": 6
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -1,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "1aVW6foj3pC2U9KO",
+        "actor": "4BV27vo5HZNWvdvd",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "wtqr42JTfjEd7rVV",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736026487695,
+    "createdTime": 1736026487848,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {
+          "cheat": true
+        },
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 18,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 18,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 18,
+          "suc": false,
+          "tar": 6
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -1,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {
+        "cheat": true
+      },
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest",
+      "hits": {
+        "1aVW6foj3pC2U9KO": {
+          "location": {
+            "name": "head",
+            "interval": 2,
+            "type": 0,
+            "modifier": 10
+          },
+          "result": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "ZtgHC5XiS5YiRxio",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "epcjOnoav9xfgO56",
+      "token": "Rc2vNwdBfnH1OgNM",
+      "alias": "Sumpfkrakenmolch"
+    },
+    "title": null,
+    "timestamp": 1736026538817,
+    "createdTime": 1736026538966,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 7,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 7
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "Rc2vNwdBfnH1OgNM",
+          "actor": "epcjOnoav9xfgO56",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Verwirrung ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Schmerz ",
+          "value": -1,
+          "type": ""
+        },
+        {
+          "name": "Bögen - Verteidigungsmalus  ",
+          "value": -4,
+          "type": ""
+        },
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": -3
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 18,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 18,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": -1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 18,
+          "suc": false,
+          "tar": -2
+        }
+      ],
+      "description": "Misserfolg",
+      "modifiers": -9,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "Rc2vNwdBfnH1OgNM",
+        "actor": "epcjOnoav9xfgO56",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  },
+  {
+    "id": "yQCzYUvQxVcHjHCh",
+    "speaker": {
+      "scene": "9Xs2UCyDDsYSidrO",
+      "actor": "PqlZC4s33nnaoxYB",
+      "token": "y0FB4g5OtUknyADk",
+      "alias": "Akira Masamune"
+    },
+    "title": null,
+    "timestamp": 1736026656443,
+    "createdTime": 1736026638023,
+    "preData": {
+      "source": {
+        "system": {
+          "value": 6,
+          "modifier": 0,
+          "gearmodifier": 0,
+          "max": 6
+        },
+        "type": "dodge"
+      },
+      "opposable": false,
+      "extra": {
+        "statusId": "dodge",
+        "options": {},
+        "speaker": {
+          "token": "y0FB4g5OtUknyADk",
+          "actor": "PqlZC4s33nnaoxYB",
+          "scene": "9Xs2UCyDDsYSidrO"
+        },
+        "attackFromBehind": 0,
+        "miraclePaid": true
+      },
+      "testDifficulty": "challenging",
+      "situationalModifiers": [
+        {
+          "name": "Händisch",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Sichtverhältnisse",
+          "value": 0,
+          "type": ""
+        },
+        {
+          "name": "Angriff von Hinten",
+          "value": 0
+        },
+        {
+          "name": "Schadensmodifikator",
+          "value": 0,
+          "step": 1
+        },
+        {
+          "name": "# Verteidigung (je -3)",
+          "value": 0
+        },
+        {
+          "name": "Falsche Hand",
+          "value": 0
+        },
+        {
+          "name": "Vorteilhafte Position",
+          "value": 0
+        },
+        {
+          "name": "Größenkategorie",
+          "value": 0
+        },
+        {
+          "name": "Beengte Umgebung",
+          "value": 0
+        },
+        {
+          "name": "Beidhändiger Kampf",
+          "value": 0
+        },
+        {
+          "name": "Gezielter Angriff",
+          "value": 0
+        }
+      ],
+      "attackOfOpportunity": false,
+      "roll": {
+        "class": "Roll",
+        "options": {},
+        "dice": [],
+        "formula": "1d20",
+        "terms": [
+          {
+            "class": "Die",
+            "options": {
+              "flavor": null,
+              "colorset": "dodge",
+              "appearance": {
+                "colorset": "dodge",
+                "system": "standard"
+              }
+            },
+            "evaluated": true,
+            "number": 1,
+            "faces": 20,
+            "modifiers": [],
+            "results": [
+              {
+                "result": 5,
+                "active": true,
+                "indexThrow": 0
+              }
+            ]
+          }
+        ],
+        "total": 5,
+        "evaluated": true
+      },
+      "rollMode": "publicroll"
+    },
+    "postData": {
+      "successLevel": 1,
+      "characteristics": [
+        {
+          "char": "dodge",
+          "res": 5,
+          "suc": true,
+          "tar": 6
+        }
+      ],
+      "description": "Erfolg",
+      "modifiers": 0,
+      "extra": {
+        "attackFromBehind": 0
+      },
+      "rollType": "dodge",
+      "statusId": "dodge",
+      "options": {},
+      "speaker": {
+        "token": "y0FB4g5OtUknyADk",
+        "actor": "PqlZC4s33nnaoxYB",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "postFunction": "basicTest"
+    }
+  }
+]

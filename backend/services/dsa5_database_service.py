@@ -15,7 +15,7 @@ class Dsa5DatabaseService:
 
         :return: List of characters.
         """
-        query = "SELECT * FROM dsa5.actors;"
+        query = "SELECT name, image_url FROM dsa5.characters;"
         characters = self.database.fetch_query(query)
 
         return characters

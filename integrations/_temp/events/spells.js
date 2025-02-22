@@ -4,7 +4,7 @@
 
   // Filter messages for those with rollType "talent"
   const talentMessages = messages.filter(
-    (msg) => msg.flags?.data?.postData?.rollType === "talent"
+    (msg) => msg.flags?.data?.postData?.rollType === "spell"
   );
 
   // Map over each talent message to extract the data we need.
@@ -16,7 +16,8 @@
     const characteristics = postData.characteristics || [];
 
     return {
-      message_id: msg._id,
+      event_id: msg._id,
+      character_id: msg.speaker?.actor ?? null,
       timestamp: msg.timestamp,
       talent_name: source.name || null,
       talent_group: system.group?.value ?? null,
@@ -25,12 +26,10 @@
       talent_trait_2: system.characteristic2?.value ?? null,
       talent_trait_3: system.characteristic3?.value ?? null,
       modifier: postData.modifiers ?? 0,
-      actor: msg.speaker?.actor ?? null,
       result: postData.result ?? null,
       quality_step: postData.qualityStep ?? null,
-      description: postData.description ?? null,
       success_level: postData.successLevel ?? null,
-      roll_type: postData.rollType ?? "talent",
+      description: postData.description ?? null,
     };
   });
 

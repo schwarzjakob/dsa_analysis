@@ -1,0 +1,50 @@
+[
+  {
+    "event_id": "rpPcOC1C6KlYWhBH",
+    "character_id": "iIKV14Pj5pwQrPBo",
+    "timestamp": 1730579488545,
+    "talent_name": "Haselbusch",
+    "talent_group": null,
+    "talent_value": 3,
+    "talent_trait_1": "in",
+    "talent_trait_2": "ch",
+    "talent_trait_3": "ff",
+    "modifier": -3,
+    "result": -1,
+    "quality_step": 0,
+    "success_level": -1,
+    "description": "Misserfolg"
+  },
+  {
+    "event_id": "L0MZ44XHA7ebDxpC",
+    "character_id": "iIKV14Pj5pwQrPBo",
+    "timestamp": 1736022516183,
+    "talent_name": "Blitz dich find",
+    "talent_group": null,
+    "talent_value": 12,
+    "talent_trait_1": "mu",
+    "talent_trait_2": "in",
+    "talent_trait_3": "ch",
+    "modifier": -2,
+    "result": 3,
+    "quality_step": 1,
+    "success_level": 1,
+    "description": "Erfolg"
+  },
+  {
+    "event_id": "B00GMbsns3rCzGgV",
+    "character_id": "iIKV14Pj5pwQrPBo",
+    "timestamp": 1736022574462,
+    "talent_name": "Blitz dich find",
+    "talent_group": null,
+    "talent_value": 12,
+    "talent_trait_1": "mu",
+    "talent_trait_2": "in",
+    "talent_trait_3": "ch",
+    "modifier": -3,
+    "result": 12,
+    "quality_step": 4,
+    "success_level": 1,
+    "description": "Erfolg"
+  }
+]

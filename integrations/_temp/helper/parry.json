@@ -1,0 +1,336 @@
+{
+  "id": "85SpJ5fG89adAVfP",
+  "speaker": {
+    "scene": "9Xs2UCyDDsYSidrO",
+    "actor": "4BV27vo5HZNWvdvd",
+    "token": "1aVW6foj3pC2U9KO",
+    "alias": "Balulox Sohn des Braggrimm"
+  },
+  "title": null,
+  "timestamp": 1736021011650,
+  "createdTime": 1736021015341,
+  "preData": {
+    "opposable": false,
+    "source": {
+      "_id": "OWnLoZsaiPysAwBQ",
+      "name": "Thorwalerschild",
+      "type": "meleeweapon",
+      "img": "modules/dsa5-armory/icons/meleeweapon/Thorwalerschild.webp",
+      "system": {
+        "price": {
+          "value": 70
+        },
+        "quantity": {
+          "value": 1
+        },
+        "weight": {
+          "value": 4.5
+        },
+        "effect": {
+          "value": "",
+          "attributes": ""
+        },
+        "parent_id": 0,
+        "description": {
+          "value": "<p><em>»Hundert Schilde und hundert Orknasen für hundert Krieger aus Prem. Die Schlachtreihe gegen die wilden Barbaren aus dem Gjalskerland stand und wartete nur darauf, bis die Gjalsker ihre Wurfspeere schleuderten. Sollten sie nur kommen. Im Nahkampf würden wir ihre Kiefer mit einem Stoß der Schilde brechen, und wenn noch etwas von ihnen übrig war, würde die Orknase ihnen den Rest geben.«</em></p><p>—Erlgard Swerfilddottir, Kriegerin der Trutzburg zu Prem, 1037 BF</p><p>In Thorwal wird ein mit Metall verstärkter Holzschild hergestellt, der sogenannte Thorwalerschild. Er ist für den Zweikampf wie geschaffen, denn neben einer ausgezeichneten Schutzfunktion durch seine Größe kann man damit auch bei einem Sturmangriff einen Gegner wegstoßen und gleichzeitig mit der Hauptwaffe zuschlagen. Die Thorwaler sind nicht als Reitervolk bekannt, und auch ihr Schild ist dazu nicht vorgesehen. Er kann nicht sinnvoll vom Pferderücken eingesetzt werden. Um ihren Gegnern Angst einzujagen, schlagen Thorwaler Krieger mit ihren Waffen auf den Schild und sorgen somit für eine beeindruckende Geräuschkulisse auf dem Schlachtfeld – voraussetzt, es sind genug Krieger vorhanden.</p><p><b>Anmerkung</b>: mittlerer Schild, 25 Strukturpunkte</p>"
+        },
+        "gmdescription": {
+          "value": ""
+        },
+        "crit": 1,
+        "botch": 20,
+        "region": "Thorwal",
+        "damage": {
+          "value": "1W6+1"
+        },
+        "atmod": {
+          "value": -5,
+          "offhandMod": 0
+        },
+        "pamod": {
+          "value": 2,
+          "offhandMod": 2
+        },
+        "reach": {
+          "value": "short",
+          "shieldSize": "medium"
+        },
+        "damageThreshold": {
+          "value": 16
+        },
+        "guidevalue": {
+          "value": "kk"
+        },
+        "combatskill": {
+          "value": "Schilde"
+        },
+        "worn": {
+          "value": true,
+          "offhand": false,
+          "wrongGrip": false,
+          "offHand": false
+        },
+        "structure": {
+          "max": 24,
+          "value": 24,
+          "breakPointRating": null
+        },
+        "preparedWeight": 4.5,
+        "damageToolTip": {
+          "msg": "In gutem Zustand",
+          "css": "gearD damaged0"
+        }
+      },
+      "effects": [
+        {
+          "_id": "UskOmGMZsftfJck4",
+          "name": "Thorwalerschild",
+          "img": "icons/svg/aura.svg",
+          "type": "base",
+          "system": {
+            "equipmentAdvantage": 1
+          },
+          "changes": [],
+          "disabled": false,
+          "duration": {
+            "startTime": 15,
+            "seconds": null,
+            "combat": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "Wird der Thorwalerschild zusammen mit einer anderen Waffe mit dem Manöver Sturmangriff eingesetzt, so erhält die andere Waffe einen Bonus von +1 TP.",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {
+            "dsa5": {
+              "applyToOwner": true,
+              "hideOnToken": true,
+              "hidePlayers": false,
+              "description": "Thorwalerschild"
+            }
+          },
+          "_stats": {
+            "coreVersion": "12.331",
+            "systemId": "dsa5",
+            "systemVersion": "6.1.6",
+            "createdTime": null,
+            "modifiedTime": null,
+            "lastModifiedBy": null,
+            "compendiumSource": null,
+            "duplicateSource": null
+          }
+        },
+        {
+          "_id": "cmJjurSTeVIDDwq9",
+          "name": "Thorwalerschild",
+          "img": "icons/svg/aura.svg",
+          "type": "base",
+          "system": {
+            "equipmentAdvantage": 2
+          },
+          "changes": [
+            {
+              "key": "self.situational.parry",
+              "value": "Reitend -2",
+              "mode": 0,
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": 15,
+            "seconds": null,
+            "combat": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "Auf dem Rücken eines Reittiers lässt sich nur der einfache Schild-Bonus einsetzen.",
+          "origin": null,
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {
+            "dsa5": {
+              "applyToOwner": true,
+              "hideOnToken": true,
+              "hidePlayers": false,
+              "description": "Thorwalerschild"
+            }
+          },
+          "_stats": {
+            "coreVersion": "12.331",
+            "systemId": "dsa5",
+            "systemVersion": "6.1.6",
+            "createdTime": null,
+            "modifiedTime": null,
+            "lastModifiedBy": null,
+            "compendiumSource": null,
+            "duplicateSource": null
+          }
+        }
+      ],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "r7geRrVa5eADuK1T": 3,
+        "tqC8qMWVo42jlAsk": 3
+      },
+      "flags": {
+        "dsa5": {
+          "onUseEffect": ""
+        }
+      },
+      "_stats": {
+        "coreVersion": "12.331",
+        "systemId": "dsa5",
+        "systemVersion": "6.1.6",
+        "createdTime": 1731621605288,
+        "modifiedTime": 1731623888963,
+        "lastModifiedBy": "tqC8qMWVo42jlAsk",
+        "compendiumSource": "Compendium.dsa5-armory.armoryequipment.Item.GXWszUDEV4nqeqjZ",
+        "duplicateSource": null
+      },
+      "attack": null,
+      "parry": 14,
+      "yieldedTwoHand": false,
+      "damagedie": "1d6",
+      "damageAdd": "+1",
+      "subweapons": {}
+    },
+    "mode": "parry",
+    "extra": {
+      "options": {
+        "mode": "parry"
+      },
+      "speaker": {
+        "token": "1aVW6foj3pC2U9KO",
+        "actor": "4BV27vo5HZNWvdvd",
+        "scene": "9Xs2UCyDDsYSidrO"
+      },
+      "attackFromBehind": 0,
+      "miraclePaid": true
+    },
+    "testDifficulty": "challenging",
+    "situationalModifiers": [
+      {
+        "name": "Händisch",
+        "value": 0,
+        "type": ""
+      },
+      {
+        "name": "Sichtverhältnisse",
+        "value": 0,
+        "type": ""
+      },
+      {
+        "name": "Angriff von Hinten",
+        "value": 0
+      },
+      {
+        "name": "Schadensmodifikator",
+        "value": 0,
+        "step": 1
+      },
+      {
+        "name": "# Verteidigung (je -2)",
+        "value": 0
+      },
+      {
+        "name": "Falsche Hand",
+        "value": 0
+      },
+      {
+        "name": "Vorteilhafte Position",
+        "value": 0
+      },
+      {
+        "name": "Größenkategorie",
+        "value": 0
+      },
+      {
+        "name": "Beengte Umgebung",
+        "value": 0
+      },
+      {
+        "name": "Beidhändiger Kampf",
+        "value": 0
+      },
+      {
+        "name": "Gezielter Angriff",
+        "value": 0
+      }
+    ],
+    "attackOfOpportunity": false,
+    "isRangeDefense": false,
+    "roll": {
+      "class": "Roll",
+      "options": {},
+      "dice": [],
+      "formula": "1d20",
+      "terms": [
+        {
+          "class": "Die",
+          "options": {
+            "flavor": null,
+            "colorset": "parry",
+            "appearance": {
+              "colorset": "parry",
+              "system": "standard"
+            }
+          },
+          "evaluated": true,
+          "number": 1,
+          "faces": 20,
+          "modifiers": [],
+          "results": [
+            {
+              "result": 12,
+              "active": true,
+              "indexThrow": 0
+            }
+          ]
+        }
+      ],
+      "total": 12,
+      "evaluated": true
+    },
+    "rollMode": "publicroll"
+  },
+  "postData": {
+    "successLevel": 1,
+    "characteristics": [
+      {
+        "char": "parry",
+        "res": 12,
+        "suc": true,
+        "tar": 14
+      }
+    ],
+    "description": "Erfolg",
+    "modifiers": 0,
+    "extra": {
+      "attackFromBehind": 0
+    },
+    "rollType": "weapon",
+    "options": {
+      "mode": "parry"
+    },
+    "speaker": {
+      "token": "1aVW6foj3pC2U9KO",
+      "actor": "4BV27vo5HZNWvdvd",
+      "scene": "9Xs2UCyDDsYSidrO"
+    },
+    "attackFromBehind": 0,
+    "postFunction": "basicTest"
+  }
+}
