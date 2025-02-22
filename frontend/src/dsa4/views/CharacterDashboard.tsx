@@ -6,20 +6,6 @@ import { fetchAndProcessData } from "../hooks/characters/character/fetchAndProce
 import { fetchAndProcessTalentData } from "../hooks/characters/character/fetchAndProcessTalentData.js";
 import { fetchAndProcessAttackData } from "../hooks/characters/character/fetchAndProcessAttackData.js";
 
-import {
-  Chart,
-  Filler,
-  ArcElement,
-  Tooltip,
-  Legend,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  BarElement,
-} from "chart.js";
-import "chartjs-plugin-annotation";
-import annotationPlugin from "chartjs-plugin-annotation";
 import Home from "../components/layout/Home.js";
 import "../dsa4.css"; // Import the CSS file for styles
 
@@ -28,26 +14,7 @@ import LineChart from "../components/charts/LineChart.js";
 import BarChart from "../components/charts/BarChart.js";
 import PieChart from "../components/charts/PieChart.js";
 
-// Register the necessary components for Chart.js
-Chart.register(
-  Filler,
-  ArcElement,
-  Tooltip,
-  Legend,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  BarElement,
-  annotationPlugin
-);
-
-// Set global default font color
-Chart.defaults.color = "#f7f1e1";
-Chart.defaults.plugins.legend.labels.color = "#f7f1e1";
-Chart.defaults.plugins.tooltip.titleColor = "#f7f1e1";
-Chart.defaults.plugins.tooltip.bodyColor = "#f7f1e1";
-Chart.defaults.scale.ticks.color = "#f7f1e1";
+import "../../chartSetup.ts";
 
 function CharacterData() {
   // Character States

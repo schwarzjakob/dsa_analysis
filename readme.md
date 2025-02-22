@@ -76,7 +76,7 @@ To retrieve data from foundry, I currently use a manual approach with JavaScript
    ```
 
 3. **Set Up Environment Variables:**
-   Create a `.env` file in the `backend` directory and add the following lines to it:
+   Create a `.env` file in the root directory and add the following lines to it:
 
    ```bash
    DATABASE_URL=postgresql://dsa_user:password@localhost:5432/dsa_analysis
@@ -88,7 +88,7 @@ To retrieve data from foundry, I currently use a manual approach with JavaScript
 4. **Start the Flask Server:**
 
    ```bash
-   python backend.py
+   python backend/backend.py
    ```
 
 ### Frontend Setup
@@ -96,7 +96,7 @@ To retrieve data from foundry, I currently use a manual approach with JavaScript
 1. **Navigate to the Client Directory:**
 
    ```bash
-   cd ../client
+   cd frontend
    ```
 
 2. **Install Node.js Dependencies:**
@@ -108,15 +108,13 @@ To retrieve data from foundry, I currently use a manual approach with JavaScript
 3. **Start the React Client:**
 
    ```bash
-   npm start
+   npm run dev
    ```
 
    The client should now be running and accessible at `http://localhost:3000`.
 
 ## Current Issues
 
-- Refine dsa5 foundry scripts to extract **relevant** data only
-- Create database and ingest sample data
 - Build MVP
   - Design Landing Page (What must an overview page have, Navbar, Group Analysis, Character Analysis)
   - Create Group Analysis page with some charts for analysis
