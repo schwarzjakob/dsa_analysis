@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS dsa5.characters (
     fingerfertigkeit INT,
     gewandtheit INT,
     konstitution INT,
-    köperkraft INT,
+    koerperkraft INT,
     life_points_value INT,
     life_points_max INT,
     astral_energy_value INT,

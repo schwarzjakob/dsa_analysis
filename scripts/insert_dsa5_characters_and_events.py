@@ -34,7 +34,7 @@ def connect_db():
 def insert_characters(conn, characters):
     query = """
     INSERT INTO dsa5.characters
-    (id, name, image_url, type, mut, klugheit, intuition, charisma, fingerfertigkeit, gewandtheit, konstitution, köperkraft,
+    (id, name, image_url, type, mut, klugheit, intuition, charisma, fingerfertigkeit, gewandtheit, konstitution, koerperkraft,
      life_points_value, life_points_max, astral_energy_value, astral_energy_max, initiative, species, culture, career,
      experience_total, experience_spent)
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
