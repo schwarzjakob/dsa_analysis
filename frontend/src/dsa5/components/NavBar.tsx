@@ -17,7 +17,6 @@ const NavBar = () => {
         margin: 0,
         backgroundColor: "#000",
         color: "#f7f1e1",
-        borderBottom: "1px solid rgba(247, 241, 225, 0.2)", // Added alpha to the border color
       }}
     >
       <Toolbar sx={{ height: 80 }}>

@@ -1,6 +1,10 @@
 :root {
   --main-dark: #000;
+  --main-dark-2:rgb(21, 21, 21);
   --main-bright: #f7f1e1;
+  --main-blue: #677DB7;
+  --main-blue-light: #F58F29;
+  --main-orange: 
   --border-radius: 8px;
   font-family: "Roboto", sans-serif;
 }
@@ -9,7 +13,11 @@ body,
 html {
   margin: 0 !important;
   padding: 0 !important;
-  background: var(--main-dark) !important;
+  background: var(--main-dark-2) !important;
 }
 
 /* TODO: Apply these variables to override Material‑UI theme or custom classes */
+
+.dashboard-card-title {
+  color: var(--main-bright);
+}

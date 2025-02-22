@@ -9,8 +9,10 @@ import {
   LinearScale,
   PointElement,
   BarElement,
+  RadialLinearScale,
 } from "chart.js";
 import annotationPlugin from "chartjs-plugin-annotation";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 
 Chart.register(
   Filler,
@@ -22,7 +24,9 @@ Chart.register(
   LinearScale,
   PointElement,
   BarElement,
-  annotationPlugin
+  RadialLinearScale,
+  annotationPlugin,
+  ChartDataLabels
 );
 
 Chart.defaults.color = "#f7f1e1";

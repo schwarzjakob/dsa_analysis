@@ -58,7 +58,7 @@ const Characters = () => {
               sx={{
                 borderRadius: "2rem",
                 backgroundColor: "#000",
-                boxShadow: "0 0 2px 1px rgba(247, 241, 225, 0.3)",
+                boxShadow: "2px 2px 10px 4px rgba(16, 16, 16, 0.5)",
                 transition: "box-shadow 0.3s ease, transform 0.3s ease",
                 overflow: "hidden",
                 "&:hover": {
